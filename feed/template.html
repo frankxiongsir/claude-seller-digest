@@ -371,12 +371,42 @@ details.fold .in { padding: 0 14px 14px; color: var(--ink-2); line-height: 1.75;
 <div class="scrim" id="scrim"></div>
 
 <script id="feed" type="application/json">__FEED__</script>
+<script id="details" type="application/json">__DETAILS__</script>
 <script>
 (function () {
 "use strict";
 
 /* ================= data ================= */
 const FEED = JSON.parse(document.getElementById("feed").textContent);
+/* Full post text and check notes live in days/<date>.json and load when a post is opened or on first search.
+   A local single-file build embeds them in #details instead. Days without a "detail" path are already complete. */
+const loaded = new Set(), loading = new Map();
+const HAY = new Map();   // search text cache, cleared per post when details arrive
+function mergeDay(date, det) {
+  const day = FEED.days.find((x) => x.date === date);
+  if (!day) return;
+  day.snapshot.posts.forEach((p) => {
+    const x = det[p.id]; if (!x) return;
+    p.text = x.text; p.warrantyNote = x.warrantyNote; Object.assign(p.verification, x.v);
+    HAY.delete("p:" + p.id + "@" + date);
+  });
+}
+function ensureDay(date) {
+  if (loaded.has(date)) return Promise.resolve();
+  if (loading.has(date)) return loading.get(date);
+  const day = FEED.days.find((x) => x.date === date);
+  if (!day || !day.detail) { loaded.add(date); return Promise.resolve(); }
+  const pr = fetch(day.detail).then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then((det) => { mergeDay(date, det); loaded.add(date); loading.delete(date); })
+    .catch((err) => { loading.delete(date); throw err; });
+  loading.set(date, pr);
+  return pr;
+}
+const ensureAll = () => Promise.all(FEED.days.map((d) => ensureDay(d.date).catch(() => {})));
+(function () {
+  const inline = JSON.parse(document.getElementById("details").textContent || "null");
+  FEED.days.forEach((d) => { if (inline && inline[d.date]) mergeDay(d.date, inline[d.date]); if (!d.detail || (inline && inline[d.date])) loaded.add(d.date); });
+})();
 const days = FEED.days.slice().sort((a, b) => b.date < a.date ? -1 : 1);
 const latest = days[0] ? days[0].date : "";
 const items = [];            // feed entries (briefs + posts)
@@ -514,6 +544,9 @@ PCATS.forEach((c) => PRICES[c.key] = []);
   });
   PCATS.forEach((c) => PRICES[c.key].sort((a, b) => (a.cur === "CNY" ? 0 : 1) - (b.cur === "CNY" ? 0 : 1) || a.best - b.best || a.seller.total - b.seller.total));
 })();
+// Far below the median often means a top-up, shared or "car-pool" seat rather than a ready-made account.
+PCATS.forEach((c) => { const st = priceStats(c.key); PRICES[c.key].forEach((e) => { e.low = !!st && st.n >= 4 && e.cur === "CNY" && e.best < st.med * 0.6; }); });
+const LOW_TIP = "低于同类中位价 40% 以上，留意是否为代充、共享或拼车";
 function priceRank(e) {
   const same = PRICES[e.cat].filter((x) => x.cur === e.cur);
   return { pos: same.filter((x) => x.best < e.best).length + 1, of: same.length };
@@ -623,7 +656,6 @@ function viewItems() {
   // newest day first; brief pinned to top of its day; posts by views
   return list.sort((a, b) => a.day !== b.day ? (a.day < b.day ? 1 : -1) : a.kind !== b.kind ? (a.kind === "brief" ? -1 : 1) : b.p.metrics.impression_count - a.p.metrics.impression_count);
 }
-const HAY = new Map();
 function hay(it) {
   if (HAY.has(it.id)) return HAY.get(it.id);
   let s;
@@ -714,13 +746,13 @@ function renderRankList(sub) {
   let h = "";
   if (state.view === "rank:price") {
     const st = priceStats(state.pcat);
-    h += '<div class="rank-note">' + (st ? "人民币标价 " + st.n + " 家：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。" : "") + "每家取最近一期的最低标价；第三方报价和同帖其他商品不计入。价格低不代表条款更好，请同时看风险分。</div>";
+    h += '<div class="rank-note">' + (st ? "人民币标价 " + st.n + " 家：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。" : "") + "每家取最近一期的最低标价；第三方报价和同帖其他商品不计入。价格低不代表条款更好，请同时看风险分。" + (current.some((e) => e.low) ? "标「远低于中位价」的" + LOW_TIP + "。" : "") + "</div>";
     let lastCur = null;
     current.forEach((e) => {
       if (e.cur !== lastCur) { if (lastCur !== null || e.cur !== "CNY") h += '<div class="subhead">' + (e.cur === "USD" ? "美元标价（不换算，单独排）" : e.cur === "USDT" ? "USDT 标价（单独排）" : "人民币标价") + "</div>"; lastCur = e.cur; }
       const rk = priceRank(e), s = e.seller;
       const srcs = e.obs.map((o) => o.src + " " + o.name + " " + fmtPrice(o) + (o.from ? " 起" : "")).join(" · ");
-      const flags = (e.mismatch ? '<span class="tag high">标价不一致</span>' : "") + (e.tiers ? '<span class="tag plain">多档 · 取最低</span>' : "") + (e.obs.some((o) => o.tierUnstated) ? '<span class="tag plain">未注明档位</span>' : "") + (e.bestObs.approx ? '<span class="tag plain">参考价</span>' : "") + (e.bestObs.from ? '<span class="tag plain">起价</span>' : "") + (e.obs.every((o) => o.bare) ? '<span class="tag plain">未写币种</span>' : "");
+      const flags = (e.low ? '<span class="tag high" title="' + LOW_TIP + '">远低于中位价</span>' : "") + (e.mismatch ? '<span class="tag high">标价不一致</span>' : "") + (e.tiers ? '<span class="tag plain">多档 · 取最低</span>' : "") + (e.obs.some((o) => o.tierUnstated) ? '<span class="tag plain">未注明档位</span>' : "") + (e.bestObs.approx ? '<span class="tag plain">参考价</span>' : "") + (e.bestObs.from ? '<span class="tag plain">起价</span>' : "") + (e.obs.every((o) => o.bare) ? '<span class="tag plain">未写币种</span>' : "");
       h += '<button type="button" class="item" role="option" data-id="' + e.id + '" aria-selected="' + (state.sel === e.id) + '">'
         + '<span class="rk' + (rk.pos <= 3 ? " top" : "") + '">' + rk.pos + "</span>"
         + '<div><div class="rk-top"><b>' + esc(s.name) + '</b><span class="amt">' + fmtPrice(e.bestObs) + (e.bestObs.from ? "<small>起</small>" : "") + "</span></div>"
@@ -754,7 +786,19 @@ function renderReader() {
   let html = "", url = null, it = null, sellerKey = null;
   if (!sel) html = '<div class="article"><p class="empty">从列表里选一条。</p></div>';
   else if (sel.startsWith("seller:")) { sellerKey = sel.slice(7); html = sellerHtml(sellers.get(sellerKey)); }
-  else { it = byId.get(sel); if (it.kind === "brief") html = briefHtml(it); else { html = postHtml(it); url = it.p.url; sellerKey = sellerOf(it).key; } }
+  else {
+    it = byId.get(sel);
+    if (it.kind === "brief") html = briefHtml(it);
+    else {
+      url = it.p.url; sellerKey = sellerOf(it).key;
+      if (loaded.has(it.day)) html = postHtml(it);
+      else {
+        html = '<div class="article"><p class="empty">正在加载原文和核查记录…</p></div>';
+        ensureDay(it.day).then(() => { if (state.sel === sel) renderReader(); },
+          () => { if (state.sel === sel) reader.innerHTML = '<div class="article"><p class="empty">原文加载失败。请检查网络后刷新页面。</p></div>'; });
+      }
+    }
+  }
   reader.innerHTML = html;
   reader.scrollTop = 0;
   const u = url && safeUrl(url);
@@ -840,6 +884,7 @@ function sellerPriceHtml(s) {
       + (rk.of > 1 ? "第 " + rk.pos + " 低 / " + rk.of + " 家" + (e.cur !== "CNY" ? "（" + e.cur + " 单独排）" : "") + " · " : "")
       + esc(e.obs.map((o) => o.src + " " + o.name + " " + fmtPrice(o) + (o.from ? " 起" : "")).join("；"))
       + (e.mismatch ? ' · <span style="color:var(--high)">不同来源标价不一致</span>' : "")
+      + (e.low ? ' · <span style="color:var(--high)">远低于中位价，' + LOW_TIP.replace(/^低于同类中位价 40% 以上，/, "") + "</span>" : "")
       + ' · <button type="button" data-rank="' + e.cat + '">看排名</button></span></div>';
   }).join("") + "</div></div>";
 }
@@ -912,7 +957,10 @@ document.addEventListener("click", (e) => {
   if (!byId.has(id)) return;
   else { if (!viewItems().some((x) => x.id === id)) state.view = "day:" + byId.get(id).day; select(id); }
 });
-document.getElementById("q").addEventListener("input", (e) => { state.q = e.target.value; renderList(); });
+document.getElementById("q").addEventListener("input", (e) => {
+  state.q = e.target.value; renderList();
+  if (state.q.trim() && loaded.size < FEED.days.length) ensureAll().then(() => { if (state.q.trim()) renderList(); });  // search needs full text
+});
 document.getElementById("menuBtn").addEventListener("click", () => document.body.classList.toggle("side-open"));
 document.getElementById("scrim").addEventListener("click", closeSide);
 document.getElementById("backBtn").addEventListener("click", () => document.body.classList.remove("reading"));

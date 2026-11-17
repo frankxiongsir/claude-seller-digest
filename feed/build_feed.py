@@ -14,7 +14,7 @@ Accepted inputs:
 Every day is stored as data/<date>.json in day@1 format; re-adding a date replaces it.
 Older days stay in data/ even when they fall outside --keep-days.
 """
-import argparse, json, re, sys
+import argparse, hashlib, json, re, shutil, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -246,6 +246,26 @@ def day_to_page(day: dict) -> dict:
     return {"date": day["date"], "snapshot": {"meta": meta, "posts": posts}, "briefs": briefs}
 
 
+# ---------------------------------------------------------------- lazy details
+DETAIL_V = ("narrative", "coverage", "sellerPost", "sellerComment")
+
+
+def split_details(page: dict) -> dict:
+    """Move fields only shown in an open post (full text, check notes) out of the page index."""
+    det = {}
+    for p in page["snapshot"]["posts"]:
+        v = p["verification"]
+        det[p["id"]] = {"text": p["text"], "warrantyNote": p.get("warrantyNote", ""), "v": {k: v.get(k) or "" for k in DETAIL_V}}
+        p["text"] = p["text"][:60]  # list fallback title only
+        p["warrantyNote"] = ""
+        for k in DETAIL_V: v[k] = ""
+    return det
+
+
+def _embed(obj) -> str:
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/").replace("<!--", "<\\!--")
+
+
 # ---------------------------------------------------------------- io
 def load_input(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
@@ -264,6 +284,7 @@ def main() -> None:
     ap.add_argument("--add", nargs="*", default=[], type=Path)
     ap.add_argument("--check", nargs="*", default=[], type=Path)
     ap.add_argument("--keep-days", type=int, default=120)
+    ap.add_argument("--split", action="store_true", help="write post details to days/<date>.json next to the page (for hosting); default embeds everything in one file")
     a = ap.parse_args()
     bad = False
     for path in a.check + a.add:
@@ -285,12 +306,24 @@ def main() -> None:
     for d in days:
         errs = validate(d)
         if errs: sys.exit(f"data/{d.get('date')}.json is invalid: {errs[0]}")
-    feed = json.dumps({"days": [day_to_page(d) for d in days]}, ensure_ascii=False)
-    feed = feed.replace("</", "<\\/").replace("<!--", "<\\!--")
+    pages = [day_to_page(d) for d in days]
+    details = {pg["date"]: split_details(pg) for pg in pages}
+    if a.split:
+        ddir = OUT.parent / "days"
+        if ddir.exists(): shutil.rmtree(ddir)
+        ddir.mkdir(parents=True)
+        for pg in pages:
+            blob = json.dumps(details[pg["date"]], ensure_ascii=False, separators=(",", ":"))
+            (ddir / f"{pg['date']}.json").write_text(blob, encoding="utf-8")
+            pg["detail"] = f"days/{pg['date']}.json?v={hashlib.sha1(blob.encode()).hexdigest()[:10]}"
+        det_json = "null"
+    else:
+        det_json = _embed(details)
     tpl = (ROOT / "template.html").read_text(encoding="utf-8")
-    if tpl.count("__FEED__") != 1: sys.exit("template.html must contain __FEED__ exactly once")
-    OUT.write_text(tpl.replace("__FEED__", feed), encoding="utf-8")
-    print(f"built {OUT.name}: {len(days)} day(s), {sum(len(d['posts']) for d in days)} posts")
+    for ph in ("__FEED__", "__DETAILS__"):
+        if tpl.count(ph) != 1: sys.exit(f"template.html must contain {ph} exactly once")
+    OUT.write_text(tpl.replace("__FEED__", _embed({"days": pages})).replace("__DETAILS__", det_json), encoding="utf-8")
+    print(f"built {OUT.name}: {len(days)} day(s), {sum(len(d['posts']) for d in days)} posts" + (f", details in {OUT.parent.name}/days/" if a.split else ", single file"))
 
 
 if __name__ == "__main__":

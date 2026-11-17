@@ -266,6 +266,7 @@ def main():
     ap.add_argument("--no-pull", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--repo", type=Path, default=CLONE)
+    ap.add_argument("--split", action="store_true", help="pass --split to build_feed (hosting)")
     ap.add_argument("--work", type=Path, help="build in this folder: copy curated days from data/ there, leave data/ untouched")
     a = ap.parse_args()
     if a.work:
@@ -301,7 +302,7 @@ def main():
     if a.dry_run: sys.exit(1 if bad else 0)
     if bad and a.work:
         sys.exit("✗ build stopped: fix the files above (the last good deployment stays live)")
-    sys.argv = ["build_feed.py"]; bf.main()
+    sys.argv = ["build_feed.py"] + (["--split"] if a.split else []); bf.main()
     print(f"{changed} day(s) imported or updated")
     if bad: sys.exit(1)
 

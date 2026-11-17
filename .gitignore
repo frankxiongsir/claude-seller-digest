@@ -44,3 +44,4 @@ next-env.d.ts
 /dist/
 /.feed-build/
 /feed/__pycache__/
+/.inline-build/
