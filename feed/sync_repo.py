@@ -25,8 +25,15 @@ REPO_URL = "https://github.com/frankxiongsir/claude-seller-digest"
 CLONE = ROOT / ".repo"
 ORIGIN = "raw-adapter"
 
-PRICE_TOKEN = re.compile(r"(US\$|\$|¥|￥)\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(元|块|R\b|r\b|U\b|u\b|刀|USDT)")
-OTHER_PRODUCT = re.compile(r"GPT|Gemini|ChatGPT|Grok|Cursor|Midjourney", re.I)
+PRICE_TOKEN = re.compile(r"(US\$|\$|¥|￥)\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(元|块|[rR][mM][bB]|USDT|USD|usd|美元|美金|刀|R\b|r\b|U\b|u\b)")
+OTHER_PRODUCT = re.compile(r"GPT|Gemini|ChatGPT|Grok|Cursor|Midjourney|Muse|Outlook|邮箱|Spotify|Netflix|YouTube|Telegram|tg\s*会员|"
+                           r"Windows|Azure|Mac\s*Mini|VPS|Google\s*AI|Copilot|Perplexity|Suno", re.I)
+TOPUP = re.compile(r"代充|充值|会员|直充")          # recharge onto the buyer's own account, not a ready-made account
+READY = re.compile(r"成品|(?<!自己)(?<!自有)(?<!你的)(?<!您的)账号|帐号|手搓号|老号|普号|美区号")
+TIER = re.compile(r"(?<![A-Za-z])Pro(?![A-Za-z])|Max|Ultra|\d+\s*[xX](?![A-Za-z])|KYC|门户|Teams?", re.I)
+KYC_ATTR = re.compile(r"(免|过|已过|不弹|免费过)\s*[kK](yc|YC)?", re.I)   # "免kyc 成品" describes an account, not a KYC service
+LINE_END = re.compile(r"(?:[，,：:]|——|—)\s*(\d{2,5})\s*$")
+BARE_NAME = lambda seg, m: seg[: m.start(1) if m.re is LINE_END else m.start(2)]
 BARE = re.compile(r"(Pro|Max\s*\d+\s*[xX]|\d+\s*[xX]|Ultra|KYC|门户验证|Teams|收费|售价|价格)\s*[^\d\n，,。%]{0,4}?(?<![\d.])(\d{2,5})(?![\d.]|\s*(%|％|分钟|天|个?月|小时|核|gb|x|X|条|人|单))")
 NEGATED = re.compile(r"(不|无|不做|不予|没有)\s*(退款|退|补偿|换新)")
 
@@ -50,7 +57,7 @@ def pull():
 
 # ---------------------------------------------------------------- raw -> day@1 (heuristic)
 def _cur(sym, unit):
-    if sym in ("US$", "$") or unit == "刀": return "USD"
+    if sym in ("US$", "$") or unit in ("刀", "美元", "美金") or (unit or "").upper() == "USD": return "USD"
     if unit and unit.upper() in ("U", "USDT"): return "USDT"
     return "CNY"
 
@@ -59,27 +66,50 @@ def _entries_from(text, source, service, default_cat=None):
     """One price entry per price token found in each line/segment of text."""
     out, prev_cat = [], None
     mixed = bool(OTHER_PRODUCT.search(text or ""))  # post also sells GPT/Gemini etc.
-    for seg in re.split(r"[\n；;/]|(?<=\d)\s*[，,]", text or ""):
+    topup_post = bool(TOPUP.search(text or "")) and not READY.search(text or "")
+    body = KYC_ATTR.sub("", text or "")
+    tiers = {c for c, rx in (("pro", r"(?<![A-Za-z])Pro(?![A-Za-z])"), ("max5", r"(?<!\d)5\s*[xX](?![A-Za-z])"),
+                              ("max20", r"(?<!\d)20\s*[xX](?![A-Za-z])|Ultra"), ("teams", r"Teams?(?![A-Za-z])"))
+             if re.search(rx, body, re.I)}
+    post_tier = next(iter(tiers)) if len(tiers) == 1 and source == "原帖" else None
+    segs, ctx = [], None
+    for line in (text or "").split("\n"):
+        if re.search(r"claude", line, re.I): ctx = "claude"
+        elif OTHER_PRODUCT.search(line): ctx = "other"
+        for seg in re.split(r"[；;]|(?<![A-Za-z\d元])/|(?<=\d)\s*[，,]|(?<=[\d元rRuU])\s*[｜|]", line):
+            segs.append((seg, ctx))
+    for seg, ctx in segs:
         hits = [(m, m.group(1), m.group(2) or m.group(3), m.group(4)) for m in PRICE_TOKEN.finditer(seg)]
         taken = [(m.start(), m.end()) for m, *_ in hits]
         hits += [(m, None, m.group(2), None) for m in BARE.finditer(seg)
                  if not any(a <= m.start(2) < b for a, b in taken)]
+        if not hits and TIER.search(seg) and not OTHER_PRODUCT.search(seg):
+            hits = [(m, None, m.group(1), None) for m in LINE_END.finditer(seg)]  # "Claude Pro美区账号——免KYC，280"
         for m, sym, num, unit in hits:
             amt = float(num)
+            if re.search(r"(另|再|需)?加|补差|\+\s*$", seg[max(0, m.start() - 4): m.start()]):
+                continue  # add-on fee, not a product price
             if amt < 10 or re.search(r"\d\s*(个?月|天|小时|核|gb|x)", seg[m.end(): m.end() + 3], re.I):
                 continue
             amt = int(amt) if amt.is_integer() else amt
-            src = "同帖其他" if OTHER_PRODUCT.search(seg) or (mixed and not re.search(r"claude", seg, re.I)) else source
-            name = re.sub(r"\s+", " ", seg[: m.start() if sym or unit else m.start(2)]).strip(" ：:🔥-—|·")[-24:] or service[:24] or "未注明"
-            cat = "other" if src == "同帖其他" else bf._category({"name": name + " " + seg, "src": src}, service)
+            if OTHER_PRODUCT.search(seg): is_other = True
+            elif re.search(r"claude", seg, re.I) or not mixed: is_other = False
+            else: is_other = ctx == "other" or (ctx is None and not TIER.search(seg))
+            src = "同帖其他" if is_other else source
+            name = re.sub(r"\s+", " ", seg[: m.start()] if sym or unit else BARE_NAME(seg, m)).strip(" ：:🔥-—|·")[-24:] or service[:24] or "未注明"
+            cat = "other" if src == "同帖其他" or "普号" in seg else bf._category({"name": KYC_ATTR.sub("", name + " " + seg), "src": src}, KYC_ATTR.sub("", service))
+            if cat == "other" and src == source and post_tier and "普号" not in seg and not re.search(r"Max", seg, re.I):
+                cat = post_tier  # the post only sells one tier
             if cat == "other" and src == source and prev_cat in ("kyc", "teams") and not re.search(r"Pro|Max|Ultra|\dx", seg, re.I):
                 cat = prev_cat  # next tier of the same KYC/Teams price list
             if cat == "other" and default_cat: cat = default_cat
+            topup = cat in ("pro", "max5", "max20", "teams") and (topup_post or (TOPUP.search(seg) and not READY.search(seg)))
+            if topup: cat = "other"
             if src == source: prev_cat = cat
             e = {"source": src, "product": name, "category": cat, "amount": amt,
                  "currency": _cur(sym, unit), "qualifier": "起" if "起" in seg else "参考" if "参考" in seg else "",
-                 "note": "自动提取"}
-            if not sym and (not unit or unit in ("元", "块") or unit.upper() == "R"):
+                 "note": "代充，不计入成品号排名（自动提取）" if topup else "自动提取"}
+            if not sym and (not unit or unit in ("元", "块") or unit.upper() in ("R", "RMB")):
                 e["currency_assumed"] = not unit
             out.append(e)
     return out
@@ -93,6 +123,7 @@ def _landing(raw):
     other = [str(raw.pop(k)) for k in list(raw) if k.startswith("sister") or k.startswith("other_domain")]
     terms_bits = [str(raw.pop(k)) for k in list(raw) if k not in ("url", "inaccessible")]
     out = {"url": raw.get("url", ""), "price": "；".join(price_bits), "terms": "；".join(terms_bits)}
+    if not price_bits and raw.get("quote"): out["price_text"] = str(raw["quote"])  # verbatim shop text; prices may be inside
     if raw.get("inaccessible"): out["inaccessible"] = raw["inaccessible"]
     if other: out["other_domains"] = "；".join(other)
     return out
@@ -115,8 +146,9 @@ def raw_to_day(posts_doc: dict, ver: dict | None, archive_rel: str, ver_rel: str
         prices = _entries_from(own_text if "do_not_borrow" not in wc else
                                "\n".join(l for l in p["text"].splitlines() if re.search(r"claude", l, re.I)),
                                "原帖", service)
-        if land and land.get("price"):
-            prices += _entries_from(land["price"], "商品页", service, default_cat="pro" if "/item/597" in land["url"] else None)
+        if land and (land.get("price") or land.get("price_text")):
+            prices += _entries_from(land.get("price") or land["price_text"], "商品页", service, default_cat="pro" if "/item/597" in land["url"] else None)
+        if land: land.pop("price_text", None)  # already shown verbatim under terms
         if land and land.get("other_domains"):
             prices += [e for e in _entries_from(re.sub(r"[，,]?\s*与.*$", "", land["other_domains"]), "另一域", service)]
         seen, uniq = set(), []
