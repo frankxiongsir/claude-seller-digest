@@ -1,0 +1,180 @@
+{
+ "schema": "claude-seller-digest/day@1",
+ "date": "2026-11-15",
+ "window": {
+  "start_utc": "2026-11-15T05:00:00Z",
+  "end_utc": "2026-11-16T05:00:00Z",
+  "timezone": "America/New_York (ET, UTC-5)"
+ },
+ "fetched_at_et": "2026-11-16 09:35 ET",
+ "verified_at_et": "2026-11-16 23:32 ET",
+ "prices_as_of_et": "2026-11-16 23:25–23:32 ET（America/New_York，UTC-5）",
+ "scanned_count": 783,
+ "intro": "窗口：2026-11-15 00:00–2026-11-16 00:00 ET（即 2026-11-15T05:00:00Z–2026-11-16T05:00:00Z，America/New_York，当时为 UTC-5）。\n抓取时间：20…",
+ "highlights": [
+  {
+   "title": "第 5、11、20 条出现同一类硬矛盾。",
+   "body": "原帖宣传「过 KYC / 已过充值时跳出的 KYC」，但指向或同店在售的卡网商品 `/item/597`（标题即「不质保封号」）正文写明：这是「没过 KYC」的免 KYC 号；只保首次登录不上；登录成功后封号、弹 KYC 均无售后；不能按本商品续费。第 5 条评论区已有人直接指出「宣传发过 kyc 成品，卡网免 k 号」。第 11 条有人问「你这是免 kyc 不是过 kyc 吧」，作者只回「差不多的」。"
+  }
+ ],
+ "coverage": [
+  "20 条的对话均已用公共 X `conversation_id` 检索。高回复帖第 1、2、5、8、9 条各读了约 25–50 条，第 1 条当时约 63 回复，**仍可能有未翻到的楼层**；翻页 token 有一次返回 0 条，故不以「全部楼层」自称。第 15、16、18 条公开评论极少或为零，已如实写出，不用原帖冒充评论验证。"
+ ],
+ "shared_listings": [
+  {
+   "id": "/item/597",
+   "note": "Same product id/title/warranty text; different prices. Template or upstream similarity, not proof of one company.",
+   "warranty_quote": "本商品是免 KYC 号，不是已经过 KYC 的号。……质保只有一条：首次登录不上可以联系售后。登录成功之后：被封号、弹 KYC 等，均无任何售后。",
+   "prices_cny": {
+    "zyanai.cc": 230,
+    "aixiaodian.vip": 235,
+    "zzaibox.cn": 240,
+    "subsmall.com": 248,
+    "xingchen666.store": 249.9,
+    "ai-melody.shop": 258,
+    "jackai.club": 299,
+    "zhizhuxia.vip": 380
+   }
+  }
+ ],
+ "downloads": [
+  {
+   "href": "downloads/2026-11-15-posts.json",
+   "label": "日报原始帖 JSON"
+  },
+  {
+   "href": "downloads/2026-11-15-digest.md",
+   "label": "日报 Markdown"
+  },
+  {
+   "href": "downloads/2026-11-16-verification.json",
+   "label": "核查 JSON"
+  },
+  {
+   "href": "downloads/2026-11-16-verification.md",
+   "label": "核查 Markdown"
+  }
+ ],
+ "posts": [
+  {
+   "n": 5,
+   "id": "2122136402196603056",
+   "url": "https://x.com/ZhaoZhaovfbc/status/2122136402196603056",
+   "handle": "ZhaoZhaovfbc",
+   "name": "赵赵",
+   "text": "最近 Claude 封号越来越狠，代充也经常充不上\n\n干脆上了 Claude Pro 成品号，官方直充 1 个月 ¥240，自动发货\n（过kyc成品号，不保封号）\n\n价格给你们打到最低了并且是过kyc账号\n\n感谢各位支持🙏\n\nhttps://t.co/OUO6l6dJ2d https://t.co/XhVgeVFVn9",
+   "created_at": "2026-11-16T01:15:20.000Z",
+   "created_at_et": "2026-11-15 20:15 ET",
+   "metrics": {
+    "impression_count": 23572,
+    "reply_count": 34,
+    "like_count": 137,
+    "repost_count": 9,
+    "quote_count": 1,
+    "bookmark_count": 160
+   },
+   "links": [
+    "https://zzaibox.cn/item/597"
+   ],
+   "promo": [
+    "https://zzaibox.cn/item/597"
+   ],
+   "priority": false,
+   "summary": {
+    "service": "Claude Pro 成品号，1 个月",
+    "price_label": "原帖 ¥240",
+    "cover": "原帖写不保封号；商品页只保首登",
+    "diff": "原帖写过 KYC，商品页写没过 KYC"
+   },
+   "terms": {
+    "refund_promise": false,
+    "first_login_only": true,
+    "no_ban": true
+   },
+   "warranty_class": "explicitly_no_ban",
+   "warranty_note": "原文明确写「过kyc成品号，不保封号」。不改写成封号保障。",
+   "prices": [
+    {
+     "source": "原帖",
+     "product": "Pro 成品",
+     "category": "pro",
+     "amount": 240,
+     "currency": "CNY",
+     "qualifier": "",
+     "label": "¥240",
+     "note": ""
+    },
+    {
+     "source": "商品页",
+     "product": "item/597",
+     "category": "pro",
+     "amount": 240,
+     "currency": "CNY",
+     "qualifier": "",
+     "label": "¥240",
+     "note": "页面写没过 KYC，只保首登。"
+    },
+    {
+     "source": "评论",
+     "product": "Max",
+     "category": "other",
+     "amount": 1330,
+     "currency": "CNY",
+     "qualifier": "",
+     "label": "1330",
+     "note": "作者另报的 Max 价，不是这条 Pro 成品的 ¥240。",
+     "currency_assumed": true
+    }
+   ],
+   "seller_post": "¥240 过kyc成品号，不保封号",
+   "seller_comment": "被问是否过KYC时回「登录一下不就知道了」；报Max 1330；称可代充续期；对密码错误投诉要订单号核实，未见结案",
+   "landing": {
+    "url": "https://zzaibox.cn/item/597",
+    "price": "¥240",
+    "terms": "没过KYC；只保首登；登录后封号/弹KYC无售后"
+   },
+   "third_party": [
+    {
+     "handle": "magnate1005",
+     "url": "https://x.com/magnate1005/status/2122288739791851809",
+     "created_at_et": "2026-11-16 06:20 ET",
+     "quote": "免k就免k号 宣传发过kyc成品，卡网免k号",
+     "note": "指出原帖与卡网矛盾",
+     "sentiment": "neutral"
+    },
+    {
+     "handle": "qianchang4372",
+     "url": "https://x.com/qianchang4372/status/2122327785893191941",
+     "created_at_et": "2026-11-16 08:55 ET",
+     "quote": "之前買過 1 個小時封，沒有任何保障",
+     "note": "第一人称自述，未证实",
+     "sentiment": "negative"
+    },
+    {
+     "handle": "WillzBoning",
+     "url": "https://x.com/WillzBoning/status/2122540769064153519",
+     "created_at_et": "2026-11-16 23:02 ET",
+     "quote": "我买了号 1小时就挂了",
+     "note": "第一人称自述，未证实",
+     "sentiment": "negative"
+    },
+    {
+     "handle": "Melvind3y4k",
+     "url": "https://x.com/Melvind3y4k/status/2122538710633996717",
+     "created_at_et": "2026-11-16 22:53 ET",
+     "quote": "买的成品号……账号密码错误 / 别人改密码",
+     "note": "第一人称自述；作者称先核实，未见公开结果",
+     "sentiment": "negative"
+    }
+   ],
+   "conflicts": [
+    "原帖「过kyc」vs 商品页「没过KYC」"
+   ],
+   "missing": [
+    "投诉处理结果"
+   ],
+   "coverage": "conversation two pages (~49 statuses, live ~39 replies); item/597 fetched",
+   "narrative": "- 原帖：官方直充 1 个月 ¥240，「过 kyc 成品号，不保封号」，链接 https://zzaibox.cn/item/597 。\n- 落地页现行条款与原帖「过 kyc」冲突：写明「这是没过 KYC 的号」「只质保首次登录不上」「登录成功之后被封号、弹 KYC 等均无任何售后」。现货/预订说明与「退回原支付扣 …"
+  }
+ ]
+}

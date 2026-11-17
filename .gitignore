@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# feed page build output
+/dist/
+/.feed-build/
+/feed/__pycache__/

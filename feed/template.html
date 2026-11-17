@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Claude 卖家帖 · 每日信息流</title>
+<meta name="description" content="每日整理公开 X 上的 Claude 账号/代充/KYC 卖家帖：原帖、商品页与评论逐条对照，并按商家汇总出处与风险分。">
+<style>
+:root {
+  --bg: #ffffff;
+  --side: #f3f3f5;
+  --list: #ffffff;
+  --ink: #1d1d1f;
+  --ink-2: #48484d;
+  --muted: #86868b;
+  --line: #e5e5ea;
+  --line-2: #d1d1d6;
+  --hover: rgba(0,0,0,.04);
+  --sel: #0a66e4;
+  --sel-ink: #ffffff;
+  --sel-soft: rgba(10,102,228,.12);
+  --chip: #f2f2f4;
+  --high: #d13b2a;  --high-bg: #fdecea;
+  --mid: #b86e00;   --mid-bg: #fdf2e0;
+  --low: #6b6e75;   --low-bg: #efeff1;
+  --refund: #3b55d9; --refund-bg: #eceffd;
+  --info: #1b7f72;  --info-bg: #e5f4f1;
+  --unread: #0a66e4;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1e20;
+    --side: #262628;
+    --list: #1e1e20;
+    --ink: #f2f2f4;
+    --ink-2: #c4c4c8;
+    --muted: #8e8e93;
+    --line: #333336;
+    --line-2: #444448;
+    --hover: rgba(255,255,255,.05);
+    --sel: #2f7cf0;
+    --sel-soft: rgba(47,124,240,.22);
+    --chip: #2c2c2f;
+    --high: #ff7a68;  --high-bg: #3d1f1b;
+    --mid: #f2b350;   --mid-bg: #3a2c14;
+    --low: #a3a3a8;   --low-bg: #2c2c2f;
+    --refund: #93a6ff; --refund-bg: #232947;
+    --info: #6fcfc0;  --info-bg: #17322e;
+    --unread: #4f93ff;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 var(--font); -webkit-font-smoothing: antialiased; overflow: hidden; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+a { color: var(--sel); text-decoration: none; overflow-wrap: anywhere; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--sel); outline-offset: 1px; border-radius: 6px; }
+code { font-family: var(--mono); font-size: .88em; background: var(--chip); padding: 1px 5px; border-radius: 5px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.app { height: 100%; display: grid; grid-template-columns: 248px 372px minmax(0, 1fr); }
+.pane { min-height: 0; display: flex; flex-direction: column; min-width: 0; }
+.scroll { overflow: auto; min-height: 0; flex: 1; overscroll-behavior: contain; }
+
+/* ---------- sidebar ---------- */
+.side { background: var(--side); border-right: 1px solid var(--line); }
+.side-top { display: flex; align-items: center; gap: 8px; padding: 14px 14px 8px; min-height: 52px; }
+.logo { width: 26px; height: 26px; border-radius: 7px; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-weight: 800; font-size: 13px; flex: none; }
+.side-top b { font-size: 14px; font-weight: 700; line-height: 1.2; }
+.side-top small { display: block; color: var(--muted); font-size: 11px; font-weight: 500; }
+.group { padding: 6px 8px 10px; }
+.group h3 { margin: 6px 8px 4px; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .02em; display: flex; justify-content: space-between; align-items: center; }
+.group h3 span { font-weight: 500; }
+.nav { width: 100%; display: flex; align-items: center; gap: 9px; height: 30px; padding: 0 8px; border-radius: 7px; text-align: left; color: var(--ink); }
+.nav:hover { background: var(--hover); }
+.nav[aria-current="true"] { background: var(--sel-soft); }
+.nav .ico { width: 18px; height: 18px; display: grid; place-items: center; flex: none; color: var(--sel); }
+.nav .lbl { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav .cnt { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.nav .score { font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 26px; text-align: center; padding: 1px 0; border-radius: 5px; }
+.av { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 10px; font-weight: 700; flex: none; }
+.side-foot { padding: 10px 16px 14px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); line-height: 1.6; }
+
+/* ---------- list ---------- */
+.list { background: var(--list); border-right: 1px solid var(--line); }
+.list-top { padding: 12px 14px 10px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+.lt-row { display: flex; align-items: center; gap: 8px; min-height: 28px; }
+.lt-title { flex: 1; min-width: 0; }
+.lt-title b { display: block; font-size: 15px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.25; }
+.lt-title small { color: var(--muted); font-size: 12px; }
+.search { position: relative; }
+.search svg { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.search input { width: 100%; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: var(--chip); padding: 0 10px 0 28px; outline: none; font-size: 13px; }
+.search input:focus { border-color: var(--sel); background: var(--bg); }
+.tbtn { width: 30px; height: 30px; border-radius: 7px; display: inline-grid; place-items: center; color: var(--ink-2); flex: none; }
+.tbtn:hover { background: var(--hover); }
+.tbtn[aria-pressed="true"] { color: var(--sel); }
+.tbtn:disabled { opacity: .3; cursor: default; }
+.back { display: none; }
+.dayhead { position: sticky; top: 0; z-index: 1; background: color-mix(in srgb, var(--list) 94%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); padding: 8px 16px 6px; font-size: 12px; font-weight: 700; color: var(--ink-2); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; }
+.dayhead span { color: var(--muted); font-weight: 500; }
+.item { position: relative; width: 100%; text-align: left; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 10px; padding: 10px 14px 10px 20px; border-bottom: 1px solid var(--line); }
+.item:hover { background: var(--hover); }
+.item .dot { position: absolute; left: 7px; top: 17px; width: 8px; height: 8px; border-radius: 50%; background: var(--unread); }
+.item .star { position: absolute; left: 5px; top: 30px; color: #e8a400; }
+.item .big { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 17px; }
+.item h4 { margin: 0; font-size: 14px; font-weight: 650; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.item p { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.item .src { display: flex; justify-content: space-between; gap: 8px; margin-top: 3px; font-size: 12px; color: var(--muted); }
+.item .src b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); }
+.item .tags { display: inline-flex; gap: 4px; margin-right: 6px; vertical-align: 1px; }
+.item.read h4 { font-weight: 500; color: var(--ink-2); }
+.item[aria-selected="true"] { background: var(--sel); color: var(--sel-ink); border-bottom-color: transparent; border-radius: 10px; margin: 2px 6px; width: calc(100% - 12px); padding-left: 14px; }
+.item[aria-selected="true"] p, .item[aria-selected="true"] .src, .item[aria-selected="true"] .src b, .item[aria-selected="true"] h4 { color: var(--sel-ink); }
+.item[aria-selected="true"] .dot { background: #fff; left: 3px; }
+.item[aria-selected="true"] .tag { background: rgba(255,255,255,.22); color: #fff; }
+.item.brief .big { background: var(--ink); color: var(--bg); }
+.empty { padding: 40px 20px; color: var(--muted); text-align: center; }
+.seg { display: flex; background: var(--chip); border-radius: 8px; padding: 2px; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.seg::-webkit-scrollbar { display: none; }
+.seg button { flex: 1 0 auto; height: 26px; padding: 0 9px; border-radius: 6px; font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--bg); color: var(--ink); font-weight: 650; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+.seg button .c { color: var(--muted); margin-left: 3px; font-size: 11px; }
+.rk { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; background: var(--chip); color: var(--ink-2); }
+.rk.top { background: var(--ink); color: var(--bg); }
+.rk-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.rk-top b { font-size: 14px; font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.amt { font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: -.01em; }
+.amt small { font-size: 11px; font-weight: 600; color: var(--muted); margin-left: 2px; }
+.sbar { height: 6px; border-radius: 6px; background: var(--chip); overflow: hidden; margin: 6px 0 2px; }
+.sbar i { display: block; height: 100%; border-radius: 6px; }
+.sbar i.high { background: var(--high); } .sbar i.mid { background: var(--mid); } .sbar i.low { background: var(--low); }
+.item[aria-selected="true"] .rk { background: rgba(255,255,255,.22); color: #fff; }
+.item[aria-selected="true"] .amt small, .item[aria-selected="true"] .lvl { color: #fff; }
+.item[aria-selected="true"] .sbar { background: rgba(255,255,255,.25); }
+.item[aria-selected="true"] .sbar i { background: #fff; }
+.rank-note { padding: 10px 16px; font-size: 12px; color: var(--muted); line-height: 1.6; border-bottom: 1px solid var(--line); }
+.subhead { padding: 8px 16px 6px; font-size: 12px; font-weight: 700; color: var(--ink-2); border-bottom: 1px solid var(--line); background: var(--chip); }
+.ptable .pr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 10px 14px; border-top: 1px solid var(--line); align-items: baseline; }
+.ptable .pr:first-child { border-top: 0; }
+.ptable .pr b { font-weight: 650; }
+.ptable .pr .amt { font-size: 15px; }
+.ptable .pr .d { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+.ptable .pr .d button { color: var(--sel); font-size: 12px; }
+
+.tag { display: inline-flex; align-items: center; height: 18px; padding: 0 6px; border-radius: 5px; font-size: 11px; font-weight: 650; white-space: nowrap; }
+.tag.high, .lv-high { background: var(--high-bg); color: var(--high); }
+.tag.mid, .lv-mid { background: var(--mid-bg); color: var(--mid); }
+.tag.low, .lv-low { background: var(--low-bg); color: var(--low); }
+.tag.refund { background: var(--refund-bg); color: var(--refund); }
+.tag.info { background: var(--info-bg); color: var(--info); }
+.tag.plain { background: var(--chip); color: var(--ink-2); }
+
+/* ---------- reader ---------- */
+.reader { background: var(--bg); }
+.r-bar { display: flex; align-items: center; gap: 4px; padding: 10px 14px; min-height: 52px; border-bottom: 1px solid transparent; }
+.r-bar .spacer { flex: 1; }
+.r-bar .hint { font-size: 12px; color: var(--muted); margin-right: 6px; }
+.article { max-width: 720px; margin: 0 auto; padding: 18px 40px 96px; }
+.byline { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.byline .who b { display: block; font-size: 15px; font-weight: 700; }
+.byline .who span { color: var(--ink-2); font-size: 14px; }
+.byline .who button { color: inherit; text-align: left; }
+.byline .who button:hover b { color: var(--sel); }
+.avbig { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 20px; flex: none; }
+.article h1 { font-size: 30px; line-height: 1.22; letter-spacing: -.02em; margin: 20px 0 6px; font-weight: 800; }
+.dateline { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .04em; margin: 0 0 14px; }
+.tagrow { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; }
+.tagrow .tag { height: 22px; padding: 0 8px; font-size: 12px; }
+.lead { font-size: 17px; line-height: 1.7; margin: 0 0 22px; }
+.lead b { font-weight: 650; }
+.sec { margin: 0 0 28px; }
+.sec > h2 { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .06em; margin: 0 0 10px; display: flex; justify-content: space-between; align-items: baseline; }
+.sec > h2 span { font-weight: 500; letter-spacing: 0; }
+.box { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.cmp { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); border-top: 1px solid var(--line); }
+.cmp:first-child { border-top: 0; }
+.cmp > div:first-child { background: var(--chip); padding: 10px 12px; font-size: 13px; font-weight: 650; color: var(--ink-2); }
+.cmp > div:last-child { padding: 10px 14px; font-size: 14px; line-height: 1.65; }
+.cmp.bad > div:first-child { background: var(--high-bg); color: var(--high); }
+.cmp small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+.price { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 9px 14px; border-top: 1px solid var(--line); font-size: 14px; }
+.price:first-child { border-top: 0; }
+.price small { color: var(--muted); margin-right: 6px; font-size: 12px; }
+.price .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+.price .n { grid-column: 1 / -1; color: var(--muted); font-size: 12px; }
+.orig { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 16px/1.85 var(--font); }
+.links { list-style: none; padding: 0; margin: 10px 0 0; font-size: 13px; }
+.links li { margin: 3px 0; }
+.voice { border-left: 3px solid var(--line-2); padding: 2px 0 2px 12px; margin: 0 0 14px; }
+.voice.neg { border-left-color: var(--high); }
+.voice .top { font-size: 12px; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
+.voice .top b { color: var(--ink); font-weight: 650; }
+.voice q { display: block; quotes: "「" "」"; font-size: 15px; line-height: 1.7; margin: 3px 0; }
+.voice .note { font-size: 12px; color: var(--muted); }
+.caveat { font-size: 12px; color: var(--muted); margin: 0 0 10px; }
+details.fold { border: 1px solid var(--line); border-radius: 12px; }
+details.fold + details.fold { margin-top: 8px; }
+details.fold summary { list-style: none; cursor: pointer; padding: 11px 14px; font-weight: 650; display: flex; justify-content: space-between; align-items: center; }
+details.fold summary::-webkit-details-marker { display: none; }
+details.fold summary::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); transition: transform .15s; margin-right: 3px; }
+details.fold[open] summary::after { transform: rotate(-135deg); }
+details.fold .in { padding: 0 14px 14px; color: var(--ink-2); line-height: 1.75; }
+.narr { margin: 0; padding-left: 18px; }
+.narr li { margin: 3px 0; }
+.narr ul { padding-left: 18px; margin: 3px 0; }
+.kv { margin: 0; }
+.kv dt { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.kv dt:first-child { margin-top: 0; }
+.kv dd { margin: 1px 0 0; overflow-wrap: anywhere; }
+.plink { background: var(--sel-soft); color: var(--sel); font-weight: 650; font-size: .92em; padding: 0 6px; border-radius: 6px; line-height: 1.6; }
+
+/* seller card + profile */
+.scard { border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: center; }
+.scard p { margin: 4px 0 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65; }
+.scard .go { color: var(--sel); font-weight: 650; font-size: 13px; }
+.ring { position: relative; width: 76px; height: 76px; flex: none; }
+.ring svg { display: block; transform: rotate(-90deg); }
+.ring .v { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.05; }
+.ring .v b { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; display: block; }
+.ring .v small { font-size: 10px; color: var(--muted); }
+.ring.lg { width: 108px; height: 108px; }
+.ring.lg .v b { font-size: 32px; }
+.track { stroke: var(--line); }
+.ring.high .arc { stroke: var(--high); }
+.ring.mid .arc { stroke: var(--mid); }
+.ring.low .arc { stroke: var(--low); }
+.lvl { font-weight: 700; }
+.lvl.high { color: var(--high); } .lvl.mid { color: var(--mid); } .lvl.low { color: var(--low); }
+.prof-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 6px 0 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.prof-head h1 { margin: 10px 0 4px; }
+.prof-head .meta { color: var(--muted); font-size: 13px; }
+.rubric .r { display: grid; grid-template-columns: minmax(0, 1fr) 3.5em; gap: 4px 12px; padding: 10px 14px; border-top: 1px solid var(--line); align-items: center; }
+.rubric .r:first-child { border-top: 0; }
+.rubric .r .t { font-weight: 600; }
+.rubric .r .p { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.rubric .r .p.zero { color: var(--muted); font-weight: 500; }
+.rubric .r .d { grid-column: 1 / -1; font-size: 12px; color: var(--muted); line-height: 1.6; }
+.rubric .r.off .t { color: var(--muted); font-weight: 500; }
+.srcs h3 { font-size: 13px; margin: 14px 0 6px; font-weight: 650; }
+.srcs h3:first-child { margin-top: 0; }
+.srcs ol { margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.7; }
+.srcs li span { color: var(--muted); }
+.plist .pi { width: 100%; text-align: left; display: flex; gap: 12px; justify-content: space-between; align-items: baseline; padding: 10px 14px; border-top: 1px solid var(--line); }
+.plist .pi:first-child { border-top: 0; }
+.plist .pi:hover { background: var(--hover); }
+.plist .pi b { font-weight: 600; }
+.plist .pi span { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+/* brief */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.stat b { font-size: 26px; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; display: block; line-height: 1.15; }
+.stat span { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+.stat.warn b { color: var(--high); }
+.cells { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 3px; }
+.cell { aspect-ratio: 1 / 1.3; border-radius: 5px; font-size: 10px; font-weight: 700; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 3px; position: relative; font-variant-numeric: tabular-nums; }
+.cell.high { background: var(--high); color: #fff; } .cell.mid { background: var(--mid); color: #fff; } .cell.low { background: var(--line-2); color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 10px 0 0; font-size: 12px; color: var(--ink-2); list-style: none; padding: 0; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.find { border-top: 1px solid var(--line); padding: 14px 0; }
+.find:first-child { border-top: 0; padding-top: 0; }
+.find h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.5; font-weight: 650; }
+.find .n { font-size: 11px; font-weight: 700; color: var(--muted); }
+.find div { font-size: 14px; color: var(--ink-2); line-height: 1.75; }
+.bar-row { display: grid; grid-template-columns: 9em minmax(0, 1fr) 4em; gap: 10px; align-items: center; margin: 6px 0; font-size: 13px; }
+.bar-row .nm { font-family: var(--mono); font-size: 12px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-tr { height: 8px; border-radius: 9px; background: var(--chip); overflow: hidden; }
+.bar-fl { height: 100%; background: var(--mid); border-radius: 9px; }
+.bar-row .vv { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.quote { margin: 12px 0 0; padding: 12px 14px; background: var(--high-bg); border-radius: 10px; font-size: 14px; line-height: 1.75; }
+.dl { list-style: none; padding: 0; margin: 0; }
+.dl li { display: flex; justify-content: space-between; padding: 8px 14px; border-top: 1px solid var(--line); }
+.dl li:first-child { border-top: 0; }
+.dl span { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.disclaim { font-size: 12px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 8px; }
+
+/* ---------- responsive ---------- */
+.scrim { display: none; }
+@media (max-width: 1100px) {
+  .app { grid-template-columns: 320px minmax(0, 1fr); }
+  .side { position: fixed; left: 0; top: 0; bottom: 0; width: 272px; z-index: 30; transform: translateX(-100%); transition: transform .2s ease; box-shadow: 0 0 40px rgba(0,0,0,.18); }
+  body.side-open .side { transform: none; }
+  .scrim { display: block; position: fixed; inset: 0; z-index: 29; background: rgba(0,0,0,.3); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  body.side-open .scrim { opacity: 1; pointer-events: auto; }
+  .article { padding: 14px 28px 80px; }
+}
+@media (min-width: 1101px) { .menu-btn { display: none; } }
+@media (max-width: 720px) {
+  .app { display: block; height: 100%; }
+  .list, .reader { position: absolute; inset: 0; }
+  .reader { display: none; }
+  body.reading .reader { display: flex; }
+  body.reading .list { display: none; }
+  .back { display: inline-grid; }
+  .article { padding: 8px 16px 64px; }
+  .article h1 { font-size: 24px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cells { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .cmp { grid-template-columns: minmax(0, 1fr); }
+  .cmp > div:first-child { padding: 6px 12px; }
+  .prof-head { grid-template-columns: minmax(0, 1fr); }
+  .scard { grid-template-columns: minmax(0, 1fr); }
+  .bar-row { grid-template-columns: 7.5em minmax(0, 1fr) 3.6em; }
+  .r-bar .hint { display: none; }
+  .item { padding-right: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="pane side" id="side" aria-label="视图">
+    <div class="side-top">
+      <div class="logo" aria-hidden="true">C</div>
+      <div><b>Claude 卖家帖</b><small id="side-sub"></small></div>
+    </div>
+    <div class="scroll" id="side-scroll"></div>
+    <div class="side-foot" id="side-foot"></div>
+  </nav>
+  <section class="pane list" id="listPane" aria-label="帖子">
+    <div class="list-top">
+      <div class="lt-row">
+        <button type="button" class="tbtn menu-btn" id="menuBtn" aria-label="打开侧栏"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="3" width="14" height="12" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M7 3v12" stroke="currentColor" stroke-width="1.4"/></svg></button>
+        <div class="lt-title"><b id="lt-title"></b><small id="lt-sub"></small></div>
+        <button type="button" class="tbtn" id="markAll" title="全部标为已读" aria-label="全部标为已读"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 9.5l3 3 6-7M8.5 12.5l1 0 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <label class="search"><span class="sr">搜索</span>
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.2" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.2 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="搜索账号、店铺、原文、评论" autocomplete="off" enterkeyhint="search">
+      </label>
+      <div id="lt-extra" hidden></div>
+    </div>
+    <div class="scroll" id="list" role="listbox" aria-label="帖子列表" tabindex="0"></div>
+  </section>
+  <section class="pane reader" id="readerPane" aria-label="阅读">
+    <div class="r-bar">
+      <button type="button" class="tbtn back" id="backBtn" aria-label="返回列表"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="tbtn" id="readBtn" aria-label="标为未读" title="标为未读 (U)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button type="button" class="tbtn" id="starBtn" aria-label="加星标" title="星标 (S)" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.4l2 4.1 4.5.6-3.3 3.1.8 4.5L9 12.6l-4 2.1.8-4.5L2.5 7.1 7 6.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="tbtn" id="sellerBtn" aria-label="商家档案" title="商家档案"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="6.5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 15c.8-2.7 2.9-4 5.5-4s4.7 1.3 5.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      <a class="tbtn" id="openBtn" target="_blank" rel="noopener noreferrer" aria-label="打开原帖" title="打开原帖"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M10 3h5v5M15 3l-7 7M13 10.5V14a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1h3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <span class="spacer"></span>
+      <span class="hint">↑↓ 切换 · U 未读 · S 星标</span>
+    </div>
+    <div class="scroll" id="reader"></div>
+  </section>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<script id="feed" type="application/json">__FEED__</script>
+<script>
+(function () {
+"use strict";
+
+/* ================= data ================= */
+const FEED = JSON.parse(document.getElementById("feed").textContent);
+const days = FEED.days.slice().sort((a, b) => b.date < a.date ? -1 : 1);
+const latest = days[0] ? days[0].date : "";
+const items = [];            // feed entries (briefs + posts)
+const byId = new Map();
+const sellers = new Map();   // handle -> seller
+
+const PALETTE = ["#e5484d", "#f76b15", "#d6a000", "#30a46c", "#12a594", "#0090ff", "#3e63dd", "#8e4ec6", "#d6409f", "#978365", "#5b5bd6", "#0d74ce"];
+function hue(s) { let h = 0; for (const c of String(s)) h = (h * 31 + c.codePointAt(0)) >>> 0; return PALETTE[h % PALETTE.length]; }
+function initial(s) { const c = Array.from(String(s).replace(/^[@\s]+/, ""))[0] || "?"; return /[a-z]/i.test(c) ? c.toUpperCase() : c; }
+
+const on = (p, k) => !!(p.filters && p.filters[k] && p.filters[k].on);
+const conflicts = (p) => (p.verification.pageMismatches || []).concat(p.verification.otherContradictions || []);
+const NEG = /封|挂了|登不上|密码错误|改密码|失败|避雷|不理|打水漂|没有任何保障|沒有任何保障|骗|跑路|不退/;
+const isNeg = (t) => t.sentiment ? t.sentiment === "negative" : NEG.test(t.quote);
+const negatives = (p) => p.verification.thirdParty.filter(isNeg);
+function hostOf(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } }
+
+days.forEach((day) => {
+  const meta = day.snapshot.meta;
+  const brief = { kind: "brief", id: "d:" + day.date, day: day.date, meta, posts: [] };
+  items.push(brief); byId.set(brief.id, brief);
+  day.snapshot.posts.slice().sort((a, b) => a.n - b.n).forEach((p) => {
+    const it = { kind: "post", id: "p:" + p.id + "@" + day.date, day: day.date, p, b: day.briefs[String(p.n)] || {}, meta };
+    items.push(it); byId.set(it.id, it); brief.posts.push(it);
+    const key = String(p.handle).toLowerCase();
+    if (!sellers.has(key)) sellers.set(key, { key, handle: p.handle, name: p.name, posts: [] });
+    const s = sellers.get(key); s.posts.push(it); s.name = s.name || p.name;
+  });
+});
+
+/* ---------- risk score ---------- */
+// Transparent rubric. Higher = more red flags in the public record. Not an endorsement either way.
+function scoreSeller(s) {
+  const ps = s.posts.map((x) => x.p);
+  const conf = [], neg = [], refundPosts = [], weakPosts = [], nonePosts = [], pagePosts = [];
+  ps.forEach((p) => {
+    conflicts(p).forEach((c) => { if (!conf.some((x) => x.text === c)) conf.push({ text: c, n: p.n, day: dayOfPost(p) }); });
+    negatives(p).forEach((t) => neg.push(Object.assign({ n: p.n }, t)));
+    if (on(p, "refund_promise")) refundPosts.push(p);
+    if (on(p, "first_login") || on(p, "no_ban")) weakPosts.push(p);
+    if (!on(p, "refund_promise") && !on(p, "first_login") && !on(p, "no_ban")) nonePosts.push(p);
+    const L = p.verification.landing;
+    if (L && (L.terms || L.claude_terms || L.price || L.prices) && !(L.inaccessible && !L.price && !L.prices)) pagePosts.push(p);
+  });
+  const shops = new Set();
+  ps.forEach((p) => (p.promo || []).concat(p.expandedLinks || [], p.verification.landing && p.verification.landing.url ? [p.verification.landing.url] : [])
+    .forEach((u) => { const h = hostOf(u); if (h && !/^(x|twitter|t)\.(com|co)$/.test(h)) shops.add(h); }));
+  const rules = [
+    { t: "说法前后矛盾", pts: Math.min(50, conf.length * 25), d: conf.length ? conf.map((c) => c.text + "（第 " + c.n + " 条）").join("；") : "原帖、作者评论和商品页之间没发现冲突", unit: "每处 +25，最多 50" },
+    { t: "评论区负面自述", pts: Math.min(30, neg.length * 10), d: neg.length ? neg.map((x) => "@" + x.handle + "「" + x.quote + "」").join("；") + "。均为自述，未证实" : "本次摘录的评论里没有封号、登不上、客服不理等自述", unit: "每条 +10，最多 30" },
+    { t: "只保首登或不保封号", pts: weakPosts.length ? 10 : 0, d: weakPosts.length ? "第 " + weakPosts.map((p) => p.n).join("、") + " 条：原帖或商品页写明登录后封号无售后" : "没有发现这类条款", unit: "+10" },
+    { t: "完全没写质保条款", pts: nonePosts.length && nonePosts.length === ps.length ? 10 : 0, d: nonePosts.length === ps.length ? "原帖、评论、商品页都没写质保或退款" : "至少一处写了条款", unit: "+10" },
+    { t: "商品页没读到", pts: pagePosts.length ? 0 : 10, d: pagePosts.length ? "已读到商品页：" + Array.from(shops).join("、") : "没有可公开读取的商品页，条款无法和原帖对照", unit: "+10" },
+    { t: "退款说法没有凭证", pts: refundPosts.length ? 5 : 0, d: refundPosts.length ? "第 " + refundPosts.map((p) => p.n).join("、") + " 条有退款/补偿说法，评论区没有可核验的退款记录" : "没有退款说法", unit: "+5" }
+  ];
+  const total = Math.min(100, rules.reduce((a, r) => a + r.pts, 0));
+  const level = total >= 50 ? "high" : total >= 25 ? "mid" : "low";
+  const evidence = ps.reduce((a, p) => a + p.verification.thirdParty.length, 0) + pagePosts.length;
+  Object.assign(s, { rules, total, level, conf, neg, shops: Array.from(shops), refundPosts, weakPosts, nonePosts, evidence });
+}
+function dayOfPost(p) { for (const it of byId.values()) if (it.p === p) return it.day; return ""; }
+sellers.forEach(scoreSeller);
+const LV = { high: "高风险", mid: "中风险", low: "低风险" };
+const sellerOf = (it) => sellers.get(String(it.p.handle).toLowerCase());
+
+/* ---------- prices ---------- */
+// Prices are only compared within one product type. Third-party quotes and other products in the same post are excluded.
+const PCATS = [
+  { key: "pro", label: "Pro 成品", long: "Claude Pro 成品号（1 个月）" },
+  { key: "max5", label: "Max 5x", long: "Claude Max 5x 成品号" },
+  { key: "max20", label: "Max 20x / Ultra", long: "Claude Max 20x / Ultra 成品号" },
+  { key: "kyc", label: "KYC 验证", long: "KYC / 门户验证服务" },
+  { key: "teams", label: "Teams", long: "Claude Teams" }
+];
+function parsePrice(v) {
+  const s = String(v || "");
+  if (/未写|未知|不计入|无零售|未再标价|未标价/.test(s)) return null;
+  const m = s.match(/(US\$|\$|¥|￥)?\s*(\d+(?:\.\d+)?)\s*(U|R)?/);
+  if (!m) return null;
+  const cur = (m[1] === "US$" || m[1] === "$") ? "USD" : m[3] === "U" ? "USDT" : "CNY";
+  return { amount: Number(m[2]), cur, approx: /参考|约/.test(s), from: /起/.test(s), bare: !m[1] && !m[3] };
+}
+function priceCat(row, it) {
+  const n = String(row.name || ""), svc = String(it.b.service || "");
+  if (/第三方|同帖其他/.test(row.src || "")) return null;
+  const product = /成品|item/i.test(n);
+  if (!product && (/KYC|门户|Portal|Identity/i.test(n) || /^(Claude\s*)?KYC/i.test(svc))) return "kyc";
+  if (/Teams/i.test(svc)) return "teams";
+  if (/20x|Ultra/i.test(n)) return "max20";
+  if (/5x/i.test(n)) return "max5";
+  if (/Max/i.test(n)) return null; // tier not stated
+  if (/Pro|item\/597|成品|每月/i.test(n)) return "pro";
+  return null;
+}
+const CUR = { CNY: "¥", USD: "US$", USDT: "" };
+const CURSUF = { CNY: "", USD: "", USDT: " U" };
+function fmtPrice(o) { return CUR[o.cur] + (Number.isInteger(o.amount) ? o.amount : o.amount.toFixed(2)) + CURSUF[o.cur]; }
+const PRICES = {}; // cat -> [{seller, cur, best, obs:[]}]
+PCATS.forEach((c) => PRICES[c.key] = []);
+(function buildPrices() {
+  const map = new Map();
+  items.filter((x) => x.kind === "post").sort((a, b) => a.day < b.day ? -1 : 1).forEach((it) => {
+    const structured = Array.isArray(it.p.prices);
+    (structured ? it.p.prices : (it.b.rows || [])).forEach((row0) => {
+      let row = row0, cat, pr;
+      if (structured) {
+        if (row0.amount == null || /第三方|同帖其他/.test(row0.source || "")) return;
+        cat = PCATS.some((c) => c.key === row0.category) ? row0.category : null; if (!cat) return;
+        row = { src: row0.source, name: row0.product, note: row0.note || "" };
+        pr = { amount: Number(row0.amount), cur: row0.currency || "CNY", approx: row0.qualifier === "参考", from: row0.qualifier === "起", bare: !!row0.currency_assumed };
+      } else {
+        cat = priceCat(row, it); if (!cat) return;
+        pr = parsePrice(row.value); if (!pr) return;
+      }
+      const s = sellerOf(it), k = cat + "|" + s.key + "|" + pr.cur;
+      if (!map.has(k)) map.set(k, { cat, seller: s, cur: pr.cur, obs: [] });
+      const e = map.get(k);
+      // keep only the latest day's observations for this seller/type
+      if (e.obs.length && e.obs[0].day !== it.day) e.obs = [];
+      if (e.obs.some((o) => o.src === row.src && o.name === row.name && o.amount === pr.amount)) return;
+      const tierUnstated = structured ? !!row0.tier_unstated : cat === "pro" && !/Pro|item\/597/i.test(row.name + " " + it.b.service);
+      e.obs.push(Object.assign({ src: row.src, name: row.name, note: row.note || "", day: it.day, id: it.id, n: it.p.n, tierUnstated }, pr));
+    });
+  });
+  map.forEach((e) => {
+    e.best = Math.min.apply(null, e.obs.map((o) => o.amount));
+    e.bestObs = e.obs.find((o) => o.amount === e.best);
+    // Pro / Max are one product per type: different sources quoting >2% apart is a mismatch.
+    // KYC / Teams list several tiers, so differing amounts there are just tiers.
+    const amts = e.obs.map((o) => o.amount), lo = Math.min.apply(null, amts), hi = Math.max.apply(null, amts);
+    e.tiers = (e.cat === "kyc" || e.cat === "teams") && new Set(amts).size > 1;
+    e.mismatch = !e.tiers && new Set(e.obs.map((o) => o.src)).size > 1 && (hi - lo) / lo > 0.02;
+    e.id = "seller:" + e.seller.key;
+    PRICES[e.cat].push(e);
+  });
+  PCATS.forEach((c) => PRICES[c.key].sort((a, b) => (a.cur === "CNY" ? 0 : 1) - (b.cur === "CNY" ? 0 : 1) || a.best - b.best || a.seller.total - b.seller.total));
+})();
+function priceRank(e) {
+  const same = PRICES[e.cat].filter((x) => x.cur === e.cur);
+  return { pos: same.filter((x) => x.best < e.best).length + 1, of: same.length };
+}
+function priceStats(cat) {
+  const v = PRICES[cat].filter((x) => x.cur === "CNY").map((x) => x.best).sort((a, b) => a - b);
+  if (!v.length) return null;
+  const mid = v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2;
+  return { min: v[0], max: v[v.length - 1], med: mid, n: v.length };
+}
+const sellerPrices = (s) => PCATS.flatMap((c) => PRICES[c.key].filter((e) => e.seller === s));
+
+function sellerSummary(s) {
+  const ps = s.posts;
+  const ds = Array.from(new Set(ps.map((x) => x.day))).sort();
+  const svc = Array.from(new Set(ps.map((x) => x.b.service).filter(Boolean)));
+  const prices = Array.from(new Set(ps.map((x) => x.b.priceLabel).filter((v) => v && v !== "未知" && v !== "多档")));
+  let t = "在 " + ds.join("、") + " 发了 " + ps.length + " 条帖，卖" + svc.join("；") + "。";
+  if (prices.length) t += "价格：" + prices.join("、") + "。";
+  t += "条款：" + Array.from(new Set(ps.map((x) => x.b.cover).filter(Boolean))).join("；") + "。";
+  if (s.conf.length) t += "发现 " + s.conf.length + " 处说法矛盾。";
+  const tp = ps.reduce((a, x) => a + x.p.verification.thirdParty.length, 0);
+  t += tp ? "评论区摘录 " + tp + " 条，其中 " + s.neg.length + " 条是负面自述。" : "评论区没有摘录到第三方发言。";
+  return t;
+}
+
+/* ================= helpers ================= */
+function esc(v) { return String(v == null ? "" : v).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c])); }
+function safeUrl(h) { try { const u = new URL(h); return (u.protocol === "http:" || u.protocol === "https:") ? u.href : null; } catch (e) { return null; } }
+function link(h, label) { const u = safeUrl(h); const l = label == null ? h : label; return u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">' + esc(l) + "</a>" : esc(l); }
+function num(n) { return Number(n || 0).toLocaleString("zh-CN"); }
+function compact(n) { n = Number(n || 0); return n >= 10000 ? (n / 10000).toFixed(n >= 100000 ? 0 : 1) + " 万" : num(n); }
+function clock(p) { const m = String(p.createdAtEt).match(/(\d{2}:\d{2})/); return m ? m[1] : ""; }
+const WD = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+function dayLabel(d) { const t = new Date(d + "T12:00:00Z"); return d + " · " + WD[t.getUTCDay()]; }
+function inline(text, day) {
+  let s = esc(text);
+  s = s.replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  s = s.replace(/第\s*((?:\d{1,2}\s*(?:、|\/|和|与|,|，)?\s*)+)\s*条/g, (all, list) => {
+    const d = days.find((x) => x.date === day);
+    const ns = (list.match(/\d{1,2}/g) || []).map(Number);
+    const ids = ns.map((n) => { const p = d && d.snapshot.posts.find((x) => x.n === n); return p ? [n, "p:" + p.id + "@" + day] : null; });
+    if (!ids.every(Boolean)) return all;
+    return "第 " + ids.map(([n, id]) => '<button type="button" class="plink" data-go="' + esc(id) + '">' + n + "</button>").join("、") + " 条";
+  });
+  return s;
+}
+function narrative(text, day) {
+  const lines = String(text || "").split("\n").filter((l) => l.trim());
+  if (!lines.length || !lines.every((l) => /^\s*-\s/.test(l))) return '<p style="white-space:pre-wrap;margin:0">' + inline(text, day) + "</p>";
+  const linkify = (h) => h.replace(/(https?:\/\/[^\s<，。；）)]+)/g, (u) => link(u.replace(/&amp;/g, "&")));
+  let h = '<ul class="narr">', depth = 0, openLi = false;
+  lines.forEach((l) => {
+    const d = /^\s{2,}-/.test(l) ? 1 : 0;
+    if (d > depth) h += "<ul>"; else { if (d < depth) h += "</li></ul>"; if (openLi) h += "</li>"; }
+    h += "<li>" + linkify(inline(l.replace(/^\s*-\s*/, "").trim(), day)); openLi = true; depth = d;
+  });
+  return h + "</li>" + (depth ? "</ul></li>" : "") + "</ul>";
+}
+function ring(score, level, lg) {
+  const r = lg ? 46 : 32, sz = lg ? 108 : 76, sw = lg ? 9 : 7, c = 2 * Math.PI * r;
+  return '<div class="ring ' + level + (lg ? " lg" : "") + '" role="img" aria-label="风险分 ' + score + "，" + LV[level] + '"><svg width="' + sz + '" height="' + sz + '" viewBox="0 0 ' + sz + " " + sz + '"><circle class="track" cx="' + sz / 2 + '" cy="' + sz / 2 + '" r="' + r + '" fill="none" stroke-width="' + sw + '"/><circle class="arc" cx="' + sz / 2 + '" cy="' + sz / 2 + '" r="' + r + '" fill="none" stroke-width="' + sw + '" stroke-linecap="round" stroke-dasharray="' + (c * Math.max(score, 2) / 100).toFixed(1) + " " + c.toFixed(1) + '"/></svg><div class="v"><div><b>' + score + "</b><small>风险分</small></div></div></div>";
+}
+
+/* ---------- local state (read / star) ---------- */
+const store = {
+  get(k) { try { return new Set(JSON.parse(localStorage.getItem("csd:" + k) || "[]")); } catch (e) { return new Set(); } },
+  set(k, s) { try { localStorage.setItem("csd:" + k, JSON.stringify(Array.from(s))); } catch (e) {} }
+};
+const READ = store.get("read"), STAR = store.get("star");
+const isRead = (id) => READ.has(id), isStar = (id) => STAR.has(id);
+function setRead(id, v) { v ? READ.add(id) : READ.delete(id); store.set("read", READ); }
+function setStar(id, v) { v ? STAR.add(id) : STAR.delete(id); store.set("star", STAR); }
+
+/* ================= views ================= */
+const SMART = [
+  { key: "all", label: "全部", ico: "M3 4.5h12M3 9h12M3 13.5h12", test: () => true },
+  { key: "latest", label: "最新一期", ico: "M9 3.2v1.6M9 13.2v1.6M3.2 9h1.6M13.2 9h1.6M5 5l1.1 1.1M11.9 11.9L13 13M5 13l1.1-1.1M11.9 6.1L13 5", circle: true, test: (it) => it.day === latest },
+  { key: "unread", label: "未读", dot: true, test: (it) => !isRead(it.id) },
+  { key: "star", label: "星标", star: true, test: (it) => isStar(it.id) },
+  { key: "conflict", label: "说法矛盾", ico: "M9 3.5l6 10.5H3zM9 8v2.8M9 12.3v.1", posts: true, test: (it) => it.kind === "post" && conflicts(it.p).length > 0 },
+  { key: "refund", label: "有退款说法", ico: "M4 9a5 5 0 109-3M13 3v3h-3", posts: true, test: (it) => it.kind === "post" && on(it.p, "refund_promise") },
+  { key: "high", label: "高风险商家的帖", ico: "M9 2.5l5.5 2v4.3c0 3.3-2.4 5.7-5.5 6.7-3.1-1-5.5-3.4-5.5-6.7V4.5z", posts: true, test: (it) => it.kind === "post" && sellerOf(it).level === "high" }
+];
+const RANKS = [
+  { key: "rank:price", label: "价格排名", ico: "M4 14V9M9 14V4M14 14v-7" },
+  { key: "rank:score", label: "风险分排名", ico: "M3 13.5l4-4 3 3 5-6M11 6.5h4v4" }
+];
+const state = { view: "latest", sel: null, q: "", pcat: "pro" };
+const isRank = () => state.view.startsWith("rank:");
+function rankEntries() {
+  const q = state.q.trim().toLowerCase();
+  const match = (s) => !q || (s.name + " " + s.handle + " " + s.shops.join(" ")).toLowerCase().includes(q);
+  if (state.view === "rank:price") return PRICES[state.pcat].filter((e) => match(e.seller));
+  return Array.from(sellers.values()).sort((a, b) => b.total - a.total || b.posts.length - a.posts.length || a.handle.localeCompare(b.handle))
+    .filter(match).map((s) => ({ id: "seller:" + s.key, seller: s }));
+}
+
+function viewItems() {
+  if (isRank()) return rankEntries();
+  let list;
+  if (state.view.startsWith("day:")) list = items.filter((it) => it.day === state.view.slice(4));
+  else if (state.view.startsWith("seller:")) list = sellers.get(state.view.slice(7)).posts.slice();
+  else { const v = SMART.find((x) => x.key === state.view) || SMART[0]; list = items.filter(v.test); if (v.posts) list = list.filter((it) => it.kind === "post"); }
+  const q = state.q.trim().toLowerCase();
+  if (q) list = list.filter((it) => hay(it).includes(q));
+  // newest day first; brief pinned to top of its day; posts by views
+  return list.sort((a, b) => a.day !== b.day ? (a.day < b.day ? 1 : -1) : a.kind !== b.kind ? (a.kind === "brief" ? -1 : 1) : b.p.metrics.impression_count - a.p.metrics.impression_count);
+}
+const HAY = new Map();
+function hay(it) {
+  if (HAY.has(it.id)) return HAY.get(it.id);
+  let s;
+  if (it.kind === "brief") s = ["每日简报", it.day, (it.meta.highlights || []).join(" ")].join(" ");
+  else { const p = it.p, v = p.verification; s = [p.handle, p.name, p.text, p.warrantyNote, v.sellerPost, v.sellerComment || "", v.narrative, v.landing ? Object.values(v.landing).join(" ") : "", (p.promo || []).join(" "), v.thirdParty.map((t) => t.handle + " " + t.quote).join(" "), it.b.service, it.b.cover, it.b.diff].join("\n"); }
+  s = s.toLowerCase(); HAY.set(it.id, s); return s;
+}
+function viewTitle() {
+  if (state.view === "rank:price") { const c = PCATS.find((x) => x.key === state.pcat); return ["价格排名", c.long + " · 从低到高"]; }
+  if (state.view === "rank:score") return ["风险分排名", "从高到低"];
+  if (state.view.startsWith("day:")) return [dayLabel(state.view.slice(4)), "当日简报与帖子"];
+  if (state.view.startsWith("seller:")) { const s = sellers.get(state.view.slice(7)); return [s.name, "@" + s.handle + " · " + LV[s.level] + " " + s.total]; }
+  const v = SMART.find((x) => x.key === state.view);
+  return [v.label, v.key === "latest" ? dayLabel(latest) : days.length + " 期"];
+}
+
+/* ---------- sidebar ---------- */
+function svgIco(v) {
+  if (v.dot) return '<span style="width:10px;height:10px;border-radius:50%;background:var(--unread);display:block"></span>';
+  if (v.star) return '<svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 2.4l2 4.1 4.5.6-3.3 3.1.8 4.5L9 12.6l-4 2.1.8-4.5L2.5 7.1 7 6.5z" fill="#e8a400"/></svg>';
+  return '<svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">' + (v.circle ? '<circle cx="9" cy="9" r="2.6" stroke="currentColor" stroke-width="1.5"/>' : "") + '<path d="' + v.ico + '" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+function renderSide() {
+  const cur = state.view;
+  const smart = SMART.map((v) => {
+    let n = items.filter(v.test); if (v.posts) n = n.filter((it) => it.kind === "post");
+    return '<button type="button" class="nav" data-view="' + v.key + '" aria-current="' + (cur === v.key) + '"><span class="ico">' + svgIco(v) + '</span><span class="lbl">' + v.label + '</span><span class="cnt">' + (n.length || "") + "</span></button>";
+  }).join("");
+  const dayNav = days.map((d) => {
+    const unread = items.filter((it) => it.day === d.date && !isRead(it.id)).length;
+    return '<button type="button" class="nav" data-view="day:' + d.date + '" aria-current="' + (cur === "day:" + d.date) + '"><span class="ico"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="11.5" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 7h13M6 2v3M12 2v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="lbl">' + dayLabel(d.date) + '</span><span class="cnt">' + (unread || "") + "</span></button>";
+  }).join("");
+  const sel = Array.from(sellers.values()).sort((a, b) => b.total - a.total || b.posts.length - a.posts.length || a.handle.localeCompare(b.handle));
+  const sellerNav = sel.map((s) => '<button type="button" class="nav" data-view="seller:' + esc(s.key) + '" aria-current="' + (cur === "seller:" + s.key) + '" title="' + esc(s.name + " @" + s.handle + " · " + LV[s.level]) + '"><span class="av" style="background:' + hue(s.handle) + '">' + esc(initial(s.name)) + '</span><span class="lbl">' + esc(s.name) + '</span><span class="score lv-' + s.level + '">' + s.total + "</span></button>").join("");
+  const rankNav = RANKS.map((r) => '<button type="button" class="nav" data-view="' + r.key + '" aria-current="' + (cur === r.key) + '"><span class="ico">' + svgIco(r) + '</span><span class="lbl">' + r.label + "</span></button>").join("");
+  document.getElementById("side-scroll").innerHTML =
+    '<div class="group"><h3>智能视图</h3>' + smart + "</div>"
+    + '<div class="group"><h3>排行榜</h3>' + rankNav + "</div>"
+    + '<div class="group"><h3>每日<span>' + days.length + " 期</span></h3>" + dayNav + "</div>"
+    + '<div class="group"><h3>商家 · 按风险分<span>' + sellers.size + "</span></h3>" + sellerNav + "</div>";
+}
+
+/* ---------- list ---------- */
+let current = [];
+function renderList() {
+  current = viewItems();
+  const [t, sub] = viewTitle();
+  document.getElementById("lt-title").textContent = t;
+  const extra = document.getElementById("lt-extra");
+  extra.hidden = state.view !== "rank:price";
+  document.getElementById("markAll").style.visibility = isRank() ? "hidden" : "";
+  if (state.view === "rank:price") extra.innerHTML = '<div class="seg" role="group" aria-label="商品类型">' + PCATS.filter((c) => PRICES[c.key].length).map((c) => '<button type="button" data-pcat="' + c.key + '" aria-pressed="' + (state.pcat === c.key) + '">' + c.label + '<span class="c">' + PRICES[c.key].length + "</span></button>").join("") + "</div>";
+  if (isRank()) { renderRankList(sub); return; }
+  const unread = current.filter((it) => !isRead(it.id)).length;
+  document.getElementById("lt-sub").textContent = sub + " · " + current.length + " 条" + (unread ? "，" + unread + " 未读" : "");
+  const el = document.getElementById("list");
+  if (!current.length) { el.innerHTML = '<p class="empty">' + (state.q ? "没有匹配的内容。" : state.view === "star" ? "还没有星标。打开一条后按 S 加星标。" : "这里没有内容。") + "</p>"; return; }
+  let h = "", lastDay = null;
+  const multiDay = new Set(current.map((x) => x.day)).size > 1 || !state.view.startsWith("day:");
+  current.forEach((it) => {
+    if (multiDay && it.day !== lastDay) { const n = current.filter((x) => x.day === it.day).length; h += '<div class="dayhead">' + dayLabel(it.day) + "<span>" + n + " 条</span></div>"; lastDay = it.day; }
+    h += itemHtml(it);
+  });
+  el.innerHTML = h;
+}
+function itemHtml(it) {
+  const selected = state.sel === it.id;
+  const cls = "item" + (isRead(it.id) ? " read" : "") + (it.kind === "brief" ? " brief" : "");
+  const flags = (isRead(it.id) ? "" : '<span class="dot" aria-label="未读"></span>') + (isStar(it.id) ? '<svg class="star" width="11" height="11" viewBox="0 0 18 18" aria-label="星标"><path d="M9 2.4l2 4.1 4.5.6-3.3 3.1.8 4.5L9 12.6l-4 2.1.8-4.5L2.5 7.1 7 6.5z" fill="currentColor"/></svg>' : "");
+  if (it.kind === "brief") {
+    const m = it.meta;
+    const nc = it.posts.filter((x) => conflicts(x.p).length).length;
+    return '<button type="button" class="' + cls + '" role="option" data-id="' + it.id + '" aria-selected="' + selected + '">' + flags
+      + '<span class="big" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M4 3.5h10v11H4zM6.5 6.5h5M6.5 9h5M6.5 11.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>'
+      + "<div><h4>每日简报：" + it.posts.length + " 条卖家帖，" + nc + " 条说法矛盾</h4><p>" + esc(stripMd((m.highlights || [])[0] || "")) + '</p><div class="src"><b>核查记录</b><span>' + esc(String(m.verificationWrittenAtEt || "").replace(/^\d{4}-\d{2}-\d{2}\s*/, "")) + "</span></div></div></button>";
+  }
+  const p = it.p, b = it.b, s = sellerOf(it);
+  const tags = (conflicts(p).length ? '<span class="tag high">矛盾</span>' : "") + (on(p, "refund_promise") ? '<span class="tag refund">退款说法</span>' : "");
+  return '<button type="button" class="' + cls + '" role="option" data-id="' + it.id + '" aria-selected="' + selected + '">' + flags
+    + '<span class="big" style="background:' + hue(p.handle) + '" aria-hidden="true">' + esc(initial(p.name)) + "</span>"
+    + "<div><h4>" + esc(b.service || p.text.slice(0, 40)) + "</h4><p>" + (tags ? '<span class="tags">' + tags + "</span>" : "") + esc(b.cover || "") + (b.diff ? "。" + esc(b.diff) : "") + "</p>"
+    + '<div class="src"><b>' + esc(p.name) + ' · <span class="lvl ' + s.level + '">' + s.total + "</span></b><span>" + esc(clock(p)) + "</span></div></div></button>";
+}
+function renderRankList(sub) {
+  const el = document.getElementById("list");
+  document.getElementById("lt-sub").textContent = sub + " · " + current.length + (state.view === "rank:price" ? " 家" : " 个商家");
+  if (!current.length) { el.innerHTML = '<p class="empty">没有匹配的商家。</p>'; return; }
+  let h = "";
+  if (state.view === "rank:price") {
+    const st = priceStats(state.pcat);
+    h += '<div class="rank-note">' + (st ? "人民币标价 " + st.n + " 家：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。" : "") + "每家取最近一期的最低标价；第三方报价和同帖其他商品不计入。价格低不代表条款更好，请同时看风险分。</div>";
+    let lastCur = null;
+    current.forEach((e) => {
+      if (e.cur !== lastCur) { if (lastCur !== null || e.cur !== "CNY") h += '<div class="subhead">' + (e.cur === "USD" ? "美元标价（不换算，单独排）" : e.cur === "USDT" ? "USDT 标价（单独排）" : "人民币标价") + "</div>"; lastCur = e.cur; }
+      const rk = priceRank(e), s = e.seller;
+      const srcs = e.obs.map((o) => o.src + " " + o.name + " " + fmtPrice(o) + (o.from ? " 起" : "")).join(" · ");
+      const flags = (e.mismatch ? '<span class="tag high">标价不一致</span>' : "") + (e.tiers ? '<span class="tag plain">多档 · 取最低</span>' : "") + (e.obs.some((o) => o.tierUnstated) ? '<span class="tag plain">未注明档位</span>' : "") + (e.bestObs.approx ? '<span class="tag plain">参考价</span>' : "") + (e.bestObs.from ? '<span class="tag plain">起价</span>' : "") + (e.obs.every((o) => o.bare) ? '<span class="tag plain">未写币种</span>' : "");
+      h += '<button type="button" class="item" role="option" data-id="' + e.id + '" aria-selected="' + (state.sel === e.id) + '">'
+        + '<span class="rk' + (rk.pos <= 3 ? " top" : "") + '">' + rk.pos + "</span>"
+        + '<div><div class="rk-top"><b>' + esc(s.name) + '</b><span class="amt">' + fmtPrice(e.bestObs) + (e.bestObs.from ? "<small>起</small>" : "") + "</span></div>"
+        + "<p>" + (flags ? '<span class="tags">' + flags + "</span>" : "") + esc(srcs) + "</p>"
+        + '<div class="src"><b>@' + esc(s.handle) + (s.shops.length ? " · " + esc(s.shops.join("、")) : "") + '</b><span class="lvl ' + s.level + '">风险 ' + s.total + "</span></div></div></button>";
+    });
+  } else {
+    h += '<div class="rank-note">风险分越高，公开记录里的红旗越多。按固定规则从帖子、商品页和评论算出；分低只说明这次没查到问题，不代表可靠。</div>';
+    current.forEach((e, i) => {
+      const s = e.seller;
+      const pos = current.filter((x) => x.seller.total > s.total).length + 1;
+      const why = s.rules.filter((r) => r.pts).sort((a, b) => b.pts - a.pts).slice(0, 2).map((r) => r.t + " +" + r.pts).join(" · ") || "没有扣分项";
+      const pro = PRICES.pro.find((x) => x.seller === s && x.cur === "CNY");
+      h += '<button type="button" class="item" role="option" data-id="' + e.id + '" aria-selected="' + (state.sel === e.id) + '">'
+        + '<span class="rk' + (pos <= 3 ? " top" : "") + '">' + pos + "</span>"
+        + '<div><div class="rk-top"><b>' + esc(s.name) + '</b><span class="amt lvl ' + s.level + '">' + s.total + "<small>" + LV[s.level] + "</small></span></div>"
+        + '<div class="sbar" aria-hidden="true"><i class="' + s.level + '" style="width:' + Math.max(s.total, 2) + '%"></i></div>'
+        + "<p>" + esc(why) + "</p>"
+        + '<div class="src"><b>@' + esc(s.handle) + " · " + s.posts.length + " 条帖</b><span>" + (pro ? "Pro " + fmtPrice(pro.bestObs) : "") + "</span></div></div></button>";
+    });
+  }
+  el.innerHTML = h;
+}
+function stripMd(t) { return String(t).replace(/^\s*\d+\.\s*/, "").replace(/\*\*|`/g, ""); }
+
+/* ---------- reader ---------- */
+const reader = document.getElementById("reader");
+function renderReader() {
+  const sel = state.sel;
+  const openBtn = document.getElementById("openBtn"), readBtn = document.getElementById("readBtn"), starBtn = document.getElementById("starBtn"), sellerBtn = document.getElementById("sellerBtn");
+  let html = "", url = null, it = null, sellerKey = null;
+  if (!sel) html = '<div class="article"><p class="empty">从列表里选一条。</p></div>';
+  else if (sel.startsWith("seller:")) { sellerKey = sel.slice(7); html = sellerHtml(sellers.get(sellerKey)); }
+  else { it = byId.get(sel); if (it.kind === "brief") html = briefHtml(it); else { html = postHtml(it); url = it.p.url; sellerKey = sellerOf(it).key; } }
+  reader.innerHTML = html;
+  reader.scrollTop = 0;
+  const u = url && safeUrl(url);
+  if (u) { openBtn.href = u; openBtn.style.visibility = ""; } else { openBtn.removeAttribute("href"); openBtn.style.visibility = "hidden"; }
+  readBtn.disabled = starBtn.disabled = !it;
+  if (it) {
+    const r = isRead(it.id);
+    readBtn.setAttribute("aria-label", r ? "标为未读" : "标为已读"); readBtn.title = (r ? "标为未读" : "标为已读") + " (U)";
+    readBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.2" stroke="currentColor" stroke-width="1.5"' + (r ? "" : ' fill="currentColor"') + "/></svg>";
+    starBtn.setAttribute("aria-pressed", String(isStar(it.id)));
+    starBtn.querySelector("path").setAttribute("fill", isStar(it.id) ? "#e8a400" : "none");
+    starBtn.querySelector("path").setAttribute("stroke", isStar(it.id) ? "#e8a400" : "currentColor");
+  }
+  sellerBtn.disabled = !sellerKey || sel.startsWith("seller:");
+  sellerBtn.dataset.key = sellerKey || "";
+}
+
+function postHtml(it) {
+  const p = it.p, b = it.b, v = p.verification, m = p.metrics, s = sellerOf(it);
+  const rows = [["原帖写的", esc(v.sellerPost || "—") + "<small>" + esc(p.warrantyNote) + "</small>"]];
+  if (v.sellerComment) rows.push(["作者评论", esc(v.sellerComment)]);
+  const L = v.landing;
+  rows.push(["商品页", L && (L.terms || L.claude_terms) ? esc(L.terms || L.claude_terms) + (L.url ? "<small>" + link(L.url) + "</small>" : "") : '<span style="color:var(--muted)">这次没有读到独立商品页</span>']);
+  const cmp = rows.map(([k, x]) => '<div class="cmp"><div>' + k + "</div><div>" + x + "</div></div>").join("") + conflicts(p).map((c) => '<div class="cmp bad"><div>矛盾</div><div>' + esc(c) + "</div></div>").join("");
+  const prices = (b.rows || []).map((r) => '<div class="price"><span><small>' + esc(r.src) + "</small>" + esc(r.name) + '</span><span class="v">' + esc(r.value) + "</span>" + (r.note ? '<span class="n">' + esc(r.note) + "</span>" : "") + "</div>").join("");
+  const links = Array.from(new Set((p.expandedLinks || []).concat(p.promo || [])));
+  const voices = v.thirdParty.length ? '<p class="caveat">均为自述，没有独立核实成交。</p>' + v.thirdParty.map((t) => '<div class="voice' + (isNeg(t) ? " neg" : "") + '"><div class="top"><b>@' + esc(t.handle) + "</b><span>" + esc(t.createdAtEt || "时间未附") + "</span>" + (t.url ? link(t.url, "原评论") : "") + "</div><q>" + esc(t.quote) + "</q>" + (t.note ? '<div class="note">' + esc(t.note) + "</div>" : "") + "</div>").join("") : '<p class="caveat" style="margin:0">没有摘录到第三方发言。没看到差评只说明这次没看到，不代表可靠。</p>';
+  const landing = L ? '<dl class="kv">' + Object.entries(L).map(([k, x]) => "<dt>" + esc(LABELS[k] || k) + "</dt><dd>" + (/^https?:\/\//.test(x) ? link(x) : esc(x)) + "</dd>").join("") + "</dl>" : '<p style="margin:0">这次没有读到独立商品页。</p>';
+  return '<div class="article">'
+    + '<div class="byline"><div class="who"><button type="button" data-go="seller:' + esc(s.key) + '"><b>' + esc(p.name) + "</b><span>@" + esc(p.handle) + " · 第 " + p.n + " 条 · " + compact(m.impression_count) + " 浏览 · " + num(m.reply_count) + " 回复</span></button></div>"
+    + '<span class="avbig" style="background:' + hue(p.handle) + '" aria-hidden="true">' + esc(initial(p.name)) + "</span></div>"
+    + "<h1>" + esc(b.service) + "</h1>"
+    + '<p class="dateline">' + esc(p.createdAtEt) + "</p>"
+    + '<div class="tagrow">' + (conflicts(p).length ? '<span class="tag high">说法矛盾</span>' : "") + (on(p, "refund_promise") ? '<span class="tag refund">有退款说法</span>' : "") + ((on(p, "first_login") || on(p, "no_ban")) ? '<span class="tag mid">只保首登 / 不保封号</span>' : "") + (p.priority ? '<span class="tag plain">重点核查</span>' : "") + '<span class="tag plain">' + esc(b.priceLabel || "") + "</span></div>"
+    + '<p class="lead"><b>' + esc(b.cover) + "。</b>" + esc(b.diff ? b.diff + "。" : "") + "</p>"
+    + '<div class="sec"><h2>条款对照</h2><div class="box">' + cmp + "</div></div>"
+    + (prices ? '<div class="sec"><h2>价格</h2><div class="box">' + prices + "</div></div>" : "")
+    + '<div class="sec"><h2>原帖全文<span>' + link(p.url, "x.com 原帖 ↗") + '</span></h2><pre class="orig">' + esc(p.text) + "</pre>" + (links.length ? '<ul class="links">' + links.map((u) => "<li>" + link(u) + "</li>").join("") + "</ul>" : "") + "</div>"
+    + '<div class="sec"><h2>评论区摘录<span>' + v.thirdParty.length + " 条</span></h2>" + voices + "</div>"
+    + '<div class="sec"><h2>商家档案</h2>' + sellerCard(s) + "</div>"
+    + '<div class="sec"><h2>核查细节</h2>'
+    + '<details class="fold"><summary>核查记录全文</summary><div class="in">' + narrative(v.narrative, it.day) + "</div></details>"
+    + '<details class="fold"><summary>商品页读取结果</summary><div class="in"><p class="caveat">截至 ' + esc(it.meta.pricesAsOfEt) + "，只读取，不嵌入对方页面。</p>" + landing + "</div></details>"
+    + '<details class="fold"><summary>本次没覆盖到</summary><div class="in">' + esc((v.missing || []).join("、") || "—") + '<p class="caveat" style="margin:8px 0 0">读取范围：' + esc(v.coverage) + "</p></div></details></div>"
+    + "</div>";
+}
+const LABELS = { url: "页面", price: "标价", prices: "标价", terms: "现行条款", claude_terms: "成品号条款", kyc_refund: "KYC 退款条款", price_pro_fangai: "Pro 标价", sister_max_prices: "另一域名 Max 标价", gap: "本次没核到", inaccessible: "未能读到" };
+
+function sellerCard(s) {
+  const top = s.rules.filter((r) => r.pts).sort((a, b) => b.pts - a.pts).slice(0, 3).map((r) => r.t + " +" + r.pts).join(" · ");
+  return '<div class="scard">' + ring(s.total, s.level) + '<div><span class="lvl ' + s.level + '">' + LV[s.level] + "</span>" + (top ? ' <span style="color:var(--muted);font-size:13px">· ' + esc(top) + "</span>" : "")
+    + "<p>" + esc(s.name) + "（@" + esc(s.handle) + "）" + esc(sellerSummary(s)) + '</p><button type="button" class="go" data-go="seller:' + esc(s.key) + '">查看完整档案、评分依据和全部出处 →</button></div></div>';
+}
+
+function sellerHtml(s) {
+  const posts = s.posts.slice().sort((a, b) => a.day !== b.day ? (a.day < b.day ? 1 : -1) : a.p.n - b.p.n);
+  const postSrc = posts.map((x) => "<li>" + link(x.p.url, x.b.service || "原帖") + " <span>· " + esc(x.p.createdAtEt) + "</span></li>").join("");
+  const pages = [];
+  posts.forEach((x) => { const L = x.p.verification.landing; if (L) Object.entries(L).forEach(([k, val]) => { if (/^https?:\/\//.test(val) && !pages.some((y) => y.u === val)) pages.push({ u: val, t: L.terms || L.claude_terms || "", st: L.inaccessible ? "未能读到" : "" }); }); });
+  const pageSrc = pages.map((y) => "<li>" + link(y.u) + (y.t ? " <span>· " + esc(y.t) + "</span>" : "") + (y.st ? " <span>· " + esc(y.st) + "</span>" : "") + "</li>").join("");
+  const comments = [];
+  posts.forEach((x) => x.p.verification.thirdParty.forEach((t) => comments.push(t)));
+  const cSrc = comments.map((t) => "<li>@" + esc(t.handle) + "「" + esc(t.quote) + "」 " + (t.url ? link(t.url, "原评论") : "<span>未附链接</span>") + "</li>").join("");
+  const ds = Array.from(new Set(posts.map((x) => x.day))).sort();
+  return '<div class="article">'
+    + '<div class="prof-head"><div><span class="avbig" style="background:' + hue(s.handle) + '" aria-hidden="true">' + esc(initial(s.name)) + "</span><h1>" + esc(s.name) + '</h1><div class="meta">' + link("https://x.com/" + encodeURIComponent(s.handle), "@" + s.handle) + " · " + s.posts.length + " 条帖 · " + esc(ds[0] === ds[ds.length - 1] ? ds[0] : ds[0] + " – " + ds[ds.length - 1]) + (s.shops.length ? " · " + esc(s.shops.join("、")) : "") + "</div></div>" + ring(s.total, s.level, true) + "</div>"
+    + '<div class="sec"><h2>总结</h2><p class="lead" style="font-size:16px;margin:0">' + esc(sellerSummary(s)) + "</p></div>"
+    + '<div class="sec"><h2>评分依据<span><span class="lvl ' + s.level + '">' + LV[s.level] + "</span> · 0–24 低，25–49 中，50 以上高</span></h2><div class=\"box rubric\">"
+    + s.rules.map((r) => '<div class="r' + (r.pts ? "" : " off") + '"><span class="t">' + esc(r.t) + ' <span style="color:var(--muted);font-weight:400;font-size:12px">' + esc(r.unit) + '</span></span><span class="p' + (r.pts ? "" : " zero") + '">' + (r.pts ? "+" + r.pts : "0") + '</span><span class="d">' + esc(r.d) + "</span></div>").join("")
+    + '</div><p class="caveat" style="margin-top:8px">风险分越高，公开记录里的红旗越多。只按本页数据机械计算：分低只说明这次没查到问题，不代表可靠，也不是购买建议。' + (s.evidence < 2 ? "<b>这个商家可核对的材料很少，分数参考价值有限。</b>" : "") + "</p></div>"
+    + sellerPriceHtml(s)
+    + '<div class="sec"><h2>帖子<span>' + posts.length + ' 条</span></h2><div class="box plist">' + posts.map((x) => '<button type="button" class="pi" data-go="' + x.id + '"><b>' + esc(x.b.service) + "</b><span>" + esc(x.day) + " · " + compact(x.p.metrics.impression_count) + " 浏览</span></button>").join("") + "</div></div>"
+    + '<div class="sec"><h2>出处</h2><div class="srcs"><h3>原帖</h3><ol>' + postSrc + "</ol>" + (pageSrc ? "<h3>商品页</h3><ol>" + pageSrc + "</ol>" : "") + (cSrc ? "<h3>评论</h3><ol>" + cSrc + "</ol>" : "") + "</div></div>"
+    + "</div>";
+}
+
+function sellerPriceHtml(s) {
+  const es = sellerPrices(s);
+  if (!es.length) return '<div class="sec"><h2>价格</h2><p class="caveat" style="margin:0">帖子和商品页都没写可比较的价格。</p></div>';
+  return '<div class="sec"><h2>价格与排名<span>同类商品内比较，越小越便宜</span></h2><div class="box ptable">' + es.map((e) => {
+    const c = PCATS.find((x) => x.key === e.cat), rk = priceRank(e);
+    return '<div class="pr"><b>' + esc(c.label) + '</b><span class="amt">' + fmtPrice(e.bestObs) + (e.bestObs.from ? "<small>起</small>" : "") + '</span><span class="d">'
+      + (rk.of > 1 ? "第 " + rk.pos + " 低 / " + rk.of + " 家" + (e.cur !== "CNY" ? "（" + e.cur + " 单独排）" : "") + " · " : "")
+      + esc(e.obs.map((o) => o.src + " " + o.name + " " + fmtPrice(o) + (o.from ? " 起" : "")).join("；"))
+      + (e.mismatch ? ' · <span style="color:var(--high)">不同来源标价不一致</span>' : "")
+      + ' · <button type="button" data-rank="' + e.cat + '">看排名</button></span></div>';
+  }).join("") + "</div></div>";
+}
+function briefHtml(it) {
+  const m = it.meta, posts = it.posts;
+  const nRefund = posts.filter((x) => on(x.p, "refund_promise")).length;
+  const nConf = posts.filter((x) => conflicts(x.p).length).length;
+  const daySellers = Array.from(new Set(posts.map((x) => sellerOf(x)))).sort((a, b) => b.total - a.total);
+  const nHigh = daySellers.filter((s) => s.level === "high").length;
+  const scanned = (String(m.digestIntro || "").match(/独立帖\s*(\d+)\s*条/) || [])[1];
+  const byViews = posts.slice().sort((a, b) => b.p.metrics.impression_count - a.p.metrics.impression_count);
+  const hl = (m.highlights || []).map((raw) => { const x = String(raw).match(/^\s*(\d+)\.\s*\*\*(.+?)\*\*\s*([\s\S]*)$/); return x ? { n: x[1], t: x[2], b: x[3] } : { n: "", t: "", b: raw }; });
+  const s597 = m.sharedItem597 || {}; const pr = Object.entries(s597.pricesCny || {}).sort((a, b) => a[1] - b[1]); const mx = pr.length ? pr[pr.length - 1][1] : 1;
+  return '<div class="article">'
+    + '<div class="byline"><div class="who"><b>每日简报</b><span>抓取 ' + esc(m.digestFetchedAtEt) + " · 核查 " + esc(m.verificationWrittenAtEt) + '</span></div><span class="avbig" style="background:var(--ink);color:var(--bg)" aria-hidden="true">' + esc(it.day.slice(8)) + "</span></div>"
+    + "<h1>" + esc(it.day) + " 的 Claude 卖家帖</h1>"
+    + '<p class="dateline">美东时间 ' + esc(it.day) + " 00:00–24:00</p>"
+    + '<p class="lead">当天去重后 ' + esc(scanned || "—") + " 条公开帖，收录 " + posts.length + " 条出售 Claude 账号、成品号、代充和 KYC 验证服务的帖子，逐条比对原帖、商品页和评论区。</p>"
+    + '<div class="stats"><div class="stat"><b>' + posts.length + "</b><span>收录帖子</span></div><div class=\"stat\"><b>" + nRefund + '</b><span>有退款说法</span></div><div class="stat warn"><b>' + nConf + '</b><span>说法矛盾</span></div><div class="stat warn"><b>' + nHigh + "</b><span>高风险商家</span></div></div>"
+    + '<div class="sec"><h2>当日帖子 · 按浏览量<span>颜色是商家风险等级</span></h2><div class="cells">' + byViews.map((x) => { const s = sellerOf(x); return '<button type="button" class="cell ' + s.level + '" data-go="' + x.id + '" title="' + esc("#" + x.p.n + " " + x.p.name + " · " + x.b.service + " · 风险 " + s.total) + '">' + x.p.n + "</button>"; }).join("") + '</div><ul class="legend"><li><i style="background:var(--high)"></i>高风险</li><li><i style="background:var(--mid)"></i>中风险</li><li><i style="background:var(--line-2)"></i>低风险</li></ul></div>'
+    + '<div class="sec"><h2>今日风险最高的商家<span><button type="button" data-goview="rank:score" style="color:var(--sel)">完整风险排名 →</button></span></h2><div class="box plist">' + daySellers.slice(0, 5).map((s) => '<button type="button" class="pi" data-go="seller:' + esc(s.key) + '"><b>' + esc(s.name) + ' <span class="lvl ' + s.level + '" style="font-size:12px">' + s.total + "</span></b><span>" + esc(s.rules.filter((r) => r.pts).sort((a, b) => b.pts - a.pts).slice(0, 2).map((r) => r.t).join("、")) + "</span></button>").join("") + "</div></div>"
+    + (function () { const st = priceStats("pro"); const low = PRICES.pro.filter((e) => e.cur === "CNY").slice(0, 3); return st ? '<div class="sec"><h2>Pro 成品价格<span><button type="button" data-rank="pro" style="color:var(--sel)">完整价格排名 →</button></span></h2><div class="box plist">' + low.map((e, i) => '<button type="button" class="pi" data-rank="pro" data-sel="' + e.id + '"><b>' + (i + 1) + ". " + esc(e.seller.name) + " " + fmtPrice(e.bestObs) + '</b><span class="lvl ' + e.seller.level + '">风险 ' + e.seller.total + "</span></button>").join("") + '</div><p class="caveat" style="margin-top:8px">' + st.n + " 家标了人民币价：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。</p></div>" : ""; })()
+    + '<div class="sec"><h2>核查发现<span>' + hl.length + " 条</span></h2>" + hl.map((f, i) => '<div class="find"><span class="n">发现 ' + esc(f.n || i + 1) + "</span>" + (f.t ? "<h3>" + inline(f.t, it.day) + "</h3>" : "") + "<div>" + inline(f.b, it.day) + "</div></div>").join("") + "</div>"
+    + (pr.length ? '<div class="sec"><h2>同一份商品文案，' + pr.length + " 个店<span><code>/item/597</code></span></h2>" + pr.map(([n, v]) => '<div class="bar-row"><span class="nm" title="' + esc(n) + '">' + esc(n) + '</span><div class="bar-tr"><div class="bar-fl" style="width:' + (v / mx * 100).toFixed(1) + '%"></div></div><span class="vv">¥' + esc(v) + "</span></div>").join("") + '<div class="quote">' + esc(s597.warrantyQuote || "") + '</div><p class="caveat" style="margin-top:8px">文案相同只说明货架同源或同模板，不能据此认定是同一家商家。</p></div>' : "")
+    + '<div class="sec"><h2>方法与覆盖</h2><ul class="narr">' + (m.coverageBullets || []).map((x) => "<li>" + inline(x, it.day) + "</li>").join("") + "</ul></div>"
+    + '<div class="sec"><h2>原始数据</h2><div class="box"><ul class="dl">' + (m.downloads || []).map((d) => '<li><a href="' + esc(d.href) + '" download>' + esc(d.label) + "</a><span>" + esc(String(d.href).split(".").pop().toUpperCase()) + "</span></li>").join("") + "</ul></div></div>"
+    + '<p class="disclaim">只整理公开帖子、商品页和评论里的原话。风险分按固定规则从这些材料算出，不评价卖家是否可靠，也不构成购买建议。</p>'
+    + "</div>";
+}
+
+/* ================= interaction ================= */
+const mobile = window.matchMedia("(max-width: 720px)");
+function select(id, opts) {
+  opts = opts || {};
+  state.sel = id;
+  const it = byId.get(id);
+  if (it && opts.markRead !== false) setRead(id, true);
+  renderSide(); renderList(); renderReader();
+  syncHash();
+  const row = document.querySelector('.item[data-id="' + CSS.escape(id) + '"]');
+  if (row && opts.focus !== false) { row.scrollIntoView({ block: "nearest" }); if (!mobile.matches) row.focus({ preventScroll: true }); }
+  if (mobile.matches && opts.open !== false) document.body.classList.add("reading");
+}
+function setView(v) {
+  state.view = v;
+  closeSide();
+  const list = viewItems();
+  if (v.startsWith("seller:")) select("seller:" + v.slice(7), { open: false, focus: false });
+  else select(list[0] ? list[0].id : null, { open: false, focus: false, markRead: !mobile.matches });
+}
+function syncHash() {
+  const h = "#v=" + encodeURIComponent(state.view) + (state.view === "rank:price" ? "&c=" + state.pcat : "") + (state.sel ? "&i=" + encodeURIComponent(state.sel) : "");
+  if (location.hash !== h) history.replaceState(null, "", h);
+}
+function closeSide() { document.body.classList.remove("side-open"); }
+
+document.getElementById("side-scroll").addEventListener("click", (e) => { const b = e.target.closest("[data-view]"); if (b) setView(b.dataset.view); });
+document.getElementById("list").addEventListener("click", (e) => { const b = e.target.closest("[data-id]"); if (b) select(b.dataset.id); });
+document.addEventListener("click", (e) => {
+  const r = e.target.closest("[data-rank]");
+  if (r) { state.pcat = r.dataset.rank; state.view = "rank:price"; const sel = r.dataset.sel || (state.sel && state.sel.startsWith("seller:") && PRICES[state.pcat].some((x) => x.id === state.sel) ? state.sel : null); if (sel) select(sel, { focus: false }); else setView("rank:price"); return; }
+  const gv = e.target.closest("[data-goview]");
+  if (gv) { setView(gv.dataset.goview); return; }
+  const pc = e.target.closest("[data-pcat]");
+  if (pc) { state.pcat = pc.dataset.pcat; setView("rank:price"); return; }
+  const g = e.target.closest("[data-go]");
+  if (!g) return;
+  const id = g.dataset.go;
+  if (id.startsWith("seller:")) { if (sellers.has(id.slice(7))) { state.view = id; select(id, { focus: false }); } return; }
+  if (!byId.has(id)) return;
+  else { if (!viewItems().some((x) => x.id === id)) state.view = "day:" + byId.get(id).day; select(id); }
+});
+document.getElementById("q").addEventListener("input", (e) => { state.q = e.target.value; renderList(); });
+document.getElementById("menuBtn").addEventListener("click", () => document.body.classList.toggle("side-open"));
+document.getElementById("scrim").addEventListener("click", closeSide);
+document.getElementById("backBtn").addEventListener("click", () => document.body.classList.remove("reading"));
+document.getElementById("readBtn").addEventListener("click", () => { if (!state.sel) return; setRead(state.sel, !isRead(state.sel)); renderSide(); renderList(); renderReader(); });
+document.getElementById("starBtn").addEventListener("click", () => { if (!state.sel) return; setStar(state.sel, !isStar(state.sel)); renderSide(); renderList(); renderReader(); });
+document.getElementById("sellerBtn").addEventListener("click", (e) => { const k = e.currentTarget.dataset.key; if (k) { state.view = "seller:" + k; select("seller:" + k, { focus: false }); } });
+document.getElementById("markAll").addEventListener("click", () => { current.forEach((it) => READ.add(it.id)); store.set("read", READ); renderSide(); renderList(); renderReader(); });
+document.addEventListener("keydown", (e) => {
+  if (/input|textarea/i.test(e.target.tagName) || e.metaKey || e.ctrlKey || e.altKey) return;
+  const i = current.findIndex((x) => x.id === state.sel);
+  if (e.key === "ArrowDown" || e.key === "j") { e.preventDefault(); const n = current[i + 1] || (i < 0 && current[0]); if (n) select(n.id, { open: false }); }
+  else if (e.key === "ArrowUp" || e.key === "k") { e.preventDefault(); const n = current[i - 1]; if (n) select(n.id, { open: false }); }
+  else if ((e.key === "u" || e.key === "U") && byId.has(state.sel)) { setRead(state.sel, !isRead(state.sel)); renderSide(); renderList(); renderReader(); }
+  else if ((e.key === "s" || e.key === "S") && byId.has(state.sel)) { setStar(state.sel, !isStar(state.sel)); renderSide(); renderList(); renderReader(); }
+  else if (e.key === "/") { e.preventDefault(); document.getElementById("q").focus(); }
+  else if (e.key === "Escape") { closeSide(); document.body.classList.remove("reading"); }
+});
+
+/* ================= boot ================= */
+const total = items.filter((x) => x.kind === "post").length;
+document.getElementById("side-sub").textContent = days.length + " 期 · " + total + " 条帖 · " + sellers.size + " 个商家";
+document.getElementById("side-foot").textContent = "静态快照，最近更新 " + (days[0] ? days[0].snapshot.meta.verificationWrittenAtEt : "") + "。不构成购买建议。";
+(function boot() {
+  const h = new URLSearchParams(location.hash.slice(1));
+  const v = h.get("v"), i = h.get("i");
+  if (h.get("c") && PCATS.some((x) => x.key === h.get("c"))) state.pcat = h.get("c");
+  const validView = v && (SMART.some((x) => x.key === v) || RANKS.some((x) => x.key === v) || (v.startsWith("day:") && days.some((d) => "day:" + d.date === v)) || (v.startsWith("seller:") && sellers.has(v.slice(7))));
+  state.view = validView ? v : "latest";
+  if (i && (byId.has(i) || (i.startsWith("seller:") && sellers.has(i.slice(7))))) select(i, { focus: false });
+  else setView(state.view);
+})();
+})();
+</script>
+</body>
+</html>
