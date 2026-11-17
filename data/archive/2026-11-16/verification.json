@@ -1,0 +1,568 @@
+{
+  "topic": "Read-only comment and landing-page verification of 2026-11-15 Claude seller digest",
+  "fetched_at_et": "2026-11-16 23:25–23:32 ET（America/New_York，UTC-5）",
+  "written_at_et": "2026-11-16 23:32 ET",
+  "method": "Public X conversation_id search and public catalog GET; no contact, login, or orders",
+  "priority_posts": [
+    3,
+    6,
+    7,
+    18
+  ],
+  "shared_item_597_shops": {
+    "note": "Same product id/title/warranty text; different prices. Template or upstream similarity, not proof of one company.",
+    "warranty_quote": "本商品是免 KYC 号，不是已经过 KYC 的号。……质保只有一条：首次登录不上可以联系售后。登录成功之后：被封号、弹 KYC 等，均无任何售后。",
+    "prices_cny": {
+      "zyanai.cc": 230,
+      "aixiaodian.vip": 235,
+      "zzaibox.cn": 240,
+      "subsmall.com": 248,
+      "xingchen666.store": 249.9,
+      "ai-melody.shop": 258,
+      "jackai.club": 299,
+      "zhizhuxia.vip": 380
+    }
+  },
+  "posts": [
+    {
+      "n": 1,
+      "id": "2122192191699509694",
+      "handle": "wofuhuola",
+      "url": "https://x.com/wofuhuola/status/2122192191699509694",
+      "promo": [],
+      "coverage": "conversation searched; ~50/63 replies read; no promo page",
+      "seller_post": "预约出号+VPS，无价格无质保",
+      "seller_comment": "已读范围内无公开报价或质保补充",
+      "landing": null,
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "价格",
+        "质保",
+        "退款方式",
+        "买家反馈"
+      ]
+    },
+    {
+      "n": 2,
+      "id": "2121897717165121765",
+      "handle": "jjjj2087631",
+      "url": "https://x.com/jjjj2087631/status/2121897717165121765",
+      "promo": [
+        "http://xingchen666.store",
+        "https://xingchen666.store/item/597"
+      ],
+      "coverage": "conversation searched (~31 replies, first page + partial older); item/597 fetched",
+      "seller_post": "免key Claude成品，无质保句",
+      "seller_comment": "作者称 pro成品「免kyc的」",
+      "landing": {
+        "url": "https://xingchen666.store/item/597",
+        "price": "¥249.90",
+        "terms": "没过KYC；只保首登；登录后封号/弹KYC无售后；原路退预订扣10%"
+      },
+      "third_party": [
+        {
+          "handle": "2nTZBzWokfEWRZa",
+          "url": "https://x.com/2nTZBzWokfEWRZa/status/2122299317931409419",
+          "created_at_et": "2026-11-16 07:02 ET",
+          "quote": "Pro激活一直失败联系客服没反应，提交投诉单也没反应，避雷",
+          "note": "作者追问哪个pro，未必是Claude；自述未证实"
+        }
+      ],
+      "conflicts": [],
+      "missing": [
+        "针对Claude的退款结案"
+      ]
+    },
+    {
+      "n": 3,
+      "id": "2121840599418683751",
+      "handle": "sankenainai",
+      "url": "https://x.com/sankenainai/status/2121840599418683751",
+      "promo": [
+        "https://t.me/beibeishoo",
+        "https://bei-bei.shop/"
+      ],
+      "coverage": "conversation searched (first page 24, pagination token returned 0); TG preview only; bei-bei.shop Cloudflare 403",
+      "seller_post": "KYC 100，门户 240；不通过退款，封号也退款；称零封号全部通过",
+      "seller_comment": "指向售后电报群 @beibeishoo；让询单者加群",
+      "landing": {
+        "url": "https://t.me/beibeishoo",
+        "terms": "公开预览：交流群、卡网 bei-bei.shop、通知群 @beibeisho；商品条款未读到",
+        "inaccessible": "https://bei-bei.shop/ Cloudflare拦截"
+      },
+      "third_party": [],
+      "conflicts": [
+        "与第6条成功率70%、封号率2%、秒封已退款的卖家自述矛盾"
+      ],
+      "missing": [
+        "退款方式",
+        "独立退款凭证",
+        "封号时限定义"
+      ]
+    },
+    {
+      "n": 4,
+      "id": "2121893349489783062",
+      "handle": "WhiteAi66",
+      "url": "https://x.com/WhiteAi66/status/2121893349489783062",
+      "promo": [
+        "http://whiteaishop.com",
+        "https://whiteaishop.com/products/local-white-claude-in-pro",
+        "https://whiteaishop.com/products/local-white-claude-ultra",
+        "https://whiteaishop.com/products/local-white-kyc-us-portal",
+        "https://whiteaishop.com/products/local-white-kyc-us"
+      ],
+      "coverage": "conversation first page ~25 (live ~18 replies); Claude and KYC product pages fetched",
+      "seller_post": "交付订阅和Portal KYC，无具体质保句",
+      "seller_comment": "不成功退款；不过退钱（未提85%）",
+      "landing": {
+        "claude_terms": "交付可登录+订阅意外失效有售后；封号不在质保；代续=原实付-100",
+        "kyc_refund": "失败部分实付金额的85%，凭订单号联系Telegram",
+        "prices": "印度Pro参考¥400；Ultra¥2510；Portal US$75；Identity KYC US$55"
+      },
+      "third_party": [
+        {
+          "handle": "ZDoncik67391",
+          "url": "https://x.com/ZDoncik67391/status/2122274830934241501",
+          "quote": "брал за 75 долл kyc вериф, все норм",
+          "note": "自述，非证实成交"
+        }
+      ],
+      "conflicts": [
+        "评论「不成功退款」vs 落地页失败退85%"
+      ],
+      "missing": [
+        "封号退款（页面明确不保）",
+        "独立退款凭证"
+      ]
+    },
+    {
+      "n": 5,
+      "id": "2122136402196603056",
+      "handle": "ZhaoZhaovfbc",
+      "url": "https://x.com/ZhaoZhaovfbc/status/2122136402196603056",
+      "promo": [
+        "https://zzaibox.cn/item/597"
+      ],
+      "coverage": "conversation two pages (~49 statuses, live ~39 replies); item/597 fetched",
+      "seller_post": "¥240 过kyc成品号，不保封号",
+      "seller_comment": "被问是否过KYC时回「登录一下不就知道了」；报Max 1330；称可代充续期；对密码错误投诉要订单号核实，未见结案",
+      "landing": {
+        "url": "https://zzaibox.cn/item/597",
+        "price": "¥240",
+        "terms": "没过KYC；只保首登；登录后封号/弹KYC无售后"
+      },
+      "third_party": [
+        {
+          "handle": "magnate1005",
+          "url": "https://x.com/magnate1005/status/2122288739791851809",
+          "created_at_et": "2026-11-16 06:20 ET",
+          "quote": "免k就免k号 宣传发过kyc成品，卡网免k号",
+          "note": "指出原帖与卡网矛盾"
+        },
+        {
+          "handle": "qianchang4372",
+          "url": "https://x.com/qianchang4372/status/2122327785893191941",
+          "created_at_et": "2026-11-16 08:55 ET",
+          "quote": "之前買過 1 個小時封，沒有任何保障",
+          "note": "第一人称自述，未证实"
+        },
+        {
+          "handle": "WillzBoning",
+          "url": "https://x.com/WillzBoning/status/2122540769064153519",
+          "created_at_et": "2026-11-16 23:02 ET",
+          "quote": "我买了号 1小时就挂了",
+          "note": "第一人称自述，未证实"
+        },
+        {
+          "handle": "Melvind3y4k",
+          "url": "https://x.com/Melvind3y4k/status/2122538710633996717",
+          "created_at_et": "2026-11-16 22:53 ET",
+          "quote": "买的成品号……账号密码错误 / 别人改密码",
+          "note": "第一人称自述；作者称先核实，未见公开结果"
+        }
+      ],
+      "conflicts": [
+        "原帖「过kyc」vs 商品页「没过KYC」"
+      ],
+      "missing": [
+        "投诉处理结果"
+      ]
+    },
+    {
+      "n": 6,
+      "id": "2122140176357249034",
+      "handle": "sankenainai",
+      "url": "https://x.com/sankenainai/status/2122140176357249034",
+      "promo": [],
+      "coverage": "conversation first page 24, pagination token returned 0",
+      "seller_post": "成功率约70%，封号率约2%，秒封都退款了；另售免K成品260R",
+      "seller_comment": "已选台湾则暂不能做，除非对方自己失败；排单久，让进群等通知",
+      "landing": null,
+      "third_party": [
+        {
+          "handle": "MRAllenxu",
+          "url": "https://x.com/MRAllenxu/status/2122193442730352990",
+          "created_at_et": "2026-11-16 00:01 ET",
+          "quote": "昨天从你这里买了个过门户的，通过了",
+          "note": "成功向自述，非退款核验"
+        },
+        {
+          "handle": "Akon1719140",
+          "url": "https://x.com/Akon1719140/status/2122309049182208214",
+          "created_at_et": "2026-11-16 07:41 ET",
+          "quote": "免K成品只保首登，没有质保，用不到半天就封了，260打水漂",
+          "note": "指向成品号而非KYC退款；未见作者答复"
+        }
+      ],
+      "conflicts": [
+        "与第3条「零封号全部通过」矛盾"
+      ],
+      "missing": [
+        "退款凭证",
+        "样本量和退款方式"
+      ]
+    },
+    {
+      "n": 7,
+      "id": "2122011970769670297",
+      "handle": "Immoz_7",
+      "url": "https://x.com/Immoz_7/status/2122011970769670297",
+      "promo": [],
+      "coverage": "conversation first page 19 plus check, pagination token 0",
+      "seller_post": "质保期内不能使用则无条件退款或换号；未写天数和价格",
+      "seller_comment": "对「怎么做到无条件退款」只回「你可以试试」；未公开报价；未见回答「封号能赔吗」",
+      "landing": null,
+      "third_party": [
+        {
+          "handle": "Blissikking",
+          "quote": "20x max plan 240U，发消息",
+          "note": "第三方报价，不是原作者"
+        }
+      ],
+      "conflicts": [],
+      "missing": [
+        "质保天数",
+        "价格",
+        "退款方式",
+        "买家反馈"
+      ]
+    },
+    {
+      "n": 8,
+      "id": "2121859129388187986",
+      "handle": "nexai_sbus",
+      "url": "https://x.com/nexai_sbus/status/2121859129388187986",
+      "promo": [
+        "https://subsmall.com",
+        "https://subsmall.com/item/597"
+      ],
+      "coverage": "conversation first page 25; item/597 fetched",
+      "seller_post": "免Key一个月成品号，无质保句",
+      "seller_comment": "多次称质保首登；又称不会弹KYC",
+      "landing": {
+        "url": "https://subsmall.com/item/597",
+        "price": "¥248",
+        "terms": "没过KYC；只保首登；弹KYC不售后"
+      },
+      "third_party": [],
+      "conflicts": [
+        "作者「不会弹KYC」vs 商品页「仍有概率弹、弹了也不售后」"
+      ],
+      "missing": [
+        "买家成交/退款反馈"
+      ]
+    },
+    {
+      "n": 9,
+      "id": "2121855343844311217",
+      "handle": "zhizhuxia22",
+      "url": "https://x.com/zhizhuxia22/status/2121855343844311217",
+      "promo": [
+        "https://zhizhuxia.vip",
+        "https://zhizhuxia.vip/item/597"
+      ],
+      "coverage": "conversation first page 25 of live ~35; item/597 fetched",
+      "seller_post": "免KYC成品号，无质保句",
+      "seller_comment": "已读范围内未见作者答复质保或客诉",
+      "landing": {
+        "url": "https://zhizhuxia.vip/item/597",
+        "price": "¥380",
+        "terms": "同一套没过KYC、只保首登"
+      },
+      "third_party": [
+        {
+          "handle": "BitG_MEME",
+          "url": "https://x.com/BitG_MEME/status/2121968083204210861",
+          "created_at_et": "2026-11-15 09:06 ET",
+          "quote": "账号登不上去，总提示密码错误，客服也不理人",
+          "note": "自述，未见作者公开回复"
+        }
+      ],
+      "conflicts": [],
+      "missing": [
+        "客诉处理结果"
+      ]
+    },
+    {
+      "n": 10,
+      "id": "2121873649531592718",
+      "handle": "deepthought_dev",
+      "url": "https://x.com/deepthought_dev/status/2121873649531592718",
+      "promo": [
+        "https://t.me/skylight_supply"
+      ],
+      "coverage": "conversation searched; Telegram public preview only",
+      "seller_post": "将上架卡网/招代理，在售Max成品，无质保",
+      "seller_comment": null,
+      "landing": {
+        "url": "https://t.me/skylight_supply",
+        "terms": "公开预览：一手免KYC成品供货，只走渠道批价，不做零售客服",
+        "inaccessible": "完整频道记录需登录"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "价格",
+        "质保",
+        "退款",
+        "完整频道条款"
+      ]
+    },
+    {
+      "n": 11,
+      "id": "2121867543690293288",
+      "handle": "kevinsims3087",
+      "url": "https://x.com/kevinsims3087/status/2121867543690293288",
+      "promo": [
+        "https://ai-melody.shop",
+        "https://ai-melody.shop/item/597"
+      ],
+      "coverage": "conversation searched (20 of mixed OR page); item/597 fetched",
+      "seller_post": "已过Kyc的Claude Pro成品号",
+      "seller_comment": "对「是免kyc不是过kyc吧」回「差不多的」；称第一次过了不会再跳；提到「质保全程」可换号退款但反问对方买的是哪一种",
+      "landing": {
+        "url": "https://ai-melody.shop/item/597",
+        "price": "¥258",
+        "terms": "没过KYC；只保首登"
+      },
+      "third_party": [],
+      "conflicts": [
+        "原帖「已过Kyc」vs 商品页「没过KYC」；公开Claude分类未见质保全程SKU"
+      ],
+      "missing": [
+        "质保全程商品详情（若存在）",
+        "买家退款反馈"
+      ]
+    },
+    {
+      "n": 12,
+      "id": "2122013570485588451",
+      "handle": "jjjj2087631",
+      "url": "https://x.com/jjjj2087631/status/2122013570485588451",
+      "promo": [
+        "https://xingchen666.store/item/597"
+      ],
+      "coverage": "conversation searched 21 statuses",
+      "seller_post": "Claude Pro成品免kyc ¥249；首登/全程质保仅写在GPT",
+      "seller_comment": "作者称claude大部分都封",
+      "landing": {
+        "url": "https://xingchen666.store/item/597",
+        "price": "¥249.90",
+        "terms": "不质保封号，只保首登"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "Claude专项退款反馈"
+      ]
+    },
+    {
+      "n": 13,
+      "id": "2121973452282479047",
+      "handle": "FLMdongtianfudi",
+      "url": "https://x.com/FLMdongtianfudi/status/2121973452282479047",
+      "promo": [
+        "https://fangai.cc/categories/claude",
+        "https://fangai.cc/products/claude-pro-ios-us-kyc-account",
+        "https://aileaderme.top/categories/claude"
+      ],
+      "coverage": "conversation searched; fangai Pro detail fetched; fangai category/Max curl returned empty SPA; sister domain aileaderme.top Max pages fetched",
+      "seller_post": "Pro 430 / 5X 1400 / 20X 2480，支持开票，本条无质保",
+      "seller_comment": "都是过KYC的成品号；「有质保吗」未见回答",
+      "landing": {
+        "url": "https://fangai.cc/products/claude-pro-ios-us-kyc-account",
+        "price_pro_fangai": "¥430",
+        "terms": "美区免KYC；质保30天订阅；封号不保含秒封；掉订阅按剩余天数协商补偿或退差价；1小时内验号",
+        "sister_max_prices": "aileaderme.top Max5x ¥1200 / Max20x ¥2350，与推文1400/2480不一致",
+        "gap": "fangai.cc Max现价未在该域直接核到"
+      },
+      "third_party": [],
+      "conflicts": [
+        "评论「过KYC」vs 详情「免KYC」",
+        "推文Max价 vs sister域现价"
+      ],
+      "missing": [
+        "fangai.cc域Max标价",
+        "买家反馈"
+      ]
+    },
+    {
+      "n": 14,
+      "id": "2121857601373970731",
+      "handle": "lugeweb3",
+      "url": "https://x.com/lugeweb3/status/2121857601373970731",
+      "promo": [
+        "https://aixiaodian.vip",
+        "https://aixiaodian.vip/item/597"
+      ],
+      "coverage": "conversation searched; item/597 fetched",
+      "seller_post": "¥235 仅保首登，怕封不要下单",
+      "seller_comment": "称随时可以封号",
+      "landing": {
+        "url": "https://aixiaodian.vip/item/597",
+        "price": "¥235",
+        "terms": "与原帖一致：没过KYC，只保首登"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "成交/退款反馈"
+      ]
+    },
+    {
+      "n": 15,
+      "id": "2121871307918938206",
+      "handle": "0xCzyan",
+      "url": "https://x.com/0xCzyan/status/2121871307918938206",
+      "promo": [
+        "https://zyanai.cc",
+        "https://zyanai.cc/item/597"
+      ],
+      "coverage": "conversation searched; live reply_count 0; item/597 fetched",
+      "seller_post": "成品号上架，无质保",
+      "seller_comment": "无评论",
+      "landing": {
+        "url": "https://zyanai.cc/item/597",
+        "price": "¥230",
+        "terms": "同一套只保首登"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "评论区（本条为0）"
+      ]
+    },
+    {
+      "n": 16,
+      "id": "2121884084431622361",
+      "handle": "AidenChen100",
+      "url": "https://x.com/AidenChen100/status/2121884084431622361",
+      "promo": [
+        "https://t.me/aidenchen100"
+      ],
+      "coverage": "conversation searched; reply_count 0; TG public profile only; quoted prior post fetched",
+      "seller_post": "一号一卡一认证，稳如老狗——非质保条款",
+      "seller_comment": "无本条评论；前帖称严格KYC认证",
+      "landing": {
+        "url": "https://t.me/aidenchen100",
+        "terms": "仅个人简介",
+        "inaccessible": "私聊与条款需登录"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "公开商品条款",
+        "买家反馈"
+      ]
+    },
+    {
+      "n": 17,
+      "id": "2121917724159058109",
+      "handle": "0x_alen",
+      "url": "https://x.com/0x_alen/status/2121917724159058109",
+      "promo": [
+        "https://shop.thop.ng"
+      ],
+      "coverage": "conversation searched; shop.thop.ng homepage fetched, not every Teams PDP",
+      "seller_post": "Teams介绍，提到连坐风险，无退款",
+      "seller_comment": "可以在网站下单 shop.thop.ng",
+      "landing": {
+        "url": "https://shop.thop.ng",
+        "prices": "Teams 6.25x ¥1599起；整包¥1399起；1.25x ¥499起",
+        "terms": "首页写仅质保首登、不保封号、一经交付不做退款；过KYC后封号不做退款"
+      },
+      "third_party": [
+        {
+          "handle": "Sec_211",
+          "quote": "目前我就是这样开的",
+          "note": "自述，未必是本店成交"
+        }
+      ],
+      "conflicts": [],
+      "missing": [
+        "各Teams详情页逐条长文（首页已有通用条款）"
+      ]
+    },
+    {
+      "n": 18,
+      "id": "2122114793771544849",
+      "handle": "Tesecy171717",
+      "url": "https://x.com/Tesecy171717/status/2122114793771544849",
+      "promo": [],
+      "coverage": "conversation searched; only author self-reply; no landing page",
+      "seller_post": "120无同样条款；220包过，封号或者失败退款",
+      "seller_comment": "远程操作 代搞",
+      "landing": null,
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "买家评论",
+        "退款方式与时限",
+        "商品页"
+      ]
+    },
+    {
+      "n": 19,
+      "id": "2122113563557040365",
+      "handle": "thisisde",
+      "url": "https://x.com/thisisde/status/2122113563557040365",
+      "promo": [],
+      "coverage": "conversation searched",
+      "seller_post": "验证后付款，无失败/封号退款句",
+      "seller_comment": "让私信或Telegram @paulltzet",
+      "landing": null,
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "失败退款条款",
+        "成交反馈"
+      ]
+    },
+    {
+      "n": 20,
+      "id": "2121974000540643368",
+      "handle": "JackAIClub",
+      "url": "https://x.com/JackAIClub/status/2121974000540643368",
+      "promo": [
+        "https://jackai.club/item/597"
+      ],
+      "coverage": "conversation searched (author self-reply only); item/597 fetched",
+      "seller_post": "过kyc成品号，不包封号",
+      "seller_comment": "多开Pro（无条款修正）",
+      "landing": {
+        "url": "https://jackai.club/item/597",
+        "price": "¥299",
+        "terms": "没过KYC；只保首登；登录后封号/弹KYC无售后"
+      },
+      "third_party": [],
+      "conflicts": [
+        "原帖「已过KYC」vs 商品页「没过KYC」"
+      ],
+      "missing": [
+        "买家评论"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "1": {
+    "service": "预约出号，并配独享 VPS",
+    "priceLabel": "未知",
+    "cover": "未写封号质保或退款",
+    "diff": "无商品页，评论未补价格",
+    "rows": [
+      { "src": "原帖", "name": "预约出号 + VPS", "value": "未写价" }
+    ]
+  },
+  "2": {
+    "service": "免 key 的 Claude 成品",
+    "priceLabel": "商品页 ¥249.90",
+    "cover": "原帖无质保句；商品页只保首登",
+    "diff": "无页文冲突。第三方称激活失败，未必是 Claude",
+    "rows": [
+      { "src": "原帖", "name": "Claude 成品", "value": "未写价" },
+      { "src": "商品页", "name": "item/597", "value": "¥249.90", "note": "没过 KYC，只保首登。这是核查读到的商品页价，不是同帖 Gemini 的 249。" },
+      { "src": "同帖其他", "name": "Gemini Ultra5x", "value": "249", "note": "不是 Claude 价，不计入上面的商品页价。" }
+    ]
+  },
+  "3": {
+    "service": "KYC 验证；门户验证",
+    "priceLabel": "多档",
+    "cover": "不通过退款，封号也退款",
+    "diff": "与第 6 条自述矛盾；商品页未读到",
+    "rows": [
+      { "src": "原帖", "name": "KYC", "value": "100" },
+      { "src": "原帖", "name": "门户验证", "value": "240" }
+    ]
+  },
+  "4": {
+    "service": "订阅交付；Portal KYC 与 Identity KYC",
+    "priceLabel": "多档",
+    "cover": "原帖无质保句。成品号封号不保；KYC 失败退 85%",
+    "diff": "评论写不成功退款，落地页是退 85%",
+    "rows": [
+      { "src": "原帖", "name": "未标价", "value": "未知" },
+      { "src": "商品页", "name": "印度 Pro 成品", "value": "参考 ¥400" },
+      { "src": "商品页", "name": "Ultra 成品", "value": "¥2510" },
+      { "src": "商品页", "name": "Portal KYC", "value": "US$75", "note": "KYC 价，不是成品号价。" },
+      { "src": "商品页", "name": "Identity KYC", "value": "US$55", "note": "KYC 价，不是成品号价。" }
+    ]
+  },
+  "5": {
+    "service": "Claude Pro 成品号，1 个月",
+    "priceLabel": "原帖 ¥240",
+    "cover": "原帖写不保封号；商品页只保首登",
+    "diff": "原帖写过 KYC，商品页写没过 KYC",
+    "rows": [
+      { "src": "原帖", "name": "Pro 成品", "value": "¥240" },
+      { "src": "商品页", "name": "item/597", "value": "¥240", "note": "页面写没过 KYC，只保首登。" },
+      { "src": "评论", "name": "Max", "value": "1330", "note": "作者另报的 Max 价，不是这条 Pro 成品的 ¥240。" }
+    ]
+  },
+  "6": {
+    "service": "KYC / 门户结果说明；另售免 K 成品",
+    "priceLabel": "多档",
+    "cover": "称秒封已退款；成品号本条未写质保",
+    "diff": "与第 3 条「零封号、全部通过」矛盾",
+    "rows": [
+      { "src": "原帖", "name": "KYC / 门户", "value": "本条未再标价", "note": "价见第 3 条，不把 260R 当成 KYC 价。" },
+      { "src": "原帖", "name": "免 K 成品", "value": "260R" }
+    ]
+  },
+  "7": {
+    "service": "Max 5x 与 20x Ultra 定制交付",
+    "priceLabel": "未知",
+    "cover": "质保期内不能使用则退款或换号；未写天数",
+    "diff": "评论未补天数、价格和赔付方式",
+    "rows": [
+      { "src": "原帖", "name": "5x / 20x", "value": "未写价" },
+      { "src": "第三方", "name": "20x", "value": "240U", "note": "不是原帖作者的报价。" }
+    ]
+  },
+  "8": {
+    "service": "Claude Pro 免 Key，一个月成品",
+    "priceLabel": "商品页 ¥248",
+    "cover": "原帖无质保句；评论和商品页都是只保首登",
+    "diff": "作者说不会弹 KYC，商品页写仍可能弹且不售后",
+    "rows": [
+      { "src": "原帖", "name": "一个月成品", "value": "未写价" },
+      { "src": "商品页", "name": "item/597", "value": "¥248" }
+    ]
+  },
+  "9": {
+    "service": "Claude Pro 免 KYC 成品",
+    "priceLabel": "商品页 ¥380",
+    "cover": "原帖无质保句；商品页只保首登",
+    "diff": "有登不上、客服不理的自述，未见作者回复",
+    "rows": [
+      { "src": "原帖", "name": "免 KYC 成品", "value": "未写价" },
+      { "src": "商品页", "name": "item/597", "value": "¥380" }
+    ]
+  },
+  "10": {
+    "service": "Max 成品；招代理，卡网未上架",
+    "priceLabel": "未知",
+    "cover": "未写质保或退款",
+    "diff": "完整频道条款未读到",
+    "rows": [
+      { "src": "原帖", "name": "Max 成品 / 代理", "value": "未写价" },
+      { "src": "频道预览", "name": "渠道批价", "value": "无零售标价" }
+    ]
+  },
+  "11": {
+    "service": "原帖称已过 KYC 的 Claude Pro 成品",
+    "priceLabel": "商品页 ¥258",
+    "cover": "原帖无质保句；商品页只保首登",
+    "diff": "原帖写已过 KYC，商品页写没过 KYC",
+    "rows": [
+      { "src": "原帖", "name": "Pro 成品", "value": "未写价" },
+      { "src": "商品页", "name": "item/597", "value": "¥258" }
+    ]
+  },
+  "12": {
+    "service": "Claude Pro 成品，免 KYC",
+    "priceLabel": "原帖 ¥249",
+    "cover": "Claude 行未写质保；商品页不保封号、只保首登",
+    "diff": "与商品页同向。GPT 的首登/全程质保不套到 Claude",
+    "rows": [
+      { "src": "原帖", "name": "Claude Pro 成品", "value": "¥249" },
+      { "src": "商品页", "name": "item/597", "value": "¥249.90" },
+      { "src": "同帖其他", "name": "GPT Plus / Gemini", "value": "不计入", "note": "首登质保 ¥59、全程质保 ¥69 写在 GPT 上。" }
+    ]
+  },
+  "13": {
+    "service": "成品号：Pro、Max 5x、Max 20x",
+    "priceLabel": "多档",
+    "cover": "本条未写质保。Pro 详情：30 天订阅质保，封号不保",
+    "diff": "评论说过 KYC，详情写免 KYC；Max 标价不一致",
+    "rows": [
+      { "src": "原帖", "name": "Pro", "value": "430" },
+      { "src": "原帖", "name": "Max 5x", "value": "1400" },
+      { "src": "原帖", "name": "Max 20x", "value": "2480" },
+      { "src": "商品页", "name": "fangai.cc Pro", "value": "¥430" },
+      { "src": "另一域", "name": "aileaderme.top Max 5x", "value": "¥1200", "note": "与推文 1400 不一致。fangai.cc 的 Max 价这次没核到。" },
+      { "src": "另一域", "name": "aileaderme.top Max 20x", "value": "¥2350", "note": "与推文 2480 不一致。" }
+    ]
+  },
+  "14": {
+    "service": "Claude Pro 免 K 成品",
+    "priceLabel": "原帖 ¥235",
+    "cover": "仅保首登，不是封号质保",
+    "diff": "与商品页一致",
+    "rows": [
+      { "src": "原帖", "name": "每月", "value": "¥235" },
+      { "src": "商品页", "name": "item/597", "value": "¥235" }
+    ]
+  },
+  "15": {
+    "service": "Claude Pro 成品",
+    "priceLabel": "商品页 ¥230",
+    "cover": "原帖无质保句；商品页只保首登",
+    "diff": "这条没有评论",
+    "rows": [
+      { "src": "原帖", "name": "成品号", "value": "未写价" },
+      { "src": "商品页", "name": "item/597", "value": "¥230" }
+    ]
+  },
+  "16": {
+    "service": "成品号，一号一卡一认证",
+    "priceLabel": "未知",
+    "cover": "「稳如老狗」不是质保",
+    "diff": "公开商品条款未读到",
+    "rows": [
+      { "src": "原帖", "name": "成品号", "value": "未写价" }
+    ]
+  },
+  "17": {
+    "service": "Claude Teams",
+    "priceLabel": "多档",
+    "cover": "首页：只保首登，不保封号，交付后不退",
+    "diff": "各详情长文未逐条读",
+    "rows": [
+      { "src": "原帖", "name": "Teams", "value": "未写价" },
+      { "src": "首页", "name": "6.25x 成品", "value": "¥1599 起" },
+      { "src": "首页", "name": "6.25x 整包", "value": "¥1399 起" },
+      { "src": "首页", "name": "1.25x", "value": "¥499 起" }
+    ]
+  },
+  "18": {
+    "service": "Claude KYC，两档",
+    "priceLabel": "多档",
+    "cover": "退款只写在 220 档",
+    "diff": "没有买家评论，也没有商品页",
+    "rows": [
+      { "src": "原帖", "name": "第一种", "value": "120", "note": "未写包过或退款。" },
+      { "src": "原帖", "name": "第二种", "value": "220", "note": "包过，封号或者失败退款。" }
+    ]
+  },
+  "19": {
+    "service": "KYC，验证后付款",
+    "priceLabel": "未知",
+    "cover": "未写失败退款或封号条款",
+    "diff": "无成交或退款反馈",
+    "rows": [
+      { "src": "原帖", "name": "KYC", "value": "未写价" }
+    ]
+  },
+  "20": {
+    "service": "原帖称过 KYC 的 Claude Pro 成品",
+    "priceLabel": "商品页 ¥299",
+    "cover": "原帖写不包封号；商品页只保首登",
+    "diff": "原帖写已过 KYC，商品页写没过 KYC",
+    "rows": [
+      { "src": "原帖", "name": "Pro 成品", "value": "未写价" },
+      { "src": "商品页", "name": "item/597", "value": "¥299", "note": "页面写没过 KYC，只保首登。" }
+    ]
+  }
+}
