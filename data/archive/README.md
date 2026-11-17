@@ -8,9 +8,9 @@
 | 2026-11-13 | 15 条。互动数同样是 2026-11-17 07:20–07:32 ET 的公开指标，不是发帖当日历史值。核查时间同 11-12。窗口内一条因判定为 API 中转而未收录，未另凑。 | `2026-11-13/posts.json`、`digest.md`、`metadata.json`、`verification.json`、`verification.md` |
 | 2026-11-14 | 17 条。帖子与互动数复用 2026-11-15 21:47 ET 已交付档案，不是 2026-11-17 新抓取。只读核查于 2026-11-17 补做，开始与工具时间同 11-12，精确结束未记录。 | `2026-11-14/posts.json`、`digest.md`、`metadata.json`、`verification.json`、`verification.md` |
 | 2026-11-15 | 当天 20 条公开卖家帖。抓取时间 2026-11-16 09:35 ET。 | `2026-11-15/posts.json`、`2026-11-15/digest.md` |
-| 2026-11-16 | 对 2026-11-15 日报的只读评论与落地页核查，不是独立帖日报。阅读窗口 23:25–23:32 ET。 | `2026-11-16/verification.json`、`2026-11-16/verification.md` |
+| 2026-11-16 | 含两部分，须并存、互不覆盖：（1）2026-11-16 ET 当日 20 条卖家帖日报与只读核查，抓取 2026-11-17 09:13–09:17 ET，核查 09:22–09:28 ET，见 `digest.md`、`posts.json`、`metadata.json`、`day.json`、`digest-verification.json`、`digest-verification.md`；（2）此前发布的对 2026-11-15 日报的核查，阅读窗口 2026-11-16 23:25–23:32 ET，仍为原文件 `verification.json`、`verification.md`，不要覆盖。 | 见左列 |
 
-2026-11-15 与 2026-11-16 的正文也在 `public/downloads/`，供 `web/index.html` 下载。`data/snapshot.json` 仍是 2026-11-15 的页面快照，不是另一套数字。11-12 至 11-14 只在本目录，没有写入该快照或旧阅读页。
+2026-11-15 的正文以及 2026-11-16 对 11-15 的核查仍在 `public/downloads/`（`2026-11-15-digest.md`、`2026-11-15-posts.json`、`2026-11-16-verification.json`、`2026-11-16-verification.md`）。2026-11-16 当日日报的下载文件使用不冲突的文件名：`2026-11-16-digest.md`、`2026-11-16-posts.json`、`2026-11-16-day.json`，不要覆盖已有的 `2026-11-16-verification.*`。`data/snapshot.json` 仍是既有页面快照，除非另有构建步骤，不在本次日报中改写。
 
 补档说明和清单在 `backfill/2026-11-12-14/README.md`、`backfill/2026-11-12-14/manifest.json`，不放在仓库根目录。
 
