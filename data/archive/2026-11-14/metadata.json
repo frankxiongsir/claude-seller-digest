@@ -1,0 +1,30 @@
+{
+  "title": "Claude 公开卖家帖每日汇总",
+  "post_date_et": "2026-11-14",
+  "window": {
+    "label": "ET natural day 2026-11-14 00:00–2026-11-15 00:00",
+    "start_utc": "2026-11-14T05:00:00Z",
+    "end_utc": "2026-11-15T05:00:00Z",
+    "timezone": "America/New_York (ET, UTC-5)"
+  },
+  "type": "daily_digest",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "post_count": 17,
+  "sort": "impression_count desc, reply_count desc, like_count desc",
+  "files": [
+    "posts.json",
+    "digest.md",
+    "verification.json",
+    "verification.md",
+    "metadata.json"
+  ],
+  "source": "reused_delivered_archive",
+  "original_delivered_at_et": "2026-11-15 21:47 ET",
+  "fetched_at_et": "2026-11-15 21:47 ET",
+  "prepared_at_et": "2026-11-17T07:46:11-05:00",
+  "metrics_note": "Metrics come from the already-delivered private 2026-11-14 archive (delivered 2026-11-15 21:47 ET). They were not re-scraped on 2026-11-17.",
+  "verification_added_at_et": "2026-11-17 07:46 ET（档案首次落盘时间，不是核查结束时刻）",
+  "unique_posts_in_window": 159,
+  "qualified": 17,
+  "timestamp_correction": "An earlier draft labeled verification end / written_at / prepared_at as 2026-11-17 07:50 ET. That clock time was not recorded by any tool or file and would have been after the 07:46 ET package mtimes and the 07:47 ET completion notice. Corrected from tool artifacts (verification start ~07:37 ET; comment/page records 07:38–07:41 ET; first package write 07:46:11 ET). The precise verification end was not logged."
+}

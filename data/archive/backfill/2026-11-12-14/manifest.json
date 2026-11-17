@@ -1,0 +1,91 @@
+{
+  "package": "claude-seller-digest-history-backfill",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "prepared_at_et": "2026-11-17 07:46 ET",
+  "target_repo": "https://github.com/frankxiongsir/claude-seller-digest",
+  "merge_hint": "Place each folder under data/archive/YYYY-MM-DD/ alongside existing 2026-11-15 and 2026-11-16. Do not overwrite 2026-11-15/16.",
+  "schema_compatibility": {
+    "posts_json": "Compatible with data/archive/2026-11-15/posts.json: post_date_et, window, count, sort, fetched_at_et, prepared_at_et, posts[]. Fields per post: id, url, handle, name, text, text_markdown, created_at, created_at_et, metrics.{impression_count,reply_count,like_count,repost_count,quote_count,bookmark_count}, warranty_class, warranty_note. 2026-11-12 and 2026-11-13 also include additive author_id. 2026-11-14 original archive used retweet_count; this public copy maps it to repost_count. Public files omit source, status, delivered_at_et, and internal paths.",
+    "verification": "Compatible with data/archive/2026-11-16/verification.json: topic, fetched_at_et, written_at_et, method, priority_posts, posts[] with n,id,handle,url,promo,coverage,seller_post,seller_comment,landing,third_party,conflicts,missing. This package keeps verification beside the post day (data/archive/YYYY-MM-DD/verification.json) rather than a next-day folder; either layout is mergeable if the site keys off post date or file name.",
+    "metadata_json": "Additive; the public 2026-11-15 tree has no metadata.json. Safe to ignore or ingest.",
+    "digest_md": "Same section layout as 2026-11-15/digest.md."
+  },
+  "days": [
+    {
+      "date_et": "2026-11-12",
+      "window_utc": "2026-11-12T05:00:00Z–2026-11-13T05:00:00Z",
+      "count": 16,
+      "origin": "new search on 2026-11-17; no prior daily archive",
+      "ids": [
+        "2120838247366725882",
+        "2120763972014268629",
+        "2121099099764388009",
+        "2120790324201275514",
+        "2120903720858984886",
+        "2120757745330933922",
+        "2120883328857542892",
+        "2120819539332260176",
+        "2120778118289846503",
+        "2120929616877490257",
+        "2120849694406713522",
+        "2120758087124652090",
+        "2121048655008522287",
+        "2120947346058137804",
+        "2121089619483930882",
+        "2120864082299703509"
+      ],
+      "verification": "partial: high-reply threads and reachable shops checked; several low-reply posts and JS/WAF shops remain gapped"
+    },
+    {
+      "date_et": "2026-11-13",
+      "window_utc": "2026-11-13T05:00:00Z–2026-11-14T05:00:00Z",
+      "count": 15,
+      "origin": "new search on 2026-11-17; no prior daily archive. JistAGI 2121144646084739390 dropped as API mid-transfer, not padded.",
+      "ids": [
+        "2121447029478244578",
+        "2121385998374539766",
+        "2121448716389527671",
+        "2121211898125516914",
+        "2121121656328409387",
+        "2121254334306689059",
+        "2121126399125901663",
+        "2121264494060110108",
+        "2121456859286794632",
+        "2121271510015046012",
+        "2121166562933797231",
+        "2121452334270333258",
+        "2121129280025321669",
+        "2121176294234915023",
+        "2121142972960108858"
+      ],
+      "verification": "partial: top threads and key shops checked; some replies and JS catalogs gapped"
+    },
+    {
+      "date_et": "2026-11-14",
+      "window_utc": "2026-11-14T05:00:00Z–2026-11-15T05:00:00Z",
+      "count": 17,
+      "origin": "reused delivered private archive (2026-11-15 21:47 ET); GitHub was missing this day",
+      "ids": [
+        "2121732965776675258",
+        "2121745432087028004",
+        "2121783093426074102",
+        "2121807230643401108",
+        "2121768671878185147",
+        "2121796385465155661",
+        "2121745457273876831",
+        "2121830027541258242",
+        "2121808840043975121",
+        "2121767270691295337",
+        "2121811061800423459",
+        "2121781215745237070",
+        "2121590120822534507",
+        "2121763828430176636",
+        "2121799860148175308",
+        "2121482257563279614",
+        "2121781399917412500"
+      ],
+      "verification": "added 2026-11-17; original posts.json/digest were not overwritten in the private archive"
+    }
+  ],
+  "timestamp_correction": "An earlier draft labeled verification end / written_at / prepared_at as 2026-11-17 07:50 ET. That clock time was not recorded by any tool or file and would have been after the 07:46 ET package mtimes and the 07:47 ET completion notice. Corrected from tool artifacts (verification start ~07:37 ET; comment/page records 07:38–07:41 ET; first package write 07:46:11 ET). The precise verification end was not logged."
+}
