@@ -499,6 +499,44 @@ sellers.forEach(scoreSeller);
 const LV = { high: "高风险", mid: "中风险", low: "低风险" };
 const sellerOf = (it) => sellers.get(String(it.p.handle).toLowerCase());
 
+/* ---------- shared sources ---------- */
+// Only two kinds of evidence: one shop promoted by several accounts, and a product listing that a human check
+// found copied across shops (meta.sharedListings). Shop platforms host many unrelated shops, so on them the
+// shop path identifies a shop, not the domain.
+const NOT_SHOP = /^(t\.me|telegram\.me|x\.com|twitter\.com|t\.co|github\.com|youtube\.com|youtu\.be|discord\.(gg|com)|linktr\.ee|qm\.qq\.com|mp\.weixin\.qq\.com|docs\.google\.com|bilibili\.com|xiaohongshu\.com|pan\.baidu\.com)$/;
+const SHOP_PLATFORM = /^(16688\.com\.cn|wzyp\.cn)$/;
+function shopKey(u) {
+  let x; try { x = new URL(u); } catch (e) { return ""; }
+  const h = x.hostname.toLowerCase().replace(/^www\./, "");
+  if (!h || NOT_SHOP.test(h)) return "";
+  if (SHOP_PLATFORM.test(h)) { const m = x.pathname.match(/^\/(shop|s|store)\/([^/?#]+)/i); return m ? h + "/" + m[1] + "/" + m[2] : ""; }
+  return h;
+}
+const GROUPS = [];
+(function buildGroups() {
+  const byShop = new Map();
+  sellers.forEach((s) => {
+    s.groups = []; s.shopKeys = new Set();
+    s.posts.forEach(({ p }) => (p.promo || []).concat(p.expandedLinks || [], p.verification.landing && p.verification.landing.url ? [p.verification.landing.url] : [])
+      .forEach((u) => { const k = shopKey(u); if (k) s.shopKeys.add(k); }));
+    s.shopKeys.forEach((k) => { if (!byShop.has(k)) byShop.set(k, new Set()); byShop.get(k).add(s); });
+  });
+  byShop.forEach((set, k) => { if (set.size > 1) GROUPS.push({ id: "shop:" + k, kind: "shop", label: k, members: Array.from(set) }); });
+  const listings = new Map();
+  days.forEach((d) => (d.snapshot.meta.sharedListings || []).forEach((l) => {
+    const g = listings.get(l.id) || { id: "listing:" + l.id, kind: "listing", label: l.id, domains: new Set(), day: "" };
+    Object.keys(l.pricesCny || {}).forEach((h) => g.domains.add(h.toLowerCase().replace(/^www\./, "")));
+    if (d.date > g.day) Object.assign(g, { day: d.date, note: l.note || "", quote: l.warrantyQuote || "" });
+    listings.set(l.id, g);
+  }));
+  listings.forEach((g) => {
+    g.members = Array.from(sellers.values()).filter((s) => Array.from(s.shopKeys).some((k) => g.domains.has(k)));
+    if (g.members.length > 1) GROUPS.push(g);
+  });
+  GROUPS.forEach((g) => g.members.forEach((s) => s.groups.push(g)));
+})();
+const GROUP_TAG = { listing: "共用商品页", shop: "同一店铺" };
+
 /* ---------- prices ---------- */
 // Prices are only compared within one product type. Third-party quotes and other products in the same post are excluded.
 const PCATS = [
@@ -647,11 +685,23 @@ function priceRank(e) {
   const same = PRICES[e.cat].filter((x) => x.cur === e.cur);
   return { pos: same.filter((x) => x.best < e.best).length + 1, of: same.length };
 }
+// Shops in one shared-source group count once in the median (their middle price), so one source listed by
+// eight shops does not pull the median towards itself. Min and max still use every shop.
 function priceStats(cat) {
-  const v = PRICES[cat].filter((x) => x.cur === "CNY").map((x) => x.best).sort((a, b) => a - b);
-  if (!v.length) return null;
+  const all = PRICES[cat].filter((x) => x.cur === "CNY");
+  if (!all.length) return null;
+  const v = [], grouped = new Map();
+  all.forEach((x) => { const g = x.seller.groups[0]; if (!g) v.push(x.best); else { if (!grouped.has(g)) grouped.set(g, []); grouped.get(g).push(x.best); } });
+  grouped.forEach((a) => { a.sort((p, q) => p - q); v.push(a[Math.floor((a.length - 1) / 2)]); });
+  v.sort((a, b) => a - b);
   const mid = v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2;
-  return { min: v[0], max: v[v.length - 1], med: mid, n: v.length };
+  const bests = all.map((x) => x.best);
+  const merged = Array.from(grouped.entries()).filter(([, a]) => a.length > 1).map(([g, a]) => ({ g, n: a.length }));
+  return { min: Math.min.apply(null, bests), max: Math.max.apply(null, bests), med: mid, n: all.length, sources: v.length, merged };
+}
+function statsText(st) {
+  return "人民币标价 " + st.n + " 家：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。"
+    + (st.merged.length ? "其中 " + st.merged.map((m) => m.n + " 家" + GROUP_TAG[m.g.kind]).join("、") + "，算中位价时按 1 个来源计（共 " + st.sources + " 个来源）。" : "");
 }
 const sellerPrices = (s) => PCATS.flatMap((c) => PRICES[c.key].filter((e) => e.seller === s));
 
@@ -842,13 +892,13 @@ function renderRankList(sub) {
   let h = "";
   if (state.view === "rank:price") {
     const st = priceStats(state.pcat);
-    h += '<div class="rank-note">' + (st ? "人民币标价 " + st.n + " 家：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。" : "") + "每家取最近一期的最低标价；第三方报价和同帖其他商品不计入。价格低不代表条款更好，请同时看风险分。" + (current.some((e) => e.low) ? "标「远低于中位价」的" + LOW_TIP + "。" : "") + "</div>";
+    h += '<div class="rank-note">' + (st ? statsText(st) : "") + "每家取最近一期的最低标价；第三方报价和同帖其他商品不计入。价格低不代表条款更好，请同时看风险分。" + (current.some((e) => e.low) ? "标「远低于中位价」的" + LOW_TIP + "。" : "") + "</div>";
     let lastCur = null;
     current.forEach((e) => {
       if (e.cur !== lastCur) { if (lastCur !== null || e.cur !== "CNY") h += '<div class="subhead">' + (e.cur === "USD" ? "美元标价（不换算，单独排）" : e.cur === "USDT" ? "USDT 标价（单独排）" : "人民币标价") + "</div>"; lastCur = e.cur; }
       const rk = priceRank(e), s = e.seller;
       const srcs = e.obs.map((o) => o.src + " " + o.name + " " + fmtPrice(o) + (o.from ? " 起" : "")).join(" · ");
-      const flags = (e.low ? '<span class="tag high" title="' + LOW_TIP + '">远低于中位价</span>' : "") + (e.mismatch ? '<span class="tag high">标价不一致</span>' : "") + (e.tiers ? '<span class="tag plain">多档 · 取最低</span>' : "") + (e.obs.some((o) => o.tierUnstated) ? '<span class="tag plain">未注明档位</span>' : "") + (e.bestObs.approx ? '<span class="tag plain">参考价</span>' : "") + (e.bestObs.from ? '<span class="tag plain">起价</span>' : "") + (e.obs.every((o) => o.bare) ? '<span class="tag plain">未写币种</span>' : "");
+      const flags = (e.low ? '<span class="tag high" title="' + LOW_TIP + '">远低于中位价</span>' : "") + (e.mismatch ? '<span class="tag high">标价不一致</span>' : "") + (e.tiers ? '<span class="tag plain">多档 · 取最低</span>' : "") + (e.obs.some((o) => o.tierUnstated) ? '<span class="tag plain">未注明档位</span>' : "") + e.seller.groups.map((g) => '<span class="tag plain" title="' + esc(g.label) + '">' + GROUP_TAG[g.kind] + "</span>").join("") + (e.bestObs.approx ? '<span class="tag plain">参考价</span>' : "") + (e.bestObs.from ? '<span class="tag plain">起价</span>' : "") + (e.obs.every((o) => o.bare) ? '<span class="tag plain">未写币种</span>' : "");
       h += '<button type="button" class="item" role="option" data-id="' + e.id + '" aria-selected="' + (state.sel === e.id) + '">'
         + '<span class="rk' + (rk.pos <= 3 ? " top" : "") + '">' + rk.pos + "</span>"
         + '<div><div class="rk-top"><b>' + esc(s.name) + '</b><span class="amt">' + fmtPrice(e.bestObs) + (e.bestObs.from ? "<small>起</small>" : "") + "</span></div>"
@@ -966,6 +1016,7 @@ function sellerHtml(s) {
     + s.rules.map((r) => '<div class="r' + (r.pts ? "" : " off") + '"><span class="t">' + esc(r.t) + ' <span style="color:var(--muted);font-weight:400;font-size:12px">' + esc(r.unit) + '</span></span><span class="p' + (r.pts ? "" : " zero") + '">' + (r.pts ? "+" + r.pts : "0") + '</span><span class="d">' + esc(r.d) + "</span></div>").join("")
     + '</div><p class="caveat" style="margin-top:8px">风险分越高，公开记录里的红旗越多。只按本页数据机械计算：分低只说明这次没查到问题，不代表可靠，也不是购买建议。' + (s.evidence < 2 ? "<b>这个商家可核对的材料很少，分数参考价值有限。</b>" : "") + "</p></div>"
     + sellerPriceHtml(s)
+    + groupHtml(s)
     + historyHtml(s)
     + '<div class="sec"><h2>帖子<span>' + posts.length + ' 条</span></h2><div class="box plist">' + posts.map((x) => '<button type="button" class="pi" data-go="' + x.id + '"><b>' + esc(x.b.service) + "</b><span>" + esc(x.day) + " · " + compact(x.p.metrics.impression_count) + " 浏览</span></button>").join("") + "</div></div>"
     + '<div class="sec"><h2>出处</h2><div class="srcs"><h3>原帖</h3><ol>' + postSrc + "</ol>" + (pageSrc ? "<h3>商品页</h3><ol>" + pageSrc + "</ol>" : "") + (cSrc ? "<h3>评论</h3><ol>" + cSrc + "</ol>" : "") + "</div></div>"
@@ -1013,6 +1064,20 @@ function historyHtml(s) {
   return h + '<p class="caveat" style="margin-top:8px">每天只收浏览量前 20 条帖子，没上榜的日子不代表没在卖；不同期的帖子也可能是不同商品。</p></div>';
 }
 
+function groupHtml(s) {
+  if (!s.groups.length) return "";
+  return '<div class="sec"><h2>同源线索<span>' + s.groups.length + " 条</span></h2>" + s.groups.map((g) => {
+    const others = g.members.filter((m) => m !== s);
+    const head = g.kind === "listing"
+      ? "和另外 " + others.length + " 家店用同一份商品页 <code>" + esc(g.label) + "</code>"
+      : "和另外 " + others.length + " 个账号推广同一个店铺 " + esc(g.label);
+    const rows = others.map((m) => { const e = sellerPrices(m)[0]; return '<button type="button" class="pi" data-go="seller:' + esc(m.key) + '"><b>' + esc(m.name) + "</b><span>" + (e ? esc(CATLABEL(e.cat)) + " " + fmtPrice(e.bestObs) + " · " : "") + '<span class="lvl ' + m.level + '">风险 ' + m.total + "</span></span></button>"; }).join("");
+    const caveat = g.kind === "listing"
+      ? "商品标题和质保文字相同，各家价格不同（" + esc(g.day) + " 核查）。这可能是同一上游供货，也可能只是同一套建站模板，不能据此认定是同一家商家。"
+      : "这几个账号的帖子指向同一个店铺地址，可能是同一卖家的多个账号，也可能只是帮忙推广。";
+    return '<h3 class="hsub">' + head + '</h3><div class="box plist">' + rows + "</div>" + (g.quote ? '<div class="quote">' + esc(g.quote) + "</div>" : "") + '<p class="caveat" style="margin-top:8px">' + caveat + "</p>";
+  }).join("") + "</div>";
+}
 function sellerPriceHtml(s) {
   const es = sellerPrices(s);
   if (!es.length) return '<div class="sec"><h2>价格</h2><p class="caveat" style="margin:0">帖子和商品页都没写可比较的价格。</p></div>';
@@ -1063,7 +1128,7 @@ function briefHtml(it) {
     + changesHtml(it.day)
     + '<div class="sec"><h2>当日帖子 · 按浏览量<span>颜色是商家风险等级</span></h2><div class="cells">' + byViews.map((x) => { const s = sellerOf(x); return '<button type="button" class="cell ' + s.level + '" data-go="' + x.id + '" title="' + esc("#" + x.p.n + " " + x.p.name + " · " + x.b.service + " · 风险 " + s.total) + '">' + x.p.n + "</button>"; }).join("") + '</div><ul class="legend"><li><i style="background:var(--high)"></i>高风险</li><li><i style="background:var(--mid)"></i>中风险</li><li><i style="background:var(--line-2)"></i>低风险</li></ul></div>'
     + '<div class="sec"><h2>今日风险最高的商家<span><button type="button" data-goview="rank:score" style="color:var(--sel)">完整风险排名 →</button></span></h2><div class="box plist">' + daySellers.slice(0, 5).map((s) => '<button type="button" class="pi" data-go="seller:' + esc(s.key) + '"><b>' + esc(s.name) + ' <span class="lvl ' + s.level + '" style="font-size:12px">' + s.total + "</span></b><span>" + esc(s.rules.filter((r) => r.pts).sort((a, b) => b.pts - a.pts).slice(0, 2).map((r) => r.t).join("、")) + "</span></button>").join("") + "</div></div>"
-    + (function () { const st = priceStats("pro"); const low = PRICES.pro.filter((e) => e.cur === "CNY").slice(0, 3); return st ? '<div class="sec"><h2>Pro 成品价格<span><button type="button" data-rank="pro" style="color:var(--sel)">完整价格排名 →</button></span></h2><div class="box plist">' + low.map((e, i) => '<button type="button" class="pi" data-rank="pro" data-sel="' + e.id + '"><b>' + (i + 1) + ". " + esc(e.seller.name) + " " + fmtPrice(e.bestObs) + '</b><span class="lvl ' + e.seller.level + '">风险 ' + e.seller.total + "</span></button>").join("") + '</div><p class="caveat" style="margin-top:8px">' + st.n + " 家标了人民币价：最低 ¥" + st.min + "，中位 ¥" + st.med + "，最高 ¥" + st.max + "。</p></div>" : ""; })()
+    + (function () { const st = priceStats("pro"); const low = PRICES.pro.filter((e) => e.cur === "CNY").slice(0, 3); return st ? '<div class="sec"><h2>Pro 成品价格<span><button type="button" data-rank="pro" style="color:var(--sel)">完整价格排名 →</button></span></h2><div class="box plist">' + low.map((e, i) => '<button type="button" class="pi" data-rank="pro" data-sel="' + e.id + '"><b>' + (i + 1) + ". " + esc(e.seller.name) + " " + fmtPrice(e.bestObs) + '</b><span class="lvl ' + e.seller.level + '">风险 ' + e.seller.total + "</span></button>").join("") + '</div><p class="caveat" style="margin-top:8px">' + statsText(st) + "</p></div>" : ""; })()
     + '<div class="sec"><h2>核查发现<span>' + hl.length + " 条</span></h2>" + hl.map((f, i) => '<div class="find"><span class="n">发现 ' + esc(f.n || i + 1) + "</span>" + (f.t ? "<h3>" + inline(f.t, it.day) + "</h3>" : "") + "<div>" + inline(f.b, it.day) + "</div></div>").join("") + "</div>"
     + (pr.length ? '<div class="sec"><h2>同一份商品文案，' + pr.length + " 个店<span><code>/item/597</code></span></h2>" + pr.map(([n, v]) => '<div class="bar-row"><span class="nm" title="' + esc(n) + '">' + esc(n) + '</span><div class="bar-tr"><div class="bar-fl" style="width:' + (v / mx * 100).toFixed(1) + '%"></div></div><span class="vv">¥' + esc(v) + "</span></div>").join("") + '<div class="quote">' + esc(s597.warrantyQuote || "") + '</div><p class="caveat" style="margin-top:8px">文案相同只说明货架同源或同模板，不能据此认定是同一家商家。</p></div>' : "")
     + '<div class="sec"><h2>方法与覆盖</h2><ul class="narr">' + (m.coverageBullets || []).map((x) => "<li>" + inline(x, it.day) + "</li>").join("") + "</ul></div>"

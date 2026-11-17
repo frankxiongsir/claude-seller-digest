@@ -241,6 +241,8 @@ def day_to_page(day: dict) -> dict:
         "coverageBullets": day.get("coverage", []),
         "sharedItem597": {"note": shared.get("note", ""), "warrantyQuote": shared.get("warranty_quote", ""),
                           "pricesCny": shared.get("prices_cny", {})} if shared else None,
+        "sharedListings": [{"id": l.get("id", ""), "note": l.get("note", ""), "warrantyQuote": l.get("warranty_quote", ""),
+                            "pricesCny": l.get("prices_cny", {})} for l in (day.get("shared_listings") or []) if l.get("id")],
         "downloads": day.get("downloads", []),
     }
     return {"date": day["date"], "snapshot": {"meta": meta, "posts": posts}, "briefs": briefs}
