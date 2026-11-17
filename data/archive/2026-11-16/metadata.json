@@ -8,7 +8,7 @@
     "timezone": "America/New_York (ET, UTC-5)"
   },
   "type": "daily_digest",
-  "status": "archived",
+  "status": "delivered",
   "fetched_at_et": "2026-11-17 09:13–09:17 ET",
   "verified_at_et": "2026-11-17 09:22–09:28 ET",
   "prices_as_of_et": "2026-11-17 09:24–09:28 ET",

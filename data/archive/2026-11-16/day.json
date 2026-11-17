@@ -283,9 +283,10 @@
         {
           "source": "原帖",
           "product": "普号",
-          "category": "account",
+          "category": "other",
           "amount": 49,
-          "currency": "CNY"
+          "currency": "CNY",
+          "note": "档位未写成 Pro、Max 或 Ultra"
         },
         {
           "source": "原帖",
@@ -297,11 +298,11 @@
         {
           "source": "原帖",
           "product": "官方代充 Pro / Max / Ultra（写质保30天订阅）",
-          "category": "topup",
+          "category": "other",
           "amount": 135,
           "currency": "CNY",
           "qualifier": "Max ¥499 / Ultra ¥649",
-          "note": "原帖写质保30天订阅"
+          "note": "原帖写质保30天订阅；多档代充：135 只对应原帖 Claude Pro，Max ¥499 与 Ultra ¥649 仍在 qualifier，不把整行改记成单一档成品价"
         },
         {
           "source": "评论",
@@ -314,11 +315,11 @@
         {
           "source": "评论",
           "product": "域名号 全球可用 无风控（来自作者评论截图价）",
-          "category": "account",
+          "category": "other",
           "amount": 188,
           "currency": "CNY",
           "qualifier": "另有 Max 5x ¥1688 / Ultra 20x ¥2266 等",
-          "note": "仅见于评论，未在原帖"
+          "note": "仅见于评论，未在原帖；188 是域名号本身，不是 qualifier 里的 Max 5x / Ultra 价；档位未写成 Pro、Max 或 Ultra"
         }
       ],
       "warranty_note": "原帖写「质保30天订阅」，这是订阅质保表述，不是封号质保。评论中有用户指出这一点，作者回「有质保封号的～」，又对售后/价格问「全程质保」。商品页未打开，评论中的封号质保未能在落地页核实。",
@@ -670,19 +671,19 @@
         {
           "source": "原帖",
           "product": "免K成品号（预定）",
-          "category": "account",
+          "category": "pro",
           "amount": 258,
           "currency": "CNY",
-          "note": "预定",
+          "note": "预定；原帖写明是 Claude Pro 成品号",
           "currency_assumed": true
         },
         {
           "source": "原帖",
           "product": "过K成品号（预定）",
-          "category": "account",
+          "category": "pro",
           "amount": 330,
           "currency": "CNY",
-          "note": "预定",
+          "note": "预定；原帖写明是 Claude Pro 成品号",
           "currency_assumed": true
         }
       ],
@@ -953,31 +954,23 @@
       "prices": [],
       "warranty_note": "原帖主要报告门户秒封约 10%（9 例），并写 Claude Pro 代充 0/2、「不要找我代充」。不是一则写明质保的售卖条款。",
       "seller_post": "报告门户秒封约 10%（9 例）。Claude Pro 代充 0/2，不要找我代充。帖内有 KYC 相关链接。",
-      "seller_comment": "4 条回复，作者 0 条。有用户问「咋申请退款」，另有人说取消、退款、重新注册——均非作者条款。",
+      "seller_comment": "4 条回复，作者 0 条。有用户问「咋申请退款」，但发言人、评论 ID 和独立链接都没有记录，来源不完整，不能当作已核实反馈；主帖链接不能代替这条评论。另有人说取消、退款、重新注册——均非作者条款。",
       "landing": {
         "url": "https://ai.codexapi.space/",
         "terms": "站点可见 Claude Max X5 官方代充等商品入口；本次未逐条打开售后细则全文。",
         "inaccessible": "售后细则全文未逐条打开"
       },
-      "third_party": [
-        {
-          "handle": "",
-          "url": "",
-          "created_at_et": "",
-          "quote": "咋申请退款",
-          "note": "用户提问，作者未回复",
-          "sentiment": "neutral"
-        }
-      ],
+      "third_party": [],
       "conflicts": [
         "原帖写「不要找我代充」，商店仍陈列官方代充类商品；两者并存，不擅自解释动机"
       ],
       "missing": [
         "退款规则书面原文",
-        "作者对退款提问的答复"
+        "作者对退款提问的答复",
+        "「咋申请退款」没有发言人、评论 ID 或独立链接，来源不完整，未列入第三方反馈"
       ],
       "coverage": "4 条回复，无作者回复。商店首页已见，细则未逐条打开。",
-      "narrative": "- 原帖卖家自述门户秒封约 10%，并写 Pro 代充 0/2、不要找我代充。秒封比例是卖家自述，不是质保承诺，也不是已核实统计。\n- 商店 https://ai.codexapi.space/ 仍可见官方代充类商品。与原帖「不要找我代充」并列记录，不改写成已停售或已改口。细则未逐条打开。\n- 退款提问未见作者答复。他人建议不代表本店规则。"
+      "narrative": "- 原帖卖家自述门户秒封约 10%，并写 Pro 代充 0/2、不要找我代充。秒封比例是卖家自述，不是质保承诺，也不是已核实统计。\n- 商店 https://ai.codexapi.space/ 仍可见官方代充类商品。与原帖「不要找我代充」并列记录，不改写成已停售或已改口。细则未逐条打开。\n- 退款提问未见作者答复。他人建议不代表本店规则。\n- 来源不完整：有人问「咋申请退款」，作者未回复。发言人、评论 ID 和独立链接均未记录，不列入第三方反馈。主帖链接不能代替这条评论。"
     },
     {
       "n": 13,
