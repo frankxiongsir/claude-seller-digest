@@ -1006,7 +1006,8 @@ function historyHtml(s) {
   if (nd > 1) {
     h += '<h3 class="hsub">说法变化<span>比较相邻两次上榜的帖子和商品页</span></h3>'
       + (s.termChanges.length
-        ? '<div class="box plist">' + s.termChanges.map((c) => '<div class="pi static"><b>' + esc(c.day) + "：" + (c.on ? "新出现「" : "不再出现「") + esc(c.label) + "」</b><span>对比 " + esc(c.fromDay) + "</span></div>").join("") + "</div>"
+        ? '<div class="box plist">' + s.termChanges.map((c) => '<div class="pi static"><b>' + esc(c.day) + "：" + (c.on ? "新出现「" + esc(c.label) + "」" : "这期帖子没提「" + esc(c.label) + "」") + "</b><span>" + (c.on ? "对比 " : "上次提到是 ") + esc(c.fromDay) + "</span></div>").join("") + "</div>"
+          + (s.termChanges.some((c) => !c.on) ? '<p class="caveat" style="margin-top:6px">「没提」只说明这期的帖子和商品页没写，不代表商家取消了这条说法。</p>' : "")
         : '<p class="caveat" style="margin-top:0">各期的退款、首登、封号说法没有变化。</p>');
   }
   return h + '<p class="caveat" style="margin-top:8px">每天只收浏览量前 20 条帖子，没上榜的日子不代表没在卖；不同期的帖子也可能是不同商品。</p></div>';
@@ -1037,7 +1038,8 @@ function changesHtml(day) {
   };
   return '<div class="sec"><h2>和上一期比<span>对比 ' + esc(c.prev) + "</span></h2>"
     + group("价格变动 ≥10%", c.price, (x) => btn(x.s, esc(CATLABEL(x.cat)) + " " + fmtPrice(x.from) + " → " + fmtPrice(x.to) + "（" + pctText(x.pct) + "，对比 " + esc(x.fromDay.slice(5)) + (x.from.src !== x.to.src ? "；来源不同：" + esc(x.from.src) + " → " + esc(x.to.src) : "") + "）"), "上过榜的商家里，没有同类商品价格变动 10% 以上的。")
-    + (c.unverified ? '<div class="chg"><h3>说法变化<span>—</span></h3><p class="caveat" style="margin:0">本期的评论区和商品页核查还没提交，条款不全，等核查到了再比较。</p></div>' : group("说法变化", c.terms, (x) => btn(x.s, (x.on ? "新出现「" : "不再出现「") + esc(x.label) + "」（对比 " + esc(x.fromDay.slice(5)) + "）"), "再次上榜的商家，退款、首登、封号说法都没变。"))
+    + (c.unverified ? '<div class="chg"><h3>说法变化<span>—</span></h3><p class="caveat" style="margin:0">本期的评论区和商品页核查还没提交，条款不全，等核查到了再比较。</p></div>' : group("说法变化", c.terms.slice().sort((a, b) => b.on - a.on), (x) => btn(x.s, x.on ? "新出现「" + esc(x.label) + "」（对比 " + esc(x.fromDay.slice(5)) + "）" : "这期帖子没提「" + esc(x.label) + "」（" + esc(x.fromDay.slice(5)) + " 提过）"), "再次上榜的商家，退款、首登、封号说法都没变。")
+      + (c.terms.some((x) => !x.on) ? '<p class="caveat" style="margin-top:6px">「没提」只说明这期的帖子和商品页没写，不代表商家取消了这条说法。</p>' : ""))
     + group("首次上榜", c.fresh, (s) => btn(s, '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>"), "没有新面孔。")
     + group("本期未上榜", c.gone, (s) => btn(s, "上一期在榜 · " + '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>"), "上一期的商家这期都还在。")
     + '<p class="caveat" style="margin-top:8px">每天只收浏览量前 20 条，「首次上榜」「未上榜」只说明有没有进前 20，不代表开始或停止销售。</p></div>';
