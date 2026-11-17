@@ -1,0 +1,17 @@
+{
+ "about": "Hand corrections applied on top of the archive at build time. Each entry must match exactly one price row, otherwise the build stops, so a stale correction never fails silently.",
+ "prices": [
+  {
+   "date": "2026-11-13", "post_id": "2121385998374539766", "product_contains": "Claude Pro", "amount": 135,
+   "set": {"category": "other", "note": "官方代充，不计入成品号排名（人工更正，与 2026-11-16 同一帖文的人工判断一致）"},
+   "reason": "ASI 11-13 与 11-16 帖文相同；11-16 人工核查认定 Pro/Max/Ultra 三档是官方代充，不是成品号。",
+   "added": "2026-11-17"
+  },
+  {
+   "date": "2026-11-13", "post_id": "2121385998374539766", "product_contains": "Claude Ultra", "amount": 649,
+   "set": {"category": "other", "note": "官方代充，不计入成品号排名（人工更正，与 2026-11-16 同一帖文的人工判断一致）"},
+   "reason": "同上。",
+   "added": "2026-11-17"
+  }
+ ]
+}
