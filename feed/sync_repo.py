@@ -261,23 +261,6 @@ def _scan_one(d, rel, repo, vers, days):
             days[day["date"]] = (day, src)
 
 
-CORRECTIONS = Path(__file__).resolve().parent / "corrections.json"
-
-
-def apply_corrections(days):
-    """Apply feed/corrections.json. Returns error strings for entries that no longer match exactly one row."""
-    if not CORRECTIONS.exists(): return []
-    errs = []
-    for c in json.loads(CORRECTIONS.read_text(encoding="utf-8")).get("prices", []):
-        tag = f"corrections.json {c['date']} {c['post_id']} {c['product_contains']} {c['amount']}"
-        if c["date"] not in days: errs.append(f"{tag}: day not in archive"); continue
-        rows = [r for p in days[c["date"]][0]["posts"] if str(p["id"]) == str(c["post_id"])
-                for r in p.get("prices", []) if c["product_contains"] in r.get("product", "") and r.get("amount") == c["amount"]]
-        if len(rows) != 1: errs.append(f"{tag}: matched {len(rows)} price rows, expected 1"); continue
-        rows[0].update(c["set"])
-    return errs
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-pull", action="store_true")
@@ -296,8 +279,6 @@ def main():
         print("repo at", pull())
     bad, changed = False, 0
     days, read_errors = scan(a.repo)
-    for e in apply_corrections(days):
-        bad = True; print("✗", e)
     for date, msg in read_errors.items():
         bad = True; print(f"✗ {date}: {msg}")
     for date, (day, src) in sorted(days.items()):

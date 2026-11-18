@@ -1,0 +1,40 @@
+name: 更正或下架
+description: 报告页面上的错误，或申请下架某条帖子
+title: "[更正] "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        处理规则见页面「更正与下架」：https://claude-seller-digest.vercel.app/#v=latest&i=page%3Acorrections
+        3 个工作日内回复。**Issue 是公开的**，不要在这里写联系方式、订单号等私人信息；不方便公开的情况请在 X 私信 @xudongsheng1945。
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 类型
+      options:
+        - 信息写错（价格、归类、条款引文、链接等）
+        - 原帖已删除、账号注销或设为私密，申请下架
+        - 条款或价格后来更新了，申请补充说明
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: 哪一条
+      description: 页面链接，或「日期 + 第几条」，或卖家的 X 账号
+      placeholder: 例如 2026-11-16 第 3 条，或 @someone
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 哪里不对，应该是什么
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 依据
+      description: 公开链接或截图（请先打码个人信息）。原帖已删除的，附原帖链接即可。

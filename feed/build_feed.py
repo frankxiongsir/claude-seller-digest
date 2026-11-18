@@ -281,13 +281,120 @@ def load_input(path: Path) -> dict:
     sys.exit(f"{path}: unknown format (expected schema '{SCHEMA}')")
 
 
+# ---------------------------------------------------------------- corrections and removals
+CORRECTIONS = ROOT / "corrections.json"
+CATLABEL = {"pro": "Pro 成品", "max5": "Max 5x", "max20": "Max 20x / Ultra", "kyc": "KYC 验证", "teams": "Teams", "other": "其他（不计入成品排名）"}
+
+
+def load_corrections() -> dict:
+    return json.loads(CORRECTIONS.read_text(encoding="utf-8")) if CORRECTIONS.exists() else {}
+
+
+def removal_matches(r: dict, day: str, post: dict) -> bool:
+    if r.get("handle"): return str(post.get("handle", "")).lower() == r["handle"].lower()
+    return r.get("date") == day and str(post.get("id")) == str(r.get("post_id"))
+
+
+def apply_corrections(days: list, corr: dict):
+    """Apply corrections.json to day@1 dicts in place. Returns (log, errors).
+    Every entry must match something, so a stale correction stops the build instead of failing silently."""
+    by_date, log, errs = {d["date"]: d for d in days}, [], []
+    def post_of(c, tag):
+        d = by_date.get(c.get("date"))
+        if not d: errs.append(f"{tag}: day {c.get('date')} is not in the feed"); return None, None
+        p = next((p for p in d["posts"] if str(p["id"]) == str(c.get("post_id"))), None)
+        if not p: errs.append(f"{tag}: post {c.get('post_id')} not found on {c['date']}")
+        return d, p
+    for c in corr.get("prices", []):
+        tag = f"corrections.json prices {c.get('date')} {c.get('post_id')} {c.get('product_contains')} {c.get('amount')}"
+        d, p = post_of(c, tag)
+        if not p: continue
+        rows = [r for r in p.get("prices", []) if c["product_contains"] in r.get("product", "") and r.get("amount") == c["amount"]]
+        if len(rows) != 1: errs.append(f"{tag}: matched {len(rows)} price rows, expected 1"); continue
+        old = rows[0].get("category", "")
+        rows[0].update(c["set"])
+        prod = re.sub(r"[\s｜|:：]+$", "", re.sub(r"^[^\w]+", "", rows[0].get("product", "")))
+        what = f"「{prod}」¥{c['amount']}"
+        what += f"：归类从 {CATLABEL.get(old, old)} 改为 {CATLABEL.get(rows[0].get('category'), rows[0].get('category'))}" if old != rows[0].get("category") else " 已更正"
+        log.append({"added": c.get("added", ""), "kind": "price", "day": d["date"], "postId": str(p["id"]), "n": p["n"],
+                    "handle": p["handle"], "name": p["name"], "what": what, "reason": c.get("reason", "")})
+    for c in corr.get("notes", []):
+        tag = f"corrections.json notes {c.get('date')} {c.get('post_id')}"
+        d, p = post_of(c, tag)
+        if not p: continue
+        log.append({"added": c.get("added", ""), "kind": "note", "day": d["date"], "postId": str(p["id"]), "n": p["n"],
+                    "handle": p["handle"], "name": p["name"], "what": c.get("text", ""), "reason": c.get("reason", "")})
+    for r in corr.get("removals", []):
+        tag = f"corrections.json removals {r.get('handle') or (str(r.get('date')) + ' ' + str(r.get('post_id')))}"
+        hit = 0
+        for d in days:
+            gone = [p for p in d["posts"] if removal_matches(r, d["date"], p)]
+            if not gone: continue
+            hit += len(gone)
+            d["posts"] = [p for p in d["posts"] if p not in gone]
+            log.extend({"added": r.get("added", ""), "kind": "removal", "day": d["date"], "postId": "", "n": p["n"], "handle": "", "name": "",
+                        "what": f"{d['date']} 第 {p['n']} 条已下架", "reason": r.get("reason", "")} for p in gone)
+        if not hit: errs.append(f"{tag}: matched no posts")
+    if errs: return log, errs
+    log.sort(key=lambda e: (e["added"], e["day"], e["n"]), reverse=True)
+    return log, []
+
+
+def scrub_dir(out: Path, corr: dict) -> list:
+    """Remove posts listed in corrections.json removals from the raw files copied into out/ (archive/, downloads/).
+    JSON files lose the matching post objects; Markdown files that mention a removed post are deleted.
+    Returns the relative paths of deleted Markdown files."""
+    rem = corr.get("removals", [])
+    if not rem: return []
+    ids = {str(r["post_id"]) for r in rem if r.get("post_id")}
+    handles = {r["handle"].lower() for r in rem if r.get("handle")}
+    def hit(o):
+        return isinstance(o, dict) and (str(o.get("id", "")) in ids or str(o.get("handle", "")).lower() in handles)
+    def clean(o):
+        if isinstance(o, list): return [clean(x) for x in o if not hit(x)]
+        if isinstance(o, dict): return {k: clean(v) for k, v in o.items()}
+        return o
+    dropped = []
+    for f in sorted(out.rglob("*")):
+        if f.suffix == ".json" and f.parent != out / "days":
+            try: data = json.loads(f.read_text(encoding="utf-8"))
+            except Exception: continue
+            new = clean(data)
+            if new != data: f.write_text(json.dumps(new, ensure_ascii=False, indent=1), encoding="utf-8")
+        elif f.suffix == ".md":
+            s = f.read_text(encoding="utf-8")
+            if any(i in s for i in ids) or any(re.search(r"@" + re.escape(h) + r"\b", s, re.I) for h in handles):
+                f.unlink(); dropped.append(str(f.relative_to(out)))
+    return dropped
+
+
+def md_to_drop(repo: Path, corr: dict) -> set:
+    """Markdown downloads that scrub_dir() will delete, as hrefs relative to the site root."""
+    rem = corr.get("removals", [])
+    if not rem: return set()
+    ids = {str(r["post_id"]) for r in rem if r.get("post_id")}
+    handles = {r["handle"].lower() for r in rem if r.get("handle")}
+    out = set()
+    for base, prefix in ((repo / "data" / "archive", "archive/"), (repo / "public" / "downloads", "downloads/")):
+        for f in base.rglob("*.md") if base.exists() else []:
+            s = f.read_text(encoding="utf-8")
+            if any(i in s for i in ids) or any(re.search(r"@" + re.escape(h) + r"\b", s, re.I) for h in handles):
+                out.add(prefix + str(f.relative_to(base)))
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--add", nargs="*", default=[], type=Path)
     ap.add_argument("--check", nargs="*", default=[], type=Path)
     ap.add_argument("--keep-days", type=int, default=120)
     ap.add_argument("--split", action="store_true", help="write post details to days/<date>.json next to the page (for hosting); default embeds everything in one file")
+    ap.add_argument("--repo", type=Path, default=ROOT.parent, help="repo root, used to find Markdown downloads that mention removed posts")
+    ap.add_argument("--scrub", type=Path, help="only remove posts listed under removals from the raw files in this folder, then exit")
     a = ap.parse_args()
+    if a.scrub:
+        for f in scrub_dir(a.scrub, load_corrections()): print(f"- removed {f} (mentions a removed post)")
+        return
     bad = False
     for path in a.check + a.add:
         day = load_input(path)
@@ -308,6 +415,14 @@ def main() -> None:
     for d in days:
         errs = validate(d)
         if errs: sys.exit(f"data/{d.get('date')}.json is invalid: {errs[0]}")
+    corr = load_corrections()
+    log, errs = apply_corrections(days, corr)
+    if errs:
+        [print("✗", e) for e in errs]
+        sys.exit("✗ corrections.json no longer matches the data; fix it (the last good deployment stays live)")
+    drop = md_to_drop(a.repo, corr)
+    for d in days:
+        d["downloads"] = [x for x in d.get("downloads", []) if str(x.get("href", "")).lstrip("/") not in drop]
     pages = [day_to_page(d) for d in days]
     details = {pg["date"]: split_details(pg) for pg in pages}
     if a.split:
@@ -324,7 +439,7 @@ def main() -> None:
     tpl = (ROOT / "template.html").read_text(encoding="utf-8")
     for ph in ("__FEED__", "__DETAILS__"):
         if tpl.count(ph) != 1: sys.exit(f"template.html must contain {ph} exactly once")
-    OUT.write_text(tpl.replace("__FEED__", _embed({"days": pages})).replace("__DETAILS__", det_json), encoding="utf-8")
+    OUT.write_text(tpl.replace("__FEED__", _embed({"days": pages, "corrections": log})).replace("__DETAILS__", det_json), encoding="utf-8")
     print(f"built {OUT.name}: {len(days)} day(s), {sum(len(d['posts']) for d in days)} posts" + (f", details in {OUT.parent.name}/days/" if a.split else ", single file"))
 
 

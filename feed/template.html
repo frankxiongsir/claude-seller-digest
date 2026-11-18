@@ -318,6 +318,13 @@ details.fold .in { padding: 0 14px 14px; color: var(--ink-2); line-height: 1.75;
 .dl li { display: flex; justify-content: space-between; padding: 8px 14px; border-top: 1px solid var(--line); }
 .dl li:first-child { border-top: 0; }
 .dl span { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.corr-box { margin: 0 0 18px; padding: 12px 14px; border-radius: 10px; background: var(--mid-bg); font-size: 14px; line-height: 1.7; }
+.corr-box p { margin: 4px 0 0; }
+.corr-box p span { color: var(--muted); font-size: 13px; }
+.corr-box button, .inline-link { padding: 0; border: 0; background: none; color: var(--sel); font: inherit; cursor: pointer; }
+.corr-box button { margin-top: 6px; font-size: 13px; }
+.pr.corr .d button { padding: 0; border: 0; background: none; color: var(--sel); font: inherit; cursor: pointer; text-align: left; }
+.side-foot a { color: inherit; }
 .disclaim { font-size: 12px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 8px; }
 
 /* ---------- responsive ---------- */
@@ -430,6 +437,11 @@ const ensureAll = () => Promise.all(FEED.days.map((d) => ensureDay(d.date).catch
   const inline = JSON.parse(document.getElementById("details").textContent || "null");
   FEED.days.forEach((d) => { if (inline && inline[d.date]) mergeDay(d.date, inline[d.date]); if (!d.detail || (inline && inline[d.date])) loaded.add(d.date); });
 })();
+const CORR = FEED.corrections || [];
+const REPO = "https://github.com/frankxiongsir/claude-seller-digest";
+const ISSUE_NEW = REPO + "/issues/new?template=correction.yml";
+const X_CONTACT = "https://x.com/xudongsheng1945";
+const PAGES = { "page:corrections": "更正与下架" };
 const days = FEED.days.slice().sort((a, b) => b.date < a.date ? -1 : 1);
 const latest = days[0] ? days[0].date : "";
 const items = [];            // feed entries (briefs + posts)
@@ -841,7 +853,8 @@ function renderSide() {
     '<div class="group"><h3>智能视图</h3>' + smart + "</div>"
     + '<div class="group"><h3>排行榜</h3>' + rankNav + "</div>"
     + '<div class="group"><h3>每日<span>' + days.length + " 期</span></h3>" + dayNav + "</div>"
-    + '<div class="group"><h3>商家 · 按风险分<span>' + sellers.size + "</span></h3>" + sellerNav + "</div>";
+    + '<div class="group"><h3>商家 · 按风险分<span>' + sellers.size + "</span></h3>" + sellerNav + "</div>"
+    + '<div class="group"><h3>关于</h3><button type="button" class="nav" data-go="page:corrections" aria-current="' + (state.sel === "page:corrections") + '"><span class="ico"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15l1-4 8-8 3 3-8 8-4 1zM10.5 4.5l3 3" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="lbl">更正与下架</span><span class="cnt">' + (CORR.length || "") + "</span></button></div>";
 }
 
 /* ---------- list ---------- */
@@ -879,7 +892,7 @@ function itemHtml(it) {
       + "<div><h4>每日简报：" + it.posts.length + " 条卖家帖，" + nc + " 条说法矛盾</h4><p>" + esc(stripMd((m.highlights || [])[0] || "")) + '</p><div class="src"><b>核查记录</b><span>' + esc(String(m.verificationWrittenAtEt || "").replace(/^\d{4}-\d{2}-\d{2}\s*/, "")) + "</span></div></div></button>";
   }
   const p = it.p, b = it.b, s = sellerOf(it);
-  const tags = (conflicts(p).length ? '<span class="tag high">矛盾</span>' : "") + (on(p, "refund_promise") ? '<span class="tag refund">退款说法</span>' : "");
+  const tags = (conflicts(p).length ? '<span class="tag high">矛盾</span>' : "") + (on(p, "refund_promise") ? '<span class="tag refund">退款说法</span>' : "") + (corrOf(it).length ? '<span class="tag mid">已更正</span>' : "");
   return '<button type="button" class="' + cls + '" role="option" data-id="' + it.id + '" aria-selected="' + selected + '">' + flags
     + '<span class="big" style="background:' + hue(p.handle) + '" aria-hidden="true">' + esc(initial(p.name)) + "</span>"
     + "<div><h4>" + esc(b.service || p.text.slice(0, 40)) + "</h4><p>" + (tags ? '<span class="tags">' + tags + "</span>" : "") + esc(b.cover || "") + (b.diff ? "。" + esc(b.diff) : "") + "</p>"
@@ -932,6 +945,7 @@ function renderReader() {
   let html = "", url = null, it = null, sellerKey = null;
   if (!sel) html = '<div class="article"><p class="empty">从列表里选一条。</p></div>';
   else if (sel.startsWith("seller:")) { sellerKey = sel.slice(7); html = sellerHtml(sellers.get(sellerKey)); }
+  else if (PAGES[sel]) html = correctionsHtml();
   else {
     it = byId.get(sel);
     if (it.kind === "brief") html = briefHtml(it);
@@ -958,10 +972,34 @@ function renderReader() {
     starBtn.querySelector("path").setAttribute("fill", isStar(it.id) ? "#e8a400" : "none");
     starBtn.querySelector("path").setAttribute("stroke", isStar(it.id) ? "#e8a400" : "currentColor");
   }
-  sellerBtn.disabled = !sellerKey || sel.startsWith("seller:");
+  sellerBtn.disabled = !sellerKey || !sel || sel.startsWith("seller:");
   sellerBtn.dataset.key = sellerKey || "";
 }
 
+const corrOf = (it) => CORR.filter((c) => c.kind !== "removal" && c.day === it.day && c.postId === String(it.p.id));
+const CORR_KIND = { price: "价格归类", note: "补充说明", removal: "下架" };
+function correctionsHtml() {
+  const rows = CORR.map((c) => '<div class="pr corr"><b>' + esc(c.added) + " · " + CORR_KIND[c.kind] + "</b>"
+    + '<span class="d">' + (c.kind === "removal" ? esc(c.what) : '<button type="button" data-go="p:' + esc(c.postId) + "@" + esc(c.day) + '">' + esc(c.day) + " 第 " + c.n + " 条 · " + esc(c.name) + "</button>：" + esc(c.what))
+    + (c.reason ? "<br>原因：" + esc(c.reason) : "") + "</span></div>").join("");
+  return '<div class="article"><h1>更正与下架</h1>'
+    + '<p class="lead">这个页面点名了具体卖家，写错了就应该改。下面是怎么报错、多久处理、什么情况会更正或下架，以及所有改动的记录。</p>'
+    + '<div class="sec"><h2>怎么报错</h2><div class="box ptable">'
+    + '<div class="pr"><b>GitHub Issue</b><span class="d">' + link(ISSUE_NEW, "填写更正表单") + "：写明哪一天、第几条（或卖家账号）、哪里不对、依据是什么。Issue 是公开的，不要在里面写联系方式、订单号等私人信息。<br>项目仓库：" + link(REPO, REPO.replace("https://", "")) + "</span></div>"
+    + '<div class="pr"><b>X 私信</b><span class="d">' + link(X_CONTACT, "@xudongsheng1945") + "：不方便公开的情况（比如卖家本人要求下架）可以私信。</span></div>"
+    + "</div></div>"
+    + '<div class="sec"><h2>多久处理</h2><p style="margin:0">3 个工作日内回复。确认有误后，改动在下一次页面更新时生效，并记录在本页下方。</p></div>'
+    + '<div class="sec"><h2>什么情况会改、会下架</h2><div class="box ptable">'
+    + '<div class="pr"><b>事实写错</b><span class="d">价格、归类、条款引文、链接或卖家对应关系写错了：<b>更正</b>，帖子上标「已更正」，写明改了什么、为什么改。</span></div>'
+    + '<div class="pr"><b>原帖已删除、账号注销或设为私密</b><span class="d"><b>下架</b>这条帖子：页面和可下载的原始文件里都不再出现，本页只留一行「某日第几条已下架」，不写卖家名字。</span></div>'
+    + '<div class="pr"><b>条款或价格后来变了</b><span class="d">每一期是当天核查时的快照，旧日期的内容不改。可以在 Issue 里附上新条款的链接，我们会在原帖下加一条补充说明；新帖会在之后的期次里收录。</span></div>'
+    + '<div class="pr"><b>不同意风险分</b><span class="d">风险分按公开的固定规则从材料算出，不会单独调分或下架。如果分数依据的事实写错了，按「事实写错」处理，分数会随之重算。</span></div>'
+    + '<div class="pr"><b>付费请求</b><span class="d">不接受付费删帖、改分、置顶或推荐。</span></div>'
+    + "</div>"
+    + '<p class="caveat" style="margin-top:8px">项目仓库是公开的。下架后页面和下载文件里都不会再出现，但更早版本仍可能留在 Git 历史和第三方缓存里。</p></div>'
+    + '<div class="sec"><h2>更正记录<span>' + CORR.length + " 条</span></h2>" + (rows ? '<div class="box ptable">' + rows + "</div>" : '<p class="caveat" style="margin:0">还没有更正。</p>') + "</div>"
+    + "</div>";
+}
 function postHtml(it) {
   const p = it.p, b = it.b, v = p.verification, m = p.metrics, s = sellerOf(it);
   const rows = [["原帖写的", esc(v.sellerPost || "—") + "<small>" + esc(p.warrantyNote) + "</small>"]];
@@ -978,7 +1016,8 @@ function postHtml(it) {
     + '<span class="avbig" style="background:' + hue(p.handle) + '" aria-hidden="true">' + esc(initial(p.name)) + "</span></div>"
     + "<h1>" + esc(b.service) + "</h1>"
     + '<p class="dateline">' + esc(p.createdAtEt) + "</p>"
-    + '<div class="tagrow">' + (conflicts(p).length ? '<span class="tag high">说法矛盾</span>' : "") + (on(p, "refund_promise") ? '<span class="tag refund">有退款说法</span>' : "") + ((on(p, "first_login") || on(p, "no_ban")) ? '<span class="tag mid">只保首登 / 不保封号</span>' : "") + (p.priority ? '<span class="tag plain">重点核查</span>' : "") + '<span class="tag plain">' + esc(b.priceLabel || "") + "</span></div>"
+    + '<div class="tagrow">' + (conflicts(p).length ? '<span class="tag high">说法矛盾</span>' : "") + (on(p, "refund_promise") ? '<span class="tag refund">有退款说法</span>' : "") + ((on(p, "first_login") || on(p, "no_ban")) ? '<span class="tag mid">只保首登 / 不保封号</span>' : "") + (p.priority ? '<span class="tag plain">重点核查</span>' : "") + (corrOf(it).length ? '<span class="tag mid">已更正</span>' : "") + '<span class="tag plain">' + esc(b.priceLabel || "") + "</span></div>"
+    + (corrOf(it).length ? '<div class="corr-box"><b>这条帖子有更正</b>' + corrOf(it).map((c) => "<p>" + esc(c.added) + " · " + esc(c.what) + (c.reason ? "<br><span>原因：" + esc(c.reason) + "</span>" : "") + "</p>").join("") + '<button type="button" data-go="page:corrections">全部更正记录 →</button></div>' : "")
     + '<p class="lead"><b>' + esc(b.cover) + "。</b>" + esc(b.diff ? b.diff + "。" : "") + "</p>"
     + '<div class="sec"><h2>条款对照</h2><div class="box">' + cmp + "</div></div>"
     + (prices ? '<div class="sec"><h2>价格</h2><div class="box">' + prices + "</div></div>" : "")
@@ -1133,7 +1172,7 @@ function briefHtml(it) {
     + (pr.length ? '<div class="sec"><h2>同一份商品文案，' + pr.length + " 个店<span><code>/item/597</code></span></h2>" + pr.map(([n, v]) => '<div class="bar-row"><span class="nm" title="' + esc(n) + '">' + esc(n) + '</span><div class="bar-tr"><div class="bar-fl" style="width:' + (v / mx * 100).toFixed(1) + '%"></div></div><span class="vv">¥' + esc(v) + "</span></div>").join("") + '<div class="quote">' + esc(s597.warrantyQuote || "") + '</div><p class="caveat" style="margin-top:8px">文案相同只说明货架同源或同模板，不能据此认定是同一家商家。</p></div>' : "")
     + '<div class="sec"><h2>方法与覆盖</h2><ul class="narr">' + (m.coverageBullets || []).map((x) => "<li>" + inline(x, it.day) + "</li>").join("") + "</ul></div>"
     + '<div class="sec"><h2>原始数据</h2><div class="box"><ul class="dl">' + (m.downloads || []).map((d) => '<li><a href="' + esc(d.href) + '" download>' + esc(d.label) + "</a><span>" + esc(String(d.href).split(".").pop().toUpperCase()) + "</span></li>").join("") + "</ul></div></div>"
-    + '<p class="disclaim">只整理公开帖子、商品页和评论里的原话。风险分按固定规则从这些材料算出，不评价卖家是否可靠，也不构成购买建议。</p>'
+    + '<p class="disclaim">只整理公开帖子、商品页和评论里的原话。风险分按固定规则从这些材料算出，不评价卖家是否可靠，也不构成购买建议。发现写错了？看<button type="button" class="inline-link" data-go="page:corrections">更正与下架</button>。</p>'
     + "</div>";
 }
 
@@ -1176,6 +1215,7 @@ document.addEventListener("click", (e) => {
   if (!g) return;
   const id = g.dataset.go;
   if (id.startsWith("seller:")) { if (sellers.has(id.slice(7))) { state.view = id; select(id, { focus: false }); } return; }
+  if (PAGES[id]) { closeSide(); select(id, { focus: false }); return; }
   if (!byId.has(id)) return;
   else { if (!viewItems().some((x) => x.id === id)) state.view = "day:" + byId.get(id).day; select(id); }
 });
@@ -1204,14 +1244,14 @@ document.addEventListener("keydown", (e) => {
 /* ================= boot ================= */
 const total = items.filter((x) => x.kind === "post").length;
 document.getElementById("side-sub").textContent = days.length + " 期 · " + total + " 条帖 · " + sellers.size + " 个商家";
-document.getElementById("side-foot").textContent = "静态快照，最近更新 " + (days[0] ? days[0].snapshot.meta.verificationWrittenAtEt : "") + "。不构成购买建议。";
+document.getElementById("side-foot").innerHTML = "静态快照，最近更新 " + esc(days[0] ? days[0].snapshot.meta.verificationWrittenAtEt : "") + '。不构成购买建议。<br><button type="button" class="inline-link" data-go="page:corrections">更正与下架</button> · ' + link(REPO, "GitHub") + " · " + link(X_CONTACT, "X");
 (function boot() {
   const h = new URLSearchParams(location.hash.slice(1));
   const v = h.get("v"), i = h.get("i");
   if (h.get("c") && PCATS.some((x) => x.key === h.get("c"))) state.pcat = h.get("c");
   const validView = v && (SMART.some((x) => x.key === v) || RANKS.some((x) => x.key === v) || (v.startsWith("day:") && days.some((d) => "day:" + d.date === v)) || (v.startsWith("seller:") && sellers.has(v.slice(7))));
   state.view = validView ? v : "latest";
-  if (i && (byId.has(i) || (i.startsWith("seller:") && sellers.has(i.slice(7))))) select(i, { focus: false });
+  if (i && (byId.has(i) || PAGES[i] || (i.startsWith("seller:") && sellers.has(i.slice(7))))) select(i, { focus: false });
   else setView(state.view);
 })();
 })();

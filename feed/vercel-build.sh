@@ -10,4 +10,6 @@ cp -r .feed-build/days dist/days
 cp feed/og.png dist/og.png
 cp -r public/downloads dist/downloads
 cp -r data/archive/. dist/archive/
+# Posts taken down under feed/corrections.json must not stay downloadable either.
+python3 feed/build_feed.py --scrub dist
 echo "dist ready: $(ls dist | tr '\n' ' ')"
