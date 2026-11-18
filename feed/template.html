@@ -1098,7 +1098,11 @@ function historyHtml(s) {
   if (nd > 1) {
     h += '<h3 class="hsub">说法变化<span>比较相邻两次上榜的帖子和商品页</span></h3>'
       + (s.termChanges.length
-        ? '<div class="box plist">' + s.termChanges.map((c) => '<div class="pi static"><b>' + esc(c.day) + "：" + (c.on ? "新出现「" + esc(c.label) + "」" : "这期帖子没提「" + esc(c.label) + "」") + "</b><span>" + (c.on ? "对比 " : "上次提到是 ") + esc(c.fromDay) + "</span></div>").join("") + "</div>"
+        ? '<div class="box plist">' + Array.from(new Set(s.termChanges.map((c) => c.day))).map((day) => {
+            const cs = s.termChanges.filter((c) => c.day === day), on = cs.filter((c) => c.on), off = cs.filter((c) => !c.on);
+            const q = (xs) => xs.map((c) => "「" + esc(c.label) + "」").join("");
+            return '<div class="pi static"><b>' + esc(day) + "</b><span>" + [on.length ? "新出现" + q(on) : "", off.length ? "这期帖子没提" + q(off) : ""].filter(Boolean).join("<br>") + "（对比 " + esc(cs[0].fromDay) + "）</span></div>";
+          }).join("") + "</div>"
           + (s.termChanges.some((c) => !c.on) ? '<p class="caveat" style="margin-top:6px">「没提」只说明这期的帖子和商品页没写，不代表商家取消了这条说法。</p>' : "")
         : '<p class="caveat" style="margin-top:0">各期的退款、首登、封号说法没有变化。</p>');
   }
@@ -1142,9 +1146,14 @@ function changesHtml(day) {
     return '<div class="chg"><h3>' + title + "<span>" + list.length + '</span></h3><div class="box plist">' + head + "</div>"
       + (rest ? '<details class="more"><summary>其余 ' + (list.length - 6) + ' 家</summary><div class="box plist">' + rest + "</div></details>" : "") + "</div>";
   };
+  // One row per seller: a seller with several changes is listed once, with the changes on separate lines.
+  const bySeller = (list) => { const m = new Map(); list.forEach((x) => { if (!m.has(x.s)) m.set(x.s, []); m.get(x.s).push(x); }); return Array.from(m, ([s, xs]) => ({ s, xs })); };
+  const quoted = (xs) => xs.map((x) => "「" + esc(x.label) + "」").join("");
+  const priceRows = bySeller(c.price);
+  const termRows = bySeller(c.terms).map((r) => Object.assign(r, { on: r.xs.filter((x) => x.on), off: r.xs.filter((x) => !x.on) })).sort((a, b) => (b.on.length ? 1 : 0) - (a.on.length ? 1 : 0));
   return '<div class="sec"><h2>和上一期比<span>对比 ' + esc(c.prev) + "</span></h2>"
-    + group("价格变动 ≥10%", c.price, (x) => btn(x.s, esc(CATLABEL(x.cat)) + " " + fmtPrice(x.from) + " → " + fmtPrice(x.to) + "（" + pctText(x.pct) + "，对比 " + esc(x.fromDay.slice(5)) + (x.from.src !== x.to.src ? "；来源不同：" + esc(x.from.src) + " → " + esc(x.to.src) : "") + "）"), "上过榜的商家里，没有同类商品价格变动 10% 以上的。")
-    + (c.unverified ? '<div class="chg"><h3>说法变化<span>—</span></h3><p class="caveat" style="margin:0">本期的评论区和商品页核查还没提交，条款不全，等核查到了再比较。</p></div>' : group("说法变化", c.terms.slice().sort((a, b) => b.on - a.on), (x) => btn(x.s, x.on ? "新出现「" + esc(x.label) + "」（对比 " + esc(x.fromDay.slice(5)) + "）" : "这期帖子没提「" + esc(x.label) + "」（" + esc(x.fromDay.slice(5)) + " 提过）"), "再次上榜的商家，退款、首登、封号说法都没变。")
+    + group("价格变动 ≥10%", priceRows, (r) => btn(r.s, r.xs.map((x) => esc(CATLABEL(x.cat)) + " " + fmtPrice(x.from) + " → " + fmtPrice(x.to) + "（" + pctText(x.pct) + "，对比 " + esc(x.fromDay.slice(5)) + (x.from.src !== x.to.src ? "；来源不同：" + esc(x.from.src) + " → " + esc(x.to.src) : "") + "）").join("<br>")), "上过榜的商家里，没有同类商品价格变动 10% 以上的。")
+    + (c.unverified ? '<div class="chg"><h3>说法变化<span>—</span></h3><p class="caveat" style="margin:0">本期的评论区和商品页核查还没提交，条款不全，等核查到了再比较。</p></div>' : group("说法变化", termRows, (r) => btn(r.s, [r.on.length ? "新出现" + quoted(r.on) + "（对比 " + esc(r.on[0].fromDay.slice(5)) + "）" : "", r.off.length ? "这期帖子没提" + quoted(r.off) + "（" + esc(r.off[0].fromDay.slice(5)) + " 提过）" : ""].filter(Boolean).join("<br>")), "再次上榜的商家，退款、首登、封号说法都没变。")
       + (c.terms.some((x) => !x.on) ? '<p class="caveat" style="margin-top:6px">「没提」只说明这期的帖子和商品页没写，不代表商家取消了这条说法。</p>' : ""))
     + group("首次上榜", c.fresh, (s) => btn(s, '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>"), "没有新面孔。")
     + group("本期未上榜", c.gone, (s) => btn(s, "上一期在榜 · " + '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>"), "上一期的商家这期都还在。")
