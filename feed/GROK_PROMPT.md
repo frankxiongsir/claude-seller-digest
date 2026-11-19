@@ -47,6 +47,7 @@ After collecting and checking, output **one JSON object** with no surrounding pr
 | `terms.refund_promise` | bool | Post, author comment or shop page offers a refund, compensation or replacement |
 | `terms.first_login_only` | bool | Only covers the first login |
 | `terms.no_ban` | bool | States that bans are not covered |
+| `warranty_level` | string | **One fixed after-sales level for the whole listing (post + author comments + shop page)**, see below. Strongly recommended; if omitted the page guesses it from `summary.cover` |
 | `prices` | array | **One entry per price**, see below |
 | `warranty_note` | string | How the terms were classified, in the source's wording |
 | `seller_post` / `seller_comment` | string | Seller's own claims / what the author added in comments |
@@ -56,6 +57,20 @@ After collecting and checking, output **one JSON object** with no surrounding pr
 | `missing` | array of strings | What was not checked |
 | `coverage` | string | How much of this post's comments and pages were read |
 | `narrative` | string | Full check notes, one point per line starting with `- ` |
+
+### After-sales level (`warranty_level`)
+
+The home page shows this as the 「售后」 column. Pick exactly one, judging the post together with the author's comments and the shop page. When several tiers differ, use the level of the cheapest Claude tier.
+
+| Value | Shown as | Use when |
+|---|---|---|
+| `ban_claim` | 自称封号包赔 | Seller says a ban during use is refunded, replaced or compensated (e.g. 「质保封号」「封号无条件退款」「质保期内不能用退款或换号」). Use even if it is unverified |
+| `instant_refund` | 秒封/KYC 失败可退 | Refund or replacement only for failure at delivery: KYC not passed, banned right after verification, unused card within N hours. Later bans not covered |
+| `first_login` | 只保首登 | Only the first login is guaranteed (「质保首登」「仅保首次登录」) |
+| `no_ban` | 明确不保封号 | Explicitly says bans are not covered or nothing is refunded after delivery (「不保封号」「无法提供封号质保」「交付后不退」) |
+| `unstated` | 没写售后 | Nothing about what happens after a ban. Includes subscription-only warranties such as 「质保30天订阅」, vague 「有售后」, and the seller's own 「0 封号」 claims |
+
+Terms written for other products in the same post (GPT, Gemini, Muse…) do not count.
 
 ### Price entry (`prices[]`)
 

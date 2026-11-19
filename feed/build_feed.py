@@ -26,6 +26,41 @@ DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 CATEGORIES = {"pro", "max5", "max20", "kyc", "teams", "other"}
 CURRENCIES = {"CNY", "USD", "USDT"}
 SENTIMENTS = {"negative", "positive", "neutral"}
+# One fixed after-sales level per post (shown on the home table). Grok may set warranty_level directly;
+# otherwise derive_level() works it out from the terms flags and the warranty note.
+WARRANTY_LEVELS = {"ban_claim": "自称封号包赔", "instant_refund": "秒封/KYC 失败可退", "first_login": "只保首登",
+                   "no_ban": "明确不保封号", "unstated": "没写售后"}
+LEVELS_FILE = ROOT / "warranty_levels.json"
+_BACKFILL = None
+NEG_CLAUSE = re.compile(r"(未写|未见|未另给|没写|无(?!条件|法)|没有|不是)[^。；;，,]*")
+
+
+def _backfill() -> dict:
+    global _BACKFILL
+    if _BACKFILL is None:
+        _BACKFILL = json.loads(LEVELS_FILE.read_text(encoding="utf-8")).get("levels", {}) if LEVELS_FILE.exists() else {}
+    return _BACKFILL
+
+
+def guess_level(cover: str) -> str:
+    """Fallback for days without warranty_level: read the combined post + shop-page terms line,
+    ignoring clauses that say something is NOT written (未写/未见/无 …)."""
+    s = NEG_CLAUSE.sub("", cover or "")
+    if re.search(r"首登|首次登录", s): return "first_login"
+    if re.search(r"不保封号|不包封号|封号不保|不质保封号|封号不在质保|无法提供封号质保|做不了质保|没法质保|封号不覆盖|交付后不退|不做退款|不负责", s): return "no_ban"
+    if re.search(r"秒封|验证失败|不通过|未过|没通过|失败.{0,3}退|(?<!不)弹 ?KYC.{0,4}(退|换)", s): return "instant_refund"
+    if re.search(r"质保封号|封号.{0,6}(退|赔|换)|包赔|无条件退款", s): return "ban_claim"
+    return "unstated"
+
+
+def derive_level(p: dict, date: str = "") -> str:
+    """warranty_level written by Grok > hand-checked backfill (warranty_levels.json) > guess from summary.cover."""
+    if p.get("warranty_level") in WARRANTY_LEVELS: return p["warranty_level"]
+    hit = _backfill().get(date, {}).get(str(p.get("id")))
+    if hit in WARRANTY_LEVELS: return hit
+    return guess_level((p.get("summary") or {}).get("cover", ""))
+
+
 METRICS = ["impression_count", "reply_count", "like_count", "repost_count", "quote_count", "bookmark_count"]
 NEG = re.compile(r"封|挂了|登不上|密码错误|改密码|失败|避雷|不理|打水漂|没有任何保障|沒有任何保障|骗|跑路|不退")
 
@@ -81,6 +116,8 @@ def validate(day: dict) -> list:
         t = need(p, "terms", dict, w) or {}
         for k in ("refund_promise", "first_login_only", "no_ban"):
             if not isinstance(t.get(k), bool): errs.append(f"{w}.terms.{k}: must be true/false")
+        if p.get("warranty_level") is not None and p["warranty_level"] not in WARRANTY_LEVELS:
+            errs.append(f"{w}.warranty_level: one of {sorted(WARRANTY_LEVELS)} (or omit it)")
         for j, pr in enumerate(p.get("prices") or []):
             pw = f"{w}.prices[{j}]"
             for k in ("source", "product", "category"):
@@ -209,6 +246,7 @@ def day_to_page(day: dict) -> dict:
             "expandedLinks": p.get("links", []), "promo": p.get("promo", []), "createdAt": p.get("created_at"),
             "createdAtEt": p["created_at_et"], "metrics": {k: int(p["metrics"].get(k, 0) or 0) for k in METRICS},
             "warrantyClass": p.get("warranty_class", ""), "warrantyNote": p.get("warranty_note", ""),
+            "warrantyLevel": derive_level(p, day["date"]),
             "priority": bool(p.get("priority")), "prices": p.get("prices", []),
             "verification": {
                 "coverage": p.get("coverage", ""), "sellerPost": p.get("seller_post", ""),
