@@ -1,0 +1,580 @@
+{
+  "date": "2026-11-17",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "comments_morning_et": "2026-11-18 09:26:27–09:34:03 ET",
+  "landing_et": {
+    "curl_or_saved_pages": "2026-11-18 09:39–09:41 ET",
+    "browser": "2026-11-18 09:41–09:52 ET"
+  },
+  "comments_evening_et": "2026-11-18 20:43–20:47 ET",
+  "metrics_official_et": "2026-11-18 09:14:53–09:22:25 ET",
+  "metrics_evening_et": "2026-11-18 20:43 ET",
+  "prepared_at_et": "2026-11-18T20:51:45-05:00",
+  "method": "只读访问公开页面与公开 X 读取。未注册、登录、填表、下单、付款、发评或私信，Telegram 未登录。",
+  "posts": [
+    {
+      "id": "2122757401506181447",
+      "handle": "WhiteAi66",
+      "coverage": "早上评论检索 3 个非空页（09:26:27–09:27:21 ET），当时仍有 next_token。晚间沿该 token 续翻第 4–6 页（20:43–20:46 ET），第 7 页于 20:47:28 ET 确认 result_count=0，向更早方向视为已穷尽。晚间另从最新页抓取 1 页（20:45 ET，25 条），已含早上之后的作者补充与新评论，该页仍有未跟随的 next_token。商店商品页于 09:40–09:41 ET 打开。",
+      "landing": {
+        "url": "https://whiteaishop.com/",
+        "price": "商店列表/详情见分区价：多地区 Pro ¥400 / Max ¥1200，美加 Pro ¥450 起，德国 Pro ¥500，Ultra ¥2310；与原帖「Pro 已卖到 600 元」不是同一表述",
+        "terms": "多地区、美加、德国成品号及 Ultra 详情页原文：「我们保证交付时账号可以正常登录，订阅状态正确，并为订阅意外失效提供售后。封号可能由多种原因引起，封号不在质保范围内。」订阅可按月续费或代续（原实付价减 ¥100）。KYC 页写验证失败时退还失败部分实付金额的 85%。以上为 2026-11-18 09:40–09:41 ET 打开的商品页，不代表发帖当日页面，也不代表原帖成交价。",
+        "inaccessible": null
+      },
+      "third_party": [
+        {
+          "handle": "furthereore88",
+          "url": "https://x.com/furthereore88/status/2123033500697628971",
+          "created_at_et": "2026-11-18 07:40 ET",
+          "quote": "scam service",
+          "note": "第三方指责，未证实",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "Equefoue",
+          "url": "https://x.com/Equefoue/status/2123005831654609312",
+          "created_at_et": "2026-11-18 05:50 ET",
+          "quote": "It’s a scam ! They deceive people",
+          "note": "对话对象是 @dubai112232，不能据此核实是否本店交易",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "dubai112232",
+          "url": "https://x.com/dubai112232/status/2123031865607303424",
+          "created_at_et": "2026-11-18 07:33 ET",
+          "quote": "No worries, bro, I've already received the item.",
+          "note": "第一人称自称已收到货，对话对象是 @Equefoue 而非作者，不能当成已核实向本店成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "dubai112232",
+          "url": "https://x.com/dubai112232/status/2122907409857306993",
+          "created_at_et": "2026-11-18 04:19 ET",
+          "quote": "I placed my order yesterday afternoon, but it hasn't shipped yet. Could you please check on it for me?",
+          "note": "第一人称自称已下单未发货，向作者询问，结果未见公开核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "yyydadd",
+          "url": "https://x.com/yyydadd/status/2123126524572291521",
+          "created_at_et": "2026-11-18 13:49 ET",
+          "quote": "诈骗一个说白了",
+          "note": "晚间新评论中的第三方指责，未证实",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "setkoou63535",
+          "url": "https://x.com/setkoou63535/status/2123117996399116539",
+          "created_at_et": "2026-11-18 13:15 ET",
+          "quote": "怎么老是有你们这种诈骗的号商，卖号不解决环境百分百封号",
+          "note": "晚间新评论中的第三方指责，未证实",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "xKaran",
+          "url": "https://x.com/xKaran/status/2122881298125803819",
+          "created_at_et": "2026-11-18 02:32 ET",
+          "quote": "Scam.",
+          "note": "第三方指责，未证实",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "tangzs2023",
+          "url": "https://x.com/tangzs2023/status/2123089617759162396",
+          "created_at_et": "2026-11-18 11:23 ET",
+          "quote": "600一个封了包售后？",
+          "note": "晚间提问，未见作者直接回复该条",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "chny524371",
+          "url": "https://x.com/chny524371/status/2123088626393510116",
+          "created_at_et": "2026-11-18 11:19 ET",
+          "quote": "带质保吗",
+          "note": "晚间提问，未见作者直接回复该条",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "原帖未给出 Max/Ultra 现价",
+        "「带质保吗 / 封了包售后？」两条提问未见作者点名回复",
+        "晚间新评论第 1 页（25 条）之后仍有 next_token，未再向更早翻页；该页已覆盖早上之后的新评论并进入与早上第 1 页重叠的楼层，但不等于把全部历史楼层又读了一遍"
+      ],
+      "conflicts": [
+        "原帖写 Pro 已卖到 600 元；2026-11-18 09:40–09:41 ET 商店商品页列示的分区零售价低于该数字，不能把其中任一数字写成已核实成交价"
+      ]
+    },
+    {
+      "id": "2122879354200109519",
+      "handle": "gg776650",
+      "coverage": "早上评论 1 个非空页 + 第 2 页为空（09:27:28–09:29:31 ET）。本条不在遗留 token 名单中。无落地页。",
+      "landing": {
+        "url": null,
+        "price": null,
+        "terms": null,
+        "inaccessible": "本条无推广落地页可核"
+      },
+      "third_party": [],
+      "missing": [
+        "公开价格与更细的验收时限未见书面条款",
+        "14 条他人评论多为询价或无关，未见第一人称向本店成交或退款核实"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122642726701425133",
+      "handle": "Kyrios999",
+      "coverage": "早上评论 1 个非空页 + 第 2 页为空（09:29:38–09:29:44 ET）。指定商品页 09:41 ET 已下架。同店 S463583 其它 KYC 商品条款已另读，但不套用到本 SKU。",
+      "landing": {
+        "url": "https://www.16688.com.cn/goods/G86632404",
+        "price": null,
+        "terms": null,
+        "inaccessible": "2026-11-18 09:41 ET 打开指定商品页，页面显示「商品不存在或已下架」，价格与售后均不可见。不应用同店其它商品代替本 SKU 规则。"
+      },
+      "third_party": [
+        {
+          "handle": "ccl67y",
+          "url": "https://x.com/ccl67y/status/2122925710956491206",
+          "created_at_et": "2026-11-18 00:31 ET",
+          "quote": "直接搞个印尼的驾照也能过，我的就是这样通过了，只花了我30，我去闲鱼找代过他敢收我200",
+          "note": "第一人称自述经历，未说明是否经本店，未证实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "itsbac0201",
+          "url": "https://x.com/itsbac0201/status/2122802919766724693",
+          "created_at_et": "2026-11-17 16:23 ET",
+          "quote": "A “90% success rate” isn’t much reassurance when you’re handing a third-party service your ID.",
+          "note": "第三方风险评论，不是成交核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "WenBuilds",
+          "url": "https://x.com/WenBuilds/status/2122646798082994635",
+          "created_at_et": "2026-11-17 06:03 ET",
+          "quote": "付了钱之后再去验证，风控给的待遇看着都不一样。",
+          "note": "第三方看法，未证实",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "指定商品页已下架，原帖失败/秒封全退无法在该 SKU 页核对",
+        "作者评论中的 t.co 未展开"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122585971954950485",
+      "handle": "daitu0822",
+      "coverage": "早上评论 1 个非空页 + 第 2 页为空（09:29:51–09:29:59 ET）。落地页 09:43、09:50 ET 复查。",
+      "landing": {
+        "url": "https://daituai.cc/",
+        "price": "列表可见门户验证 ¥240、KYC ¥100、Pro 直充月卡 ¥145，三项均售罄",
+        "terms": "首页通用原文写卡密/账户数据仅保留 7 天，虚拟产品一经交付不因密码修改、个人操作失误等提供售后。这不是门户商品的专属失败/退款条款。KYC 失败、秒封、后期封号、按天退款均未在商品详情中核实（详情无法打开）。",
+        "inaccessible": "售罄商品卡不能进入详情"
+      },
+      "third_party": [
+        {
+          "handle": "cryptofanyong",
+          "url": "https://x.com/cryptofanyong/status/2122594070476513538",
+          "created_at_et": "2026-11-17 02:33 ET",
+          "quote": "没绑国家这条才是真门槛，很多人卡在这儿还以为是自己网络问题。UU远程下单这个流程稳吗，会不会掉线重来？",
+          "note": "第三方提问，作者未回复",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "门户/KYC 商品详情与专属退款规则因售罄未能打开"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122567857070621090",
+      "handle": "ZhaoZhaovfbc",
+      "coverage": "早上评论 1 个非空页 + 第 2 页为空（09:30:04–09:30:11 ET）。落地页 09:44 ET。",
+      "landing": {
+        "url": "https://zzaibox.cn/",
+        "price": "现售可见 Pro 官方直充月卡 ¥140、Max 5x/20x iOS CDK ¥827/¥1609",
+        "terms": "Pro 直充详情：「本商品唯一的质保就是未开通成功时给您苹果 iD 让您尝试退款，无其他任何售后」；掉订阅无法退款。Max CDK：「不到账或掉订阅只提供 AppleId 自行尝试退款」；「账号被封禁不属于质保范围」。总则：售后以商品页为准。",
+        "inaccessible": "详情引用的 Claude Pro 1 个月成品号 /item/597 返回「该商品暂未上架」；Claude 分类目前未见 Max 5x 成品号，不能把 CDK 条款用于成品号"
+      },
+      "third_party": [
+        {
+          "handle": "youtiao99",
+          "url": "https://x.com/youtiao99/status/2122588483193852356",
+          "created_at_et": "2026-11-17 02:11 ET",
+          "quote": "真的想冲个cc玩一下 说让我爽两个星期封了就算了，就怕刚冲上去就给封了",
+          "note": "观望性提问，不是成交核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "ChenSteven93227",
+          "url": "https://x.com/ChenSteven93227/status/2122891604189163576",
+          "created_at_et": "2026-11-17 22:16 ET",
+          "quote": "我最近被封了三个号……还好前面朋友推荐用了（中转站链接）",
+          "note": "自述封号并推荐其它中转站，未说明是否经本店，且中转站不纳入本日报核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "cozyngot",
+          "url": "https://x.com/cozyngot/status/2122744817600082243",
+          "created_at_et": "2026-11-17 12:32 ET",
+          "quote": "Claude 账号需进行 KYC 认证——欢迎随时联系我。我提供账号配置服务，并保证账号不会被封。",
+          "note": "其他卖家到评引流，不是对本店的成交或投诉核实",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "原帖提到的 Pro / Max 5x 成品号在 09:44 ET 商店中未能打开对应在售详情"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122904766586163202",
+      "handle": "SeahorseAiKing",
+      "coverage": "早上评论仅原帖，第 2 页为空（09:30:16–09:30:23 ET）。晚间因回复数增加于 20:45 ET 重抓第 1 页（含原帖共 4 条），20:46 ET 确认第 2 页为空。落地页 09:44 ET。",
+      "landing": {
+        "url": "https://shop.jchpro.com/",
+        "price": "Pro ¥278 库存 14；Max 5x ¥1298 库存 40；Ultra 20X ¥2298 库存 44，与原帖三档成品价吻合",
+        "terms": "Pro/Max5x/Ultra20x 详情原文：「仅保1小时内首次登录成功！账号成功登录后，质保即刻结束。」「后续使用过程中任何原因导致的封号（Ban/Disabled），均无售后、不退不换！」超时未登录概不负责。详情未确认「实卡支付免K」的具体条件，也未写套餐月数。",
+        "inaccessible": null
+      },
+      "third_party": [
+        {
+          "handle": "esperantooooo",
+          "url": "https://x.com/esperantooooo/status/2123078586827726896",
+          "created_at_et": "2026-11-18 10:39 ET",
+          "quote": "have big collab offer, how do i reach you via telegram ?",
+          "note": "合作问询，不是成交核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "hungyzho32552",
+          "url": "https://x.com/hungyzho32552/status/2123118563779309876",
+          "created_at_et": "2026-11-18 13:18 ET",
+          "quote": "请问claude是号+订阅吗？",
+          "note": "晚间提问，未见作者直接答复",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "商店详情未写明套餐月数，也未核到「实卡支付免K」的逐条条件"
+      ],
+      "conflicts": [
+        "原帖未写质保；商店详情写只保 1 小时内首次登录、其后封号不售后。以商店页为落地条款，不以之改写原帖"
+      ]
+    },
+    {
+      "id": "2122685139171897418",
+      "handle": "risingjerrys8",
+      "coverage": "早上评论 2 个非空页 + 第 3 页为空（09:30:27–09:30:40 ET）。商店 09:45 ET。Telegram 公开预览 09:39 ET，未登录。",
+      "landing": {
+        "url": "https://laoshirenvip.com/",
+        "price": "成品号预定：Pro ¥350（与原帖一致），Max ¥1300、Ultra ¥2300（高于原帖 1200/2200）",
+        "terms": "成品号：「只保首次登录：拿到号后24小时内登录不上，截图联系客服，核实后补号」「首次登录之后的封号、掉会员、要求认证等任何问题都不在售后范围」「付款即预定，不取消、不退款。」顶栏「会员30天质保」对应充值订阅的按天处理，不是成品号封号保。另有订阅 KYC 起价 ¥210（美国规格 ¥460）写认证未通过不收取/退还本次服务费，且暂不受理 Portal。",
+        "inaccessible": "Telegram 群页仅作未登录公开预览（09:39 ET）：可见群名、约 547 名成员、站点 laoshirenvip.com 与客服机器人说明；未加入、未打开对话，群内聊天与售后条款未核"
+      },
+      "third_party": [
+        {
+          "handle": "Zherwa11",
+          "url": "https://x.com/Zherwa11/status/2122852491129991596",
+          "created_at_et": "2026-11-17 19:40 ET",
+          "quote": "我是真想整啊，之前弄了一个成品号 两天就被封了",
+          "note": "第一人称自述此前成品号两天被封，未说明是否经本店，未证实",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "Telegram 群内聊天与售后细则未登录，故未核"
+      ],
+      "conflicts": [
+        "原帖 Max/Ultra 为 1200/2200；09:45 ET 商店成品号页为 1300/2300。Pro 350 一致"
+      ]
+    },
+    {
+      "id": "2122705530070131125",
+      "handle": "Muse_Showus",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:43 ET 用该 token 确认续页 result_count=0。指定商品页未上架。",
+      "landing": {
+        "url": "https://shop.boleplace.com/item/88",
+        "price": null,
+        "terms": null,
+        "inaccessible": "2026-11-18 09:48–09:49 ET 指定 /item/88 返回「该商品暂未上架」。首页未见 Claude KYC/Portal 商品。同站可见的是会员代充类商品及用户协议，不能套到本条 KYC 服务。"
+      },
+      "third_party": [],
+      "missing": [
+        "指定商品页未上架，原帖价与「不通过/秒封不收服务费」无法在落地页核对"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122627184833814674",
+      "handle": "vc0jt",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:43 ET 确认续页为空。落地页 09:46 ET。",
+      "landing": {
+        "url": "https://uu.aileaderme.top/categories/claude",
+        "price": "Pro ¥400、Max 5x ¥1390、Max20x ¥2500，与原帖吻合",
+        "terms": "英语商品说明写 US KYC-free high-trust ready account；manual fulfillment within 24 hours, no rush orders；30-day subscription warranty; bans not covered. Verify within 1 hour of delivery. 即保 30 天订阅、不保封号，交付后一小时核验。同分类 Pro iOS 充值月卡 ¥185 售罄，亦标质保订阅、封号不质保。",
+        "inaccessible": null
+      },
+      "third_party": [],
+      "missing": [],
+      "conflicts": []
+    },
+    {
+      "id": "2122765105473720425",
+      "handle": "heerxuan54188",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:43 ET 确认续页为空。指定商品页 09:42 ET 空白。同店其它 KYC 商品已另读，不套用。",
+      "landing": {
+        "url": "https://www.16688.com.cn/goods/G43669535",
+        "price": null,
+        "terms": null,
+        "inaccessible": "2026-11-18 09:42 ET 两次打开指定商品页均为空白，标题为「商品详情 - 16688」，正文无法读取。不据店铺其它商品推断本 SKU 规则。"
+      },
+      "third_party": [
+        {
+          "handle": "KYCSpecialist27",
+          "url": "https://x.com/KYCSpecialist27/status/2123002467285979237",
+          "created_at_et": "2026-11-18 05:36 ET",
+          "quote": "价格挺合理的。不过现在做欧美区 KYC 确实需要稳定，我这边也有长期稳定供应……",
+          "note": "其他卖家到评引流，不是对本店成交核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "maaop182",
+          "url": "https://x.com/maaop182/status/2122776407441027309",
+          "created_at_et": "2026-11-17 14:38 ET",
+          "quote": "Claude ccmax MAX 20X Topup……Telegram channel",
+          "note": "其他卖家到评引流",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "指定商品详情页空白，失败/秒封退款无法在该 SKU 页核对"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122570433618739642",
+      "handle": "Hypewangyolo",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:43 ET 确认续页为空。商品页 09:39–09:40 ET 已打开。",
+      "landing": {
+        "url": "https://hypeai.cc/p/catalog-claude-pro-us-2",
+        "price": "商品页 ¥235，已售罄；另有仅网页版 ¥275",
+        "terms": "商品名与要点写「要扯皮的求您别下单 不质保封号」。原文：「质保首登：首次登录验货后视为交付完成；其余一律不保」；「封号不保，封号率约 15%」；仅网页版称封号概率 1% 以内。封号率为卖家说明，不是已核实统计。页面现行条款不代表发帖当日。",
+        "inaccessible": null
+      },
+      "third_party": [],
+      "missing": [],
+      "conflicts": [
+        "原帖本条未写质保；商店页写质保首登、不质保封号。以商店页为落地条款，不以之改写原帖正文"
+      ]
+    },
+    {
+      "id": "2122627515986428276",
+      "handle": "MingXiang652521",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。无落地页。",
+      "landing": {
+        "url": null,
+        "price": null,
+        "terms": null,
+        "inaccessible": "本条无推广落地页可核"
+      },
+      "third_party": [
+        {
+          "handle": "Lucas_Nguyen686",
+          "url": "https://x.com/Lucas_Nguyen686/status/2122628653662282078",
+          "created_at_et": "2026-11-17 04:51 ET",
+          "quote": "最该夸的居然不是代过而是提醒别乱传证件这点绝绝子到底谁还敢乱传啊",
+          "note": "第三方评价服务提示，不是成交核实",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "公开价格未见"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122703466904932522",
+      "handle": "lngn568785",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。店铺页 09:42/09:50 ET。",
+      "landing": {
+        "url": "https://www.16688.com.cn/shop/S463583",
+        "price": "店内可见 Claude Persona KYC【欧美区】¥180；Claude portal 门户 KYC ¥349。这不是本帖指定的单一 SKU 报价",
+        "terms": "Persona 商品原文：认证不通过或者秒封，全额退款；只保证通过 Claude KYC 认证，不保证账号是否会被官方风控封号；认证结束/通过后，不退不换；本商品只能过 Persona，门户请到另一链接。Portal 商品原文：遇到秒封或者认证不通过直接全额退款；认证通过后请在 30 分钟内确认；只要认证通过且交付完毕，后续封号概不退换。店内条款可作对照，但不能替代本帖未标明的具体商品页。读取时间 09:42 初访、09:50 ET 复查。",
+        "inaccessible": "本帖正文 t.co 展开为配图/状态链接，没有指向某一件 16688 商品的专属详情"
+      },
+      "third_party": [],
+      "missing": [
+        "本帖未给出价格，也未指定与店内哪一件商品一一对应"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122901426926174240",
+      "handle": "JhonVit40518238",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。店页 09:46–09:47 ET（含滑块后公开列表）。",
+      "landing": {
+        "url": "https://wzyp.cn/shop/laoli",
+        "price": "当前店页未见原帖 Pro ¥285 / Max ¥3000 / 20X ¥4800；相近在售为 Max 5x 代充 ¥1560、Max 20x ¥2560、Pro 成品约 ¥358/362",
+        "terms": "Max 5x/20x 页写掉订阅按「总价-总价÷30×实际使用天数」公式退（5x 掉订阅另加 200）；封号可换一次新号或按同一 30 天公式退款；反代及违法社区规定被封禁不支持退款。Pro 页写「订阅30天全程质保，封号不质保(包括短时间封号)」「首登后不管多久内封号都没有质保」，两版本首登报错反馈时间分别写 10 分钟、5 分钟，原文不一致。到站时先出现阿里云 ESA 滑块，尝试两次后通过，未登录。",
+        "inaccessible": null
+      },
+      "third_party": [
+        {
+          "handle": "eahqy5",
+          "url": "https://x.com/eahqy5/status/2122974441647100314",
+          "created_at_et": "2026-11-18 03:45 ET",
+          "quote": "Pro 285 这个价还有货吗？我这边量比较大，想找个稳定点的渠道。",
+          "note": "询价，作者未回复，不是成交核实",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "原帖「质保封号一次」的退款或补号细则、适用 SKU 与期限在原帖中不完整，店页又对不上原帖标价"
+      ],
+      "conflicts": [
+        "原帖价与 09:46–09:47 ET 店页相近商品现价不符；店内 Pro 写封号不质保，不能与 Max「换一次/按公式退」或原帖「质保封号一次」混用"
+      ]
+    },
+    {
+      "id": "2122891567321280740",
+      "handle": "jkhezu",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。无落地页。",
+      "landing": {
+        "url": null,
+        "price": null,
+        "terms": null,
+        "inaccessible": "本条无推广落地页可核"
+      },
+      "third_party": [],
+      "missing": [
+        "价格与质保书面条款均未见"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122897537451659763",
+      "handle": "manant000",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。Telegram 仅公开预览 09:39 ET。",
+      "landing": {
+        "url": "https://t.me/accotc1",
+        "price": null,
+        "terms": null,
+        "inaccessible": "2026-11-18 09:39 ET 只读打开公开预览，未登录、未发消息。可见简介写「全球在线接单KYC」「Claude真人验证KYC，24小时接单」，以及频道与发卡网字样。对话、价目与退款规则均未核。"
+      },
+      "third_party": [],
+      "missing": [
+        "价格与质保书面条款未见",
+        "Telegram 对话未登录，条款未核"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122748002431311933",
+      "handle": "mikespos",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。无落地页。",
+      "landing": {
+        "url": null,
+        "price": null,
+        "terms": null,
+        "inaccessible": "本条无推广落地页可核"
+      },
+      "third_party": [
+        {
+          "handle": "JoyceYinkz",
+          "url": "https://x.com/JoyceYinkz/status/2122756492755628284",
+          "created_at_et": "2026-11-17 13:19 ET",
+          "quote": "刚注册的claude账号 订阅pro弹kyc 认证一下多少钱呢",
+          "note": "询价，作者未回复",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "realdeey",
+          "url": "https://x.com/realdeey/status/2122786618280911337",
+          "created_at_et": "2026-11-17 15:19 ET",
+          "quote": "我可以帮到你，请联系我。",
+          "note": "第三方招揽，不是对本店的反馈",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "「质保封号」的期限、退款或换号规则未见书面细则",
+        "无落地页可交叉核对"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122715823840358469",
+      "handle": "crpto_Amber",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。站点 09:47–09:48 ET。",
+      "landing": {
+        "url": "https://yygpt.me/",
+        "price": "可见 Claude Pro 官方直充月卡 ¥143；「Claude pro 1个月成品号」/item/597 返回暂未上架",
+        "terms": "直充详情：「本商品唯一的质保就是未开通成功时给您苹果 iD 让您尝试退款，无其他任何售后」；会员订阅期间掉订阅没有办法退款。与原帖「官方充值仅质保首次登录」并不一致：页面实际是未开通时只协助自行尝试 Apple 退款、掉订阅不退。首页通用「未使用卡密 24 小时秒退」不覆盖该详情约定。成品号未上架，无成品号质保可核。",
+        "inaccessible": "Pro 成品号链接返回「该商品暂未上架」"
+      },
+      "third_party": [],
+      "missing": [
+        "原帖未标价；成品号商品未上架"
+      ],
+      "conflicts": [
+        "原帖称官方充值仅质保首次登录；09:47–09:48 ET 直充详情写未开通只协助 Apple 退款、掉订阅不退，未见「首次登录」原文"
+      ]
+    },
+    {
+      "id": "2122643420728758310",
+      "handle": "xinglipdfs",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。无落地页。",
+      "landing": {
+        "url": null,
+        "price": null,
+        "terms": null,
+        "inaccessible": "本条无推广落地页可核"
+      },
+      "third_party": [
+        {
+          "handle": "SLP_LSP",
+          "url": "https://x.com/SLP_LSP/status/2122661020053409996",
+          "created_at_et": "2026-11-17 06:59 ET",
+          "quote": "怎么联系",
+          "note": "询问联系方式，作者未回复",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "质保书面条款未见",
+        "无落地页"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "2122659684301894111",
+      "handle": "blueBlue29867",
+      "coverage": "早上评论第 1 页后仍有 next_token；晚间 20:45 ET 确认续页为空。无落地页。",
+      "landing": {
+        "url": null,
+        "price": null,
+        "terms": null,
+        "inaccessible": "本条无推广落地页可核。作者简介写 QQ 群 660221358，未据此推断条款。"
+      },
+      "third_party": [
+        {
+          "handle": "cozyngot",
+          "url": "https://x.com/cozyngot/status/2122662178180444220",
+          "created_at_et": "2026-11-17 07:04 ET",
+          "quote": "Claude 账号需进行 KYC 认证——欢迎随时联系我。我提供账号配置服务，并保证账号不会被封。",
+          "note": "其他卖家到评引流，不是对本店的反馈",
+          "sentiment": "neutral"
+        }
+      ],
+      "missing": [
+        "KYC 服务价格与失败/秒封规则未见",
+        "无落地页"
+      ],
+      "conflicts": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "title": "Claude 公开卖家帖每日汇总",
+  "post_date_et": "2026-11-17",
+  "window": {
+    "label": "ET natural day 2026-11-17 00:00–2026-11-18 00:00",
+    "start_utc": "2026-11-17T05:00:00Z",
+    "end_utc": "2026-11-18T05:00:00Z",
+    "timezone": "America/New_York (ET, UTC-5)"
+  },
+  "type": "daily_digest",
+  "status": "archived",
+  "fetched_at_et": "2026-11-18 09:14:53–09:22:25 ET",
+  "verified_at_et": "评论 2026-11-18 09:26:27–09:34:03 ET；落地页 2026-11-18 09:39–09:41 ET 与 2026-11-18 09:41–09:52 ET；晚间评论补查 2026-11-18 20:43–20:47 ET",
+  "prices_as_of_et": "2026-11-18 09:39–09:41 ET 与 2026-11-18 09:41–09:52 ET",
+  "comments_at_et": "早上 2026-11-18 09:26:27–09:34:03 ET；晚间补查 2026-11-18 20:43–20:47 ET",
+  "prepared_at_et": "2026-11-18T20:51:45-05:00",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "post_count": 20,
+  "sort": "impression_count desc, reply_count desc, like_count desc",
+  "notes": "2026-11-17 ET 完整自然日日报。合格 20 条已按 2026-11-18 09:14:53–09:22:25 ET 检索时点互动指标排序归档。公开状态 archived：MD 附件已发出，全文仍在逐条交付，未标 delivered。晚间 2026-11-18 20:43 ET 互动指标仅作 version，未覆盖排序用数字。本恢复接着早上已保存的检索与筛选成果补完，不是修复定时器。",
+  "counts": {
+    "unique_posts_in_window": 885,
+    "already_recommended_in_window": 0,
+    "already_recommended_total_ids": 108,
+    "raw_hits": 1261,
+    "heuristic_candidates": 676,
+    "excluded": 865,
+    "qualified": 20
+  },
+  "queries": [
+    {
+      "query": "Claude (质保封号 OR 封号包赔 OR 封号退款 OR 按天退款 OR 封号就补 OR 秒封退款 OR 封号包换 OR 不成功退款) -is:retweet",
+      "pages": 5,
+      "hits": 92,
+      "note": "5 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (成品号 OR 代充 OR 出号 OR 补货 OR 现货 OR 开号 OR 稳定号) -is:retweet",
+      "pages": 22,
+      "hits": 511,
+      "note": "22 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (KYC OR 门户验证 OR 过k OR 过K OR Portal) (退款 OR 质保 OR 包过 OR 秒过 OR 验证 OR 代过) -is:retweet",
+      "pages": 15,
+      "hits": 340,
+      "note": "15 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (出售 OR 卖号 OR 账号) (Pro OR Max OR Ultra OR 成品 OR 代充) -is:retweet",
+      "pages": 14,
+      "hits": 318,
+      "note": "14 页，窗口已穷尽"
+    }
+  ],
+  "tool": "connectors/x search_posts_all / get_posts_by_ids（Grok Bot 公共 X 读取，非 user-X 插件）",
+  "files": [
+    "posts.json",
+    "digest.md",
+    "metadata.json",
+    "day.json",
+    "digest-verification.json",
+    "digest-verification.md",
+    "verification.json",
+    "verification.md"
+  ],
+  "metrics_note": "Official metrics are the 2026-11-18 09:14:53–09:22:25 ET search-time public_metrics. Evening lookup at 2026-11-18 20:43 ET was not written back over official fields."
+}
