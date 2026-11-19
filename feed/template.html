@@ -397,7 +397,11 @@ body.at-home .home { display: block; }
 .h-lg { display: grid; gap: 8px; font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
 .h-lg div { display: grid; grid-template-columns: 124px minmax(0, 1fr); gap: 8px; align-items: start; }
 .h-card p { margin: 0; font-size: 12.5px; color: var(--ink-2); line-height: 1.7; }
-.h-foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; justify-content: space-between; }
+.h-static { margin-top: 28px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.h-static a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.h-static a:hover { color: var(--ink); }
+.h-static .h-sep { width: 1px; height: 12px; background: var(--line); }
+.h-foot { margin-top: 14px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; justify-content: space-between; }
 @media (max-width: 760px) {
   .h-bar { padding: 0 14px; height: 52px; }
   .h-wrap { padding: 0 14px 40px; }
@@ -1457,6 +1461,7 @@ function homeHtml() {
     + '<div class="h-card"><h3>「售后」怎么看</h3><div class="h-lg">' + Object.keys(WL).map((k) => "<div><span>" + wlBadge(k) + "</span><span>" + esc(WL_TIP[k]) + "</span></div>").join("") + "</div></div>"
     + '<div class="h-card"><h3>「风险」怎么看</h3><p>按固定规则数红旗：说法前后矛盾、评论区有人自述被封、只保首登或不保封号等。<b>高</b>是 50 分以上；<b>低</b>只说明没查到问题，不代表可靠。</p></div>'
     + "</aside></div>"
+    + '<nav class="h-static" aria-label="静态页面">按商品看价格：' + HOME_CATS.map((c) => '<a href="/c/' + c.key + '/">' + esc(c.label) + "</a>").join("") + '<span class="h-sep"></span><a href="/s/">卖家目录</a><a href="/d/">每期汇总</a></nav>'
     + '<footer class="h-foot"><span>只整理公开帖子、商品页和评论里的原话，不构成购买建议。发现写错了？<button type="button" class="inline-link" data-hnav="corrections">更正与下架</button></span>'
     + '<span class="foot-links" style="margin:0">' + '<a class="flink" href="' + esc(REPO) + '" target="_blank" rel="noopener noreferrer">' + ICO_GH + "GitHub</a>" + '<a class="flink" href="' + esc(X_CONTACT) + '" target="_blank" rel="noopener noreferrer">' + ICO_X + "@xudongsheng1945</a></span></footer>"
     + "</div>";
@@ -1529,6 +1534,13 @@ function route() {
     if (c && PCATS.some((x) => x.key === c)) home.cat = c;
     showHome(false);
   } else { document.body.classList.remove("at-home"); routeApp(); }
+}
+// Everything feed/seo.js needs to write the static, search-indexable pages. Only Node sets this hook.
+if (typeof window.__seo === "function") {
+  window.__seo({ days, sellers, PRICES, PCATS, WL, WL_TIP, LV, SINCE, LAST_DAY, DAYS_ASC, GROUP_TAG, UNVERIFIED,
+    levelFor, priceStats, priceRank, sellerPrices, sellerSummary, fmtPrice, CATLABEL, conflicts, negatives,
+    homeRows, HOME_CATS, dayChanges });
+  return;
 }
 // Numbers for the daily share card. Only feed/card.js (run in Node) sets this hook; browsers skip it.
 if (typeof window.__card === "function") {

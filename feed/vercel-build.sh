@@ -16,6 +16,9 @@ if ls cards/*.png >/dev/null 2>&1; then
   mkdir -p dist/card && cp cards/*.png dist/card/
   cp "$(ls cards/*.png | sort | tail -1)" dist/card/latest.png
 fi
+# Static pages for search engines: sellers, issues, price pages, sitemap.xml, robots.txt (feed/seo.js).
+node --version
+node feed/seo.js .feed-build/index.html dist
 # Posts taken down under feed/corrections.json must not stay downloadable either.
 python3 feed/build_feed.py --scrub dist
 echo "dist ready: $(ls dist | tr '\n' ' ')"

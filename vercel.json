@@ -3,5 +3,6 @@
   "framework": null,
   "installCommand": "echo 'no install needed (python3 stdlib only)'",
   "buildCommand": "sh feed/vercel-build.sh",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "trailingSlash": true
 }

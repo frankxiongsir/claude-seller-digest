@@ -55,6 +55,17 @@ open dist/index.html   # Linux 用 xdg-open
 
 `npm run dev` 是早先的 Next.js 长页面版本，保留在仓库里，不是线上版本。
 
+## 给搜索引擎看的静态页
+
+每次构建时，`feed/seo.js` 会把首页用到的同一份数据写成不需要 JavaScript 的普通网页，方便搜索引擎收录：
+
+- `/s/<卖家账号>/`：每个卖家一页（价格排名、最新售后说法、风险分、说法矛盾、帖子记录）；`/s/` 是卖家目录
+- `/d/<日期>/`：每期一页；`/d/` 是全部期数
+- `/c/pro/`、`/c/max5/` 等：最近 7 天各商品的价格对比
+- `/sitemap.xml`、`/robots.txt`
+
+页面里的正式网址默认是 `https://claude-seller-digest.vercel.app`。换成自己的域名时，在 Vercel 项目里设置环境变量 `SITE_URL`（比如 `https://example.com`）后重新部署即可。评论区内容只给条数，不写评论人账号；指向卖家原帖的链接带 `nofollow`。
+
 ## 每日分享卡片
 
 每期数据到达后，GitHub Actions 会自动生成一张 1080×1440 的竖版卡片，内容是 Claude Pro 最近 7 天的最低价、中位价、在卖家数，以及价格最低 5 家的售后和风险。卡片上的卖家统一匿名为 A–E，数字和首页完全一致（`feed/card.js` 直接复用首页的计算）。
