@@ -1,5 +1,6 @@
 # Emails the repo owner (through an assigned GitHub issue) when the page fails to build
 # or when yesterday's data (US Eastern) has not arrived by early afternoon. See feed/alert.py.
+# Also makes the daily share card (cards/<day>.png) and commits it so Vercel publishes it.
 name: Feed checks
 on:
   push:
@@ -45,3 +46,45 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # On push this only closes an open late-data alert once that day has arrived.
         run: python3 feed/alert.py fresh ${{ github.event_name == 'push' && '--close-only' || '' }}
+  card:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the page and work out the card numbers
+        id: card
+        shell: bash
+        run: |
+          sh feed/vercel-build.sh > /dev/null
+          node feed/card.js .feed-build/index.html .card-out
+          day=$(ls .card-out/*.json 2>/dev/null | sed 's#.*/##; s#\.json$##' | head -1)
+          if [ -z "$day" ]; then echo "No card today."; exit 0; fi
+          if [ -f "cards/$day.png" ] && cmp -s ".card-out/$day.json" "cards/$day.json"; then echo "Card for $day is up to date."; exit 0; fi
+          echo "day=$day" >> "$GITHUB_OUTPUT"
+      - name: Draw the card
+        if: steps.card.outputs.day
+        shell: bash
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-cjk-extra > /dev/null
+          day=${{ steps.card.outputs.day }}
+          mkdir -p cards
+          google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --force-device-scale-factor=1 \
+            --window-size=1080,1440 --screenshot="$PWD/cards/$day.png" "file://$PWD/.card-out/$day.html"
+          cp ".card-out/$day.json" "cards/$day.json"
+          test -s "cards/$day.png"
+      - name: Commit the card
+        if: steps.card.outputs.day
+        shell: bash
+        run: |
+          day=${{ steps.card.outputs.day }}
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "cards/$day.png" "cards/$day.json"
+          git commit -m "Share card for $day"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 10; done
+          exit 1

@@ -11,6 +11,11 @@ cp -r .feed-build/days dist/days
 cp feed/og.png dist/og.png
 cp -r public/downloads dist/downloads
 cp -r data/archive/. dist/archive/
+# Daily share cards (made by the "card" job in .github/workflows/feed-checks.yml).
+if ls cards/*.png >/dev/null 2>&1; then
+  mkdir -p dist/card && cp cards/*.png dist/card/
+  cp "$(ls cards/*.png | sort | tail -1)" dist/card/latest.png
+fi
 # Posts taken down under feed/corrections.json must not stay downloadable either.
 python3 feed/build_feed.py --scrub dist
 echo "dist ready: $(ls dist | tr '\n' ' ')"

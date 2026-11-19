@@ -45,3 +45,5 @@ next-env.d.ts
 /.feed-build/
 /feed/__pycache__/
 /.inline-build/
+
+/.card-out

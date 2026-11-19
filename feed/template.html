@@ -1530,6 +1530,13 @@ function route() {
     showHome(false);
   } else { document.body.classList.remove("at-home"); routeApp(); }
 }
+// Numbers for the daily share card. Only feed/card.js (run in Node) sets this hook; browsers skip it.
+if (typeof window.__card === "function") {
+  const rows = homeRows("pro");
+  window.__card({ day: LAST_DAY, since: SINCE, stats: priceStats("pro", rows),
+    rows: rows.map((e) => ({ price: e.bestObs.amount, from: !!e.bestObs.from, level: levelFor(e).k, risk: e.seller.level, conflict: e.seller.conf.length > 0 })) });
+  return;
+}
 window.addEventListener("popstate", route);
 route();
 })();

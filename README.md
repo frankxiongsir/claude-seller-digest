@@ -55,6 +55,15 @@ open dist/index.html   # Linux 用 xdg-open
 
 `npm run dev` 是早先的 Next.js 长页面版本，保留在仓库里，不是线上版本。
 
+## 每日分享卡片
+
+每期数据到达后，GitHub Actions 会自动生成一张 1080×1440 的竖版卡片，内容是 Claude Pro 最近 7 天的最低价、中位价、在卖家数，以及价格最低 5 家的售后和风险。卡片上的卖家统一匿名为 A–E，数字和首页完全一致（`feed/card.js` 直接复用首页的计算）。
+
+- 最新一张：<https://claude-seller-digest.vercel.app/card/latest.png>
+- 往期：`https://claude-seller-digest.vercel.app/card/<日期>.png`，源文件在 `cards/`
+
+同一天的数据被覆盖时，如果数字变了，卡片会重新生成。
+
 ## 更正与下架
 
 页面点名了具体卖家，写错了就应该改。完整规则见页面侧栏的 **「更正与下架」**（[直达链接](https://claude-seller-digest.vercel.app/#v=latest&i=page%3Acorrections)）。
