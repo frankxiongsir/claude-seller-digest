@@ -417,6 +417,41 @@ body.at-home .home { display: block; }
   .h-risk { grid-area: risk; flex-direction: row; align-items: center; gap: 6px; justify-self: end; }
   .h-wl small { display: inline; margin: 0 0 0 6px; }
 }
+/* ---------- step C: brief post list, post verdict ---------- */
+.bp { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 10px; align-items: center; width: 100%; padding: 10px 14px; border: 0; border-top: 1px solid var(--line); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.bp:first-child { border-top: 0; }
+.bp:hover { background: var(--hover); }
+.bp-n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.bp-main { min-width: 0; }
+.bp-main b { display: block; font-size: 14px; }
+.bp-main span { display: block; color: var(--ink-2); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bp-side { display: flex; gap: 6px; align-items: center; }
+.bp-risk { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: var(--ink-2); min-width: 26px; }
+.bp-risk i { width: 7px; height: 7px; border-radius: 50%; background: #9a9aa0; }
+.bp-risk.high { color: var(--high); } .bp-risk.high i { background: var(--high); }
+.bp-risk.mid { color: var(--mid); } .bp-risk.mid i { background: var(--mid); }
+.verdict { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 12px; margin: 14px 0 12px; overflow: hidden; }
+.verdict > div { padding: 12px 14px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.verdict > div:first-child { border-left: 0; }
+.verdict span:first-child { color: var(--muted); font-size: 12px; font-weight: 650; }
+.verdict b { font-size: 20px; line-height: 1.3; }
+.verdict b .wl { font-size: 13px; }
+.verdict small { color: var(--ink-2); font-size: 12px; line-height: 1.5; }
+.vlink { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
+.vlink .lvl { font-size: 14px; }
+.issue { margin: 0 0 12px; padding: 11px 14px; border-radius: 10px; background: var(--mid-bg); font-size: 14px; line-height: 1.65; }
+.issue.bad { background: var(--high-bg); }
+.issue b { margin-right: 8px; }
+.sec > details.fold:first-of-type { margin-top: 0; }
+@media (max-width: 720px) {
+  .verdict { grid-template-columns: minmax(0, 1fr); }
+  .verdict > div { border-left: 0; border-top: 1px solid var(--line); }
+  .verdict > div:first-child { border-top: 0; }
+  .bp { grid-template-columns: 22px minmax(0, 1fr); }
+  .bp-side { grid-column: 2; }
+}
+/* Reading-app extras (unread dots, stars, mark-all-read, shortcut hints) are hidden in the new layout. */
+.item .dot, .item .star, #markAll, #readBtn, #starBtn, .hint { display: none !important; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .flink { display: inline-flex; align-items: center; gap: 5px; height: 26px; padding: 0 9px; border: 1px solid var(--line); border-radius: 7px; background: var(--list); color: var(--ink); font: inherit; font-size: 12px; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap; }
 .flink:hover { background: var(--hover); }
@@ -733,6 +768,7 @@ const LOW_TIP = "低于同类中位价 40% 以上，留意是否为代充、共�
 /* ---------- seller history and day-over-day changes ---------- */
 const DAYS_ASC = days.map((d) => d.date).sort();
 const prevDay = (d) => { const i = DAYS_ASC.indexOf(d); return i > 0 ? DAYS_ASC[i - 1] : null; };
+const RESTRICT = ["no_ban", "first_login", "instant_refund", "ban_claim"];
 const TERMS = [{ k: "refund", label: "有退款说法" }, { k: "first", label: "只保首登" }, { k: "noban", label: "不保封号" }];
 const CATLABEL = (k) => (PCATS.find((c) => c.key === k) || { label: k }).label;
 const CURNAME = { CNY: "人民币", USD: "美元", USDT: "USDT" };
@@ -747,6 +783,9 @@ sellers.forEach((s) => {
     if (on(it.p, "refund_promise")) h.terms.refund = true;
     if (on(it.p, "first_login")) h.terms.first = true;
     if (on(it.p, "no_ban")) h.terms.noban = true;
+    // A day's after-sales level: the most restrictive level stated in that day's posts (null if none stated).
+    const lv = it.p.warrantyLevel;
+    if (lv && lv !== "unstated" && (!h.level || RESTRICT.indexOf(lv) < RESTRICT.indexOf(h.level))) h.level = lv;
     priceRowsOf(it).forEach(({ cat, row, pr }) => {
       const k = cat + "|" + pr.cur, cur = h.prices.get(k);
       if (!cur || pr.amount < cur.amount) h.prices.set(k, { cat, cur: pr.cur, amount: pr.amount, from: pr.from, id: it.id, src: row.src || "" });
@@ -766,12 +805,16 @@ sellers.forEach((s) => {
   s.hist = hist;
   s.series = Array.from(series.values()).sort((a, b) => order.indexOf(a.cat) - order.indexOf(b.cat) || (a.cur === "CNY" ? -1 : 1));
   s.termChanges = termChanges;
+  // Level changes between consecutive days on which this seller stated a level (days without checks are skipped).
+  const lh = hist.filter((h) => h.level && !UNVERIFIED.has(h.day));
+  s.levelChanges = [];
+  for (let i = 1; i < lh.length; i++) if (lh[i].level !== lh[i - 1].level) s.levelChanges.push({ day: lh[i].day, fromDay: lh[i - 1].day, from: lh[i - 1].level, to: lh[i].level });
 });
 const pctText = (p) => (p > 0 ? "+" : "") + Math.round(p * 100) + "%";
 function dayChanges(day) {
   const prev = prevDay(day);
   if (!prev) return null;
-  const res = { prev, fresh: [], gone: [], price: [], terms: [], unverified: UNVERIFIED.has(day) };
+  const res = { prev, fresh: [], gone: [], price: [], terms: [], levels: [], unverified: UNVERIFIED.has(day) };
   sellers.forEach((s) => {
     const today = s.hist.find((h) => h.day === day), earlier = s.hist.filter((h) => h.day < day);
     if (today && !earlier.length) res.fresh.push(s);
@@ -784,6 +827,8 @@ function dayChanges(day) {
       if (Math.abs(pct) >= 0.1) res.price.push({ s, cat: v.cat, from: o, to: v, fromDay: ref.day, pct });
     });
     const last = earlier.filter((h) => !UNVERIFIED.has(h.day)).pop();
+    const lastLv = earlier.filter((h) => h.level && !UNVERIFIED.has(h.day)).pop();
+    if (!res.unverified && today.level && lastLv && lastLv.level !== today.level) res.levels.push({ s, from: lastLv.level, to: today.level, fromDay: lastLv.day });
     if (!res.unverified && last) TERMS.forEach((t) => { if (last.terms[t.k] !== today.terms[t.k]) res.terms.push({ s, label: t.label, on: today.terms[t.k], fromDay: last.day }); });
   });
   const byRisk = (a, b) => b.total - a.total || a.handle.localeCompare(b.handle);
@@ -881,8 +926,6 @@ function setStar(id, v) { v ? STAR.add(id) : STAR.delete(id); store.set("star", 
 const SMART = [
   { key: "all", label: "全部", ico: "M3 4.5h12M3 9h12M3 13.5h12", test: () => true },
   { key: "latest", label: "最新一期", ico: "M9 3.2v1.6M9 13.2v1.6M3.2 9h1.6M13.2 9h1.6M5 5l1.1 1.1M11.9 11.9L13 13M5 13l1.1-1.1M11.9 6.1L13 5", circle: true, test: (it) => it.day === latest },
-  { key: "unread", label: "未读", dot: true, test: (it) => !isRead(it.id) },
-  { key: "star", label: "星标", star: true, test: (it) => isStar(it.id) },
   { key: "conflict", label: "说法矛盾", ico: "M9 3.5l6 10.5H3zM9 8v2.8M9 12.3v.1", posts: true, test: (it) => it.kind === "post" && conflicts(it.p).length > 0 },
   { key: "refund", label: "有退款说法", ico: "M4 9a5 5 0 109-3M13 3v3h-3", posts: true, test: (it) => it.kind === "post" && on(it.p, "refund_promise") },
   { key: "high", label: "高风险商家的帖", ico: "M9 2.5l5.5 2v4.3c0 3.3-2.4 5.7-5.5 6.7-3.1-1-5.5-3.4-5.5-6.7V4.5z", posts: true, test: (it) => it.kind === "post" && sellerOf(it).level === "high" }
@@ -968,7 +1011,7 @@ function renderList() {
   if (state.view === "rank:price") extra.innerHTML = '<div class="seg" role="group" aria-label="商品类型">' + PCATS.filter((c) => PRICES[c.key].length).map((c) => '<button type="button" data-pcat="' + c.key + '" aria-pressed="' + (state.pcat === c.key) + '">' + c.label + '<span class="c">' + PRICES[c.key].length + "</span></button>").join("") + "</div>";
   if (isRank()) { renderRankList(sub); return; }
   const unread = current.filter((it) => !isRead(it.id)).length;
-  document.getElementById("lt-sub").textContent = sub + " · " + current.length + " 条" + (unread ? "，" + unread + " 未读" : "");
+  document.getElementById("lt-sub").textContent = sub + " · " + current.length + " 条";
   const el = document.getElementById("list");
   if (!current.length) { el.innerHTML = '<p class="empty">' + (state.q ? "没有匹配的内容。" : state.view === "star" ? "还没有星标。打开一条后按 S 加星标。" : "这里没有内容。") + "</p>"; return; }
   let h = "", lastDay = null;
@@ -988,7 +1031,7 @@ function itemHtml(it) {
     const nc = it.posts.filter((x) => conflicts(x.p).length).length;
     return '<button type="button" class="' + cls + '" role="option" data-id="' + it.id + '" aria-selected="' + selected + '">' + flags
       + '<span class="big" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M4 3.5h10v11H4zM6.5 6.5h5M6.5 9h5M6.5 11.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>'
-      + "<div><h4>每日简报：" + it.posts.length + " 条卖家帖，" + nc + " 条说法矛盾</h4><p>" + esc(stripMd((m.highlights || [])[0] || "")) + '</p><div class="src"><b>核查记录</b><span>' + esc(String(m.verificationWrittenAtEt || "").replace(/^\d{4}-\d{2}-\d{2}\s*/, "")) + "</span></div></div></button>";
+      + "<div><h4>每日简报：" + it.posts.length + " 条卖家帖，" + nc + " 条说法矛盾</h4><p>" + esc(stripMd((m.highlights || [])[0] || "")) + '</p></div></button>';
   }
   const p = it.p, b = it.b, s = sellerOf(it);
   const tags = (conflicts(p).length ? '<span class="tag high">矛盾</span>' : "") + (p.warrantyLevel && p.warrantyLevel !== "unstated" ? '<span class="wl ' + p.warrantyLevel + '" style="font-size:11px;padding:1px 6px">' + WL[p.warrantyLevel] + "</span>" : "") + (corrOf(it).length ? '<span class="tag mid">已更正</span>' : "");
@@ -1110,23 +1153,34 @@ function postHtml(it) {
   const links = Array.from(new Set((p.expandedLinks || []).concat(p.promo || [])));
   const voices = v.thirdParty.length ? '<p class="caveat">均为自述，没有独立核实成交。</p>' + v.thirdParty.map((t) => '<div class="voice' + (isNeg(t) ? " neg" : "") + '"><div class="top"><b>@' + esc(t.handle) + "</b><span>" + esc(t.createdAtEt || "时间未附") + "</span>" + (t.url ? link(t.url, "原评论") : "") + "</div><q>" + esc(t.quote) + "</q>" + (t.note ? '<div class="note">' + esc(t.note) + "</div>" : "") + "</div>").join("") : '<p class="caveat" style="margin:0">没有摘录到第三方发言。没看到差评只说明这次没看到，不代表可靠。</p>';
   const landing = L ? '<dl class="kv">' + Object.entries(L).map(([k, x]) => "<dt>" + esc(LABELS[k] || k) + "</dt><dd>" + (/^https?:\/\//.test(x) ? link(x) : esc(x)) + "</dd>").join("") + "</dl>" : '<p style="margin:0">这次没有读到独立商品页。</p>';
+  const lv = p.warrantyLevel || "unstated";
+  const issue = conflicts(p)[0] || b.diff || "";
+  const best = priceRowsOf(it).filter((x) => x.pr.cur === "CNY").sort((a, b2) => a.pr.amount - b2.pr.amount)[0];
+  const fold = (title, inner, open) => '<details class="fold"' + (open ? " open" : "") + "><summary>" + title + '</summary><div class="in">' + inner + "</div></details>";
   return '<div class="article">'
-    + '<div class="byline"><div class="who"><button type="button" data-go="seller:' + esc(s.key) + '"><b>' + esc(p.name) + "</b><span>@" + esc(p.handle) + " · 第 " + p.n + " 条 · " + compact(m.impression_count) + " 浏览 · " + num(m.reply_count) + " 回复</span></button></div>"
+    + '<div class="byline"><div class="who"><button type="button" data-go="seller:' + esc(s.key) + '"><b>' + esc(p.name) + "</b><span>@" + esc(p.handle) + " · " + esc(it.day.slice(5)) + " 第 " + p.n + " 条 · " + compact(m.impression_count) + " 浏览</span></button></div>"
     + '<span class="avbig" style="background:' + hue(p.handle) + '" aria-hidden="true">' + esc(initial(p.name)) + "</span></div>"
     + "<h1>" + esc(b.service) + "</h1>"
-    + '<p class="dateline">' + esc(p.createdAtEt) + "</p>"
-    + '<div class="tagrow">' + (conflicts(p).length ? '<span class="tag high">说法矛盾</span>' : "") + (p.priority ? '<span class="tag plain">重点核查</span>' : "") + (corrOf(it).length ? '<span class="tag mid">已更正</span>' : "") + (p.warrantyLevel ? wlBadge(p.warrantyLevel) : "") + '<span class="tag plain">' + esc(b.priceLabel || "") + "</span></div>"
+    + '<p class="dateline">' + esc(p.createdAtEt) + " · " + link(p.url, "x.com 原帖 ↗") + "</p>"
+    + '<div class="verdict">'
+    + '<div><span>价格</span><b>' + (best ? fmtPrice(best.pr) + (best.pr.from ? "<small> 起</small>" : "") : esc(b.priceLabel || "未写")) + "</b>" + (best ? "<small>" + esc(CATLABEL(best.cat)) + (b.priceLabel && b.priceLabel !== fmtPrice(best.pr) ? " · " + esc(b.priceLabel) : "") + "</small>" : "") + "</div>"
+    + "<div><span>售后</span><b>" + wlBadge(lv) + "</b><small>" + esc(WL_TIP[lv]) + "</small></div>"
+    + '<div><span>卖家风险</span><b><button type="button" class="vlink" data-go="seller:' + esc(s.key) + '"><span class="lvl ' + s.level + '">' + LV[s.level] + " " + s.total + "</span></button></b><small>" + esc(s.rules.filter((r) => r.pts).sort((a, b2) => b2.pts - a.pts).slice(0, 2).map((r) => r.t).join("、") || "没查到红旗") + "</small></div>"
+    + "</div>"
+    + (issue ? '<div class="issue' + (conflicts(p).length ? " bad" : "") + '"><b>' + (conflicts(p).length ? "说法对不上" : "要注意") + "</b>" + esc(issue) + "</div>" : "")
+    + '<div class="tagrow">' + (conflicts(p).length > 1 ? '<span class="tag high">' + conflicts(p).length + " 处说法矛盾</span>" : "") + (p.priority ? '<span class="tag plain">重点核查</span>' : "") + (corrOf(it).length ? '<span class="tag mid">已更正</span>' : "") + "</div>"
     + (corrOf(it).length ? '<div class="corr-box"><b>这条帖子有更正</b>' + corrOf(it).map((c) => "<p>" + esc(c.added) + " · " + esc(c.what) + (c.reason ? "<br><span>原因：" + esc(c.reason) + "</span>" : "") + "</p>").join("") + '<button type="button" data-go="page:corrections">全部更正记录 →</button></div>' : "")
-    + '<p class="lead"><b>' + esc(b.cover) + "。</b>" + esc(b.diff ? b.diff + "。" : "") + "</p>"
-    + '<div class="sec"><h2>条款对照</h2><div class="box">' + cmp + "</div></div>"
-    + (prices ? '<div class="sec"><h2>价格</h2><div class="box">' + prices + "</div></div>" : "")
-    + '<div class="sec"><h2>原帖全文<span>' + link(p.url, "x.com 原帖 ↗") + '</span></h2><pre class="orig">' + esc(p.text) + "</pre>" + (links.length ? '<ul class="links">' + links.map((u) => "<li>" + link(u) + "</li>").join("") + "</ul>" : "") + "</div>"
-    + '<div class="sec"><h2>评论区摘录<span>' + v.thirdParty.length + " 条</span></h2>" + voices + "</div>"
-    + '<div class="sec"><h2>商家档案</h2>' + sellerCard(s) + "</div>"
-    + '<div class="sec"><h2>核查细节</h2>'
-    + '<details class="fold"><summary>核查记录全文</summary><div class="in">' + narrative(v.narrative, it.day) + "</div></details>"
-    + '<details class="fold"><summary>商品页读取结果</summary><div class="in"><p class="caveat">截至 ' + esc(it.meta.pricesAsOfEt) + "，只读取，不嵌入对方页面。</p>" + landing + "</div></details>"
-    + '<details class="fold"><summary>本次没覆盖到</summary><div class="in">' + esc((v.missing || []).join("、") || "—") + '<p class="caveat" style="margin:8px 0 0">读取范围：' + esc(v.coverage) + "</p></div></details></div>"
+    + '<p class="lead" style="font-size:16px">' + esc(b.cover) + "。</p>"
+    + '<div class="sec"><h2>出处与细节</h2>'
+    + fold("条款对照：原帖、作者评论、商品页", '<div class="box">' + cmp + "</div>")
+    + (prices ? fold("价格明细（" + (b.rows || []).length + " 项）", '<div class="box">' + prices + "</div>") : "")
+    + fold("原帖全文", '<pre class="orig">' + esc(p.text) + "</pre>" + (links.length ? '<ul class="links">' + links.map((u) => "<li>" + link(u) + "</li>").join("") + "</ul>" : ""))
+    + fold("评论区摘录（" + v.thirdParty.length + " 条）", voices || '<p class="caveat" style="margin:0">没有摘录到第三方评论。</p>')
+    + fold("核查记录全文", narrative(v.narrative, it.day))
+    + fold("商品页读取结果", '<p class="caveat">截至 ' + esc(it.meta.pricesAsOfEt) + "，只读取，不嵌入对方页面。</p>" + landing)
+    + fold("本次没覆盖到", esc((v.missing || []).join("、") || "—") + '<p class="caveat" style="margin:8px 0 0">读取范围：' + esc(v.coverage) + "</p>")
+    + "</div>"
+    + '<div class="sec"><h2>卖家档案</h2>' + sellerCard(s) + "</div>"
     + "</div>";
 }
 const LABELS = { url: "页面", price: "标价", prices: "标价", terms: "现行条款", claude_terms: "成品号条款", kyc_refund: "KYC 退款条款", price_pro_fangai: "Pro 标价", sister_max_prices: "另一域名 Max 标价", gap: "本次没核到", inaccessible: "未能读到" };
@@ -1192,16 +1246,12 @@ function historyHtml(s) {
   } else if (s.series.length) {
     h += '<p class="caveat">价格只出现过一期，攒到两期以上会显示走势。</p>';
   }
-  if (nd > 1) {
-    h += '<h3 class="hsub">说法变化<span>比较相邻两次上榜的帖子和商品页</span></h3>'
-      + (s.termChanges.length
-        ? '<div class="box plist">' + Array.from(new Set(s.termChanges.map((c) => c.day))).map((day) => {
-            const cs = s.termChanges.filter((c) => c.day === day), on = cs.filter((c) => c.on), off = cs.filter((c) => !c.on);
-            const q = (xs) => xs.map((c) => "「" + esc(c.label) + "」").join("");
-            return '<div class="pi static"><b>' + esc(day) + "</b><span>" + [on.length ? "新出现" + q(on) : "", off.length ? "这期帖子没提" + q(off) : ""].filter(Boolean).join("<br>") + "（对比 " + esc(cs[0].fromDay) + "）</span></div>";
-          }).join("") + "</div>"
-          + (s.termChanges.some((c) => !c.on) ? '<p class="caveat" style="margin-top:6px">「没提」只说明这期的帖子和商品页没写，不代表商家取消了这条说法。</p>' : "")
-        : '<p class="caveat" style="margin-top:0">各期的退款、首登、封号说法没有变化。</p>');
+  if (s.levelChanges.length) {
+    h += '<h3 class="hsub">售后变化<span>只比较写明了售后的几期</span></h3><div class="box plist">'
+      + s.levelChanges.map((c) => '<div class="pi static"><b>' + esc(c.day) + "</b><span>" + wlBadge(c.from) + " → " + wlBadge(c.to) + "（对比 " + esc(c.fromDay) + "）</span></div>").join("") + "</div>";
+  } else if (nd > 1) {
+    const stated = s.hist.filter((x) => x.level);
+    h += '<h3 class="hsub">售后变化</h3><p class="caveat" style="margin-top:0">' + (stated.length > 1 ? "写明了售后的几期，等级一直是「" + WL[stated[0].level] + "」。" : "写明售后的不到两期，还没法比较。") + "</p>";
   }
   return h + '<p class="caveat" style="margin-top:8px">每天只收浏览量前 20 条帖子，没上榜的日子不代表没在卖；不同期的帖子也可能是不同商品。</p></div>';
 }
@@ -1238,50 +1288,47 @@ function sellerPriceHtml(s) {
 function changesHtml(day) {
   const c = dayChanges(day);
   if (!c) return '<div class="sec"><h2>和上一期比</h2><p class="caveat" style="margin:0">这是收录的第一期，没有可以对比的上一期。</p></div>';
-  const btn = (s, d) => '<button type="button" class="pi" data-go="seller:' + esc(s.key) + '"><b>' + esc(s.name) + '</b><span>' + d + "</span></button>";
-  const group = (title, list, row, empty) => {
-    if (!list.length) return '<div class="chg"><h3>' + title + "<span>0</span></h3><p class=\"caveat\" style=\"margin:0\">" + empty + "</p></div>";
-    const head = list.slice(0, 6).map(row).join(""), rest = list.slice(6).map(row).join("");
-    return '<div class="chg"><h3>' + title + "<span>" + list.length + '</span></h3><div class="box plist">' + head + "</div>"
-      + (rest ? '<details class="more"><summary>其余 ' + (list.length - 6) + ' 家</summary><div class="box plist">' + rest + "</div></details>" : "") + "</div>";
-  };
-  // One row per seller: a seller with several changes is listed once, with the changes on separate lines.
-  const bySeller = (list) => { const m = new Map(); list.forEach((x) => { if (!m.has(x.s)) m.set(x.s, []); m.get(x.s).push(x); }); return Array.from(m, ([s, xs]) => ({ s, xs })); };
-  const quoted = (xs) => xs.map((x) => "「" + esc(x.label) + "」").join("");
+  const btn = (s, d) => '<button type="button" class="pi" data-go="seller:' + esc(s.key) + '"><b>' + esc(s.name) + "</b><span>" + d + "</span></button>";
+  const list = (xs, row) => '<div class="box plist">' + xs.map(row).join("") + "</div>";
+  // One row per seller: a seller with several price changes is listed once, with the changes on separate lines.
+  const bySeller = (xs) => { const m = new Map(); xs.forEach((x) => { if (!m.has(x.s)) m.set(x.s, []); m.get(x.s).push(x); }); return Array.from(m, ([s, ys]) => ({ s, xs: ys })); };
   const priceRows = bySeller(c.price);
-  const termRows = bySeller(c.terms).map((r) => Object.assign(r, { on: r.xs.filter((x) => x.on), off: r.xs.filter((x) => !x.on) })).sort((a, b) => (b.on.length ? 1 : 0) - (a.on.length ? 1 : 0));
+  const priceRow = (r) => btn(r.s, r.xs.map((x) => esc(CATLABEL(x.cat)) + " " + fmtPrice(x.from) + " → " + fmtPrice(x.to) + "（" + pctText(x.pct) + "，对比 " + esc(x.fromDay.slice(5)) + (x.from.src !== x.to.src ? "；来源不同：" + esc(x.from.src) + " → " + esc(x.to.src) : "") + "）").join("<br>"));
+  const levelRow = (x) => btn(x.s, wlBadge(x.from) + " → " + wlBadge(x.to) + ' <small style="color:var(--muted)">对比 ' + esc(x.fromDay.slice(5)) + "</small>");
+  const moverRow = (s) => btn(s, '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>");
+  const nothing = !priceRows.length && !c.levels.length;
   return '<div class="sec"><h2>和上一期比<span>对比 ' + esc(c.prev) + "</span></h2>"
-    + group("价格变动 ≥10%", priceRows, (r) => btn(r.s, r.xs.map((x) => esc(CATLABEL(x.cat)) + " " + fmtPrice(x.from) + " → " + fmtPrice(x.to) + "（" + pctText(x.pct) + "，对比 " + esc(x.fromDay.slice(5)) + (x.from.src !== x.to.src ? "；来源不同：" + esc(x.from.src) + " → " + esc(x.to.src) : "") + "）").join("<br>")), "上过榜的商家里，没有同类商品价格变动 10% 以上的。")
-    + (c.unverified ? '<div class="chg"><h3>说法变化<span>—</span></h3><p class="caveat" style="margin:0">本期的评论区和商品页核查还没提交，条款不全，等核查到了再比较。</p></div>' : group("说法变化", termRows, (r) => btn(r.s, [r.on.length ? "新出现" + quoted(r.on) + "（对比 " + esc(r.on[0].fromDay.slice(5)) + "）" : "", r.off.length ? "这期帖子没提" + quoted(r.off) + "（" + esc(r.off[0].fromDay.slice(5)) + " 提过）" : ""].filter(Boolean).join("<br>")), "再次上榜的商家，退款、首登、封号说法都没变。")
-      + (c.terms.some((x) => !x.on) ? '<p class="caveat" style="margin-top:6px">「没提」只说明这期的帖子和商品页没写，不代表商家取消了这条说法。</p>' : ""))
-    + group("首次上榜", c.fresh, (s) => btn(s, '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>"), "没有新面孔。")
-    + group("本期未上榜", c.gone, (s) => btn(s, "上一期在榜 · " + '<span class="lvl ' + s.level + '">风险 ' + s.total + "</span>"), "上一期的商家这期都还在。")
-    + '<p class="caveat" style="margin-top:8px">每天只收浏览量前 20 条，「首次上榜」「未上榜」只说明有没有进前 20，不代表开始或停止销售。</p></div>';
+    + (priceRows.length ? '<div class="chg"><h3>价格变动 ≥10%<span>' + priceRows.length + "</span></h3>" + list(priceRows, priceRow) + "</div>" : "")
+    + (c.unverified ? '<p class="caveat" style="margin:0 0 10px">本期的评论区和商品页核查还没提交，售后等级等核查到了再比较。</p>'
+      : c.levels.length ? '<div class="chg"><h3>售后变了<span>' + c.levels.length + "</span></h3>" + list(c.levels, levelRow) + '<p class="caveat" style="margin-top:6px">只比较两期都写明了售后的卖家。</p></div>' : "")
+    + (nothing ? '<p class="caveat" style="margin:0 0 10px">再次上榜的卖家里，没有价格变动 10% 以上的，售后等级也没变。</p>' : "")
+    + '<details class="fold"><summary>上榜变动：新上榜 ' + c.fresh.length + " 家 · 掉出前 20 " + c.gone.length + " 家</summary><div class=\"in\">"
+    + (c.fresh.length ? "<h3 class=\"hsub\">新上榜</h3>" + list(c.fresh, moverRow) : "")
+    + (c.gone.length ? "<h3 class=\"hsub\">掉出前 20</h3>" + list(c.gone, moverRow) : "")
+    + '<p class="caveat" style="margin-top:8px">每天只收浏览量前 20 条，上榜变动只说明有没有进前 20，不代表开始或停止销售。</p></div></details>'
+    + "</div>";
 }
 function briefHtml(it) {
   const m = it.meta, posts = it.posts;
-  const nRefund = posts.filter((x) => on(x.p, "refund_promise")).length;
-  const nConf = posts.filter((x) => conflicts(x.p).length).length;
-  const daySellers = Array.from(new Set(posts.map((x) => sellerOf(x)))).sort((a, b) => b.total - a.total);
-  const nHigh = daySellers.filter((s) => s.level === "high").length;
   const scanned = (String(m.digestIntro || "").match(/独立帖\s*(\d+)\s*条/) || [])[1];
   const byViews = posts.slice().sort((a, b) => b.p.metrics.impression_count - a.p.metrics.impression_count);
   const hl = (m.highlights || []).map((raw) => { const x = String(raw).match(/^\s*(\d+)\.\s*\*\*(.+?)\*\*\s*([\s\S]*)$/); return x ? { n: x[1], t: x[2], b: x[3] } : { n: "", t: "", b: raw }; });
   const s597 = m.sharedItem597 || {}; const pr = Object.entries(s597.pricesCny || {}).sort((a, b) => a[1] - b[1]); const mx = pr.length ? pr[pr.length - 1][1] : 1;
+  const postRow = (x) => {
+    const s = sellerOf(x), lv = x.p.warrantyLevel || "unstated";
+    return '<button type="button" class="bp" data-go="' + x.id + '"><span class="bp-n">' + x.p.n + '</span><span class="bp-main"><b>' + esc(s.name) + "</b><span>" + esc(x.b.service || "") + '</span></span><span class="bp-side">'
+      + (conflicts(x.p).length ? '<span class="tag high">矛盾</span>' : "") + wlBadge(lv) + '<span class="bp-risk ' + s.level + '" title="风险 ' + s.total + ' 分"><i></i>' + { high: "高", mid: "中", low: "低" }[s.level] + "</span></span></button>";
+  };
   return '<div class="article">'
-    + '<div class="byline"><div class="who"><b>每日简报</b><span>抓取 ' + esc(m.digestFetchedAtEt) + " · 核查 " + esc(m.verificationWrittenAtEt) + '</span></div><span class="avbig" style="background:var(--ink);color:var(--bg)" aria-hidden="true">' + esc(it.day.slice(8)) + "</span></div>"
-    + "<h1>" + esc(it.day) + " 的 Claude 卖家帖</h1>"
-    + '<p class="dateline">美东时间 ' + esc(it.day) + " 00:00–24:00</p>"
-    + '<p class="lead">当天去重后 ' + esc(scanned || "—") + " 条公开帖，收录 " + posts.length + " 条出售 Claude 账号、成品号、代充和 KYC 验证服务的帖子，逐条比对原帖、商品页和评论区。</p>"
-    + '<div class="stats"><div class="stat"><b>' + posts.length + "</b><span>收录帖子</span></div><div class=\"stat\"><b>" + nRefund + '</b><span>有退款说法</span></div><div class="stat warn"><b>' + nConf + '</b><span>说法矛盾</span></div><div class="stat warn"><b>' + nHigh + "</b><span>高风险商家</span></div></div>"
+    + "<h1>" + esc(it.day.slice(5).replace("-", " 月 ")) + " 日 · Claude 卖家帖</h1>"
+    + '<p class="lead" style="margin-top:6px">当天' + (scanned ? " " + esc(scanned) + " 条公开帖里，" : "，") + "收录浏览量最高的 " + posts.length + " 条卖 Claude 的帖子，逐条对照原帖、商品页和评论区。"
+    + '<button type="button" class="inline-link" data-home="1">想比价看首页的买前速查 →</button></p>'
+    + (hl.length ? '<div class="sec"><h2>值得注意<span>' + hl.length + " 件</span></h2>" + hl.map((f, i) => '<div class="find"><span class="n">' + (i + 1) + "</span>" + (f.t ? "<h3>" + inline(f.t, it.day) + "</h3>" : "") + "<div>" + inline(f.b, it.day) + "</div></div>").join("") + "</div>" : "")
     + changesHtml(it.day)
-    + '<div class="sec"><h2>当日帖子 · 按浏览量<span>颜色是商家风险等级</span></h2><div class="cells">' + byViews.map((x) => { const s = sellerOf(x); return '<button type="button" class="cell ' + s.level + '" data-go="' + x.id + '" title="' + esc("#" + x.p.n + " " + x.p.name + " · " + x.b.service + " · 风险 " + s.total) + '">' + x.p.n + "</button>"; }).join("") + '</div><ul class="legend"><li><i style="background:var(--high)"></i>高风险</li><li><i style="background:var(--mid)"></i>中风险</li><li><i style="background:var(--line-2)"></i>低风险</li></ul></div>'
-    + '<div class="sec"><h2>今日风险最高的商家<span><button type="button" data-goview="rank:score" style="color:var(--sel)">完整风险排名 →</button></span></h2><div class="box plist">' + daySellers.slice(0, 5).map((s) => '<button type="button" class="pi" data-go="seller:' + esc(s.key) + '"><b>' + esc(s.name) + ' <span class="lvl ' + s.level + '" style="font-size:12px">' + s.total + "</span></b><span>" + esc(s.rules.filter((r) => r.pts).sort((a, b) => b.pts - a.pts).slice(0, 2).map((r) => r.t).join("、")) + "</span></button>").join("") + "</div></div>"
-    + (function () { const st = priceStats("pro"); const low = PRICES.pro.filter((e) => e.cur === "CNY").slice(0, 3); return st ? '<div class="sec"><h2>Pro 成品价格<span><button type="button" data-rank="pro" style="color:var(--sel)">完整价格排名 →</button></span></h2><div class="box plist">' + low.map((e, i) => '<button type="button" class="pi" data-rank="pro" data-sel="' + e.id + '"><b>' + (i + 1) + ". " + esc(e.seller.name) + " " + fmtPrice(e.bestObs) + '</b><span class="lvl ' + e.seller.level + '">风险 ' + e.seller.total + "</span></button>").join("") + '</div><p class="caveat" style="margin-top:8px">' + statsText(st) + "</p></div>" : ""; })()
-    + '<div class="sec"><h2>核查发现<span>' + hl.length + " 条</span></h2>" + hl.map((f, i) => '<div class="find"><span class="n">发现 ' + esc(f.n || i + 1) + "</span>" + (f.t ? "<h3>" + inline(f.t, it.day) + "</h3>" : "") + "<div>" + inline(f.b, it.day) + "</div></div>").join("") + "</div>"
-    + (pr.length ? '<div class="sec"><h2>同一份商品文案，' + pr.length + " 个店<span><code>/item/597</code></span></h2>" + pr.map(([n, v]) => '<div class="bar-row"><span class="nm" title="' + esc(n) + '">' + esc(n) + '</span><div class="bar-tr"><div class="bar-fl" style="width:' + (v / mx * 100).toFixed(1) + '%"></div></div><span class="vv">¥' + esc(v) + "</span></div>").join("") + '<div class="quote">' + esc(s597.warrantyQuote || "") + '</div><p class="caveat" style="margin-top:8px">文案相同只说明货架同源或同模板，不能据此认定是同一家商家。</p></div>' : "")
-    + '<div class="sec"><h2>方法与覆盖</h2><ul class="narr">' + (m.coverageBullets || []).map((x) => "<li>" + inline(x, it.day) + "</li>").join("") + "</ul></div>"
-    + '<div class="sec"><h2>原始数据</h2><div class="box"><ul class="dl">' + (m.downloads || []).map((d) => '<li><a href="' + esc(d.href) + '" download>' + esc(d.label) + "</a><span>" + esc(String(d.href).split(".").pop().toUpperCase()) + "</span></li>").join("") + "</ul></div></div>"
+    + '<div class="sec"><h2>当天的 ' + posts.length + " 条帖<span>按浏览量 · 点开看出处</span></h2><div class=\"box\">" + byViews.map(postRow).join("") + "</div></div>"
+    + (pr.length ? '<details class="fold"><summary>同一份商品文案，' + pr.length + " 个店（/item/597）</summary><div class=\"in\">" + pr.map(([n, v]) => '<div class="bar-row"><span class="nm" title="' + esc(n) + '">' + esc(n) + '</span><div class="bar-tr"><div class="bar-fl" style="width:' + (v / mx * 100).toFixed(1) + '%"></div></div><span class="vv">¥' + esc(v) + "</span></div>").join("") + '<div class="quote">' + esc(s597.warrantyQuote || "") + '</div><p class="caveat" style="margin-top:8px">文案相同只说明货架同源或同模板，不能据此认定是同一家商家。</p></div></details>' : "")
+    + '<details class="fold"><summary>方法、时间和覆盖范围</summary><div class="in"><p class="caveat" style="margin:0 0 8px">美东时间 ' + esc(it.day) + " 00:00–24:00 发布的帖子。抓取 " + esc(m.digestFetchedAtEt) + "；核查 " + esc(m.verificationWrittenAtEt) + "。</p><ul class=\"narr\">" + (m.coverageBullets || []).map((x) => "<li>" + inline(x, it.day) + "</li>").join("") + "</ul></div></details>"
+    + ((m.downloads || []).length ? '<details class="fold"><summary>下载当天原始数据</summary><div class="in"><ul class="dl">' + m.downloads.map((d) => '<li><a href="' + esc(d.href) + '" download>' + esc(d.label) + "</a><span>" + esc(String(d.href).split(".").pop().toUpperCase()) + "</span></li>").join("") + "</ul></div></details>" : "")
     + '<p class="disclaim">只整理公开帖子、商品页和评论里的原话。风险分按固定规则从这些材料算出，不评价卖家是否可靠，也不构成购买建议。发现写错了？看<button type="button" class="inline-link" data-go="page:corrections">更正与下架</button>。</p>'
     + "</div>";
 }
@@ -1462,7 +1509,7 @@ document.getElementById("side-sub").textContent = days.length + " 期 · " + tot
 const ICO_EDIT = '<svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15l1-4 8-8 3 3-8 8-4 1zM10.5 4.5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
 const ICO_GH = '<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
 const ICO_X = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
-document.getElementById("side-foot").innerHTML = "静态快照，最近更新 " + esc(days[0] ? days[0].snapshot.meta.verificationWrittenAtEt : "") + "。不构成购买建议。"
+document.getElementById("side-foot").innerHTML = "最近更新：" + esc(days[0] ? days[0].date.slice(5) : "") + " 这期。不构成购买建议。"
   + '<div class="foot-links"><button type="button" class="flink" data-go="page:corrections">' + ICO_EDIT + "更正与下架</button>"
   + '<a class="flink" href="' + esc(REPO) + '" target="_blank" rel="noopener noreferrer" title="GitHub 仓库">' + ICO_GH + "GitHub</a>"
   + '<a class="flink" href="' + esc(X_CONTACT) + '" target="_blank" rel="noopener noreferrer" title="X @xudongsheng1945">' + ICO_X + "@xudongsheng1945</a></div>";
