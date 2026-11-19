@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<script>try { if (!location.hash && localStorage.getItem("csd:layout") === "classic") location.replace("classic.html"); } catch (e) {}</script>
 <title>Claude 卖家帖 · 每日信息流</title>
 <meta name="description" content="每日整理公开 X 上的 Claude 账号/代充/KYC 卖家帖：原帖、商品页与评论逐条对照，并按商家汇总出处与风险分。">
 <link rel="canonical" href="https://claude-seller-digest.vercel.app/">
@@ -1415,7 +1416,8 @@ function homeHtml() {
 }
 function homeTop() {
   const nav = [["home", "买前速查"], ["daily", "每日动态"], ["sellers", "全部卖家"], ["corrections", "更正与下架"]];
-  const btns = nav.map(([k, t]) => '<button type="button" data-hnav="' + k + '" aria-current="' + (k === "home") + '">' + t + "</button>").join("");
+  const btns = nav.map(([k, t]) => '<button type="button" data-hnav="' + k + '" aria-current="' + (k === "home") + '">' + t + "</button>").join("")
+    + '<button type="button" data-hnav="classic" title="切换回旧版三栏界面，可随时切回">旧版界面</button>';
   return '<header class="h-top"><div class="h-bar"><div class="h-brand"><span class="logo" aria-hidden="true">C</span>Claude 卖家帖</div><nav class="h-nav" aria-label="栏目">' + btns + '</nav><span class="h-sp"></span>'
     + '<div class="h-social"><a href="' + esc(REPO) + '" target="_blank" rel="noopener noreferrer" title="GitHub 仓库">' + ICO_GH + 'GitHub</a><a href="' + esc(X_CONTACT) + '" target="_blank" rel="noopener noreferrer" title="X @xudongsheng1945">' + ICO_X + '<span class="full">@xudongsheng1945</span></a></div></div>'
     + '<nav class="h-tabs2" aria-label="栏目">' + btns + "</nav></header>";
@@ -1446,6 +1448,7 @@ homeEl.addEventListener("click", (e) => {
   if (!n) return;
   const k = n.dataset.hnav;
   if (k === "home") { window.scrollTo(0, 0); return; }
+  if (k === "classic") { try { localStorage.setItem("csd:layout", "classic"); } catch (e) {} location.href = "classic.html"; return; }
   if (k === "daily") toApp(() => { state.view = "latest"; select("d:" + LAST_DAY, { focus: false }); });
   else if (k === "sellers") toApp(() => setView("rank:score"));
   else if (k === "rank") toApp(() => { state.pcat = home.cat; setView("rank:price"); });

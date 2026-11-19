@@ -6,6 +6,7 @@ python3 --version
 python3 feed/sync_repo.py --no-pull --repo . --work .feed-build --split
 rm -rf dist && mkdir -p dist/archive
 cp .feed-build/index.html dist/index.html
+cp .feed-build/classic.html dist/classic.html
 cp -r .feed-build/days dist/days
 cp feed/og.png dist/og.png
 cp -r public/downloads dist/downloads

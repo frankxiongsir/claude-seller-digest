@@ -477,7 +477,12 @@ def main() -> None:
     tpl = (ROOT / "template.html").read_text(encoding="utf-8")
     for ph in ("__FEED__", "__DETAILS__"):
         if tpl.count(ph) != 1: sys.exit(f"template.html must contain {ph} exactly once")
-    OUT.write_text(tpl.replace("__FEED__", _embed({"days": pages, "corrections": log})).replace("__DETAILS__", det_json), encoding="utf-8")
+    feed_json = _embed({"days": pages, "corrections": log})
+    OUT.write_text(tpl.replace("__FEED__", feed_json).replace("__DETAILS__", det_json), encoding="utf-8")
+    classic = ROOT / "template-classic.html"   # previous layout, kept switchable for now
+    if classic.exists():
+        ctpl = classic.read_text(encoding="utf-8")
+        (OUT.parent / "classic.html").write_text(ctpl.replace("__FEED__", feed_json).replace("__DETAILS__", det_json), encoding="utf-8")
     print(f"built {OUT.name}: {len(days)} day(s), {sum(len(d['posts']) for d in days)} posts" + (f", details in {OUT.parent.name}/days/" if a.split else ", single file"))
 
 
