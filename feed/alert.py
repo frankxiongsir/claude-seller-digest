@@ -3,6 +3,7 @@
 
   python3 feed/alert.py build success|failure build.log   # after running feed/vercel-build.sh
   python3 feed/alert.py fresh                             # is yesterday's (US Eastern) day in data/archive/?
+  python3 feed/alert.py fresh --close-only                # on push: close a late-data alert once the day is in, never open one
 
 Without GITHUB_TOKEN it only prints what it would do (for local testing).
 One open issue per kind: a repeat failure adds a comment, the next success closes it.
@@ -75,12 +76,23 @@ def build(outcome, log_path):
     fail("build", datetime.now(ZoneInfo("America/New_York")).strftime("%m-%d"), body)
 
 
-def fresh():
+def has_day(date):
+    d = ROOT / "data" / "archive" / date
+    return d.is_dir() and any((d / f).exists() for f in ("day.json", "posts.json"))
+
+
+def fresh(close_only=False):
     now = datetime.now(ZoneInfo("America/New_York"))
+    if close_only:
+        # The open alert names the day it waited for; close it as soon as that day is pushed.
+        cur = open_issue("fresh")
+        if not cur: return print("no open late-data alert")
+        want = cur["title"].rsplit("：", 1)[-1].strip()
+        if has_day(want): ok("fresh", f"{want} 的数据已经到了（检查于美东 {now.strftime('%m-%d %H:%M')}）。")
+        else: print(f"{want} still missing; alert stays open")
+        return
     want = (now - timedelta(days=1)).strftime("%Y-%m-%d")
-    d = ROOT / "data" / "archive" / want
-    have = d.is_dir() and any((d / f).exists() for f in ("day.json", "posts.json"))
-    if have:
+    if has_day(want):
         return ok("fresh", f"{want} 的数据已经到了。")
     latest = sorted(x.name for x in (ROOT / "data" / "archive").iterdir() if x.is_dir() and x.name[:2] == "20")
     body = (f"到美东时间 {now.strftime('%m-%d %H:%M')}，仓库里还没有 **{want}** 的数据（`data/archive/{want}/` 下没有 day.json 或 posts.json）。"
@@ -92,5 +104,5 @@ def fresh():
 
 if __name__ == "__main__":
     if sys.argv[1:2] == ["build"]: build(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "build.log")
-    elif sys.argv[1:2] == ["fresh"]: fresh()
+    elif sys.argv[1:2] == ["fresh"]: fresh("--close-only" in sys.argv)
     else: sys.exit(__doc__)

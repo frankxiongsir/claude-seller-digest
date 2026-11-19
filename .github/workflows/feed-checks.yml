@@ -34,7 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 feed/alert.py build ${{ steps.build.outcome }} build.log
   fresh:
-    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,4 +43,5 @@ jobs:
       - name: Check that yesterday's data arrived
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 feed/alert.py fresh
+        # On push this only closes an open late-data alert once that day has arrived.
+        run: python3 feed/alert.py fresh ${{ github.event_name == 'push' && '--close-only' || '' }}

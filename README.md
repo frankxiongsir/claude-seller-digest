@@ -35,7 +35,7 @@
 GitHub Actions（`.github/workflows/feed-checks.yml`）做两项检查，出问题时自动开一个 `[告警]` Issue 并指派给仓库主人，GitHub 会发邮件通知：
 
 - **构建失败**：每次推送到 `main` 都按 Vercel 的方式构建一遍。失败时 Issue 里附报错，线上保留上一版；下一次构建通过时自动关闭。
-- **数据没到**：每天美东 14:00（夏令时 15:00）检查前一天的 `data/archive/YYYY-MM-DD/` 是否已推送；没到就提醒，到了自动关闭。
+- **数据没到**：每天美东 14:00（夏令时 15:00）检查前一天的 `data/archive/YYYY-MM-DD/` 是否已推送；没到就提醒；之后数据一推送，告警立即自动关闭。GitHub 的定时任务高峰期可能推迟几个小时运行。
 
 同一类问题只开一个 Issue，重复失败会追加评论。收不到邮件时，检查 GitHub 的 Settings → Notifications 里「Participating」的邮件通知是否打开。
 
