@@ -1,0 +1,75 @@
+{
+  "title": "Claude 公开卖家帖每日汇总",
+  "post_date_et": "2026-11-18",
+  "window": {
+    "label": "ET natural day 2026-11-18 00:00–2026-11-19 00:00",
+    "start_et": "2026-11-18 00:00 ET",
+    "end_et": "2026-11-19 00:00 ET",
+    "start_utc": "2026-11-18T05:00:00Z",
+    "end_utc": "2026-11-19T05:00:00Z",
+    "timezone": "America/New_York (ET, UTC-5)"
+  },
+  "type": "daily_digest",
+  "status": "pending",
+  "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+  "verified_at_et": "评论 2026-11-19 09:24:52–09:26:14 ET；落地页 2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。",
+  "prices_as_of_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。",
+  "comments_at_et": "2026-11-19 09:24:52–09:26:14 ET",
+  "prepared_at_et": "2026-11-19T09:47:38-05:00",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "post_count": 20,
+  "sort": "impression_count desc, reply_count desc, like_count desc",
+  "notes": "2026-11-18 ET 完整自然日日报。合格 20 条已按 2026-11-19 09:16:06–09:19:35 ET 检索时点互动指标排序归档，状态为 pending，待向用户发送成功后再改为 delivered 并追加 recommended.json。未把未交付候选提前写入已推荐记录。互动指标取检索时点，不以随后复查覆盖。浏览器落地页经执行环境网络访问，不经用户电脑。",
+  "counts": {
+    "unique_posts_in_window": 767,
+    "already_recommended_in_window": 0,
+    "already_recommended_total_ids": 128,
+    "raw_hits": 1022,
+    "search_pages": 49,
+    "heuristic_candidates": 492,
+    "likely_sellers_reviewed": 175,
+    "excluded": 747,
+    "qualified_pending": 20
+  },
+  "queries": [
+    {
+      "query": "Claude (质保封号 OR 封号包赔 OR 封号退款 OR 按天退款 OR 封号就补 OR 秒封退款 OR 封号包换 OR 不成功退款) -is:retweet",
+      "pages": 4,
+      "hits": 65,
+      "note": "4 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (成品号 OR 代充 OR 出号 OR 补货 OR 现货 OR 开号 OR 稳定号) -is:retweet",
+      "pages": 20,
+      "hits": 445,
+      "note": "20 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (KYC OR 门户验证 OR 过k OR 过K OR Portal) (退款 OR 质保 OR 包过 OR 秒过 OR 验证 OR 代过) -is:retweet",
+      "pages": 12,
+      "hits": 239,
+      "note": "12 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (出售 OR 卖号 OR 账号) (Pro OR Max OR Ultra OR 成品 OR 代充) -is:retweet",
+      "pages": 13,
+      "hits": 273,
+      "note": "13 页，窗口已穷尽"
+    }
+  ],
+  "tool": "connectors/x search_posts_all / get_posts_by_ids（Grok Bot 公共 X 读取，非 user-X 插件）",
+  "files": [
+    "digest.md",
+    "posts.json",
+    "metadata.json",
+    "day.json",
+    "digest-verification.md",
+    "digest-verification.json"
+  ],
+  "metrics_note": "Official metrics are the 2026-11-19 09:16:06–09:19:35 ET search-time public_metrics. Later get_posts_by_ids was not written back over official fields.",
+  "github_sync": {
+    "status": "pending",
+    "target": "https://github.com/frankxiongsir/claude-seller-digest",
+    "note": "本地公开包已写入 public_sync/，提交结果在同步后再回写。"
+  }
+}

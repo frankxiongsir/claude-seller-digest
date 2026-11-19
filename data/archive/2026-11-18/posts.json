@@ -1,0 +1,2508 @@
+{
+  "post_date_et": "2026-11-18",
+  "window": {
+    "label": "ET natural day 2026-11-18 00:00–2026-11-19 00:00",
+    "start_et": "2026-11-18 00:00 ET",
+    "end_et": "2026-11-19 00:00 ET",
+    "start_utc": "2026-11-18T05:00:00Z",
+    "end_utc": "2026-11-19T05:00:00Z",
+    "timezone": "America/New_York (ET, UTC-5)"
+  },
+  "count": 20,
+  "sort": "impression_count desc, reply_count desc, like_count desc",
+  "status": "pending",
+  "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+  "verified_at_et": "评论 2026-11-19 09:24:52–09:26:14 ET；落地页 2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。",
+  "prices_as_of_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。",
+  "prepared_at_et": "2026-11-19T09:47:38-05:00",
+  "metrics_note": "Official metrics are the 2026-11-19 09:16:06–09:19:35 ET search-time public_metrics. Later get_posts_by_ids was not written back over official fields.",
+  "posts": [
+    {
+      "id": "2123257910566568327",
+      "url": "https://x.com/superdan/status/2123257910566568327",
+      "handle": "superdan",
+      "name": "❤️Superdan",
+      "text": "最近卖了不少 claude pro 免K成品号，，\n\n做了很多 门户kyc  ，\n关于KYC和门户还有免K 过K号，我都会和客户讲利弊\n\n包括客户账户封了，，我都知道为啥，，\nclaude，机制差不多研究的明明白白，，\n\n最近消息太多，，有些没回，抱歉\n直接私信我TG 或者加我V：Gog_sven\n\n最后打一下广告，，\nclaude 成品号  过K号  免K号  可以过KYC和门户验证\nGPT就不说了，，这种最基础的我肯定有\n\n感谢信任，，一手渠道！\n顺便说一下，评论区很多骗子，自己小心....\n\n#cluade",
+      "text_markdown": "最近卖了不少 claude pro 免K成品号，，\n\n做了很多 门户kyc  ，\n关于KYC和门户还有免K 过K号，我都会和客户讲利弊\n\n包括客户账户封了，，我都知道为啥，，\nclaude，机制差不多研究的明明白白，，\n\n最近消息太多，，有些没回，抱歉\n直接私信我TG 或者加我V：Gog_sven\n\n最后打一下广告，，\nclaude 成品号  过K号  免K号  可以过KYC和门户验证\nGPT就不说了，，这种最基础的我肯定有\n\n感谢信任，，一手渠道！\n顺便说一下，评论区很多骗子，自己小心....\n\n#cluade",
+      "created_at": "2026-11-19T03:31:48.000Z",
+      "created_at_et": "2026-11-18 22:31 ET",
+      "metrics": {
+        "impression_count": 9670,
+        "reply_count": 13,
+        "like_count": 29,
+        "repost_count": 3,
+        "quote_count": 1,
+        "bookmark_count": 17
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 9670,
+            "reply_count": 13,
+            "like_count": 29,
+            "repost_count": 3,
+            "quote_count": 1,
+            "bookmark_count": 17
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文推销 Claude Pro 免K成品号、过K号、免K号及可过 KYC/门户验证，并给 TG/微信联系方式，未写价格，也未写封号退款、按天退款或包赔条款。不得升级为封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/Wm01PImCjn",
+          "expanded_url": "https://x.com/superdan/status/2123257910566568327/photo/1",
+          "display_url": "pic.x.com/Wm01PImCjn",
+          "title": null
+        },
+        {
+          "url": "https://t.co/Wm01PImCjn",
+          "expanded_url": "https://x.com/superdan/status/2123257910566568327/photo/2",
+          "display_url": "pic.x.com/Wm01PImCjn",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://t.me/Superdand"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "Claude 成品号 / 过K号 / 免K号，及 KYC、门户验证",
+        "price_label": "原帖未标价",
+        "cover": "原帖未写封号、首登或订阅质保",
+        "diff": "相对历史记录为新商家服务帖"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [],
+      "seller_post": "正文称最近卖了不少 Claude Pro 免K成品号，并做门户 KYC；会向客户讲免K/过K/门户利弊，自称清楚封号原因。末尾广告成品号、过K号、免K号，以及可过 KYC 和门户验证。未写价格，也未写封号退款或按天退款。上述销售与机制说明均为卖家自述，未独立核实。",
+      "seller_comment": "作者在评论中更正微信号拼写为 God_sven（原帖写 Gog_sven），并另发「大哥门 别举报我的V 同行手下留情」。对 @timliu92 只回复「1」。未见作者补充价目或书面质保。",
+      "landing": {
+        "url": "https://t.me/Superdand",
+        "summary": "原帖无独立商品页，作者简介/主页链到 Telegram https://t.me/Superdand。本次未登录 Telegram，群或私聊中的价目与质保条款未核实。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "Telegram 未登录，对话与群内条款未核"
+      },
+      "third_party": [
+        {
+          "handle": "shree_cryptoo",
+          "url": "https://x.com/shree_cryptoo/status/2123330477373161891",
+          "created_at_et": "2026-11-19 03:20 ET",
+          "quote": "I done your kyc in just 15$",
+          "note": "第三方揽活，不是向本帖卖家成交的反馈",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "WenBuilds",
+          "url": "https://x.com/WenBuilds/status/2123258981250683367",
+          "created_at_et": "2026-11-18 22:36 ET",
+          "quote": "被封的通常是因为节点还是卡的问题？",
+          "note": "向作者提问，未见作者公开回复该条",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "原帖微信号写作 Gog_sven，作者评论更正为 God_sven。"
+      ],
+      "missing": [
+        "原帖未给价格",
+        "未写封号/首登/KYC失败退款规则",
+        "Telegram 未登录，条款未核"
+      ],
+      "coverage": "评论检索于 2026-11-19 09:24:52 ET 取 conversation 第 1 页 19 条（含原帖），09:26 至 09:27 分左右确认第 2 页 result_count=0，视为已穷尽。无独立商品落地页；作者简介 Telegram 未登录。",
+      "narrative": "正文称最近卖了不少 Claude Pro 免K成品号，并做门户 KYC；会向客户讲免K/过K/门户利弊，自称清楚封号原因。末尾广告成品号、过K号、免K号，以及可过 KYC 和门户验证。未写价格，也未写封号退款或按天退款。上述销售与机制说明均为卖家自述，未独立核实。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "新商家服务帖，无价格与封号条款",
+      "rank": 1,
+      "is_reply": false,
+      "conversation_id": "2123257910566568327",
+      "author_description": "币圈合约破产， 转卖AI 产品\n\n💪Superdan要努力变强"
+    },
+    {
+      "id": "2123123285013791159",
+      "url": "https://x.com/WhiteAi66/status/2123123285013791159",
+      "handle": "WhiteAi66",
+      "name": "White",
+      "text": "今天交付了 15 个 Claude Ultra、10 个 Max、6 个 Pro，但 5 个 KYC 订单只成功了 2 个。\n\n说实话，今天的心情挺复杂的。\n\n一方面，Claude 的订单量越来越大，我们的海外团队也越来越强，甚至已经能够做到 Claude Ultra 秒发货。\n\n另一方面，KYC 的难度确实越来越高。\n\n今天处理了 5 个 KYC，最终只有 2 个成功，另外 3 个没能通过。\n\n对于信任我们的客户，我真的很抱歉。但是都进行了退款。\n\n所以我决定，接下来将业务重心逐渐转向 Claude Ultra 和 Max。\n\n这段时间，我们一直在扩大美国、欧洲、印度、泰国等地区的海外合作资源。\n\n随着团队规模不断增长，我们的供货渠道也越来越稳定。\n\n虽然我的成本也在不断上涨，但好消息是，我们的交付能力已经有了很大的提升。\n\n现在市面上能够做到 Claude Ultra 秒发货的渠道并不多，而我们已经做到了。\n\n甚至有些时候，我们还能提前准备少量库存，让客户下单后几乎不用等待。\n\n说实话，从最开始为了一个 Claude 订阅折腾半天，到现在一天交付十几个 Ultra，我自己都有点不敢相信。\n\n不过我也越来越明白：\n\n做生意不是每个订单都能成功，而是你有没有勇气承认问题，并且不断提高自己的交付能力。\n\nKYC 目前仍然存在不确定性，我们不会向客户承诺百分之百通过。\n\n但对于 Ultra 和 Max，我们会继续投入更多资源，提高库存能力、交付效率和服务质量。\n\n我们的目标很简单：\n\n让客户不用再为漫长的等待和不稳定的交付发愁。\n\n感谢这段时间一直信任我们的中国和俄罗斯朋友。\n\n从最开始的几笔订单，到现在每天几十笔交付，真的离不开你们的支持。\n\n我们会继续扩大海外团队，完善服务，让供货更加稳定，也尽可能让价格更加合理。\n\n我们还远远没有做到最好，但我们正在一天比一天强大。\n\n如果你需要 Claude Ultra、Max、Pro，或者想了解目前的供货情况，可以联系我。\n\n我的网站：https://t.co/w8Ez5n5XRQ\n\n感谢每一位客户的信任。订单越来越多，但我们对交付质量的要求不会降低。 🤝",
+      "text_markdown": "今天交付了 15 个 Claude Ultra、10 个 Max、6 个 Pro，但 5 个 KYC 订单只成功了 2 个。\n\n说实话，今天的心情挺复杂的。\n\n一方面，Claude 的订单量越来越大，我们的海外团队也越来越强，甚至已经能够做到 Claude Ultra 秒发货。\n\n另一方面，KYC 的难度确实越来越高。\n\n今天处理了 5 个 KYC，最终只有 2 个成功，另外 3 个没能通过。\n\n对于信任我们的客户，我真的很抱歉。但是都进行了退款。\n\n所以我决定，接下来将业务重心逐渐转向 Claude Ultra 和 Max。\n\n这段时间，我们一直在扩大美国、欧洲、印度、泰国等地区的海外合作资源。\n\n随着团队规模不断增长，我们的供货渠道也越来越稳定。\n\n虽然我的成本也在不断上涨，但好消息是，我们的交付能力已经有了很大的提升。\n\n现在市面上能够做到 Claude Ultra 秒发货的渠道并不多，而我们已经做到了。\n\n甚至有些时候，我们还能提前准备少量库存，让客户下单后几乎不用等待。\n\n说实话，从最开始为了一个 Claude 订阅折腾半天，到现在一天交付十几个 Ultra，我自己都有点不敢相信。\n\n不过我也越来越明白：\n\n做生意不是每个订单都能成功，而是你有没有勇气承认问题，并且不断提高自己的交付能力。\n\nKYC 目前仍然存在不确定性，我们不会向客户承诺百分之百通过。\n\n但对于 Ultra 和 Max，我们会继续投入更多资源，提高库存能力、交付效率和服务质量。\n\n我们的目标很简单：\n\n让客户不用再为漫长的等待和不稳定的交付发愁。\n\n感谢这段时间一直信任我们的中国和俄罗斯朋友。\n\n从最开始的几笔订单，到现在每天几十笔交付，真的离不开你们的支持。\n\n我们会继续扩大海外团队，完善服务，让供货更加稳定，也尽可能让价格更加合理。\n\n我们还远远没有做到最好，但我们正在一天比一天强大。\n\n如果你需要 Claude Ultra、Max、Pro，或者想了解目前的供货情况，可以联系我。\n\n我的网站：[https://whiteaishop.com/](https://whiteaishop.com/)\n\n感谢每一位客户的信任。订单越来越多，但我们对交付质量的要求不会降低。 🤝",
+      "created_at": "2026-11-18T18:36:51.000Z",
+      "created_at_et": "2026-11-18 13:36 ET",
+      "metrics": {
+        "impression_count": 8020,
+        "reply_count": 5,
+        "like_count": 34,
+        "repost_count": 4,
+        "quote_count": 0,
+        "bookmark_count": 46
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 8020,
+            "reply_count": 5,
+            "like_count": 34,
+            "repost_count": 4,
+            "quote_count": 0,
+            "bookmark_count": 46
+          }
+        }
+      ],
+      "warranty_class": "no_ban",
+      "warranty_note": "原帖写今天 5 个 KYC 只成功 2 个，另外 3 个「都进行了退款」，并写「不会向客户承诺百分之百通过」。未写封号质保，也未写退款是全额还是按比例。商店商品页（浏览器只读）写：保证交付时账号可以正常登录、订阅状态正确，并为订阅意外失效提供售后；「封号可能由多种原因引起，封号不在质保范围内。」KYC 商品页写：验证失败时，商家人工退还失败部分实付金额的 85%。不得把原帖「都进行了退款」或订阅售后写成封号包赔。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/SRoZkQE7Wo",
+          "expanded_url": "https://x.com/WhiteAi66/status/2123123285013791159/photo/1",
+          "display_url": "pic.x.com/SRoZkQE7Wo",
+          "title": null
+        },
+        {
+          "url": "https://t.co/SRoZkQE7Wo",
+          "expanded_url": "https://x.com/WhiteAi66/status/2123123285013791159/photo/2",
+          "display_url": "pic.x.com/SRoZkQE7Wo",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://whiteaishop.com/"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude Ultra / Max / Pro 成品号，及 Identity / Portal KYC",
+        "price_label": "原帖未标价；商品页 Pro 多地区 ¥400 起，美加 ¥450/500，德国 ¥500；Max 亚洲/非洲 ¥1,300 起至美洲带 IP ¥1,450；Ultra ¥2,410；美国 Identity KYC ¥466.96，Portal ¥600.40",
+        "cover": "原帖只写 KYC 失败已退款、不承诺百分百通过；商品页写封号不在质保范围内，订阅意外失效有售后；KYC 失败退还失败部分实付的 85%",
+        "diff": "交付与 KYC 失败退款说明；商品页补充了原帖未写的价格与封号不保条款"
+      },
+      "terms": {
+        "refund_promise": true,
+        "first_login_only": false,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "商品页",
+          "product": "Pro 成品号（印度/马来西亚/巴基斯坦/哥伦比亚/泰国）",
+          "amount": 400,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "whiteaishop.com，浏览器只读 2026-11-19 约 09:28–09:42 ET"
+        },
+        {
+          "source": "商品页",
+          "product": "Pro 成品号（美国/加拿大，不带 IP）",
+          "amount": 450,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "同次访问；带 IP 为 ¥500"
+        },
+        {
+          "source": "商品页",
+          "product": "Pro 成品号（德国）",
+          "amount": 500,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "同次访问"
+        },
+        {
+          "source": "商品页",
+          "product": "Max（亚洲/非洲）",
+          "amount": 1300,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "欧洲 ¥1,350，美洲 ¥1,400，美洲带 IP ¥1,450"
+        },
+        {
+          "source": "商品页",
+          "product": "Ultra",
+          "amount": 2410,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "同次访问；首期时长未明确列出，写有按月续费"
+        },
+        {
+          "source": "商品页",
+          "product": "美国 Identity KYC",
+          "amount": 466.96,
+          "currency": "CNY",
+          "category": "kyc",
+          "note": "失败退还失败部分实付的 85%"
+        },
+        {
+          "source": "商品页",
+          "product": "KYC Portal 真人验证",
+          "amount": 600.4,
+          "currency": "CNY",
+          "category": "kyc",
+          "note": "失败退还失败部分实付的 85%；页称所需 Session Key 是登录凭据"
+        }
+      ],
+      "seller_post": "正文列举当日交付数量，并称 5 个 KYC 只成功 2 个，另外 3 个没通过「但是都进行了退款」。同时写 KYC 仍有不确定性，「不会向客户承诺百分之百通过」，重心转向 Ultra 和 Max。没有封号退款或按天退款条款。交付数量、退款事实与产能均为卖家自述，未独立核实。",
+      "seller_comment": "本次公开评论（至 2026-11-19 09:24:52–09:27 ET 穷尽）未见作者补充价目或书面质保。",
+      "landing": {
+        "url": "https://whiteaishop.com/",
+        "summary": "原帖网站短链于 2026-11-19 09:26–09:27 ET 打开为 https://whiteaishop.com/ 首页，当时可见 Pro ¥400 等摘要。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开了 Claude 商品详情：Pro 多地区 ¥400，美加不带 IP ¥450 / 带 IP ¥500，德国 ¥500；Max 亚洲/非洲 ¥1,300、欧洲 ¥1,350、美洲 ¥1,400、美洲带 IP ¥1,450；Ultra ¥2,410。售后原文：「我们保证交付时账号可以正常登录，订阅状态正确，并为订阅意外失效提供售后。封号可能由多种原因引起，封号不在质保范围内。」未写封号质保天数或按天退款。续费价为原订单实付价减 ¥100/月。KYC：美国 Identity ¥466.96，Portal ¥600.40，页写「KYC 验证失败时，商家人工退还失败部分实付金额的 85%。」这是验证服务，不是账号封号质保。",
+        "price": "Pro ¥400 起；Max ¥1,300 起；Ultra ¥2,410；Identity KYC ¥466.96；Portal ¥600.40",
+        "terms": "封号不在质保范围内；订阅意外失效有售后；KYC 失败退还失败部分实付的 85%",
+        "inaccessible": null
+      },
+      "third_party": [
+        {
+          "handle": "mxcube181729",
+          "url": "https://x.com/mxcube181729/status/2123290461322489904",
+          "created_at_et": "2026-11-19 00:41 ET",
+          "quote": "骗子",
+          "note": "回复对象含 @cozyngot 与作者，第三方指责，未证实",
+          "sentiment": "negative"
+        }
+      ],
+      "conflicts": [
+        "原帖写 3 个未通过的 KYC「都进行了退款」，未说明全额还是按比例；商品页写失败时退还失败部分实付金额的 85%。不能把原帖「都进行了退款」自动写成全额退款。"
+      ],
+      "missing": [
+        "原帖未标价，价格来自本次商品页",
+        "首期订阅时长在商品页未明确列出"
+      ],
+      "coverage": "评论第 1 页于 2026-11-19 09:24:52 抓取并确认后续页为空。落地页：2026-11-19 09:26–09:27 ET 只读抓取首页；2026-11-19 约 09:28–09:42 ET 浏览器打开商品详情。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "正文列举当日交付数量，并称 5 个 KYC 只成功 2 个，另外 3 个没通过「但是都进行了退款」。同时写 KYC 仍有不确定性，「不会向客户承诺百分之百通过」，重心转向 Ultra 和 Max。没有封号退款或按天退款条款。交付数量、退款事实与产能均为卖家自述，未独立核实。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "KYC 失败已退款（原帖未定量）；商品页写封号不在质保范围内，失败退 85%",
+      "rank": 2,
+      "is_reply": false,
+      "conversation_id": "2123123285013791159",
+      "author_description": "06 ai创业者 Base 深圳\nclaude高权重免kyc成品号 过kyc的ultra\n 商店：https://t.co/qdGwUjIEb8 \nClaude频道https://t.co/SF2QB4NXkD\nTg：@WhiteAi66"
+    },
+    {
+      "id": "2123136619687600471",
+      "url": "https://x.com/Aliadafu/status/2123136619687600471",
+      "handle": "Aliadafu",
+      "name": "Aliada（gpt源头）",
+      "text": "昨天claude认证的风控又加强了，很多做kyc的商家今天都通过不了了。\n\n我这边订阅kyc和门户认证都找到新方式了，具体条件看底下的评论，符合条件的老板再来。\n\n售后也提前说清楚，所有充值服务和成品号服务都只质保订阅，不质保封号，claude成品号另外质保首登。如果一定要连封号一起质保，麻烦找别家，这个我做不到。想搞就要接受封号风险，怕封的就别搞。\n\n订阅kyc和门户认证还是秒封退钱，验证后能正常发消息使用没封号，这次服务就算结束，后续账号再出问题就与我们无关了。\n\n如果只是想体验一下，或者本来就只需要pro订阅，我更推荐直接买成品号，这样更划算。\n\nclaude的产品都需要预订，先联系我确认是否有货，确认后需要就转账，转账才算预订，转账的优先供货。只是发一句预订，没有付款的不留货，不放心先付款的就别来，我这边做不到先供货后转账。\n\n具体价格都在图里，需要gpt的老板直接在这个网页下单，网址：https://t.co/BwB90JbnvJ\n\n需要claude相关服务的老板先看清楚条件和售后，能接受的再主页联系预订。",
+      "text_markdown": "昨天claude认证的风控又加强了，很多做kyc的商家今天都通过不了了。\n\n我这边订阅kyc和门户认证都找到新方式了，具体条件看底下的评论，符合条件的老板再来。\n\n售后也提前说清楚，所有充值服务和成品号服务都只质保订阅，不质保封号，claude成品号另外质保首登。如果一定要连封号一起质保，麻烦找别家，这个我做不到。想搞就要接受封号风险，怕封的就别搞。\n\n订阅kyc和门户认证还是秒封退钱，验证后能正常发消息使用没封号，这次服务就算结束，后续账号再出问题就与我们无关了。\n\n如果只是想体验一下，或者本来就只需要pro订阅，我更推荐直接买成品号，这样更划算。\n\nclaude的产品都需要预订，先联系我确认是否有货，确认后需要就转账，转账才算预订，转账的优先供货。只是发一句预订，没有付款的不留货，不放心先付款的就别来，我这边做不到先供货后转账。\n\n具体价格都在图里，需要gpt的老板直接在这个网页下单，网址：[http://pay.ldxp.cn/shop/PSSYY7CC](http://pay.ldxp.cn/shop/PSSYY7CC)\n\n需要claude相关服务的老板先看清楚条件和售后，能接受的再主页联系预订。",
+      "created_at": "2026-11-18T19:29:50.000Z",
+      "created_at_et": "2026-11-18 14:29 ET",
+      "metrics": {
+        "impression_count": 5360,
+        "reply_count": 8,
+        "like_count": 20,
+        "repost_count": 2,
+        "quote_count": 0,
+        "bookmark_count": 39
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 5360,
+            "reply_count": 8,
+            "like_count": 20,
+            "repost_count": 2,
+            "quote_count": 0,
+            "bookmark_count": 39
+          }
+        }
+      ],
+      "warranty_class": "no_ban_warranty",
+      "warranty_note": "原文写：所有充值服务和成品号服务都只质保订阅，不质保封号；Claude 成品号另外质保首登。订阅 KYC 和门户认证「秒封退钱」，验证后能正常发消息使用没封号即结束服务，后续再出问题无关。不得把质保订阅或质保首登写成封号质保；KYC/门户的秒封退钱不是后期封号包赔。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/i08gKSztmf",
+          "expanded_url": "https://x.com/Aliadafu/status/2123136619687600471/photo/1",
+          "display_url": "pic.x.com/i08gKSztmf",
+          "title": null
+        }
+      ],
+      "promo": [
+        "http://aliadafu.cc",
+        "http://pay.ldxp.cn/shop/PSSYY7CC"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "订阅 KYC、门户认证、充值与 Claude 成品号（需预订）",
+        "price_label": "原帖未在文字中列出具体数字（可能在配图）",
+        "cover": "充值/成品号只质保订阅、不质保封号；成品号另质保首登；KYC/门户秒封退钱，不含后期封号",
+        "diff": "相对 11-17 已推荐帖（KYC 95 / Portal 198、秒封退钱、只对 KYC 结果负责，及免K 258 / 过K 330）本次新写出不质保封号与成品号质保首登，并改称条件看评论；价目需看配图，文字未列出数字"
+      },
+      "terms": {
+        "refund_promise": true,
+        "first_login_only": true,
+        "no_ban": true
+      },
+      "prices": [],
+      "seller_post": "原文把保障范围写清楚：充值和成品号只质保订阅、不质保封号，成品号另外质保首登；KYC 和门户仍是秒封退钱，验证后能正常发消息就算结束。需要预订并先转账才留货。文字未列出本次价格，称「具体价」并指向配图或下单页。条款是卖家自述。",
+      "seller_comment": "作者补充：订阅 KYC「要到第一张图片的页面我们才能帮忙，第二张图片这种不行」https://x.com/Aliadafu/status/2123137780461236534 ；门户认证「必须得之前没选过国家」https://x.com/Aliadafu/status/2123138407681650862 。两条评论的配图为条件说明，不是独立商品详情页。作者还回复「又加强风控了啊」为「对的」，回复「这些新方式撑不过下一轮风控…」为「没办法了，claude变化太快了」。未见作者在评论中公布数字价目。",
+      "landing": {
+        "url": "http://aliadafu.cc",
+        "summary": "作者简介中的 http://aliadafu.cc 于 2026-11-19 09:26–09:27 ET 打开，主要是充值/购买失败如何提交资料的说明，未见 Claude 价目或质保正文。代理价链接 http://pay.ldxp.cn/shop/PSSYY7CC 返回 WAF/验证页，商品详情与现行价格未核实。 另：指定店铺 pay.ldxp.cn 于浏览器访问时遇滑块验证，未操作；aliadafu.cc 商品区持续加载，未见可读 Claude 列表。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "pay.ldxp.cn 店铺触发 WAF，商品页未打开；aliadafu.cc 未见价目"
+      },
+      "third_party": [
+        {
+          "handle": "8gadfs",
+          "url": "https://x.com/8gadfs/status/2123207498685649222",
+          "created_at_et": "2026-11-18 19:11 ET",
+          "quote": "多少钱",
+          "note": "提问，未见作者公开回复该条",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "Akutact",
+          "url": "https://x.com/Akutact/status/2123308095510389200",
+          "created_at_et": "2026-11-19 01:51 ET",
+          "quote": "Claude1080的价还有吗",
+          "note": "第三方询价，不能据此核实现行成交价",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "linyuxiong28772",
+          "url": "https://x.com/linyuxiong28772/status/2123222766992474180",
+          "created_at_et": "2026-11-18 20:12 ET",
+          "quote": "没质保封号的都是胡扯",
+          "note": "第三方评价，未证实",
+          "sentiment": "negative"
+        }
+      ],
+      "conflicts": [
+        "原帖写价格看配图/下单页，公开文字没有数字；店铺页本次未打开，配图中的价目本次未做独立识读。"
+      ],
+      "missing": [
+        "文字价目未给出",
+        "ldx p 店铺页因 WAF 未核实",
+        "配图条件页未转写为可核验文本"
+      ],
+      "coverage": "评论第 1 页 12 条（含原帖与作者两条条件补充）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。落地页只读打开 aliadafu.cc；pay.ldxp.cn 未能越过 WAF。 浏览器复查 2026-11-19 约 09:28–09:42 ET：指定店铺 pay.ldxp.cn 于浏览器访问时遇滑块验证，未操作；aliadafu.cc 商品区持续加载，未见可读 Claude 列表。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文把保障范围写清楚：充值和成品号只质保订阅、不质保封号，成品号另外质保首登；KYC 和门户仍是秒封退钱，验证后能正常发消息就算结束。需要预订并先转账才留货。文字未列出本次价格，称「具体价」并指向配图或下单页。条款是卖家自述。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "新保障表述：不质保封号、成品号质保首登、KYC/门户秒封退钱",
+      "rank": 3,
+      "is_reply": false,
+      "conversation_id": "2123136619687600471",
+      "author_description": "ai源头充值，具体价格可以看头像和背景\n全网招代理/全网最低拿货价/可开分站稳定副业\n代理价：https://t.co/BwB90JbnvJ\n链动小铺（零售价）：https://t.co/IfoGzH9HIv\nQQ号：2627091746\n微信：yjj2627091746\nTG：@Aliadafu 认准唯一ID，警防诈骗！"
+    },
+    {
+      "id": "2123250980150256003",
+      "url": "https://x.com/Hongyu_XAi/status/2123250980150256003",
+      "handle": "Hongyu_XAi",
+      "name": "竑予（蓝 v+Ai 充值）",
+      "text": "每日更新最新商品价\n\n谷歌上线最新模型，Ultra成品号货源充足想体验的可以下单了\n\n Claude免k成品号回归\nGPTplus115  pro10x 640 20x1010\n\n神秘小店👉：https://t.co/IvJHo1WtE7 https://t.co/HThnX31iZe",
+      "text_markdown": "每日更新最新商品价\n\n谷歌上线最新模型，Ultra成品号货源充足想体验的可以下单了\n\n Claude免k成品号回归\nGPTplus115  pro10x 640 20x1010\n\n神秘小店👉：[https://hongyuhub.com](https://hongyuhub.com) [https://x.com/Hongyu_XAi/status/2123250980150256003/photo/1](https://x.com/Hongyu_XAi/status/2123250980150256003/photo/1)",
+      "created_at": "2026-11-19T03:04:16.000Z",
+      "created_at_et": "2026-11-18 22:04 ET",
+      "metrics": {
+        "impression_count": 4794,
+        "reply_count": 3,
+        "like_count": 4,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 9
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 4794,
+            "reply_count": 3,
+            "like_count": 4,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 9
+          }
+        }
+      ],
+      "warranty_class": "first_login_only",
+      "warranty_note": "正文只写「Claude免k成品号回归」，并列 GPT 价，未写 Claude 价格或封号条款。作者对「家庭组有质保没」回复「质保的，看一下商品详情哈」，不能自动套到 Claude。随后在 ai.hongyuhub.com 打开的 Claude 商品页：Pro 官方直充月卡写「本商品唯一的质保就是未开通成功时给您苹果 iD 让您尝试退款，无其他任何售后」「会员订阅期间如果掉订阅，没有办法退款」；Pro 1个月成品号写超过 30 分钟或登录成功后再封号/弹 KYC 均无售后。目录中的「封号率降低」是宣传语，不是封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/IvJHo1WtE7",
+          "expanded_url": "https://hongyuhub.com",
+          "display_url": "hongyuhub.com",
+          "title": "竑予 AI直通车"
+        },
+        {
+          "url": "https://t.co/HThnX31iZe",
+          "expanded_url": "https://x.com/Hongyu_XAi/status/2123250980150256003/photo/1",
+          "display_url": "pic.x.com/HThnX31iZe",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://hongyuhub.com",
+        "https://ai.hongyuhub.com/cat/14",
+        "https://ai.hongyuhub.com/item/46",
+        "https://ai.hongyuhub.com/item/597",
+        "https://ai.hongyuhub.com/item/127"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude 免K成品号（及 Google/GPT 商品）",
+        "price_label": "正文只列 GPT 价；商品页 Claude Pro 官方直充月卡 ¥137，Pro 1个月成品号 ¥240（当时 0 库存可预订），Max 5x/20x iOS 代充 ¥800 / ¥1,510",
+        "cover": "原帖未写 Claude 质保；商品页：代充几乎无售后，成品号只限约 30 分钟未登录成功，登录后不保封号",
+        "diff": "新库存/上架陈述"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": true,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "GPT Plus / Pro 10x / 20x",
+          "amount": 115,
+          "currency": "CNY",
+          "category": "other",
+          "note": "Plus 115、pro10x 640、20x 1010；不是 Claude 价"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Pro 官方直充月卡",
+          "amount": 137,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://ai.hongyuhub.com/item/46，2026-11-19 约 09:28–09:42 ET；要求已过 KYC、注册早于 2026-09-15 等"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Pro 1个月成品号",
+          "amount": 240,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://ai.hongyuhub.com/item/597，当时 0 库存可预订；30 分钟首登窗口"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Max 5x iOS 代充",
+          "amount": 800,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "https://ai.hongyuhub.com/item/127；须过 KYC"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Max 20x iOS 代充",
+          "amount": 1510,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "同系列；页面显示即将售罄"
+        }
+      ],
+      "seller_post": "正文宣布 Google Ultra 成品号货源充足，并写「Claude免k成品号回归」，同时列出 GPT 三档价格。未写 Claude 售价或任何封号/首登条款。",
+      "seller_comment": "有人问「家庭组有质保没」，作者回复「质保的，看一下商品详情哈。」原帖同时提到 Google Ultra 与 Claude 免K成品号，该提问更像针对家庭组商品，不能确认适用于 Claude 免K成品号，作者也未说明质保是首登、订阅还是封号。另有人问家庭组是否共用 20X，作者回复「是的」。",
+      "landing": {
+        "url": "https://hongyuhub.com",
+        "summary": "原帖链接 https://hongyuhub.com 于 2026-11-19 09:26–09:27 ET 打开为店铺首页，写「售后规则请以商品页面说明为准」，当时未点开 Claude 详情。随后浏览器只读打开 https://ai.hongyuhub.com/cat/14 及商品详情（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）。Claude Pro 官方直充月卡 ¥137，自动发货；页写「本商品唯一的质保就是未开通成功时给您苹果 iD 让您尝试退款，无其他任何售后」「会员订阅期间如果掉订阅，没有办法退款。」Claude Pro 1个月成品号 ¥240，当时 0 库存可预订；质保限下单后 30 分钟内无法登录且按页面要求保留凭证，原文「超过30分钟0售后」「登录成功之后……均无任何售后」，包括之后封号或弹 KYC。Claude Max 5x/20x iOS 代充 ¥800 / ¥1,510；失败时只提供 Apple ID 让买家尝试退款，不保证成功，封号不保。目录或标题中的「风控变低」「封号率降低」是宣传语，不是封号保障。",
+        "price": "Pro 代充 ¥137；Pro 成品号 ¥240（0 库存）；Max 5x/20x 代充 ¥800 / ¥1,510",
+        "terms": "代充：未开通成功仅提供 Apple ID 尝试退款，掉订阅不退；成品号：约 30 分钟未登录成功才可能售后，登录后不保封号",
+        "inaccessible": null
+      },
+      "third_party": [],
+      "conflicts": [
+        "原帖未给出 Claude 价格；商品页有标价，二者需并列，不能把商品页价写成原帖原文。",
+        "作者「质保的，看一下商品详情哈」是对「家庭组有质保没」的回复，不能自动当成 Claude 封号质保；Claude 商品页本身也不提供封号包赔。"
+      ],
+      "missing": [
+        "原帖未写 Claude 价与质保",
+        "家庭组质保范围仍未说明"
+      ],
+      "coverage": "评论第 1 页 7 条（含原帖）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。落地页：2026-11-19 09:26–09:27 ET 打开首页；2026-11-19 约 09:28–09:42 ET 打开 Claude 分类与商品详情。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "正文宣布 Google Ultra 成品号货源充足，并写「Claude免k成品号回归」，同时列出 GPT 三档价格。未写 Claude 售价或任何封号/首登条款。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "Claude 免K成品号回归，正文无 Claude 价与封号条款",
+      "rank": 4,
+      "is_reply": false,
+      "conversation_id": "2123250980150256003",
+      "author_description": "X+TG:https://t.co/k6hErJS7r6\nAI代充：https://t.co/aj5eFSbyH9"
+    },
+    {
+      "id": "2122953377130918236",
+      "url": "https://x.com/Ansyn_07/status/2122953377130918236",
+      "handle": "Ansyn_07",
+      "name": "安寻Ansyn_log",
+      "text": "质保封号的Claude ultra放出一个名额！uu远程配置环境，一天pro的缓冲期，开通ultra开始计算周期，期间封几次补几次，到期可续费，只有一个名额，有需要的纸飞机联系\nhttps://t.co/4WmmiywvqN\n\n再是关于Claude免k成品号价格的调整：\n（目前1k个号里面弹k的几率只有1%）\n由于受到市场需求、供应成本及设备升级等多方面因素\n\nPro和Max价格暂时不变，单价分别为273和1388，批量优惠\nUltra（仅域名邮箱交付）涨幅15U\n\n然后昨天薅谷歌ultra号的时候才想起来谷歌风控是可以通过扫码打开YouTube来验证的，现在又从微软换回了谷歌邮箱，还是谷歌邮箱比较稳",
+      "text_markdown": "质保封号的Claude ultra放出一个名额！uu远程配置环境，一天pro的缓冲期，开通ultra开始计算周期，期间封几次补几次，到期可续费，只有一个名额，有需要的纸飞机联系\nhttps://t.co/4WmmiywvqN\n\n再是关于Claude免k成品号价格的调整：\n（目前1k个号里面弹k的几率只有1%）\n由于受到市场需求、供应成本及设备升级等多方面因素\n\nPro和Max价格暂时不变，单价分别为273和1388，批量优惠\nUltra（仅域名邮箱交付）涨幅15U\n\n然后昨天薅谷歌ultra号的时候才想起来谷歌风控是可以通过扫码打开YouTube来验证的，现在又从微软换回了谷歌邮箱，还是谷歌邮箱比较稳",
+      "created_at": "2026-11-18T07:21:42.000Z",
+      "created_at_et": "2026-11-18 02:21 ET",
+      "metrics": {
+        "impression_count": 4655,
+        "reply_count": 2,
+        "like_count": 8,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 13
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 4655,
+            "reply_count": 2,
+            "like_count": 8,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 13
+          }
+        }
+      ],
+      "warranty_class": "ban_warranty_unspecified",
+      "warranty_note": "正文为一个 Claude Ultra 名额写「质保封号」：UU 远程配置环境，一天 Pro 缓冲期，开通 Ultra 开始计算周期，「期间封几次补几次」，到期可续费。这是补号承诺，不是按天退款，也未写质保天数或后期条件。同帖还调整免K成品号价格：Pro 273、Max 1388 暂时不变，Ultra（仅域名邮箱交付）涨 15U。作者评论称该 Ultra 名额「已售出」。不得把「封几次补几次」写成按天退款，也不得套用到已售出之外的名额。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/p3YR90xKdm",
+          "expanded_url": "https://t.me/Ansyn_7",
+          "display_url": "t.me/Ansyn_7",
+          "title": "A snyn"
+        },
+        {
+          "url": "https://t.co/8klg4utL9E",
+          "expanded_url": "https://x.com/Ansyn_07/status/2122953377130918236/photo/1",
+          "display_url": "pic.x.com/8klg4utL9E",
+          "title": null
+        },
+        {
+          "url": "https://t.co/8klg4utL9E",
+          "expanded_url": "https://x.com/Ansyn_07/status/2122953377130918236/photo/2",
+          "display_url": "pic.x.com/8klg4utL9E",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://t.me/Ansyn_7"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "质保封号的 Claude Ultra 名额（一条）；免K成品号价调整",
+        "price_label": "免K Pro 273 / Max 1388；Ultra 涨 15U；该 Ultra 名额未标价",
+        "cover": "仅该 Ultra 名额写封几次补几次；免K成品号未写封号质保",
+        "diff": "新的封号补号名额与价格调整"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "免K Pro",
+          "amount": 273,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "暂时不变，批量优惠"
+        },
+        {
+          "source": "原帖",
+          "product": "免K Max",
+          "amount": 1388,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "暂时不变，批量优惠"
+        },
+        {
+          "source": "原帖",
+          "product": "免K Ultra（仅域名邮箱交付）",
+          "amount": null,
+          "currency": "USD",
+          "category": "max20",
+          "note": "涨幅 15U，未给调整后单价"
+        }
+      ],
+      "seller_post": "正文把「质保封号」限定在放出的一个 Ultra 名额：远程配置、一天 Pro 缓冲、开通 Ultra 后计算周期、期间封几次补几次、到期可续费。未写该名额售价、质保天数或退款选项。同帖公布免K成品号价格调整。均为卖家自述。",
+      "seller_comment": "作者于 2026-11-18 03:11 ET 回复「已售出」https://x.com/Ansyn_07/status/2122966018293448731 。另有人问「什么价格」，未见作者公开回复。",
+      "landing": {
+        "url": "https://t.me/Ansyn_7",
+        "summary": "原帖联系方式为 Telegram https://t.me/Ansyn_7。本次未登录 Telegram，群或私聊中的完整条款与该名额是否仍可售未核实。 另：备用站 ansyn.me 为个人项目站，未见 Claude 商品或条款；Telegram 仍未登录。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "Telegram 未登录"
+      },
+      "third_party": [
+        {
+          "handle": "DzmitryT67994",
+          "url": "https://x.com/DzmitryT67994/status/2123357470567678236",
+          "created_at_et": "2026-11-19 05:07 ET",
+          "quote": "什么价格",
+          "note": "询价，未见作者公开回复",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "作者评论称该 Ultra 名额已售出，原帖「放出一个名额」的可售状态以评论补充为准，且无法在未登录的 Telegram 中复核。"
+      ],
+      "missing": [
+        "该 Ultra 名额未标价",
+        "未写质保天数或退款还是只补号",
+        "Telegram 未核"
+      ],
+      "coverage": "评论第 1 页 3 条（含原帖与「已售出」）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。Telegram 未登录。 浏览器复查 2026-11-19 约 09:28–09:42 ET：备用站 ansyn.me 为个人项目站，未见 Claude 商品或条款；Telegram 仍未登录。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "正文把「质保封号」限定在放出的一个 Ultra 名额：远程配置、一天 Pro 缓冲、开通 Ultra 后计算周期、期间封几次补几次、到期可续费。未写该名额售价、质保天数或退款选项。同帖公布免K成品号价格调整。均为卖家自述。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "Ultra 质保封号（补号）名额 + 免K价调整",
+      "rank": 5,
+      "is_reply": false,
+      "conversation_id": "2122953377130918236",
+      "author_description": "07｜长期主义｜AI × 自媒体｜AI Workflow Builder\n\nBuilding in Public｜Intern @ https://t.co/Ay48fUk8L0"
+    },
+    {
+      "id": "2123220077608853556",
+      "url": "https://x.com/soyes689/status/2123220077608853556",
+      "handle": "soyes689",
+      "name": "予莱",
+      "text": "昨天太忙，很多消息还没来得及回，抱歉让大家久等了，我会陆续回复。\n\n目前 Claude KYC 只要还没选国家，普通和 Portal 都可以做。昨天处理的一部分，全部都顺利通过了。\n\n售后提前说清楚：只包本次验证通过。\n没通过，或交付后立即封号（秒封），全额退款。\n除此之外，后续封号、再次要求验证，不退款，也不负责解封或重新验证。\n\n看清楚、能接受后再下单哈。感谢大家的信任与支持。\n\n下单：https://t.co/jLrVP51j1R",
+      "text_markdown": "昨天太忙，很多消息还没来得及回，抱歉让大家久等了，我会陆续回复。\n\n目前 Claude KYC 只要还没选国家，普通和 Portal 都可以做。昨天处理的一部分，全部都顺利通过了。\n\n售后提前说清楚：只包本次验证通过。\n没通过，或交付后立即封号（秒封），全额退款。\n除此之外，后续封号、再次要求验证，不退款，也不负责解封或重新验证。\n\n看清楚、能接受后再下单哈。感谢大家的信任与支持。\n\n下单：[https://www.poptangai.com/](https://www.poptangai.com/)",
+      "created_at": "2026-11-19T01:01:28.000Z",
+      "created_at_et": "2026-11-18 20:01 ET",
+      "metrics": {
+        "impression_count": 3698,
+        "reply_count": 8,
+        "like_count": 10,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 25
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 3698,
+            "reply_count": 8,
+            "like_count": 10,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 25
+          }
+        }
+      ],
+      "warranty_class": "kyc_fail_refund",
+      "warranty_note": "原文写：只包本次验证通过；没通过或交付后立即封号（秒封）全额退款。同时又写：后续封号、再次要求验证，不退款，也不负责解封或重新验证。这是验证失败/秒封退款，不是后期封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [],
+      "promo": [
+        "https://t.co/jLrVP51j1R",
+        "http://www.poptangai.com"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude 普通与 Portal KYC（须尚未选国家）",
+        "price_label": "原帖未标价；商品页 ¥240",
+        "cover": "只包本次验证通过；失败或秒封全退；后续封号或再次验证不退不负责",
+        "diff": "相对 11-15 已推荐的免K成品号价目帖，本次是 KYC 服务条款更新"
+      },
+      "terms": {
+        "refund_promise": true,
+        "first_login_only": false,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "商品页",
+          "product": "Claude KYC认证服务",
+          "amount": 240,
+          "currency": "CNY",
+          "category": "kyc",
+          "note": "poptangai 短链商品页，2026-11-19 09:26–09:27 ET；稍后目录显示「¥118起」，详情空白，存在标价差异"
+        }
+      ],
+      "seller_post": "原文限定：只要还没选国家，普通和 Portal 都可以做；只包本次验证通过；失败或秒封全额退款；后续封号或再次要求验证不退款、不解封、不重新验证。销售结果「全部顺利通过」为卖家自述。",
+      "seller_comment": "作者回复「现在还可以吗 / 现在可以吗」为可以，并称中午 12 点开始做。有人问「不小心选了国家的可以做吗」，作者答「选了国家暂时做不了哦」。有人问东南亚选项，作者答「成功率不高 下架了」。",
+      "landing": {
+        "url": "https://t.co/jLrVP51j1R",
+        "summary": "原帖下单短链 https://t.co/jLrVP51j1R 于 2026-11-19 09:26–09:27 ET 只读抓取到 poptangai 商品页「Claude KYC认证服务」，标价 ¥240.00，商品说明与原帖一致：只包本次验证通过；未通过或交付后秒封原路全额退款；除秒封外后续封号或再次验证不退款、不解封、不重新验证；请预装网易 UU 远程；并写「之前提前选择了国家暂做不了」。随后浏览器只读（2026-11-19 约 09:28–09:42 ET）打开 https://www.poptangai.com/ 目录，可见 Claude KYC认证服务「¥118起」（简介仍写提前选了国家暂做不了），以及 Pro 成品号 ¥480起、Max 5X ¥1,499起（暂缺货）、Max 20X ¥2,499起（暂缺货）；但当时商品详情路由为空白，未能再次打开与短链对应的详情条文。目录「¥118起」与稍早短链商品页 ¥240 不一致，下单前以当时能打开的页面为准，不能用目录起始价替代已抓到的商品页条文，也不能在详情空白时把目录简介当成已核条款。",
+        "price": "短链商品页 2026-11-19 09:26–09:27 ET 为 ¥240.00；稍后目录显示 KYC「¥118起」，详情路由空白",
+        "terms": "失败或秒封全额退款；后续封号/再次验证不退不负责",
+        "inaccessible": "稍后浏览器访问时商品详情路由空白，未能再次打开短链对应页"
+      },
+      "third_party": [
+        {
+          "handle": "Flyingtosky1231",
+          "url": "https://x.com/Flyingtosky1231/status/2123296688647585986",
+          "created_at_et": "2026-11-19 01:05 ET",
+          "quote": "礼品卡支付弹出的portal可以验证吗？",
+          "note": "提问，未见作者公开回复该条",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "作者评论称东南亚规格因成功率不高已下架，与 2026-11-19 09:26–09:27 ET 商品页仍列出「普通东南亚」规格可能不一致。",
+        "同一站点在 2026-11-19 09:26–09:27 ET 短链商品页标价 ¥240.00，稍后目录显示 KYC「¥118起」且详情路由空白。不能把两种标价混成已核对的单一现价。"
+      ],
+      "missing": [
+        "原帖未标价，价格来自本次商品页",
+        "礼品卡弹出的 Portal 能否做，未见作者公开答复"
+      ],
+      "coverage": "评论第 1 页 13 条（含原帖）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。短链商品页于 2026-11-19 09:26–09:27 ET 只读抓取到条文；2026-11-19 约 09:28–09:42 ET 目录可见但详情路由空白。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文限定：只要还没选国家，普通和 Portal 都可以做；只包本次验证通过；失败或秒封全额退款；后续封号或再次要求验证不退款、不解封、不重新验证。销售结果「全部顺利通过」为卖家自述。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "KYC：失败/秒封全退，明确不保后期封号",
+      "rank": 6,
+      "is_reply": false,
+      "conversation_id": "2123220077608853556",
+      "author_description": "AI创业者｜副业项目分享 ｜搞钱实验室\n自营AI代充 | https://t.co/TFVG8LvMtM"
+    },
+    {
+      "id": "2123102172619616325",
+      "url": "https://x.com/Defi_SiTu/status/2123102172619616325",
+      "handle": "Defi_SiTu",
+      "name": "LoOk|AA代充王总",
+      "text": "🛒 24小时自动发货小店：https://t.co/DS5RoZzchf\n拍前稍微留意下详情里的质保说明，全店真现货秒发~\n\n店里也上了亚洲/韩国 Claude KYC 验证（¥170起），\n需要的话先私信问我再拍哦！\n\nmuse刷邀请我不在可以在：https://t.co/jwy8J0NzHL 自主刷哦，全自动的（里面有惊喜）",
+      "text_markdown": "🛒 24小时自动发货小店：[https://www.16688.com.cn/shop/START](https://www.16688.com.cn/shop/START)\n拍前稍微留意下详情里的质保说明，全店真现货秒发~\n\n店里也上了亚洲/韩国 Claude KYC 验证（¥170起），\n需要的话先私信问我再拍哦！\n\nmuse刷邀请我不在可以在：[https://mboost.xyz](https://mboost.xyz) 自主刷哦，全自动的（里面有惊喜）",
+      "created_at": "2026-11-18T17:12:57.000Z",
+      "created_at_et": "2026-11-18 12:12 ET",
+      "metrics": {
+        "impression_count": 3462,
+        "reply_count": 1,
+        "like_count": 9,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 31
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 3462,
+            "reply_count": 1,
+            "like_count": 9,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 31
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "原帖是对另一条会话的回复，推销自动发货小店，并写店里上了亚洲/韩国 Claude KYC 验证（¥170起），需先私信再拍。原帖未写失败、秒封或后期封号退款。作者稍后在评论中补充店内 Claude Pro 成品号价格，并写其中一款「质保订阅不质保封号」。不得把评论里的「不质保封号」改写成封号质保，也不得把 KYC ¥170 起写成已含封号赔付。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/DS5RoZzchf",
+          "expanded_url": "https://www.16688.com.cn/shop/START",
+          "display_url": "16688.com.cn/shop/START",
+          "title": null
+        },
+        {
+          "url": "https://t.co/jwy8J0NzHL",
+          "expanded_url": "https://mboost.xyz",
+          "display_url": "mboost.xyz",
+          "title": "AI淘金 · Muse Boost"
+        }
+      ],
+      "promo": [
+        "https://www.16688.com.cn/shop/START",
+        "https://mboost.xyz"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "亚洲/韩国 Claude KYC（¥170起）；评论补充 Claude Pro 成品/直充",
+        "price_label": "原帖 KYC ¥170起；评论 Pro 成品 ¥287.5、官方直充 ¥350",
+        "cover": "原帖未写退款；评论称一款直充质保订阅不质保封号",
+        "diff": "新上架 KYC 及评论补充价目"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "亚洲/韩国 Claude KYC",
+          "amount": 170,
+          "currency": "CNY",
+          "category": "kyc",
+          "note": "写「¥170起」，需先私信再拍"
+        },
+        {
+          "source": "作者评论",
+          "product": "Claude Pro 官方充值成品号",
+          "amount": 287.5,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "2026-11-19 06:44 ET 作者评论，称不是直充自己号的代充"
+        },
+        {
+          "source": "作者评论",
+          "product": "Claude Pro 官方直充",
+          "amount": 350,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "同条评论：质保订阅不质保封号"
+        }
+      ],
+      "seller_post": "此条为回复贴。正文给出 16688 店铺和 Muse 邀请页，并写店里上了亚洲/韩国 Claude KYC（¥170起），需要先私信再拍。未写 KYC 失败、秒封或后期封号如何处理。",
+      "seller_comment": "有人问「没有Claude pro的代充吗」，作者于 2026-11-19 06:44 ET 回复：店里 Claude Pro 成品一个月，官方充值成品号 ¥287.5，另一款官方直充 ¥350、「质保订阅不质保封号」；并说明不是直充到自己号的代充，入口在 1 楼。https://x.com/Defi_SiTu/status/2123381816866255231 同线程里还有关于 Gemini/代理费的讨论，不能自动套到 Claude KYC。",
+      "landing": {
+        "url": "https://www.16688.com.cn/shop/START",
+        "summary": "原帖店铺 https://www.16688.com.cn/shop/START 于 2026-11-19 09:26–09:27 ET 只读抓取未得到可用正文（空结果）；同店商品详情和 KYC/Claude Pro 现行条款因此未核实。https://mboost.xyz 为 Muse 邀请页，不是 Claude 商品页。 另：16688 /shop/START 浏览器访问为空白页，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "16688 店铺页本次抓取无正文/超时，商品详情未核实"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "KYC 失败/秒封规则未在原帖写明",
+        "16688 商品页未打开"
+      ],
+      "coverage": "因为此条是回复，评论检索使用会话 ID 2123101455582433362。第 1 页 24 条于 2026-11-19 09:24:52 ET 抓取，第 2 页 11 条随后抓取，第 3 页于 09:26:14 ET 确认 result_count=0。会话中混有 Muse/Gemini/代理讨论，Claude 相关以作者点名回复为准。16688 店铺页未读到正文。 浏览器复查 2026-11-19 约 09:28–09:42 ET：16688 /shop/START 浏览器访问为空白页，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "此条为回复贴。正文给出 16688 店铺和 Muse 邀请页，并写店里上了亚洲/韩国 Claude KYC（¥170起），需要先私信再拍。未写 KYC 失败、秒封或后期封号如何处理。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "上架亚洲/韩国 Claude KYC，原帖无退款细则",
+      "rank": 7,
+      "is_reply": true,
+      "conversation_id": "2123101455582433362",
+      "author_description": "02年|专业代充 | 喜欢ai|段子手 | 爱分享 | 搞钱机器|爱吃瓜\n独立站:  https://t.co/pDieEfDLHN\nmuse刷邀请：https://t.co/NPZhuXhtVf（有隐藏商品）\n招代理，给独立站，独立后台，独立域名，自行定价权。\n只关注:有价值的人，有趣的人，搞黄色的人。"
+    },
+    {
+      "id": "2122943749806325907",
+      "url": "https://x.com/TongZha58836739/status/2122943749806325907",
+      "handle": "TongZha58836739",
+      "name": "森",
+      "text": "Claude最新价格今日更新 ：\n1、美区过K Pro 质保30天订阅，保首登不保封号，送ip，零售350/个，续费每月150；10个起拿报价 300/个 \n\n美区免K Pro 质保首登不保封号，零售300/个；10个起拿报价 285/个 \n\n美区门户（portal）kyc 315/个，美区订阅 kyc 190/个。不过/秒封退款。 持续接单，诚招合作/代理，长期合作可谈优惠，详情私聊或者看主页链接\n\n2、美区免K Ultra（Max20），目前零售2450，10+以上2350/个。 \n\n3、美区Max（5x），目前零售1350，10+以上 1300/个。 \n\n4、越南速刷号 1800,50个起拿，100以内都是1800。",
+      "text_markdown": "Claude最新价格今日更新 ：\n1、美区过K Pro 质保30天订阅，保首登不保封号，送ip，零售350/个，续费每月150；10个起拿报价 300/个 \n\n美区免K Pro 质保首登不保封号，零售300/个；10个起拿报价 285/个 \n\n美区门户（portal）kyc 315/个，美区订阅 kyc 190/个。不过/秒封退款。 持续接单，诚招合作/代理，长期合作可谈优惠，详情私聊或者看主页链接\n\n2、美区免K Ultra（Max20），目前零售2450，10+以上2350/个。 \n\n3、美区Max（5x），目前零售1350，10+以上 1300/个。 \n\n4、越南速刷号 1800,50个起拿，100以内都是1800。",
+      "created_at": "2026-11-18T06:43:26.000Z",
+      "created_at_et": "2026-11-18 01:43 ET",
+      "metrics": {
+        "impression_count": 2908,
+        "reply_count": 1,
+        "like_count": 20,
+        "repost_count": 2,
+        "quote_count": 0,
+        "bookmark_count": 30
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 2908,
+            "reply_count": 1,
+            "like_count": 20,
+            "repost_count": 2,
+            "quote_count": 0,
+            "bookmark_count": 30
+          }
+        }
+      ],
+      "warranty_class": "first_login_only",
+      "warranty_note": "原文写美区过K Pro「质保30天订阅，保首登不保封号」；美区免K Pro「质保首登不保封号」；美区门户 KYC 315、订阅 KYC 190，「不过/秒封退款」。不得把「质保30天订阅」或「保首登」写成封号质保；KYC 的不过/秒封退款不是后期封号包赔。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/ZQ30t8lTmF",
+          "expanded_url": "https://twitter.com/TongZha58836739/status/2121121656328409387",
+          "display_url": "x.com/TongZha5883673…",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://www.16688.com.cn/shop/S627334"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "美区过K/免K Pro、Max、Ultra 成品号及门户/订阅 KYC",
+        "price_label": "过K Pro 零售 350/续费 150；免K Pro 300；门户 KYC 315；订阅 KYC 190；Ultra 2450；Max 1350 等",
+        "cover": "成品号保首登、不保封号，过K Pro 另质保 30 天订阅；KYC 不过或秒封退款",
+        "diff": "相对 11-13 已推荐的上新帖，本次给出完整价目与保障限定"
+      },
+      "terms": {
+        "refund_promise": true,
+        "first_login_only": true,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "美区过K Pro（质保30天订阅，保首登不保封号，送IP）",
+          "amount": 350,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "续费每月 150；10 个起拿 300"
+        },
+        {
+          "source": "原帖",
+          "product": "美区免K Pro（质保首登不保封号）",
+          "amount": 300,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "10 个起拿 285"
+        },
+        {
+          "source": "原帖",
+          "product": "美区门户 KYC",
+          "amount": 315,
+          "currency": "CNY",
+          "category": "kyc",
+          "note": "不过/秒封退款"
+        },
+        {
+          "source": "原帖",
+          "product": "美区订阅 KYC",
+          "amount": 190,
+          "currency": "CNY",
+          "category": "kyc",
+          "note": "不过/秒封退款"
+        },
+        {
+          "source": "原帖",
+          "product": "美区免K Ultra（Max20）",
+          "amount": 2450,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "10+ 为 2350；未在该行重复封号条款"
+        },
+        {
+          "source": "原帖",
+          "product": "美区 Max 5x",
+          "amount": 1350,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "10+ 为 1300；未在该行重复封号条款"
+        },
+        {
+          "source": "原帖",
+          "product": "越南速刷号",
+          "amount": 1800,
+          "currency": "CNY",
+          "category": "other",
+          "note": "50 个起拿，100 以内都是 1800"
+        }
+      ],
+      "seller_post": "原文按行给出价目和限定：过K Pro 质保 30 天订阅且保首登不保封号；免K Pro 质保首登不保封号；两类 KYC 不过或秒封退款。Ultra、Max、越南速刷号行未再重复封号语句，不能自动补写为封号包赔。",
+      "seller_comment": "公开评论除一条「有很多 KYC 可用」外无作者补充价目或条款。该条为第三方揽活，不是售后规则。",
+      "landing": {
+        "url": "https://www.16688.com.cn/shop/S627334",
+        "summary": "作者简介中的店铺 https://www.16688.com.cn/shop/S627334 于 2026-11-19 09:26–09:27 ET 抓取超时，商品详情与现行条款未核实。原帖是引用自己 11-13 旧帖的报价更新，不能用旧帖页面替代本次条款。 另：16688 /shop/S627334 浏览器访问为空白页，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "16688 店铺页抓取超时"
+      },
+      "third_party": [
+        {
+          "handle": "kyc_2017",
+          "url": "https://x.com/kyc_2017/status/2123095913522725231",
+          "created_at_et": "2026-11-18 11:48 ET",
+          "quote": "有很多 KYC 可用",
+          "note": "第三方揽活，不是本帖成交反馈",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [],
+      "missing": [
+        "Ultra/Max/越南号行未单独写封号规则",
+        "16688 店铺页未打开"
+      ],
+      "coverage": "评论第 1 页 2 条（含原帖）于 2026-11-19 09:25:23 ET 抓取，随后确认第 2 页为空。16688 店铺页超时。 浏览器复查 2026-11-19 约 09:28–09:42 ET：16688 /shop/S627334 浏览器访问为空白页，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文按行给出价目和限定：过K Pro 质保 30 天订阅且保首登不保封号；免K Pro 质保首登不保封号；两类 KYC 不过或秒封退款。Ultra、Max、越南速刷号行未再重复封号语句，不能自动补写为封号包赔。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "完整价目：保首登不保封号；KYC 不过/秒封退款",
+      "rank": 8,
+      "is_reply": false,
+      "conversation_id": "2122943749806325907",
+      "author_description": "森｜数学博士在读；\nAI代充/Claude相关：https://t.co/kqAyCmG0SN\nOKX邀请：ZE4GDJW4\n诚招claude长期合作/代理\ntg：https://t.co/wHed5Nt6Xc"
+    },
+    {
+      "id": "2123248898995323076",
+      "url": "https://x.com/kevinsims3087/status/2123248898995323076",
+      "handle": "kevinsims3087",
+      "name": "Kevin",
+      "text": "封禁率大大降低❗️❗️❗️\n\n升级后的Claude pro成品号已上架🔥 不容易被封目前👍\n\n这款也将用于发放给本周中奖的朋友们❤️❤️❤️\n\n传送门：https://t.co/IjscnTMFZ9 https://t.co/hmpagnC0Vk",
+      "text_markdown": "封禁率大大降低❗️❗️❗️\n\n升级后的Claude pro成品号已上架🔥 不容易被封目前👍\n\n这款也将用于发放给本周中奖的朋友们❤️❤️❤️\n\n传送门：[https://ai-melody.shop/item/597](https://ai-melody.shop/item/597) [https://x.com/kevinsims3087/status/2123248898995323076/photo/1](https://x.com/kevinsims3087/status/2123248898995323076/photo/1)",
+      "created_at": "2026-11-19T02:56:00.000Z",
+      "created_at_et": "2026-11-18 21:56 ET",
+      "metrics": {
+        "impression_count": 2183,
+        "reply_count": 4,
+        "like_count": 6,
+        "repost_count": 1,
+        "quote_count": 0,
+        "bookmark_count": 5
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 2183,
+            "reply_count": 4,
+            "like_count": 6,
+            "repost_count": 1,
+            "quote_count": 0,
+            "bookmark_count": 5
+          }
+        }
+      ],
+      "warranty_class": "first_login_only",
+      "warranty_note": "原帖只写「升级后的 Claude Pro 成品号已上架」「封禁率大大降低」「不容易被封」，未写价格，也未写封号退款。商品页标题和正文写明「不质保封号」，并限定：超过 30 分钟或登录成功后再被封、弹 KYC 均无售后；FAQ 写「只质保首次登录」。不得把原帖「不容易被封」升级为封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/IjscnTMFZ9",
+          "expanded_url": "https://ai-melody.shop/item/597",
+          "display_url": "ai-melody.shop/item/597",
+          "title": "Claude pro 1个月官方直充成品账号（ 带开通时 IP 减少封禁，不质保封号） - April-Melody-AI"
+        },
+        {
+          "url": "https://t.co/hmpagnC0Vk",
+          "expanded_url": "https://x.com/kevinsims3087/status/2123248898995323076/photo/1",
+          "display_url": "pic.x.com/hmpagnC0Vk",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://ai-melody.shop/item/597"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude Pro 1 个月官方直充成品账号（带开通时 IP）",
+        "price_label": "落地页 ¥268；作者评论称代充 139",
+        "cover": "落地页不质保封号；30 分钟内登录不上且按要求录屏才可能售后；登录成功后无售后",
+        "diff": "相对 11-16 已推荐上架帖为「升级后」新商品页"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": true,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "商品页",
+          "product": "Claude Pro 1个月官方直充成品账号（带开通时IP，不质保封号）",
+          "amount": 268,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "ai-melody.shop/item/597，2026-11-19 09:26–09:27 ET；当时写 0 库存、支持预订"
+        },
+        {
+          "source": "作者评论",
+          "product": "Claude Pro 代充",
+          "amount": 139,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "作者称「正常的代冲值139」，并说明本帖商品是成品号"
+        }
+      ],
+      "seller_post": "原帖强调封禁率降低、成品号已上架，并用于抽奖发放，未标价，也未写退款或质保范围。「不容易被封」是卖家说法，不是书面封号赔付。",
+      "seller_comment": "有人写「268 yuan for claude pro」，作者回复「这是成品号」「正常的代冲值139」。https://x.com/kevinsims3087/status/2123303045433807087 有人问「真的不会被封吗」，未见作者公开回复。有人问是否带 portal verification warranty，也未见作者公开回复。",
+      "landing": {
+        "url": "https://ai-melody.shop/item/597",
+        "summary": "https://ai-melody.shop/item/597 于 2026-11-19 09:26–09:27 ET 打开。标题：「Claude pro 1个月官方直充成品账号（ 带开通时 IP 减少封禁，不质保封号）」，标价 ￥268.00，当时 0 库存、可预订；预订退回原支付方式扣除 10%。详情要求付款到挂 IP、用 SK 上号全程录屏，缺任一环节无售后。写明是免 KYC 成品号不是已过 KYC；质保只有一条：下单后 30 分钟内登录不上，且用所供 IP 与 SK 无效、用账密显示封禁才可售后，超过 30 分钟 0 售后；登录成功之后哪怕 10 分钟被封或弹 KYC 均无售后。FAQ：「账号被封了能换吗？不能。只质保首次登录。」页面还写主要面向海外用户、暂不支持中国大陆地区用户购买或使用。以上是商品页现行条款，不是原帖原文。",
+        "price": "¥268.00；当时 0 库存可预订",
+        "terms": "不质保封号；30 分钟内未登录成功且录屏完整才可能售后；登录成功后无售后；只质保首次登录",
+        "inaccessible": null
+      },
+      "third_party": [
+        {
+          "handle": "longjia58620839",
+          "url": "https://x.com/longjia58620839/status/2123383199535685676",
+          "created_at_et": "2026-11-19 06:49 ET",
+          "quote": "有人用过吗？真的不会被封吗？用过的人来说一说。",
+          "note": "询问使用体验，未见第一人称成交反馈或作者答复",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "原帖写「封禁率大大降低」「不容易被封」；商品页标题和正文写「不质保封号」，并明确登录成功后被封无售后。",
+        "评论区出现的 268 元与商品页标价一致；作者另称代充 139，与本成品号不是同一商品。"
+      ],
+      "missing": [
+        "原帖本身未标价、未写 30 分钟限定",
+        "「会不会被封 / 是否带门户验证质保」未见作者公开答复"
+      ],
+      "coverage": "评论第 1 页 10 条（含原帖）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。商品详情页已只读打开。",
+      "narrative": "原帖强调封禁率降低、成品号已上架，并用于抽奖发放，未标价，也未写退款或质保范围。「不容易被封」是卖家说法，不是书面封号赔付。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "新上架 Pro 成品号；落地页写不质保封号、只保短时首登",
+      "rank": 9,
+      "is_reply": false,
+      "conversation_id": "2123248898995323076",
+      "author_description": "Ai爱好者｜思考未来，看见现在｜\n音乐网球爱好者🎾🎵\nAi订阅渠道：https://t.co/YB3RaB6TFy\nTg合作：@Aixunmelody"
+    },
+    {
+      "id": "2123011709644513775",
+      "url": "https://x.com/luobeiowo/status/2123011709644513775",
+      "handle": "luobeiowo",
+      "name": "洛萝贝",
+      "text": "【合作推广】似梦 AI 自营卡网开张了。ChatGPT Plus 125 元/月，Claude Pro 美卡代充 178 元/月，Gemini Ultra 可以充到自己的 Google 账号。\n有兴趣直接私信店主 @simer888 聊。\n续会员 → https://t.co/10Gdav2Ag0\n接 API → https://t.co/3WatP1VtJF（分组倍率见图二） https://t.co/jQgaySKf3c",
+      "text_markdown": "【合作推广】似梦 AI 自营卡网开张了。ChatGPT Plus 125 元/月，Claude Pro 美卡代充 178 元/月，Gemini Ultra 可以充到自己的 Google 账号。\n有兴趣直接私信店主 @simer888 聊。\n续会员 → [https://vip.simengai.cn](https://vip.simengai.cn)\n接 API → [https://simengai.cn](https://simengai.cn)（分组倍率见图二） [https://x.com/luobeiowo/status/2123011709644513775/photo/1](https://x.com/luobeiowo/status/2123011709644513775/photo/1)",
+      "created_at": "2026-11-18T11:13:29.000Z",
+      "created_at_et": "2026-11-18 06:13 ET",
+      "metrics": {
+        "impression_count": 1842,
+        "reply_count": 1,
+        "like_count": 2,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 2
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 1842,
+            "reply_count": 1,
+            "like_count": 2,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 2
+          }
+        }
+      ],
+      "warranty_class": "no_ban",
+      "warranty_note": "原帖是合作推广：Claude Pro 美卡代充 178 元/月，未写封号或失败退款。随后打开的代订商品页写：「仅质保本次充值的订阅权益，不保账号封禁、停用或风控。」不得把代充写成封号质保。同帖 API 入口是另一站点。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/10Gdav2Ag0",
+          "expanded_url": "https://vip.simengai.cn",
+          "display_url": "vip.simengai.cn",
+          "title": "购物 - 似梦AI"
+        },
+        {
+          "url": "https://t.co/3WatP1VtJF",
+          "expanded_url": "https://simengai.cn",
+          "display_url": "simengai.cn",
+          "title": "似梦AI"
+        },
+        {
+          "url": "https://t.co/jQgaySKf3c",
+          "expanded_url": "https://x.com/luobeiowo/status/2123011709644513775/photo/1",
+          "display_url": "pic.x.com/jQgaySKf3c",
+          "title": null
+        },
+        {
+          "url": "https://t.co/jQgaySKf3c",
+          "expanded_url": "https://x.com/luobeiowo/status/2123011709644513775/photo/2",
+          "display_url": "pic.x.com/jQgaySKf3c",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://vip.simengai.cn",
+        "https://vip.simengai.cn/item/7",
+        "https://vip.simengai.cn/item/10",
+        "https://vip.simengai.cn/item/23",
+        "https://vip.simengai.cn/item/9",
+        "https://simengai.cn"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude Pro 美卡代充（似梦 AI）；同帖另有 API",
+        "price_label": "原帖与商品页均为 Claude Pro 代订/美卡代充 ¥178；商品页另有 Max 5x 代订 ¥799、Max 20x 代订 ¥1,680、Pro 成品号目录价 ¥230",
+        "cover": "原帖未写质保；代订商品页写仅质保本次充值的订阅权益，不保封禁、停用或风控",
+        "diff": "新店铺推广"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "Claude Pro 美卡代充",
+          "amount": 178,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "按月；指向店主 @simer888"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Pro 代订月卡",
+          "amount": 178,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://vip.simengai.cn/item/7，2026-11-19 约 09:28–09:42 ET；本人账号人工代订 1 个月，页要求下单前已过 KYC"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Max 5x 代订",
+          "amount": 799,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "https://vip.simengai.cn/item/10；页要求已过 KYC"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Max 20x 代订",
+          "amount": 1680,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "https://vip.simengai.cn/item/23；该页未重复 KYC 前置条件，不能据此视为免 KYC"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Pro 成品号",
+          "amount": 230,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://vip.simengai.cn/item/9 目录价；详情称条件和质保期限须付款前联系客服确认"
+        }
+      ],
+      "seller_post": "正文是合作推广，不是作者自营价目的完整售后说明。给出 Claude Pro 美卡代充 178 元/月，请读者私信店主 @simer888。同帖「接 API」指向另一站点，与会员代充分开，不能当成成品号质保页。",
+      "seller_comment": "作者自己跟帖：「有需要的来支持支持窝朋友呗。」未补充质保或退款规则。",
+      "landing": {
+        "url": "https://vip.simengai.cn",
+        "summary": "续会员页 https://vip.simengai.cn 于 2026-11-19 09:26–09:27 ET 打开时，首页未见 178 元这一数字，商品详情当时未点开。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开了商品详情：Pro 代订月卡 ¥178、Max 5x ¥799、Max 20x ¥1,680，均为本人账号人工代订、1 个月。Pro 与 Max 5x 详情要求下单前已通过 KYC；Max 20x 页未重复该条件，不能视为免 KYC。原文：「仅质保本次充值的订阅权益，不保账号封禁、停用或风控。」未写按天退款。Pro 成品号目录价 ¥230，详情称办理条件和质保期限须付款前联系客服确认，不承诺封禁、违规或风控保障。https://simengai.cn 被首页标为 API 中转站，不是该 178 元代充的条款页。",
+        "price": "Pro 代订 ¥178（与原帖一致）；Max 5x / 20x 代订 ¥799 / ¥1,680；Pro 成品号目录价 ¥230",
+        "terms": "仅质保本次充值的订阅权益，不保封禁、停用或风控",
+        "inaccessible": null
+      },
+      "third_party": [],
+      "conflicts": [
+        "首页在稍早抓取时未列出 178 元；稍后商品详情页的 Pro 代订价与原帖 178 元一致。API 赠送或 API 站点不能当成代充条款。"
+      ],
+      "missing": [
+        "代充失败如何处理，商品页未再展开",
+        "Pro 成品号的具体质保期限须联系客服，公开页未写明"
+      ],
+      "coverage": "评论第 1 页 2 条（含原帖与作者跟帖）于 2026-11-19 09:25:23 ET 抓取，随后确认第 2 页为空。落地页：2026-11-19 09:26–09:27 ET 读首页；2026-11-19 约 09:28–09:42 ET 打开代订与成品号详情。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "正文是合作推广，不是作者自营价目的完整售后说明。给出 Claude Pro 美卡代充 178 元/月，请读者私信店主 @simer888。同帖「接 API」指向另一站点，与会员代充分开，不能当成成品号质保页。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "合作推广 Claude Pro 美卡代充 178",
+      "rank": 10,
+      "is_reply": false,
+      "conversation_id": "2123011709644513775",
+      "author_description": "🔞男性向中文音声女喘创作者｜🚪198自选二十分钟音声+购入八折🚪520自选一百分钟音声+购入八折｜接定制音声点单均需入门｜贩售定金50r联系QQ：3040834911（非zfb口令拉黑）"
+    },
+    {
+      "id": "2123054903157534746",
+      "url": "https://x.com/W2679966465/status/2123054903157534746",
+      "handle": "W2679966465",
+      "name": "Stella",
+      "text": "最近后台问爆的几个刚需，小站都补齐货了\n下单地址👉： https://t.co/nivv1pdWGQ（hello 我的 vip）\n\n✅ Gemini Ultra（5x/20x 共享 & 独享车，带反重力）\n\n✅ Claude Max 个人号升级 / GPT 成品与代充\n\n✅ Codex 美区实卡接码（25~30天有效）  \n \n还有多邻国、Notion、X融合订阅全都在架。\n\n有需要的朋友快来看看，自助下单\n支付宝付款、免手续费，公司报销支持开票。",
+      "text_markdown": "最近后台问爆的几个刚需，小站都补齐货了\n下单地址👉： [https://hellomy.vip](https://hellomy.vip)（hello 我的 vip）\n\n✅ Gemini Ultra（5x/20x 共享 & 独享车，带反重力）\n\n✅ Claude Max 个人号升级 / GPT 成品与代充\n\n✅ Codex 美区实卡接码（25~30天有效）  \n \n还有多邻国、Notion、X融合订阅全都在架。\n\n有需要的朋友快来看看，自助下单\n支付宝付款、免手续费，公司报销支持开票。",
+      "created_at": "2026-11-18T14:05:08.000Z",
+      "created_at_et": "2026-11-18 09:05 ET",
+      "metrics": {
+        "impression_count": 1641,
+        "reply_count": 2,
+        "like_count": 7,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 2
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 1641,
+            "reply_count": 2,
+            "like_count": 7,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 2
+          }
+        }
+      ],
+      "warranty_class": "no_ban",
+      "warranty_note": "原帖把 Claude Max 个人号升级列入价目，未写数字价或封号条款。随后打开的商品页与售后说明：Max 5× ¥980/月、Max 20× ¥1,900/月，充到本人账号、订阅期 1 个月；「30天内出现掉订阅，按剩余订阅天数处理。」未出账单即被封才按「秒封」处理（实体卡扣 10% 手续费、其余退；虚拟卡全额退）；已出账单后的封号不保。按剩余天数处理只适用于掉订阅，不是封号按天退款。不得把首页「虚拟卡全额退¥980 起」摘要升级为封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/IHS31gAo5w",
+          "expanded_url": "https://hellomy.vip",
+          "display_url": "hellomy.vip",
+          "title": "Hello My VIP · 会员订阅与工具服务"
+        },
+        {
+          "url": "https://t.co/SBXAn2ZvpE",
+          "expanded_url": "https://x.com/W2679966465/status/2123054903157534746/photo/1",
+          "display_url": "pic.x.com/SBXAn2ZvpE",
+          "title": null
+        },
+        {
+          "url": "https://t.co/SBXAn2ZvpE",
+          "expanded_url": "https://x.com/W2679966465/status/2123054903157534746/photo/2",
+          "display_url": "pic.x.com/SBXAn2ZvpE",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://hellomy.vip",
+        "https://hellomy.vip/product/claude",
+        "https://hellomy.vip/guides/after-sales"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude Max 个人号升级（同帖还有 GPT/Gemini/Cursor 等）",
+        "price_label": "原帖未标 Claude 数字价；商品页 Max 5× ¥980/月、Max 20× ¥1,900/月（充到本人账号）",
+        "cover": "掉订阅按剩余天数处理；出账前秒封可退（实体卡扣 10%，虚拟卡全额）；已出账后的封号不保",
+        "diff": "新价目/支付说明"
+      },
+      "terms": {
+        "refund_promise": true,
+        "first_login_only": false,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "商品页",
+          "product": "Claude Max 5× 人工代充（充到本人账号，1 个月）",
+          "amount": 980,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "https://hellomy.vip/product/claude，2026-11-19 约 09:28–09:42 ET"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Max 20× 人工代充（充到本人账号，1 个月）",
+          "amount": 1900,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "同页"
+        }
+      ],
+      "seller_post": "原文是一份多产品价目，其中一项为「Claude Max 个人号升级」。支付说明为支付宝、免手续费、支持开票。未给出 Claude 数字价格，也未写封号或首登条款。",
+      "seller_comment": "公开评论中无作者补充 Claude 价格或质保。有人问「有Plus没有」，所指产品不明确，不能当成 Claude 反馈。",
+      "landing": {
+        "url": "https://hellomy.vip/product/claude",
+        "summary": "https://hellomy.vip 于 2026-11-19 09:26–09:27 ET 打开的是首页，FAQ 仅有「Claude Max：实体卡只收 10%，虚拟卡全额退¥980 起」摘要。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开 https://hellomy.vip/product/claude 与 https://hellomy.vip/guides/after-sales。Max 5× ¥980/月、Max 20× ¥1,900/月，均为充到本人账号的人工代充，订阅期 1 个月；页未写需 KYC。售后原文：「30天内出现掉订阅，按剩余订阅天数处理。」未出账单即被封才算「秒封」：实体卡扣 10% 手续费、其余退；虚拟卡全额退。已出账单后的封号不保。未交付订单可在原订单申请全额退款。按剩余天数处理仅适用于掉订阅，不是封号按天退款。",
+        "price": "Max 5× ¥980/月；Max 20× ¥1,900/月",
+        "terms": "掉订阅按剩余天数处理；出账前秒封可退（实体卡扣 10%，虚拟卡全额）；已出账后封号不保",
+        "inaccessible": null
+      },
+      "third_party": [
+        {
+          "handle": "Cavs_forever24",
+          "url": "https://x.com/Cavs_forever24/status/2123055552668545423",
+          "created_at_et": "2026-11-18 09:07 ET",
+          "quote": "有Plus没有",
+          "note": "产品指向不明，不是已核实成交",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "首页 FAQ「虚拟卡全额退¥980 起」是摘要；完整规则在售后说明中限定为出账前秒封，且已出账后的封号不保。"
+      ],
+      "missing": [
+        "原帖未标 Claude 数字价",
+        "页未写是否需 KYC"
+      ],
+      "coverage": "评论第 1 页 2 条（含原帖）于 2026-11-19 09:25:23 ET 抓取，随后确认第 2 页为空。落地页：2026-11-19 09:26–09:27 ET 读首页；2026-11-19 约 09:28–09:42 ET 打开商品页与售后说明。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文是一份多产品价目，其中一项为「Claude Max 个人号升级」。支付说明为支付宝、免手续费、支持开票。未给出 Claude 数字价格，也未写封号或首登条款。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "价目含 Claude Max 个人号升级，原帖无封号条款",
+      "rank": 11,
+      "is_reply": false,
+      "conversation_id": "2123054903157534746",
+      "author_description": "AI探索者 |自媒体 | 自由职业 |搞钱研究所\n4年新媒体运营，把学到的知识分享给你。\nAI代充小店: https://t.co/8MnTUIv4ak (哈喽，我的VIP)"
+    },
+    {
+      "id": "2123234740354572799",
+      "url": "https://x.com/nexai_sbus/status/2123234740354572799",
+      "handle": "nexai_sbus",
+      "name": "Ken",
+      "text": "Claude Pro 成品号🔥🔥🔥\n\n免KYC，带IP，减少被封❗️❗️ ❗️\n\n登录即用，丝滑无比☺️☺️☺️\n\n存量不多，友手慢无❗️❗️❗️\n\n美卡订阅，一人一号一卡。\n\n传送门：https://t.co/LVffVxgokD ～长期招代理\n\n#Claude #claude https://t.co/VsR0mSFlSy",
+      "text_markdown": "Claude Pro 成品号🔥🔥🔥\n\n免KYC，带IP，减少被封❗️❗️ ❗️\n\n登录即用，丝滑无比☺️☺️☺️\n\n存量不多，友手慢无❗️❗️❗️\n\n美卡订阅，一人一号一卡。\n\n传送门：[https://subsmall.com](https://subsmall.com) ～长期招代理\n\n#Claude #claude [https://x.com/nexai_sbus/status/2123234740354572799/photo/1](https://x.com/nexai_sbus/status/2123234740354572799/photo/1)",
+      "created_at": "2026-11-19T01:59:44.000Z",
+      "created_at_et": "2026-11-18 20:59 ET",
+      "metrics": {
+        "impression_count": 1533,
+        "reply_count": 0,
+        "like_count": 4,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 8
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 1533,
+            "reply_count": 0,
+            "like_count": 4,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 8
+          }
+        }
+      ],
+      "warranty_class": "first_login_only",
+      "warranty_note": "正文只写「Claude Pro 成品号免KYC带IP」，未标价，未写封号退款。商店商品页：Pro 1个月成品号 ¥258，当时 0 库存可预订，账号未过 KYC；仅约 30 分钟内登录不上可申请售后，登录成功后封号或弹 KYC 均无售后。另有 Pro 官方直充月卡 ¥155，页写唯一质保是未开通成功时给 Apple ID 让买家尝试退款，订阅掉落不退款。页写暂不支持中国大陆地区用户购买或使用。不得把「免KYC带IP」写成封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/LVffVxgokD",
+          "expanded_url": "https://subsmall.com",
+          "display_url": "subsmall.com",
+          "title": "Subsmall-AI 订阅商城"
+        },
+        {
+          "url": "https://t.co/VsR0mSFlSy",
+          "expanded_url": "https://x.com/nexai_sbus/status/2123234740354572799/photo/1",
+          "display_url": "pic.x.com/VsR0mSFlSy",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://subsmall.com",
+        "https://subsmall.com/cat/14",
+        "https://subsmall.com/item/46",
+        "https://subsmall.com/item/597"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "Claude Pro 成品号（免KYC，带IP）",
+        "price_label": "原帖未标价；商品页 Pro 成品号 ¥258（0 库存可预订），Pro 官方直充月卡 ¥155",
+        "cover": "成品号约 30 分钟未登录成功才可能售后，登录后不保封号；代充几乎只保开通失败时自行向 Apple 尝试退款",
+        "diff": "新上架陈述"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": true,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "商品页",
+          "product": "Claude Pro 1个月成品号（未过 KYC）",
+          "amount": 258,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://subsmall.com/item/597，2026-11-19 约 09:28–09:42 ET；当时 0 库存可预订"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Pro 官方直充月卡",
+          "amount": 155,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://subsmall.com/item/46；要求已过 KYC、注册早于 2026-09-15"
+        }
+      ],
+      "seller_post": "原文仅宣布 Claude Pro 免 KYC、带 IP 的成品号可拍，没有价格和质保句子。",
+      "seller_comment": "公开检索未见回复。",
+      "landing": {
+        "url": "https://subsmall.com/item/597",
+        "summary": "https://subsmall.com 于 2026-11-19 09:26–09:27 ET 打开的是首页，当时未点开详情。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开 https://subsmall.com/cat/14、https://subsmall.com/item/46、https://subsmall.com/item/597；分类标注 3 款，第三款详情未能核实。Claude Pro 官方直充月卡 ¥155，自动发货；要求账号已过 KYC、注册早于 2026-09-15。原文：「本商品唯一的质保就是未开通成功时给您苹果ID让您尝试退款，无其他任何售后」；订阅掉落不退款。Apple 退款成功后每笔扣 ¥40。Claude Pro 1个月成品号 ¥258，当时 0 库存可预订；账号未过 KYC；仅 30 分钟内登录不上可申请售后，登录成功后封号或弹 KYC 均无售后。地区声明原文：「暂不支持中国大陆地区用户购买或使用。」",
+        "price": "Pro 成品号 ¥258（0 库存）；Pro 直充月卡 ¥155",
+        "terms": "成品号只限约 30 分钟未登录成功；登录后不保封号。代充几乎无其他售后。暂不支持中国大陆地区用户购买或使用",
+        "inaccessible": "分类中第三款详情未能核实"
+      },
+      "third_party": [],
+      "conflicts": [
+        "原帖写「免KYC，带IP，减少被封」且未标价；成品号商品页确认未过 KYC，同时写登录成功后封号无售后，并标价 ¥258。宣传语不能替代「不保封号」条款。"
+      ],
+      "missing": [
+        "原帖无价格、无质保句子",
+        "分类中第三款详情未打开"
+      ],
+      "coverage": "评论检索于 2026-11-19 09:24:52 ET 返回 0 条公开回复。落地页：2026-11-19 09:26–09:27 ET 读首页；2026-11-19 约 09:28–09:42 ET 打开分类与两款详情。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文仅宣布 Claude Pro 免 KYC、带 IP 的成品号可拍，没有价格和质保句子。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "Claude Pro 免KYC带IP 成品号，无价无条款",
+      "rank": 12,
+      "is_reply": false,
+      "conversation_id": "2123234740354572799",
+      "author_description": "薄肌｜AI爱好者｜基金｜A股｜美股｜加密货币｜WEB3\nAI订阅商城： https://t.co/MWrmf9p6kF\ntg合作: @subsmall"
+    },
+    {
+      "id": "2123245136679415902",
+      "url": "https://x.com/ACKling111/status/2123245136679415902",
+      "handle": "ACKling111",
+      "name": "L cc",
+      "text": "【现货秒发】美区Claude Ultra，MAX 成品号｜实体卡一卡一付，高权重稳号\n\n目前有现货，需要的老板直接来，\n\n纯正美区：美区本地付款，本地环境\n一卡一付：全部采用美区实体卡独立支付，严格做到一卡一号一付，拒绝关联封号。\n超高权重：账单干净、账号权重高，极其稳定，适合长期主力自用。\n现货现发，无需排队等待。\n\n需要直接私聊\nTG号:https://t.co/YCqwiwkeFe\nCC MAX供应群:https://t.co/Sy29SwEExG",
+      "text_markdown": "【现货秒发】美区Claude Ultra，MAX 成品号｜实体卡一卡一付，高权重稳号\n\n目前有现货，需要的老板直接来，\n\n纯正美区：美区本地付款，本地环境\n一卡一付：全部采用美区实体卡独立支付，严格做到一卡一号一付，拒绝关联封号。\n超高权重：账单干净、账号权重高，极其稳定，适合长期主力自用。\n现货现发，无需排队等待。\n\n需要直接私聊\nTG号:[https://t.me/JJY123_1](https://t.me/JJY123_1)\nCC MAX供应群:https://t.co/Sy29SwEExG",
+      "created_at": "2026-11-19T02:41:03.000Z",
+      "created_at_et": "2026-11-18 21:41 ET",
+      "metrics": {
+        "impression_count": 1159,
+        "reply_count": 1,
+        "like_count": 5,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 9
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 1159,
+            "reply_count": 1,
+            "like_count": 5,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 9
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文卖美区 Claude Ultra / MAX 成品号，写「稳定」「高权重」，未标价，未写封号或退款；联系方式为 Telegram。作者简介中的「韩国 MAC MINI」指向 https://www.onmini.ai/ ，该站是 Mac 租用及附带/单售账号方案，与原帖「美区现货成品号」不是同一已核对商品。onmini 条款（2026-11-19 约 09:28–09:42 ET）写售出后一律不退款，交付后非因其履约问题造成的限制/封号不退也不免费换号，未承诺避免 KYC。不得把原帖「稳定」或该站条款自动写成原帖美区现货的封号质保。作者简介中的「企业级 CC MAX 中转站」不作本帖账号质保页。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/GUQ3e8bwAS",
+          "expanded_url": "https://x.com/ACKling111/status/2123245136679415902/photo/1",
+          "display_url": "pic.x.com/GUQ3e8bwAS",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://t.me/JJY123_1",
+        "https://www.onmini.ai/",
+        "https://www.onmini.ai/terms"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "Claude Ultra 与 MAX 现货（联系购买）",
+        "price_label": "原帖未标价",
+        "cover": "原帖未写封号或退款条款",
+        "diff": "库存/现货陈述"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [],
+      "seller_post": "原文称 Ultra、MAX 现货，并写「稳定」「适合生产力」。需要者按帖内联系方式沟通。没有价格和封号条款。",
+      "seller_comment": "作者跟帖写「需要直接联系」，未补充价格或质保。",
+      "landing": {
+        "url": "https://t.me/JJY123_1",
+        "summary": "原帖联系方式为 Telegram。本次未登录，对话或频道中的价格与条款未核实。作者简介「韩国 MAC MINI」指向 https://www.onmini.ai/ ，浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开首页与 https://www.onmini.ai/terms（条款版本显示 2026-11-19）。该站是韩国独享 Mac 租用并附 Claude 账号或单售账号，不是原帖所写「美区现货成品号」的已核对商品页。所见方案月价：Mac＋Claude 为 Pro ¥1,299、Max ¥2,199、Ultra ¥3,299；单独账号为 Pro ¥369、Max ¥1,199、Ultra ¥2,399。单独账号不能续费，到期后可同价重新购买。条款原文大意：Mac 机器、Claude 账号和所有套餐，售出后一律不退款；交付后非因其交付、订阅履约或维护问题造成的限制/封号，不退款也不免费换号；未承诺避免 KYC，租机器后触发 KYC 不退款。无按天退款或封号质保天数。以上条款不能自动套到原帖 Telegram 出售的美区现货成品号。中转站页面未作为本帖质保证据。",
+        "price": "原帖未标价；onmini.ai 所见为另一套 Mac/账号方案标价，不能直接等同本帖商品",
+        "terms": "Telegram 未核；onmini.ai 写售出不退、不保封号，但不能自动套到本帖美区现货",
+        "inaccessible": "Telegram 未登录；原帖美区现货成品号无独立商品页"
+      },
+      "third_party": [],
+      "conflicts": [
+        "原帖商品是美区 Ultra/MAX 现货成品号；onmini.ai 是作者简介中的韩国 Mac 方案，价格和「售出不退」条款不能自动写成原帖该批现货的售后。"
+      ],
+      "missing": [
+        "原帖无公开价格",
+        "原帖无书面质保",
+        "Telegram 未核"
+      ],
+      "coverage": "评论第 1 页 2 条（含原帖与作者跟帖）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。Telegram 未登录。作者简介站点 onmini.ai 于 2026-11-19 约 09:28–09:42 ET 只读打开，已与原帖商品区分。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文称 Ultra、MAX 现货，并写「稳定」「适合生产力」。需要者按帖内联系方式沟通。没有价格和封号条款。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "Ultra / MAX 现货宣传，无价无条款",
+      "rank": 13,
+      "is_reply": false,
+      "conversation_id": "2123245136679415902",
+      "author_description": "长期主义｜AI领域深耕｜全球住宅IP源头\nCC MAX20X美区源头｜号池私有化部署\n韩国MAC MINI ｜https://t.co/765jjzp6iW\n企业级CC MAX中转站｜https://t.co/QoYIWtpBwp\n\n私信TG：https://t.co/YCqwiwkeFe"
+    },
+    {
+      "id": "2123214973287764281",
+      "url": "https://x.com/mahendr93023745/status/2123214973287764281",
+      "handle": "mahendr93023745",
+      "name": "GPT小卖家",
+      "text": "成品号出售\nClaude pro  295 免K，不升级max不会弹KYC\nGPT   95不限制5H，预售，48小时交付，75限制5H\nGemini Ultra 5x 285美区\nGemini Ultra 20x 585美区\n土区可预定。\n采购地址https://t.co/SucJv8LuKN\nlalalalalalal https://t.co/Eo5z6PIhsk",
+      "text_markdown": "成品号出售\nClaude pro  295 免K，不升级max不会弹KYC\nGPT   95不限制5H，预售，48小时交付，75限制5H\nGemini Ultra 5x 285美区\nGemini Ultra 20x 585美区\n土区可预定。\n采购地址[https://wzyp.cn/shop/laoli](https://wzyp.cn/shop/laoli)\nlalalalalalal [https://x.com/mahendr93023745/status/2123214973287764281/photo/1](https://x.com/mahendr93023745/status/2123214973287764281/photo/1)",
+      "created_at": "2026-11-19T00:41:11.000Z",
+      "created_at_et": "2026-11-18 19:41 ET",
+      "metrics": {
+        "impression_count": 1058,
+        "reply_count": 1,
+        "like_count": 0,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 0
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 1058,
+            "reply_count": 1,
+            "like_count": 0,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文给出 Claude Pro 295（免K）以及 GPT、Gemini 价目，未写封号、首登或退款。店铺 https://wzyp.cn/shop/laoli 与 11-17 已推荐的另一卖家使用同一店铺；本次 Claude Pro 标价 295，相对昨日相关价目有数字变化，因此作为新帖保留。店铺页本次遇到访问限制，现行条款未核实。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/SucJv8LuKN",
+          "expanded_url": "https://wzyp.cn/shop/laoli",
+          "display_url": "wzyp.cn/shop/laoli",
+          "title": "Request ID："
+        },
+        {
+          "url": "https://t.co/Eo5z6PIhsk",
+          "expanded_url": "https://x.com/mahendr93023745/status/2123214973287764281/photo/1",
+          "display_url": "pic.x.com/Eo5z6PIhsk",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://wzyp.cn/shop/laoli"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "Claude Pro 免K 成品号（同帖还有 GPT/Gemini）",
+        "price_label": "Claude Pro 免K 295",
+        "cover": "原帖未写封号或首登质保",
+        "diff": "相对同店昨日相关价目，Claude Pro 数字有变化"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "Claude Pro 免K",
+          "amount": 295,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "其余为 GPT/Gemini 价，不记为 Claude 条款"
+        }
+      ],
+      "seller_post": "原文是一份价目，其中 Claude 只出现「Claude pro 295（免K）」这一行，没有质保句子。",
+      "seller_comment": "有人问「双子ultra 20x怎么可能才585」，指向 Gemini 价格，不是 Claude 售后反馈。未见作者公开回复。",
+      "landing": {
+        "url": "https://wzyp.cn/shop/laoli",
+        "summary": "https://wzyp.cn/shop/laoli 于 2026-11-19 09:26–09:27 ET 遇到访问限制或防护页，商品详情和现行质保未核实。不能沿用昨日他帖或他页的价格来填补本次未打开的页面。 另：wzyp.cn/shop/laoli 遇滑块验证，未操作，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "店铺页遇到访问限制/WAF，商品详情未核实"
+      },
+      "third_party": [
+        {
+          "handle": "Justin86681",
+          "url": "https://x.com/Justin86681/status/2123215824071848361",
+          "created_at_et": "2026-11-18 19:44 ET",
+          "quote": "双子ultra 20x怎么可能才585",
+          "note": "质疑 Gemini 价，不是 Claude 成交反馈",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [],
+      "missing": [
+        "原帖无质保句子",
+        "店铺页未打开"
+      ],
+      "coverage": "评论第 1 页 2 条（含原帖）于 2026-11-19 09:24:52 ET 抓取，随后确认第 2 页为空。店铺页受访问限制。 浏览器复查 2026-11-19 约 09:28–09:42 ET：wzyp.cn/shop/laoli 遇滑块验证，未操作，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文是一份价目，其中 Claude 只出现「Claude pro 295（免K）」这一行，没有质保句子。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "Claude Pro 免K 295，同店价有变动",
+      "rank": 14,
+      "is_reply": false,
+      "conversation_id": "2123214973287764281",
+      "author_description": "Ex-central bank economist | Real-time FOMC/ECB meeting analysis | Global liquidity inflection alerts | Translating policy language into market insights"
+    },
+    {
+      "id": "2123205779196944575",
+      "url": "https://x.com/PpGg1414559/status/2123205779196944575",
+      "handle": "PpGg1414559",
+      "name": "Loran",
+      "text": "起床上早八！\n\n全网最低价plus代充！\n\n只要你是大学生在我这里购买商品后我就给你设置专属价！\n以后充值plus只需要109！\nGemini pro 34.9r起 质保20天~\nClaude pro【官方直充｜月卡｜146.66r\nGrok·X·Cursor 三合一订阅 30美刀Premium 130.9r\n欢迎大学生来玩，希望大家经常串门呀~\n\n神秘小店：https://t.co/3r93trotCp",
+      "text_markdown": "起床上早八！\n\n全网最低价plus代充！\n\n只要你是大学生在我这里购买商品后我就给你设置专属价！\n以后充值plus只需要109！\nGemini pro 34.9r起 质保20天~\nClaude pro【官方直充｜月卡｜146.66r\nGrok·X·Cursor 三合一订阅 30美刀Premium 130.9r\n欢迎大学生来玩，希望大家经常串门呀~\n\n神秘小店：[http://loranai.top](http://loranai.top)",
+      "created_at": "2026-11-19T00:04:39.000Z",
+      "created_at_et": "2026-11-18 19:04 ET",
+      "metrics": {
+        "impression_count": 971,
+        "reply_count": 1,
+        "like_count": 1,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 1
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 971,
+            "reply_count": 1,
+            "like_count": 1,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 1
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文写「Claude pro 官方直充月卡 146.66r」，同时列出 Gemini 套餐并写「双子套餐质保20天」。该「质保20天」只出现在 Gemini 行，不能写成 Claude 的封号或订阅质保。店铺页本次不可用，现行条款未核实。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/v53LaM8t0f",
+          "expanded_url": "https://x.com/PpGg1414559/status/2123205779196944575/photo/1",
+          "display_url": "pic.x.com/v53LaM8t0f",
+          "title": null
+        },
+        {
+          "url": "https://t.co/v53LaM8t0f",
+          "expanded_url": "https://x.com/PpGg1414559/status/2123205779196944575/photo/2",
+          "display_url": "pic.x.com/v53LaM8t0f",
+          "title": null
+        },
+        {
+          "url": "https://t.co/v53LaM8t0f",
+          "expanded_url": "https://x.com/PpGg1414559/status/2123205779196944575/photo/3",
+          "display_url": "pic.x.com/v53LaM8t0f",
+          "title": null
+        },
+        {
+          "url": "https://t.co/v53LaM8t0f",
+          "expanded_url": "https://x.com/PpGg1414559/status/2123205779196944575/photo/4",
+          "display_url": "pic.x.com/v53LaM8t0f",
+          "title": null
+        },
+        {
+          "url": "https://t.co/V0o26ZchfN",
+          "expanded_url": "https://twitter.com/PpGg1414559/status/2123051313235660922",
+          "display_url": "x.com/PpGg1414559/st…",
+          "title": null
+        }
+      ],
+      "promo": [
+        "http://loranai.top",
+        "https://wzyp.cn/shop/B75QMS82"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "Claude Pro 官方直充月卡",
+        "price_label": "146.66 元",
+        "cover": "原帖未给 Claude 质保；「质保20天」写在 Gemini 行",
+        "diff": "新直充标价"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "Claude Pro 官方直充月卡",
+          "amount": 146.66,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "未写时长以外的质保"
+        }
+      ],
+      "seller_post": "原文先列 Claude Pro 官方直充月卡 146.66 元，再列 Gemini 价并写「双子套餐质保20天」。Claude 行没有封号或退款句子。",
+      "seller_comment": "作者另有关于粉丝群的跟帖，未补充 Claude 质保。",
+      "landing": {
+        "url": "http://loranai.top",
+        "summary": "http://loranai.top 于 2026-11-19 09:26–09:27 ET 返回不可用（503）。作者简介中另有 https://wzyp.cn/shop/B75QMS82，本次未单独打开。Claude 直充的商品详情和退款规则因此未核实。 另：loranai.top 连接失败；wzyp.cn/shop/B75QMS82 遇滑块验证，未操作，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "loranai.top 返回 503；wzyp 分店页未单独打开"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "Claude 行无质保句子",
+        "两个店铺页均未核到商品详情"
+      ],
+      "coverage": "评论第 1 页少量条目（含作者粉丝群跟帖）于 2026-11-19 09:24:52 ET 抓取，随后确认后续页为空。落地页不可用。 浏览器复查 2026-11-19 约 09:28–09:42 ET：loranai.top 连接失败；wzyp.cn/shop/B75QMS82 遇滑块验证，未操作，商品详情仍未核实。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文先列 Claude Pro 官方直充月卡 146.66 元，再列 Gemini 价并写「双子套餐质保20天」。Claude 行没有封号或退款句子。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "Claude Pro 官方直充月卡 146.66",
+      "rank": 15,
+      "is_reply": false,
+      "conversation_id": "2123205779196944575",
+      "author_description": "06｜大三｜AI专业在读\nAI军火库：https://t.co/3r93trotCp \n专注gpt：https://t.co/LKhASi9lX1\ntg: https://t.co/EwDSpbaGUv"
+    },
+    {
+      "id": "2123050774905471418",
+      "url": "https://x.com/ShenPo_Queen/status/2123050774905471418",
+      "handle": "ShenPo_Queen",
+      "name": "🔮",
+      "text": "出 \n\n- Claude Pro 美区免K成品号 258\n\nПродам\n\n- Готовый аккаунт Claude Pro (США, без KYC) — 36$\n\n#ClaudeCode #Claude  #Anthropic #AnthropicIPO #GPT62Astra",
+      "text_markdown": "出 \n\n- Claude Pro 美区免K成品号 258\n\nПродам\n\n- Готовый аккаунт Claude Pro (США, без KYC) — 36$\n\n#ClaudeCode #Claude  #Anthropic #AnthropicIPO #GPT62Astra",
+      "created_at": "2026-11-18T13:48:43.000Z",
+      "created_at_et": "2026-11-18 08:48 ET",
+      "metrics": {
+        "impression_count": 746,
+        "reply_count": 0,
+        "like_count": 1,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 0
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 746,
+            "reply_count": 0,
+            "like_count": 1,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文写 Claude Pro 美区免K 号 258 元（约 36 美元），无其他套餐，也未写封号、首登或退款。同日另一条更短的同卖家帖已去重。无落地页。不得补写质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [],
+      "promo": [],
+      "priority": false,
+      "summary": {
+        "service": "Claude Pro 美区免K 成品号",
+        "price_label": "258 元 / 约 36 美元",
+        "cover": "原帖未写封号或首登质保",
+        "diff": "新报价"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "Claude Pro 美区免K",
+          "amount": 258,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "作者同时写约 36 美元"
+        }
+      ],
+      "seller_post": "原文只报美区免K Pro 258 元（约 36 美元），没有质保或退款句子。联系方式为私信。",
+      "seller_comment": "公开检索未见补充条款的回复。",
+      "landing": {
+        "url": null,
+        "summary": "原帖和作者简介中未见可打开的商品页，条款只能以原文为准，商品页未核实。",
+        "price": null,
+        "terms": null,
+        "inaccessible": "无落地页"
+      },
+      "third_party": [],
+      "conflicts": [],
+      "missing": [
+        "无书面质保",
+        "无商品页"
+      ],
+      "coverage": "评论检索于 2026-11-19 09:25:23 ET 未见公开补充条款。无落地页。",
+      "narrative": "原文只报美区免K Pro 258 元（约 36 美元），没有质保或退款句子。联系方式为私信。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "美区免K Pro 258，无书面质保",
+      "rank": 16,
+      "is_reply": false,
+      "conversation_id": "2123050774905471418",
+      "author_description": "WAGMI"
+    },
+    {
+      "id": "2122983912653967795",
+      "url": "https://x.com/Xiaoyaoli0ucu/status/2122983912653967795",
+      "handle": "Xiaoyaoli0ucu",
+      "name": "Xiaoyaoli",
+      "text": "Claude成品号有需要吗",
+      "text_markdown": "Claude成品号有需要吗",
+      "created_at": "2026-11-18T09:23:02.000Z",
+      "created_at_et": "2026-11-18 04:23 ET",
+      "metrics": {
+        "impression_count": 579,
+        "reply_count": 2,
+        "like_count": 3,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 0
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 579,
+            "reply_count": 2,
+            "like_count": 3,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文只有一句「Claude成品号有需要吗」，无价格、无质保。评论有人问「能用多长时间」，未见作者公开回答。店铺可见 Claude Pro ¥520、Max 5x 1600、10x 2488，20x 8888 显示售罄或测试；店铺通用「全额订阅质保」横幅不是封号质保，且未与本帖这句话交叉核实。作者简介另有 API 中转，不能当成账号条款。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [],
+      "promo": [
+        "https://shop.xioayaoai.top",
+        "https://shop.xioayaoai.top/products?q=Claude",
+        "https://shop.xioayaoai.top/products/admall-3158",
+        "https://shop.xioayaoai.top/products/admall-3159",
+        "https://shop.xioayaoai.top/products/admall-3160",
+        "https://shop.xioayaoai.top/products/admall-3275"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "Claude 成品号（原帖未指定套餐）",
+        "price_label": "原帖未标价；店铺首页可见 Pro ¥520 等，未核是否即本帖商品",
+        "cover": "原帖无条款；店铺通用订阅质保横幅不能写成封号质保",
+        "diff": "新询盘帖"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "店铺首页",
+          "product": "Claude Pro",
+          "amount": 520,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://shop.xioayaoai.top 首页，2026-11-19 09:26–09:27 ET；未核是否即本帖所售"
+        },
+        {
+          "source": "店铺首页",
+          "product": "Claude Max 5x",
+          "amount": 1600,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "同页"
+        },
+        {
+          "source": "店铺首页",
+          "product": "Claude Max 10x",
+          "amount": 2488,
+          "currency": "CNY",
+          "category": "max10",
+          "note": "同页"
+        },
+        {
+          "source": "店铺首页",
+          "product": "Claude Max 20x",
+          "amount": 8888,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "同页显示售罄或测试"
+        }
+      ],
+      "seller_post": "原文只有「Claude成品号有需要吗」，没有价格和质保。",
+      "seller_comment": "有人问「能用多长时间」，未见作者公开回复。作者未在评论中补充价目。",
+      "landing": {
+        "url": "https://shop.xioayaoai.top",
+        "summary": "https://shop.xioayaoai.top 于 2026-11-19 09:26–09:27 ET 打开，可见 Claude Pro ¥520、Max 5x ¥1,600、10x ¥2,488，20x ¥8,888 显示售罄或测试，并有通用「全额订阅质保」一类横幅。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）以 Claude 搜索打开详情，标价相同；单品写 Manual delivery、Members only 及 “Subscription warranty included”，但没有天数、范围、封号条件或退款/换号规则。购买要求登录，本次未登录。主页概括性营销语不能补足商品细则，也不能写成封号质保，更不能直接等同于原帖那一句「Claude成品号有需要吗」。",
+        "price": "首页 Pro ¥520 等，未核商品详情",
+        "terms": "仅见 “Subscription warranty included” 与通用订阅质保横幅，无封号或退款细则；需登录才能购买，未登录",
+        "inaccessible": "商品详情未逐条打开"
+      },
+      "third_party": [
+        {
+          "handle": "user_in_thread",
+          "url": null,
+          "created_at_et": null,
+          "quote": "能用多长时间",
+          "note": "询问可用时长，未见作者公开答复，也不是第一人称成交反馈",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "原帖无价格；店铺首页有标价，但未证明就是本帖所售及现行售后。"
+      ],
+      "missing": [
+        "「能用多长时间」未见答复",
+        "商品详情未打开"
+      ],
+      "coverage": "评论第 1 页于 2026-11-19 09:25:23 ET 抓取，含「能用多长时间」且未见作者答复；随后确认后续页为空。店铺首页与搜索详情于 2026-11-19 09:26–09:27 ET 及 2026-11-19 约 09:28–09:42 ET 只读打开，细则不足。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文只有「Claude成品号有需要吗」，没有价格和质保。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "仅询问有无需求；店铺价未在原帖写出",
+      "rank": 17,
+      "is_reply": false,
+      "conversation_id": "2122983912653967795",
+      "author_description": "🎓 AI专业在读｜技术折腾党\n💎 会员代充https://t.co/ErA7Hi4KIc\n⚡ API中转https://t.co/ldcMmMwwaV\n💬 TG交流群https://t.co/7QOq1utIgJ\nQ群:750071916"
+    },
+    {
+      "id": "2123059851144401127",
+      "url": "https://x.com/drmrzhong/status/2123059851144401127",
+      "handle": "drmrzhong",
+      "name": "AI设计钟师傅",
+      "text": "AICZ Claude 成品号｜菲律宾自营\n\n真人手工注册，一人一号一卡，菲律宾信用卡订阅，付款可追溯。\n\nPro 首月 ¥319｜代续 ¥280/月\nMax 5x 开通 ¥1,480｜代续 ¥1,380/月\n20x 套餐开通 ¥2,580｜代续 ¥2,480/月\n三档都含 1 个月订阅，支持 Chat、Cowork 和 Code。\nhttps://t.co/D9XuaEePcr https://t.co/mFzuyf4JBc",
+      "text_markdown": "AICZ Claude 成品号｜菲律宾自营\n\n真人手工注册，一人一号一卡，菲律宾信用卡订阅，付款可追溯。\n\nPro 首月 ¥319｜代续 ¥280/月\nMax 5x 开通 ¥1,480｜代续 ¥1,380/月\n20x 套餐开通 ¥2,580｜代续 ¥2,480/月\n三档都含 1 个月订阅，支持 Chat、Cowork 和 Code。\n[https://aicz.vip/claude](https://aicz.vip/claude) [https://x.com/drmrzhong/status/2123059851144401127/photo/1](https://x.com/drmrzhong/status/2123059851144401127/photo/1)",
+      "created_at": "2026-11-18T14:24:47.000Z",
+      "created_at_et": "2026-11-18 09:24 ET",
+      "metrics": {
+        "impression_count": 529,
+        "reply_count": 2,
+        "like_count": 3,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 0
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 529,
+            "reply_count": 2,
+            "like_count": 3,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0
+          }
+        }
+      ],
+      "warranty_class": "first_login_only",
+      "warranty_note": "原帖给出菲律宾自营 Claude 价目，未在正文写封号或首登。商品页 https://aicz.vip/claude 写明：保首登和所购订阅；订阅期内协助向 Anthropic 申请退款；「不作免封号承诺」。作者在评论被问「有保嘛」时只答「有售后」，比商品页更含糊，不能把「有售后」升级为封号质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/D9XuaEePcr",
+          "expanded_url": "https://aicz.vip/claude",
+          "display_url": "aicz.vip/claude",
+          "title": "Claude 服务｜KYC 认证协助与谷歌邮箱成品号 - AICZ"
+        },
+        {
+          "url": "https://t.co/mFzuyf4JBc",
+          "expanded_url": "https://x.com/drmrzhong/status/2123059851144401127/photo/1",
+          "display_url": "pic.x.com/mFzuyf4JBc",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://aicz.vip/claude",
+        "https://aicz.vip/product/claude-pro-ph-account",
+        "https://aicz.vip/product/claude-max-5x-ph-account",
+        "https://aicz.vip/product/claude-ultra-ph-account"
+      ],
+      "priority": true,
+      "summary": {
+        "service": "菲律宾自营 Claude 成品号/充值（价目见原帖与商品页）",
+        "price_label": "与 aicz.vip/claude 标价相符（以该页为准）",
+        "cover": "商品页保首登和所购订阅，不作免封号承诺；订阅期内可协助向官方申请退款",
+        "diff": "新自营报价"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": true,
+        "no_ban": true
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "菲律宾自营 Claude Pro（含 1 个月订阅）",
+          "amount": 319,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "代续 ¥280/月"
+        },
+        {
+          "source": "原帖",
+          "product": "菲律宾自营 Claude Max 5x",
+          "amount": 1480,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "代续 ¥1,380/月"
+        },
+        {
+          "source": "原帖",
+          "product": "菲律宾自营 20x",
+          "amount": 2580,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "代续 ¥2,480/月"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Pro（菲律宾账号）",
+          "amount": 319,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "https://aicz.vip/product/claude-pro-ph-account，与原帖相符；2026-11-19 约 09:28–09:42 ET"
+        },
+        {
+          "source": "商品页",
+          "product": "Claude Max 5x（菲律宾账号）",
+          "amount": 1480,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "https://aicz.vip/product/claude-max-5x-ph-account"
+        },
+        {
+          "source": "商品页",
+          "product": "20x / Ultra（菲律宾账号）",
+          "amount": 2580,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "https://aicz.vip/product/claude-ultra-ph-account"
+        }
+      ],
+      "seller_post": "原文介绍 AICZ 菲律宾自营并给出 Claude 相关价目，正文未写「保首登」或「不保封号」这类句子。价格以本次打开的商品页核对，不在此处改写原文数字。",
+      "seller_comment": "有人问「有保嘛」，作者回复「有售后」，未说明是首登、订阅还是封号。该回复比商品页更含糊。",
+      "landing": {
+        "url": "https://aicz.vip/claude",
+        "summary": "https://aicz.vip/claude 于 2026-11-19 09:26–09:27 ET 打开，价目与原帖相符，并写保首次登录和所购订阅、订阅期内协助向 Anthropic 申请退款、「不作免封号承诺」。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开目录与三款详情，页面公告标注 2026-11-18 更新。Pro ¥319（代续 ¥280/月）、Max 5x ¥1,480（代续 ¥1,380/月）、20x ¥2,580（代续 ¥2,480/月），详情写人工分批、付款后 1–2 天交付。页面宣传「免 KYC」，但同时明确：「不代表官方豁免验证，也不保证后续不会出现 KYC 或封号。」保障首次登录和所购订阅，并在所购订阅期内提供官方退款协助；退款结果和金额以官方审核为准；官方退款成功后可换号或退实际退还的订阅费。非按天退款。协助向官方申请退款不等于卖家包赔封号。",
+        "price": "与原帖相符：Pro ¥319 / 代续 ¥280；Max 5x ¥1,480 / 代续 ¥1,380；20x ¥2,580 / 代续 ¥2,480",
+        "terms": "保首登和所购订阅；订阅期内协助向官方申请退款（结果以官方为准）；不作免封号承诺；「免 KYC」不保证后续不出现 KYC 或封号",
+        "inaccessible": null
+      },
+      "third_party": [],
+      "conflicts": [
+        "作者评论只说「有售后」；商品页明确保首登和订阅、不作免封号承诺，且「免 KYC」不保证后续不出现 KYC 或封号。交叉核应对以商品页条文为准，不能把评论中的「有售后」写成封号包赔。"
+      ],
+      "missing": [
+        "原帖正文未写质保范围"
+      ],
+      "coverage": "评论第 1 页于 2026-11-19 09:25:23 ET 抓取，含「有保嘛 / 有售后」；随后确认后续页为空。商品目录与详情于 2026-11-19 09:26–09:27 ET 及 2026-11-19 约 09:28–09:42 ET 只读打开。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文介绍 AICZ 菲律宾自营并给出 Claude 相关价目，正文未写「保首登」或「不保封号」这类句子。价格以本次打开的商品页核对，不在此处改写原文数字。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "菲律宾自营价目；商品页保首登和订阅，不作免封号承诺",
+      "rank": 18,
+      "is_reply": false,
+      "conversation_id": "2123059851144401127",
+      "author_description": "AI设计师 | 探索 LLM、系统提示词与 AI 创意工具\n分享 AI 图像/视频生成技巧与工作流\nClaude高权重免kyc成品号:https://t.co/mH88YRd2it"
+    },
+    {
+      "id": "2122948809697505707",
+      "url": "https://x.com/MarylnH42878/status/2122948809697505707",
+      "handle": "MarylnH42878",
+      "name": "出海服务商",
+      "text": "Claude 防封现在都卷到环境固化了\n把账号关进固定环境里\n指纹不变、环境不突变\n封号概率直接降一截\n平台查的就是环境稳不稳\n今天这个 IP、明天那个设备，神仙也扛不住\nClaude 谷歌邮箱普号\n已过 KYC、环境干净\n登上直接用，省去自己折腾\n\n下单地址 👉 https://t.co/RKH1xk36ob\n\n#Claude #成品号",
+      "text_markdown": "Claude 防封现在都卷到环境固化了\n把账号关进固定环境里\n指纹不变、环境不突变\n封号概率直接降一截\n平台查的就是环境稳不稳\n今天这个 IP、明天那个设备，神仙也扛不住\nClaude 谷歌邮箱普号\n已过 KYC、环境干净\n登上直接用，省去自己折腾\n\n下单地址 👉 [https://q.chuhai.im](https://q.chuhai.im)\n\n#Claude #成品号",
+      "created_at": "2026-11-18T07:03:33.000Z",
+      "created_at_et": "2026-11-18 02:03 ET",
+      "metrics": {
+        "impression_count": 482,
+        "reply_count": 1,
+        "like_count": 12,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 5
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 482,
+            "reply_count": 1,
+            "like_count": 12,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 5
+          }
+        }
+      ],
+      "warranty_class": "first_login_only",
+      "warranty_note": "原帖出售「已过KYC」的谷歌邮箱普号，未标价，未写封号质保。站点 https://q.chuhai.im 有全站说明「本站所有商品质保首登」。本页可见的 Claude 相关商品是「Claude Pro 1个月 订阅续费」¥174，并不能直接证明就是原帖所说的已过 KYC 普号。不得把全站「质保首登」或续费商品写成封号质保，也不得把续费价当成普号成交价。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/RKH1xk36ob",
+          "expanded_url": "https://q.chuhai.im",
+          "display_url": "q.chuhai.im",
+          "title": "kefu003"
+        }
+      ],
+      "promo": [
+        "https://q.chuhai.im",
+        "https://q.chuhai.im/?cid=1252",
+        "https://q.chuhai.im/item?id=40693",
+        "https://q.chuhai.im/item?id=40694",
+        "https://q.chuhai.im/item?id=40695"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "已过 KYC 的谷歌邮箱普通号",
+        "price_label": "原帖未标价；站点可见 Claude Pro 订阅续费 ¥174，不能直接等同本帖商品",
+        "cover": "站点全站说明质保首登；未见本帖普号的单独商品详情",
+        "diff": "新上架陈述"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": true,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "店铺页（可能并非本帖商品）",
+          "product": "Claude Pro 1个月 订阅续费",
+          "amount": 174,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "q.chuhai.im/item?id=40693，不能确认即原帖「已过KYC普号」"
+        },
+        {
+          "source": "店铺页（可能并非本帖商品）",
+          "product": "Claude Max 5x 成品号",
+          "amount": 1430,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "当时库存 1"
+        },
+        {
+          "source": "店铺页（可能并非本帖商品）",
+          "product": "Claude Max 20x",
+          "amount": 2625,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "目录显示 0 库存；详情写质保一次掉订阅"
+        }
+      ],
+      "seller_post": "原文只说卖已过 KYC 的谷歌邮箱普号，没有价格和封号句子。",
+      "seller_comment": "公开检索未见作者补充价格或质保。",
+      "landing": {
+        "url": "https://q.chuhai.im",
+        "summary": "https://q.chuhai.im 于 2026-11-19 09:26–09:27 ET 打开，全站说明「本站所有商品质保首登」，可见「Claude Pro 1个月 订阅续费」¥174，与原帖「已过KYC谷歌邮箱普号」不是可直接等同的商品描述。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）打开 Claude 分类与详情：Pro 订阅续费 1 个月 ¥174，目录标「1h售后」，要求账号过 KYC 且注册早于 9 月 15 日；未到账只提供 Apple ID 尝试退款，Apple 实际退款成功后扣 ¥40；原文「会员订阅期间如果掉订阅，没有办法退款。」页面「封号率降低99%」是营销语。另见 Max5x 成品号 ¥1,430（库存 1）、Max20x ¥2,625（目录 0 库存）。Max20x 详情写「质保一次掉订阅」，与目录「1h售后」及全站「质保首登」范围并不一致。仍未见与原帖「已过 KYC 谷歌邮箱普号」明确对应的商品详情，普号本身的现价和退款细则因此未核实。全站「质保首登」不等于封号包赔，也不能把续费或 Max 成品号自动当成原帖那一件商品。",
+        "price": "可见续费 ¥174、Max5x ¥1,430、Max20x ¥2,625，均不能确认即原帖普号",
+        "terms": "全站说明质保首登；续费页掉订阅不退；Max20x 写质保一次掉订阅，与目录/全站表述不完全一致。本帖普号详情未确认",
+        "inaccessible": "未见与「已过KYC普号」明确对应的商品详情"
+      },
+      "third_party": [],
+      "conflicts": [
+        "原帖商品描述是已过 KYC 普号；站点可见商品是订阅续费与 Max 成品号，不能把这些标价和全站首登说明自动套到原帖那一件商品上。",
+        "全站「质保首登」、续费目录「1h售后」与 Max20x「质保一次掉订阅」范围不一致。"
+      ],
+      "missing": [
+        "原帖无价格",
+        "未见对应普号的商品详情"
+      ],
+      "coverage": "评论检索于 2026-11-19 09:25:23 ET 未见作者补充条款。站点于 2026-11-19 09:26–09:27 ET 及 2026-11-19 约 09:28–09:42 ET 只读打开分类与可见详情，仍未见与原帖普号明确对应的页面。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文只说卖已过 KYC 的谷歌邮箱普号，没有价格和封号句子。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "已过KYC 谷歌邮箱普号；全站写质保首登，未见对应该号的商品页",
+      "rank": 19,
+      "is_reply": false,
+      "conversation_id": "2122948809697505707",
+      "author_description": "🌍 海外账号 / 数字产品供应\n📦 多平台账号资源\n🔗 下单地址：https://t.co/wYq5InZrcO\n  🎶 售后联系客服\n住宅IP：https://t.co/Jg4xIF7pmH\n服务器🔗https://t.co/rgKWrUrKxQ"
+    },
+    {
+      "id": "2123135089790087564",
+      "url": "https://x.com/258Aria/status/2123135089790087564",
+      "handle": "258Aria",
+      "name": "Aira",
+      "text": "今日最新价格：\nClaude Pro 269\nClaude Max 5x 1280\nClaude Team 6.25母号+1席位 2298\nClaude Max 20x 2298\n以上都是实卡支付 免K成品号\n\nGPT代充价格（CDK自助充值）：\nGPT Plus：110\nGPT Pro 100：630\nGPT Pro 200：999\nGPT Pro 500：3100\n\nhttps://t.co/EHIcmywezd https://t.co/S97DXDMuXt",
+      "text_markdown": "今日最新价格：\nClaude Pro 269\nClaude Max 5x 1280\nClaude Team 6.25母号+1席位 2298\nClaude Max 20x 2298\n以上都是实卡支付 免K成品号\n\nGPT代充价格（CDK自助充值）：\nGPT Plus：110\nGPT Pro 100：630\nGPT Pro 200：999\nGPT Pro 500：3100\n\n[https://sgfaka.vaosi258.com](https://sgfaka.vaosi258.com) [https://x.com/258Aria/status/2123135089790087564/photo/1](https://x.com/258Aria/status/2123135089790087564/photo/1)",
+      "created_at": "2026-11-18T19:23:46.000Z",
+      "created_at_et": "2026-11-18 14:23 ET",
+      "metrics": {
+        "impression_count": 415,
+        "reply_count": 1,
+        "like_count": 1,
+        "repost_count": 0,
+        "quote_count": 0,
+        "bookmark_count": 0
+      },
+      "metrics_versions": [
+        {
+          "source": "search_time",
+          "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
+          "official_for_sort": true,
+          "metrics": {
+            "impression_count": 415,
+            "reply_count": 1,
+            "like_count": 1,
+            "repost_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0
+          }
+        }
+      ],
+      "warranty_class": "unspecified",
+      "warranty_note": "正文给出当日价目：Claude Pro 269、Max 5x 1280、Team 2298、20x 2298（实卡免K）等。未写封号、首登或退款。店铺首页可见「Claude补差」1 元及 Gemini 等推荐商品，未见与原帖价目一一对应的商品详情。有人问「Gemini有不」，未见公开答复。不得补写质保。",
+      "source": "daily_digest_2026-11-18_pending",
+      "links": [
+        {
+          "url": "https://t.co/EHIcmywezd",
+          "expanded_url": "https://sgfaka.vaosi258.com",
+          "display_url": "sgfaka.vaosi258.com",
+          "title": null
+        },
+        {
+          "url": "https://t.co/S97DXDMuXt",
+          "expanded_url": "https://x.com/258Aria/status/2123135089790087564/photo/1",
+          "display_url": "pic.x.com/S97DXDMuXt",
+          "title": null
+        }
+      ],
+      "promo": [
+        "https://sgfaka.vaosi258.com",
+        "https://sgfaka.vaosi258.com/products?q=Claude",
+        "https://sgfaka.vaosi258.com/products/admall-3158",
+        "https://sgfaka.vaosi258.com/products/admall-3159",
+        "https://sgfaka.vaosi258.com/products/admall-3160",
+        "https://sgfaka.vaosi258.com/products/admall-3275"
+      ],
+      "priority": false,
+      "summary": {
+        "service": "Claude Pro / Max / Team 等成品号价目",
+        "price_label": "Pro 269；Max 5x 1280；Team 2298；20x 2298 实卡免K",
+        "cover": "原帖未写封号或首登质保",
+        "diff": "新的当日价目"
+      },
+      "terms": {
+        "refund_promise": false,
+        "first_login_only": false,
+        "no_ban": false
+      },
+      "prices": [
+        {
+          "source": "原帖",
+          "product": "Claude Pro",
+          "amount": 269,
+          "currency": "CNY",
+          "category": "pro",
+          "note": "当日价目"
+        },
+        {
+          "source": "原帖",
+          "product": "Claude Max 5x",
+          "amount": 1280,
+          "currency": "CNY",
+          "category": "max5",
+          "note": "当日价目"
+        },
+        {
+          "source": "原帖",
+          "product": "Claude Team",
+          "amount": 2298,
+          "currency": "CNY",
+          "category": "other",
+          "note": "当日价目"
+        },
+        {
+          "source": "原帖",
+          "product": "Claude 20x 实卡免K",
+          "amount": 2298,
+          "currency": "CNY",
+          "category": "max20",
+          "note": "当日价目"
+        }
+      ],
+      "seller_post": "原文是当日价目表，列出 Pro、Max 5x、Team、20x 实卡免K 等价格，没有质保或退款句子。",
+      "seller_comment": "有人问「Gemini有不」，未见作者公开回复。未见 Claude 成交或售后的第一人称反馈。",
+      "landing": {
+        "url": "https://sgfaka.vaosi258.com",
+        "summary": "https://sgfaka.vaosi258.com 于 2026-11-19 09:26–09:27 ET 打开的是首页，推荐区可见「Claude补差」1 元以及 Gemini 等，当时未见与原帖 Pro 269、Max 5x 1280、Team 2298、20x 2298 一一对应且已打开的商品详情。随后浏览器只读（2026-11-19 约 09:28–09:42 ET，浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。）以 Claude 搜索打开 https://sgfaka.vaosi258.com/products?q=Claude ，所见标价为 Pro ¥520、Max5x ¥1,600、Max10x ¥2,488、Max20x（测试名）¥8,888 售罄；这些数字与原帖价目不符，且商品编号（admall-3158 等）与另一家店铺 https://shop.xioayaoai.top 本次所见相同。详情只显示 Members only、Manual delivery、Subscription warranty included，没有质保天数、保障范围或退换条件，需登录才能购买，未登录。不能用这些搜索结果核对本帖 269/1280/2298 价目，也不能把 “subscription warranty included” 写成具体质保承诺，更不能用首页「补差」1 元替代原帖价目。",
+        "price": "搜索所见 ¥520 / ¥1,600 / ¥2,488 / ¥8,888，与原帖 269 / 1280 / 2298 / 2298 不符，未核对本帖 SKU",
+        "terms": "搜索到的详情只有概括性 Subscription warranty included，且可能并非原帖价目对应商品",
+        "inaccessible": "原帖所列 269/1280/2298 等 SKU 的对应商品详情未找到或未打开"
+      },
+      "third_party": [
+        {
+          "handle": "user_in_thread",
+          "url": null,
+          "created_at_et": null,
+          "quote": "Gemini有不",
+          "note": "询问是否有 Gemini，未见公开答复，不是 Claude 成交反馈",
+          "sentiment": "neutral"
+        }
+      ],
+      "conflicts": [
+        "原帖价目为 Pro 269、Max 5x 1280、Team 2298、20x 2298（实卡免K）；同店搜索看到的却是 ¥520 / ¥1,600 / ¥2,488 / ¥8,888，且商品编号与另一店铺 shop.xioayaoai.top 所见相同。不能把搜索结果当成原帖价目的核对，也不能解释为已核实涨价。"
+      ],
+      "missing": [
+        "原帖无质保句子",
+        "未找到与原帖价目明确对应的商品详情"
+      ],
+      "coverage": "评论第 1 页于 2026-11-19 09:25:23 ET 抓取，含「Gemini有不」且未见答复；随后确认后续页为空。店铺首页于 2026-11-19 09:26–09:27 ET 打开；2026-11-19 约 09:28–09:42 ET 的 Claude 搜索结果与原帖价目不符。浏览器经执行环境网络访问，不经用户电脑；未登录、未提交表单、未下单、未操作滑块验证。",
+      "narrative": "原文是当日价目表，列出 Pro、Max 5x、Team、20x 实卡免K 等价格，没有质保或退款句子。",
+      "verification": {
+        "comments_et": "2026-11-19 09:24:52–09:26:14 ET",
+        "landing_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。"
+      },
+      "new_tag": "当日价目 Pro 269 / Max 5x 1280 等，无书面质保",
+      "rank": 20,
+      "is_reply": false,
+      "conversation_id": "2123135089790087564",
+      "author_description": "GPT，Claude，grok，Gemini，x会员卡网：https://t.co/Aka6mJEVVu，需要的兄弟们赶紧冲，招代理📩 Telegram 客服：https://t.co/zil0NzPbpC\n\n📢 Telegram 频道｜Baosi链动社：https://t.co/k5KRpfvVTG"
+    }
+  ]
+}
