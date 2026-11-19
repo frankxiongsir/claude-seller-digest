@@ -49,6 +49,7 @@ jobs:
   card:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       contents: write
     steps:
@@ -70,7 +71,9 @@ jobs:
         if: steps.card.outputs.day
         shell: bash
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-cjk-extra > /dev/null
+          # Skipping the man-page index rebuild keeps the font install from taking many minutes.
+          sudo rm -f /var/lib/man-db/auto-update
+          sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk fonts-noto-cjk-extra > /dev/null
           day=${{ steps.card.outputs.day }}
           mkdir -p cards
           google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --force-device-scale-factor=1 \
