@@ -10,7 +10,7 @@
     "timezone": "America/New_York (ET, UTC-5)"
   },
   "type": "daily_digest",
-  "status": "pending",
+  "status": "archived",
   "fetched_at_et": "2026-11-19 09:16:06–09:19:35 ET",
   "verified_at_et": "评论 2026-11-19 09:24:52–09:26:14 ET；落地页 2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。",
   "prices_as_of_et": "2026-11-19 09:26–09:27 ET（只读 webFetch）；2026-11-19 约 09:28–09:42 ET（浏览器只读，执行环境网络，不经用户电脑）。pay.ldxp.cn、wzyp.cn 遇滑块验证未操作；16688 两店页空白；部分详情路由空白或连接失败。未登录、未下单。",
@@ -19,7 +19,7 @@
   "timezone": "America/New_York (ET, UTC-5)",
   "post_count": 20,
   "sort": "impression_count desc, reply_count desc, like_count desc",
-  "notes": "2026-11-18 ET 完整自然日日报。合格 20 条已按 2026-11-19 09:16:06–09:19:35 ET 检索时点互动指标排序归档，状态为 pending，待向用户发送成功后再改为 delivered 并追加 recommended.json。未把未交付候选提前写入已推荐记录。互动指标取检索时点，不以随后复查覆盖。浏览器落地页经执行环境网络访问，不经用户电脑。",
+  "notes": "2026-11-18 ET 完整自然日日报。合格 20 条已按 2026-11-19 09:16:06–09:19:35 ET 检索时点互动指标排序归档，公开状态 archived：全文尚未全部发送，未标 delivered。未把未交付候选提前写入已推荐记录。互动指标取检索时点，不以随后复查覆盖。浏览器落地页经执行环境网络访问，不经用户电脑。",
   "counts": {
     "unique_posts_in_window": 767,
     "already_recommended_in_window": 0,
