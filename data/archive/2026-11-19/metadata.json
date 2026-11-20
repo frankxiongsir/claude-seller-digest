@@ -10,7 +10,7 @@
     "timezone": "America/New_York (ET, UTC-5)"
   },
   "type": "daily_digest",
-  "status": "archived",
+  "status": "delivered",
   "fetched_at_et": "2026-11-20 09:13–09:16 ET",
   "verified_at_et": "评论 2026-11-20 09:24–09:29 ET；落地页 2026-11-20 09:26–09:28 ET（只读 webFetch）；2026-11-20 09:30:44–09:39:10 ET（浏览器只读，执行环境网络，不经用户电脑）。catfk.com 店铺页空白；yc5.xyz、fangai.cc、nb985.com、ethanaix.com、haoyue.ai 商品区部分未加载；www.16688.com.cn 店铺页空白；wzyp.cn 遇滑块未操作。未登录、未下单。",
   "prices_as_of_et": "2026-11-20 09:26–09:28 ET（只读 webFetch）；2026-11-20 09:30:44–09:39:10 ET（浏览器只读，执行环境网络，不经用户电脑）",
@@ -19,7 +19,7 @@
   "timezone": "America/New_York (ET, UTC-5)",
   "post_count": 20,
   "sort": "impression_count desc, reply_count desc, like_count desc",
-  "notes": "2026-11-19 ET 完整自然日日报。合格 20 条已按检索时点互动指标排序归档，公开状态 archived：全文尚未确认全部发送，未标 delivered。未把未交付候选提前写入已推荐记录。互动指标取检索时点，不以随后复查覆盖。浏览器落地页经执行环境网络访问，不经用户电脑。",
+  "notes": "2026-11-19 ET 完整自然日日报。合格 20 条已按 2026-11-20 09:13–09:16 ET 检索时点互动指标排序归档。已于 2026-11-20T10:01:42.082499-05:00 确认全部 20 条正文、独立核查和 MD 已发送，状态为 delivered。互动指标取检索时点，不以随后复查覆盖。",
   "counts": {
     "unique_posts_in_window": 754,
     "already_recommended_in_window": 0,
@@ -62,12 +62,10 @@
     "posts.json",
     "digest.md",
     "metadata.json",
-    "day.json"
+    "day.json",
+    "digest-verification.json",
+    "digest-verification.md"
   ],
   "metrics_note": "互动指标取 2026-11-20 09:13–09:16 ET 检索时点，不以评论或落地页复查覆盖。浏览缺失不捏造。",
-  "github_sync": {
-    "status": "archived",
-    "target": "https://github.com/frankxiongsir/claude-seller-digest",
-    "note": "公开状态 archived，全文尚未确认全部发送。"
-  }
+  "delivered_at_et": "2026-11-20T10:01:42.082499-05:00"
 }

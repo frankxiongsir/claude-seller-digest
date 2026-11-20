@@ -64,7 +64,7 @@
       "label": "day.json"
     }
   ],
-  "status": "archived",
+  "status": "delivered",
   "posts": [
     {
       "n": 1,
@@ -124,15 +124,15 @@
           "url": "https://x.com/MiuReadsTape/status/2123420524969927026",
           "created_at_et": "2026-11-19 09:17 ET",
           "quote": "美区环境确实稳，不过直接对赌老板也是真敢玩",
-          "note": "旁观或自述，不是已核实成交",
+          "note": "提问、旁观或自述，不是已核实成交",
           "sentiment": "neutral"
         },
         {
           "handle": "wb83285",
           "url": "https://x.com/wb83285/status/2123760410612695342",
           "created_at_et": "2026-11-20 07:48 ET",
-          "quote": "美区环境确实稳，不过直接对赌老板也是真敢玩",
-          "note": "旁观或自述，不是已核实成交",
+          "quote": "问开通 Ultra 与通环境 IP 的价格，未见作者公开回复",
+          "note": "提问、旁观或自述，不是已核实成交",
           "sentiment": "neutral"
         }
       ],
@@ -204,7 +204,7 @@
           "url": "https://x.com/sun_ming7822/status/2123718363604209672",
           "created_at_et": "2026-11-20 05:01 ET",
           "quote": "已经购买 非常好用",
-          "note": "第三方自述，未见独立成交证据",
+          "note": "第一人称自述，未见订单证据，不是已核实成交",
           "sentiment": "neutral"
         }
       ],
@@ -271,16 +271,53 @@
         "note": "推广链接 https://catfk.com/shop/asi 。2026-11-20 09:26–09:28 ET 只读 webFetch 得到空页；09:30–09:39 ET 浏览器同样标题和正文为空（HTTP 200）。现价、质保是订阅还是封号、KYC 退款范围均未在商品页核实。",
         "url": "https://catfk.com/shop/asi"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "qing_labs",
+          "url": "https://x.com/qing_labs/status/2123613702041813241",
+          "created_at_et": "2026-11-19 22:05 ET",
+          "quote": "30 天质保",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "Cr7uxt",
+          "url": "https://x.com/Cr7uxt/status/2123650969011376583",
+          "created_at_et": "2026-11-20 00:33 ET",
+          "quote": "问 Max 封号是否不质保",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "Cr7uxt",
+          "url": "https://x.com/Cr7uxt/status/2123652404738707484",
+          "created_at_et": "2026-11-20 00:39 ET",
+          "quote": "问是否没货",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "shaonaiyi",
+          "url": "https://x.com/shaonaiyi/status/2123743204868768184",
+          "created_at_et": "2026-11-20 06:40 ET",
+          "quote": "问 135 元是给号还是充自己号",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "yxc020619",
+          "url": "https://x.com/yxc020619/status/2123767026971967709",
+          "created_at_et": "2026-11-20 08:14 ET",
+          "quote": "称 QQ 号搜不到客服",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "negative"
+        }
+      ],
       "conflicts": [
         "原帖写“质保30天订阅”，作者评论称“有质保封号的～”，二者范围不同，商品页又未打开，不能合并成一条已核实条款。"
       ],
       "missing": [
-        "卡网页面空白，无法核对现价、库存、封号质保天数、退款路径；作者补充价目在公开接口中尾部被截断。",
-        "来源不完整：评论提及 @qing_labs，但没有独立评论链接，未列入第三方反馈。",
-        "来源不完整：评论提及 @Cr7uxt，但没有独立评论链接，未列入第三方反馈。",
-        "来源不完整：评论提及 @shaonaiyi，但没有独立评论链接，未列入第三方反馈。",
-        "来源不完整：评论提及 @yxc020619，但没有独立评论链接，未列入第三方反馈。"
+        "卡网页面空白，无法核对现价、库存、封号质保天数、退款路径；作者补充价目在公开接口中尾部被截断。"
       ],
       "coverage": "评论检索于 2026-11-20 09:24–09:25 ET 第 1 页 25 条（含大量作者回复），当时公开回复数 13。落地页 webFetch 与浏览器均为空页。",
       "narrative": "原帖卖家自述：作者发 11 月 20 日低价区价目，并给 QQ 群与卡网链接。套餐只写质保30天订阅，未在正文写封号包赔或按天退款。 卖家评论补充：有人问是否 Team 席位，作者称“不是team席位”。有人问 Max 封号是否不质保，作者回“有质保封号的～”。https://x.com/ASI_8866/status/2123651778545877256 另发补充价目，KYC/门户写“不通过退款”。有人问 135 元是给号还是充到自己账号，作者回“自己号”；问充值会不会弹 KYC，作者回“弹了可以帮过”。https://x.com/ASI_8866/status/2123655244337430532 附近评论。 落地页：推广链接 https://catfk.com/shop/asi 。2026-11-20 09:26–09:28 ET 只读 webFetch 得到空页；09:30–09:39 ET 浏览器同样标题和正文为空（HTTP 200）。现价、质保是订阅还是封号、KYC 退款范围均未在商品页核实。 第三方自述：@qing_labs 提醒“30 天质保”最好写清订阅期限；@Cr7uxt 问 Max 封号是否不质保并问是否没货；@shaonaiyi 问 135 元是给号还是充自己号；@yxc020619 称 QQ 号搜不到客服。上述为提问或观感，不是已核实成交。第三方自述不等于交易已核实。 差异或限定：原帖写“质保30天订阅”，作者评论称“有质保封号的～”，二者范围不同，商品页又未打开，不能合并成一条已核实条款。 信息缺口：卡网页面空白，无法核对现价、库存、封号质保天数、退款路径；作者补充价目在公开接口中尾部被截断。",
@@ -345,7 +382,24 @@
       "landing": {
         "note": "链接 https://yc5.xyz/ 。webFetch 仅得到极短页面“悟空商店”及 QQ 905302651，无商品与条款。浏览器打开 https://yc5.xyz/products 主体停在 LOADING，未见 Claude 商品或质保原文。条款未核实。"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "GaoSheng41369",
+          "url": "https://x.com/GaoSheng41369/status/2123625458772353280",
+          "created_at_et": "2026-11-19 22:52 ET",
+          "quote": "价格太高了",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "Victor_623405",
+          "url": "https://x.com/Victor_623405/status/2123494453021442339",
+          "created_at_et": "2026-11-19 14:11 ET",
+          "quote": "冲不进去",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "negative"
+        }
+      ],
       "conflicts": [
         "无商品页条款可与原帖对照。"
       ],
@@ -417,13 +471,21 @@
         "note": "https://xuegaogx.cc/ 。webFetch（09:26–09:28 ET）写明 GPT 充到自己账号，Claude 以成品号交付，Pro/Max 美区免K、可带或不带 IP，Warranty covers the first login。浏览器打开 Quick Buy 层（未下单）复核了上述现价，条款仍只见首登质保，未见保封号或保订阅原文。",
         "url": "https://xuegaogx.cc/"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "0008luna",
+          "url": "https://x.com/0008luna/status/2123371778970173485",
+          "created_at_et": "2026-11-19 06:04 ET",
+          "quote": "询问成品号价格",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        }
+      ],
       "conflicts": [
         "原帖未标价，现价只在访问时商品页可见，不能当作发帖当时的标价已经核对。"
       ],
       "missing": [
-        "原帖本身没有价格；商品页未写封号或掉订阅如何处理。",
-        "来源不完整：评论提及 @0008luna，但没有独立评论链接，未列入第三方反馈。"
+        "原帖本身没有价格；商品页未写封号或掉订阅如何处理。"
       ],
       "coverage": "评论检索于 2026-11-20 09:24–09:25 ET 第 1 页 24 条（含原帖），当时公开回复数 21。落地页 webFetch 与浏览器 Quick Buy 层已打开，未下单。",
       "narrative": "原帖卖家自述：作者称对过代充渠道后开了站，有 Claude 美区免K成品号但货不多，要“不卷价格卷品质”。未写具体售价与质保。 卖家评论补充：有人问 Claude 成品号什么价，作者只回“看网站里”。https://x.com/Xuegaogx/status/2123378983932993788 落地页：https://xuegaogx.cc/ 。webFetch（09:26–09:28 ET）写明 GPT 充到自己账号，Claude 以成品号交付，Pro/Max 美区免K、可带或不带 IP，Warranty covers the first login。浏览器打开 Quick Buy 层（未下单）复核了上述现价，条款仍只见首登质保，未见保封号或保订阅原文。 第三方自述：@0008luna 询问成品号价格；其余多为夸界面或扩流，不是成交反馈。第三方自述不等于交易已核实。 差异或限定：原帖未标价，现价只在访问时商品页可见，不能当作发帖当时的标价已经核对。 信息缺口：原帖本身没有价格；商品页未写封号或掉订阅如何处理。",
@@ -500,7 +562,7 @@
           "url": "https://x.com/tiantangyes/status/2123461765476556872",
           "created_at_et": "",
           "quote": "客服没人也不解决不退款",
-          "note": "第三方自述，未见独立成交证据",
+          "note": "提问、旁观或自述，不是已核实成交",
           "sentiment": "negative"
         }
       ],
@@ -567,16 +629,45 @@
         "note": "https://www.poptangai.com/products/KYC 。09:26–09:28 ET 只读 webFetch 读到 ¥199 及上述退款原文。09:30–09:39 ET 浏览器打开同一 URL 及首页均为空白，未能复检。条款按 webFetch 时点记录。",
         "url": "https://www.poptangai.com/products/KYC"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "lpgeai",
+          "url": "https://x.com/lpgeai/status/2123447371522884026",
+          "created_at_et": "2026-11-19 11:04 ET",
+          "quote": "询问通过后能稳定多久",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "i01de6688",
+          "url": "https://x.com/i01de6688/status/2123452614046368032",
+          "created_at_et": "2026-11-19 11:25 ET",
+          "quote": "询问通过后能稳定多久",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "marek_qin",
+          "url": "https://x.com/marek_qin/status/2123505125042131287",
+          "created_at_et": "2026-11-19 14:54 ET",
+          "quote": "问能保终生吗",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "linlinlin37pn",
+          "url": "https://x.com/linlinlin37pn/status/2123637916476060147",
+          "created_at_et": "2026-11-19 23:41 ET",
+          "quote": "称网址打不开",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "negative"
+        }
+      ],
       "conflicts": [
         "原帖未标价，商品页访问时为 199 元。原帖未写后续封号排除，商品页写明后续封号不退。浏览器复访空白，无法做第二次核对。"
       ],
       "missing": [
-        "浏览器复访未成功；终身或后期封号承诺在商品页已被排除。",
-        "来源不完整：评论提及 @lpgeai，但没有独立评论链接，未列入第三方反馈。",
-        "来源不完整：评论提及 @i01de6688，但没有独立评论链接，未列入第三方反馈。",
-        "来源不完整：评论提及 @marek_qin，但没有独立评论链接，未列入第三方反馈。",
-        "来源不完整：评论提及 @linlinlin37pn，但没有独立评论链接，未列入第三方反馈。"
+        "浏览器复访未成功；终身或后期封号承诺在商品页已被排除。"
       ],
       "coverage": "评论检索于 2026-11-20 09:25 ET 第 1 页 13 条（含原帖）。落地页 webFetch 成功，浏览器复访空白。",
       "narrative": "原帖卖家自述：作者展示当日 Claude KYC 门户验证，称成功率比较高，给出下单链接，并写售后：未通过和秒封费用全退。成功率为卖家自述。 卖家评论补充：有人问通过后能稳定多久、能否保终生，作者未直接回答终身质保；对“网址打不开”回复“换个浏览器试试”；并称“目前好几天了，还没看到有封的”。https://x.com/soyes689/status/2123639052725616981 上述“没看到有封的”是卖家自述，不是已核实统计。 落地页：https://www.poptangai.com/products/KYC 。09:26–09:28 ET 只读 webFetch 读到 ¥199 及上述退款原文。09:30–09:39 ET 浏览器打开同一 URL 及首页均为空白，未能复检。条款按 webFetch 时点记录。 第三方自述：@lpgeai、@i01de6688 询问通过后能稳定多久；@marek_qin 问能保终生吗；@linlinlin37pn 称网址打不开。均为提问或访问问题，不是成交反馈。评论区另有账号揽活。第三方自述不等于交易已核实。 差异或限定：原帖未标价，商品页访问时为 199 元。原帖未写后续封号排除，商品页写明后续封号不退。浏览器复访空白，无法做第二次核对。 信息缺口：浏览器复访未成功；终身或后期封号承诺在商品页已被排除。",
@@ -634,7 +725,24 @@
       "landing": {
         "note": "作者简介网站 https://gaobudongai.com/ 。webFetch 首页已出现 Persona/Portal 卡片及“审核结果以官方为准”。浏览器打开 https://gaobudongai.com/products 看到现价 ¥150/¥230；详情 https://gaobudongai.com/products/claude-persona 与 /claude-portal 无商品正文。未见“不成功退款/秒封退款”原文。"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "chen_zou22931",
+          "url": "https://x.com/chen_zou22931/status/2123474844054675885",
+          "created_at_et": "2026-11-19 12:53 ET",
+          "quote": "招门户代理",
+          "note": "其他账号揽活，不是对本店的成交核实",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "Oxlimaoxiaojie",
+          "url": "https://x.com/Oxlimaoxiaojie/status/2123476056384680197",
+          "created_at_et": "2026-11-19 12:58 ET",
+          "quote": "招门户代理",
+          "note": "其他账号揽活，不是对本店的成交核实",
+          "sentiment": "neutral"
+        }
+      ],
       "conflicts": [
         "同日另帖报价 110/220，访问时列表为 150/230，价格不一致。另帖写秒封退款，商品列表只写结果以官方为准，未支持该退款句。"
       ],
@@ -711,16 +819,23 @@
           "url": "https://x.com/Hunterqlovrq/status/2123391065051042094",
           "created_at_et": "",
           "quote": "已下单",
-          "note": "第三方自述，未见独立成交证据",
+          "note": "提问、旁观或自述，不是已核实成交",
           "sentiment": "neutral"
+        },
+        {
+          "handle": "XinShen80708293",
+          "url": "https://x.com/XinShen80708293/status/2123396804272390391",
+          "created_at_et": "2026-11-19 07:43 ET",
+          "quote": "问会不会封号",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "negative"
         }
       ],
       "conflicts": [
         "商品页写订阅期限 1 个月，同时写不保封号，不能理解为保一个月不封。"
       ],
       "missing": [
-        "原帖未写质保，条款以商品页为准；未通过 KYC 是否退款在 Portal 页未写明。",
-        "来源不完整：评论提及 @XinShen80708293，但没有独立评论链接，未列入第三方反馈。"
+        "原帖未写质保，条款以商品页为准；未通过 KYC 是否退款在 Portal 页未写明。"
       ],
       "coverage": "评论检索于 2026-11-20 09:25 ET 第 1 页 16 条（含原帖）。落地页浏览器已打开多个商品详情。",
       "narrative": "原帖卖家自述：作者推销 Teams 1.25x 免K成品号 299 元限时 72 小时，称海外企业与 IP、实体卡注册，额度比 Pro 多 25%。未写封号质保。 卖家评论补充：作者称“网站第一个商品下单就可以”，也可电报 gjnhtop；被问后续充值时回复“后续组织统一充值”。https://x.com/0x_alen/status/2123631942507909300 对“会封号吗”未见作者公开直接答复。 落地页：https://shop.thop.ng/ 及 Teams 1.25x 详情 https://shop.thop.ng/product/21a44d84f459439c89802f031785acbb 。浏览器成功读到不保封号原文。Portal 商品页写“过KYC后也有封号的可能性，过KYC后封号不做退款”，未说明未通过是否退款。首页另有店铺评价，属站内展示，不是本评论区已核实交易。 第三方自述：@Hunterqlovrq 写“已下单”，未见交付结果。https://x.com/Hunterqlovrq/status/2123391065051042094 @XinShen80708293 问会不会封号。第三方自述不等于交易已核实。 差异或限定：商品页写订阅期限 1 个月，同时写不保封号，不能理解为保一个月不封。 信息缺口：原帖未写质保，条款以商品页为准；未通过 KYC 是否退款在 Portal 页未写明。",
@@ -784,7 +899,7 @@
           "url": "https://x.com/0xdoncin/status/2123334583538348379",
           "created_at_et": "2026-11-19 03:36 ET",
           "quote": "别在线客服了，在线客服俩小时不带动的。你自己做代理一点售后不承担吗",
-          "note": "第三方自述，未见独立成交证据",
+          "note": "第一人称自述，未见订单证据，不是已核实成交",
           "sentiment": "negative"
         }
       ],
@@ -926,7 +1041,24 @@
       "landing": {
         "note": "原帖只有配图，无独立商品页。作者简介仅有微信/邮箱，本次未添加好友、未发私信，条款未核实。"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "WenBuilds",
+          "url": "https://x.com/WenBuilds/status/2123299139404583315",
+          "created_at_et": "2026-11-19 01:15 ET",
+          "quote": "提心吊胆",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "CryptoTumor9527",
+          "url": "https://x.com/CryptoTumor9527/status/2123296397222969549",
+          "created_at_et": "2026-11-19 01:04 ET",
+          "quote": "先记一下",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        }
+      ],
       "conflicts": [
         "无落地页条款可对照。"
       ],
@@ -1116,30 +1248,38 @@
       "priority": true,
       "summary": {
         "service": "因认证加严改提前预订，更推荐已带订阅的 Pro 成品号；评论补充只质保一个月订阅、不质保封号。",
-        "cover": "作者评论：质保一个月订阅，不质保封号；没货就退，有货就发。",
+        "cover": "原帖：成品号保首登和订阅，不保封号；KYC秒封退钱。作者评论：质保一个月订阅，不质保封号；没货就退，有货就发。",
         "price_label": "本帖未标价，称具体看图。店铺页未打开，图中价目未能转写成已核实现价。",
         "diff": ""
       },
       "terms": {
         "refund_promise": true,
-        "first_login_only": false,
+        "first_login_only": true,
         "no_ban": true
       },
       "prices": [],
-      "warranty_note": "原帖未写质保。作者评论明确：售后都是质保一个月订阅，不质保封号；没货就退，有货就发，交付时间无法保证。不得把订阅质保写成封号质保。零售店 wzyp.cn 遇错误或滑块，商品页未核实。",
-      "seller_post": "作者称认证加严、成品号更难做，只能提前预订；若只想体验或平时用 Pro，更推荐已带订阅的 Pro 成品号，并称目前卖出的没有出现二次验证。二次验证情况为卖家自述。",
+      "warranty_note": "原帖写明：Claude 成品号保首登和订阅，不保封号；KYC秒封退钱。这是首登/订阅质保与验证失败或秒封退款，不能升级为后期封号包赔。作者评论明确：售后都是质保一个月订阅，不质保封号；没货就退，有货就发，交付时间无法保证。评论中的「一个月订阅」比原帖「订阅」更具体，仍不得把订阅质保写成封号质保。零售店 wzyp.cn 遇错误或滑块，商品页未核实。",
+      "seller_post": "作者称认证加严、成品号更难做，只能提前预订；若只想体验或平时用 Pro，更推荐已带订阅的 Pro 成品号，并称目前卖出的没有出现二次验证。二次验证情况为卖家自述。 原文还写明：Claude 成品号保首登和订阅，不保封号；KYC秒封退钱。",
       "seller_comment": "作者先发 GPT 下单地址，并称需要 Claude 的在主页加联系方式转账预订。对售后提问回复：“交付时间无法保证，没货就退，有货就发，售后都是质保一个月订阅，不质保封号。”https://x.com/Aliadafu/status/2123511578041704809",
       "landing": {
         "note": "作者简介零售店 https://wzyp.cn/shop/PSSYY7CC 。webFetch 500；浏览器出现滑块未操作。商品页现行条款未核实。",
         "url": "https://wzyp.cn/shop/PSSYY7CC"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "Pengchenop",
+          "url": "https://x.com/Pengchenop/status/2123508390198726880",
+          "created_at_et": "2026-11-19 15:07 ET",
+          "quote": "提醒预订应说清交付时间和售后，作者据此作了上述回复",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        }
+      ],
       "conflicts": [
         "原帖称卖出的 Pro 成品号没有二次验证，这是卖家统计自述，且作者同时写不质保封号。店铺页未打开。"
       ],
       "missing": [
-        "Claude 具体现价、预订等待时长未在页面核实。",
-        "来源不完整：评论提及 @Pengchenop，但没有独立评论链接，未列入第三方反馈。"
+        "Claude 具体现价、预订等待时长未在页面核实。"
       ],
       "coverage": "评论检索于 2026-11-20 09:25 ET 第 1 页 11 条（含原帖），当时公开回复数 6。落地页受访问限制。",
       "narrative": "原帖卖家自述：作者称认证加严、成品号更难做，只能提前预订；若只想体验或平时用 Pro，更推荐已带订阅的 Pro 成品号，并称目前卖出的没有出现二次验证。二次验证情况为卖家自述。 卖家评论补充：作者先发 GPT 下单地址，并称需要 Claude 的在主页加联系方式转账预订。对售后提问回复：“交付时间无法保证，没货就退，有货就发，售后都是质保一个月订阅，不质保封号。”https://x.com/Aliadafu/status/2123511578041704809 落地页：作者简介零售店 https://wzyp.cn/shop/PSSYY7CC 。webFetch 500；浏览器出现滑块未操作。商品页现行条款未核实。 第三方自述：@Pengchenop 提醒预订应说清交付时间和售后，作者据此作了上述回复。未见第一人称成交反馈。第三方自述不等于交易已核实。 差异或限定：原帖称卖出的 Pro 成品号没有二次验证，这是卖家统计自述，且作者同时写不质保封号。店铺页未打开。 信息缺口：Claude 具体现价、预订等待时长未在页面核实。",
@@ -1203,7 +1343,15 @@
           "url": "https://x.com/aipaxmil/status/2123768664508018946",
           "created_at_et": "2026-11-20 08:21 ET",
           "quote": "号我买过，第三天就提示异常",
-          "note": "第三方自述，未见独立成交证据",
+          "note": "第一人称自述，未见订单证据，不是已核实成交",
+          "sentiment": "negative"
+        },
+        {
+          "handle": "chshan201127",
+          "url": "https://x.com/chshan201127/status/2123709861200621806",
+          "created_at_et": "2026-11-20 04:27 ET",
+          "quote": "这么贵，都是哪些大聪明在你这里买？",
+          "note": "提问、旁观或自述，不是已核实成交",
           "sentiment": "negative"
         }
       ],
@@ -1354,7 +1502,16 @@
         "note": "https://nb985.com/ ，与第 17 条同一站点（本帖无 ref 参数）。webFetch 有 FAQ 与 Claude 商品列表；浏览器复访 LOADING。作者简介另有 Claude 满血中转，中转不是本帖主题，未当作成品号条款。",
         "url": "https://nb985.com/"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "WeiJiang194454",
+          "url": "https://x.com/WeiJiang194454/status/2123392461687128185",
+          "created_at_et": "2026-11-19 07:26 ET",
+          "quote": "Claude咋卖的",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        }
+      ],
       "conflicts": [
         "评论中的 380 与首页列出的更高价成品号/直充是否同一 SKU，详情未打开，不能视为已核价。"
       ],
@@ -1500,13 +1657,37 @@
       "landing": {
         "note": "https://hellomy.vip/ webFetch 超时。浏览器成功打开 https://hellomy.vip/product/claude ，读到上述英文条款与现价。条款为访问时点所见，不代表发帖当日页面。"
       },
-      "third_party": [],
+      "third_party": [
+        {
+          "handle": "Rencuiying",
+          "url": "https://x.com/Rencuiying/status/2123628060645957889",
+          "created_at_et": "2026-11-19 23:02 ET",
+          "quote": "马上采购",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "HAOqbvhs",
+          "url": "https://x.com/HAOqbvhs/status/2123628805608935461",
+          "created_at_et": "2026-11-19 23:05 ET",
+          "quote": "卖爆了",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "neutral"
+        },
+        {
+          "handle": "luoying774921",
+          "url": "https://x.com/luoying774921/status/2123694322969416055",
+          "created_at_et": "2026-11-20 03:25 ET",
+          "quote": "骗子都是骗钱的没售后大家不要相信",
+          "note": "提问、旁观或自述，不是已核实成交",
+          "sentiment": "negative"
+        }
+      ],
       "conflicts": [
         "原帖未写质保和价格；商品页有明确订阅/秒封限定。秒封是否成立以是否出账单为准，比一般“秒封就退”更窄。"
       ],
       "missing": [
-        "Pro 单独升级的价格在该详情摘要中未单列清楚。",
-        "来源不完整：评论提及 @luoying774921，但没有独立评论链接，未列入第三方反馈。"
+        "Pro 单独升级的价格在该详情摘要中未单列清楚。"
       ],
       "coverage": "评论检索于 2026-11-20 09:27 ET 第 1 页 17 条（含原帖），当时公开回复数 8。落地页浏览器已打开 Claude 商品详情。",
       "narrative": "原帖卖家自述：作者称昨天爆单后连夜补货，列出 Gemini Ultra、Claude Max（支持个人号直接升级，Pro 也有）等，支付宝自助下单，可开票。未写 Claude 质保。 卖家评论补充：作者对多条捧场评论致谢，未见补充质保条文。 落地页：https://hellomy.vip/ webFetch 超时。浏览器成功打开 https://hellomy.vip/product/claude ，读到上述英文条款与现价。条款为访问时点所见，不代表发帖当日页面。 第三方自述：多条“马上采购”“卖爆了”为互动捧场，不是可核对的订单。@luoying774921 写“骗子都是骗钱的没售后大家不要相信”，未点名本单细节，不能当作已核实投诉。第三方自述不等于交易已核实。 差异或限定：原帖未写质保和价格；商品页有明确订阅/秒封限定。秒封是否成立以是否出账单为准，比一般“秒封就退”更窄。 信息缺口：Pro 单独升级的价格在该详情摘要中未单列清楚。",
