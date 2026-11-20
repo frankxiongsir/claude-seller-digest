@@ -5,8 +5,10 @@
 //   s/index.html            all sellers
 //   d/<date>/index.html     one page per issue (day)
 //   c/<category>/index.html last-7-days price table per product (pro, max5, ...)
+//   feedback/index.html     buyer feedback form (posts to api/feedback.js)
 //   sitemap.xml, robots.txt
 // Usage: node feed/seo.js <built index.html> <out dir> [base url]
+// FEEDBACK_STATS=<file> adds the approved buyer-feedback counts (from feed/feedback.js) to seller pages.
 "use strict";
 const fs = require("fs"), path = require("path");
 const [, , pageFile, outDir, baseArg] = process.argv;
@@ -15,6 +17,10 @@ if (!pageFile || !outDir) { console.error("usage: node feed/seo.js <index.html> 
 const BASE = (baseArg || process.env.SITE_URL || "https://claude-seller-digest.vercel.app").replace(/\/$/, "");
 const REPO = "https://github.com/frankxiongsir/claude-seller-digest";
 const X_URL = "https://x.com/xudongsheng1945";
+// Buyer feedback: the form page is always built; the seller-page section and its button only show when live.
+const FEEDBACK_LIVE = false;
+const FEEDBACK_MIN = 2; // fewer approved entries than this: no numbers, just the invitation
+const FB = (() => { try { return process.env.FEEDBACK_STATS ? JSON.parse(fs.readFileSync(process.env.FEEDBACK_STATS, "utf8")) : {}; } catch (e) { return {}; } })();
 
 // ---- run the page script with just enough of a browser around it ----
 const html = fs.readFileSync(pageFile, "utf8");
@@ -102,12 +108,12 @@ footer a{color:var(--muted);text-decoration:underline}
 th.opt,td.opt{display:none}}
 `;
 
-function shell({ title, desc, url, crumbs, body, updated }) {
+function shell({ title, desc, url, crumbs, body, updated, noindex }) {
   const ld = { "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: BASE + c.url })) };
   return `<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">${noindex ? '\n<meta name="robots" content="noindex">' : ""}
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${esc(BASE + url)}">
@@ -163,7 +169,8 @@ function sellerPage(s) {
   let body = "<h1>" + esc(s.name) + "（@" + esc(s.handle) + "）</h1>"
     + '<p class="sub">Claude 代充卖家 · ' + posts.length + " 条帖 · " + esc(range(ds)) + (s.shops.length ? " · " + esc(s.shops.join("、")) : "") + "</p>"
     + '<div class="answer"><h2>这家靠谱吗？先看公开记录</h2><p>' + esc(answer) + "</p></div>"
-    + cards;
+    + cards
+    + feedbackSection(s);
 
   if (conf) body += "<section><h2>说法前后矛盾<small>" + conf + " 处</small></h2><ul class=\"plain\">"
     + s.conf.map((c) => "<li>" + esc(c.text) + ' <span class="muted">（' + esc(c.day ? md(c.day) + " " : "") + "第 " + c.n + " 条）</span></li>").join("") + "</ul></section>";
@@ -201,8 +208,117 @@ function sellerPage(s) {
 
   const title = s.name + "（@" + s.handle + "）Claude 代充靠谱吗？价格、售后与风险记录";
   const desc = answer.length > 150 ? answer.slice(0, 148) + "…" : answer;
-  return shell({ title: title + " | Claude 卖家帖", desc, url: sellerUrl(s), updated: D.LAST_DAY,
+  const page = shell({ title: title + " | Claude 卖家帖", desc, url: sellerUrl(s), updated: D.LAST_DAY,
     crumbs: [{ name: "首页", url: "/" }, { name: "全部卖家", url: "/s/" }, { name: s.name, url: sellerUrl(s) }], body });
+  return FEEDBACK_LIVE ? page.replace("</head>", FB_CSS + "</head>") : page;
+}
+
+// ---- buyer feedback ----
+const FB_OUTCOME = [["ok", "正常在用"], ["banned", "被封"], ["undelivered", "没交付"]];
+const FB_BAN_AFTER = [["lt1d", "不到 1 天"], ["1to7d", "1–7 天"], ["1to4w", "1–4 周"], ["gt1m", "1 个月以上"]];
+const FB_HANDLING = [["refunded", "赔了或换了号"], ["partial", "只赔了一部分"], ["stalled", "拖着没处理"], ["ignored", "不理"], ["none", "买家没找卖家"]];
+const FB_CSS = `<style>
+.fb .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.fb .hd h2{margin:0}
+.fb .tagx{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted)}
+.fb .bar3{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:14px 0 8px;gap:2px}.fb .bar3 i{display:block}
+.fb .ok{background:#3f9a52}.fb .ban{background:#d4503c}.fb .nd{background:#9a948a}
+.fb .leg{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}.fb .leg span{display:flex;align-items:center;gap:6px}.fb .leg i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.fb .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.fb .box{background:var(--soft);border-radius:12px;padding:12px 14px}.fb .box .k{font-size:13px;color:var(--muted);margin-bottom:6px}
+.fb .box .r{display:flex;justify-content:space-between;font-size:15px;padding:2px 0}
+.fb .btn{display:inline-block;margin-top:14px;background:var(--acc);color:#fff;border-radius:10px;padding:9px 18px;font-weight:700}.fb .btn:hover{text-decoration:none;opacity:.92}
+.fb .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.fb .foot .muted{flex:1;min-width:220px}
+@media (max-width:640px){.fb .grid{grid-template-columns:1fr}}
+</style>`;
+const fbUrl = (s) => "/feedback/?s=" + encodeURIComponent(s.key);
+function feedbackSection(s) {
+  if (!FEEDBACK_LIVE) return "";
+  const f = FB[s.key], btn = '<a class="btn" href="' + fbUrl(s) + '" rel="nofollow">我买过这家，说说结果</a>';
+  if (!f || f.n < FEEDBACK_MIN)
+    return '<section class="fb"><div class="hd"><h2>买家反馈</h2></div><p style="margin:8px 0 0">还没有足够的买家反馈。至少 ' + FEEDBACK_MIN
+      + " 位买家的反馈通过审核后，这里才会显示统计。</p>" + btn + "</section>";
+  const o = (k) => f.outcome[k] || 0, banned = o("banned");
+  const rows = (list, src) => list.map(([k, t]) => '<div class="r"><span>' + t + "</span><b>" + (src[k] || 0) + "</b></div>").join("");
+  return '<section class="fb"><div class="hd"><h2>买家反馈</h2><span class="tagx">' + f.n + " 人 · 买家自述，未经核实</span></div>"
+    + '<div class="bar3">' + [["ok", "ok"], ["banned", "ban"], ["undelivered", "nd"]].filter(([k]) => o(k)).map(([k, c]) => '<i class="' + c + '" style="flex:' + o(k) + '"></i>').join("") + "</div>"
+    + '<div class="leg">' + FB_OUTCOME.map(([k, t], i) => '<span><i class="' + ["ok", "ban", "nd"][i] + '"></i>' + t + " " + o(k) + "</span>").join("") + "</div>"
+    + (banned ? '<div class="grid"><div class="box"><div class="k">被封的 ' + banned + " 人，用了多久</div>" + rows(FB_BAN_AFTER, f.banAfter) + "</div>"
+      + '<div class="box"><div class="k">被封以后，卖家怎么处理</div>' + rows(FB_HANDLING, f.handling) + "</div></div>" : "")
+    + '<div class="foot">' + btn + '<span class="muted">每条都经人工审核后才计入；只显示统计，不显示原文和提交人。最近一条：' + esc(md(f.last)) + "</span></div></section>";
+}
+
+function feedbackPage(list) {
+  const opts = list.slice().sort((a, b) => a.name.localeCompare(b.name, "zh")).map((s) => '<option value="' + esc(s.key) + '">' + esc(s.name) + "（@" + esc(s.handle) + "）</option>").join("");
+  const radios = (name, items) => '<div class="chips">' + items.map(([v, t]) => '<label class="chip"><input type="radio" name="' + name + '" value="' + v + '">' + t + "</label>").join("") + "</div>";
+  const body = '<h1>说说你在这家买的结果</h1><p class="sub">只用来统计。审核通过后，卖家页会多一个数字，不会显示你写的原话。</p>'
+    + '<form class="f" id="fb" novalidate>'
+    + '<div class="q"><div class="lb">卖家</div><select class="in" name="seller" required><option value="">选择卖家</option>' + opts + "</select></div>"
+    + '<div class="q"><div class="lb">买的什么</div>' + radios("product", [["pro", "Pro 成品号"], ["max5", "Max 5x"], ["max20", "Max 20x / Ultra"], ["kyc", "KYC 验证"], ["topup", "直充 / 代充"], ["other", "其他"]]) + "</div>"
+    + '<div class="q two"><div><div class="lb">付了多少<small>选填</small></div><input class="in" name="paid" type="number" inputmode="decimal" min="0" max="100000" step="0.01" placeholder="¥"></div>'
+    + '<div><div class="lb">什么时候买的</div><select class="in" name="month" required></select></div></div>'
+    + '<div class="q"><div class="lb">现在怎么样了</div><div class="opts">'
+    + [["ok", "✓", "正常在用"], ["banned", "✕", "被封了"], ["undelivered", "…", "没交付 / 联系不上"]].map(([v, i, t]) => '<label class="opt2"><input type="radio" name="outcome" value="' + v + '"><b>' + i + "</b>" + t + "</label>").join("") + "</div></div>"
+    + '<div class="cond" id="cond" hidden>'
+    + '<div class="q"><div class="lb">用了多久被封</div>' + radios("banAfter", [["lt1d", "不到 1 天"], ["1to7d", "1–7 天"], ["1to4w", "1–4 周"], ["gt1m", "1 个月以上"]]) + "</div>"
+    + '<div class="q"><div class="lb">被封以后卖家怎么处理</div>' + radios("handling", [["refunded", "赔了或换了号"], ["partial", "只赔了一部分"], ["stalled", "拖着没处理"], ["ignored", "不理我"], ["none", "我没找卖家"]]) + "</div></div>"
+    + '<div class="q"><div class="lb">补充说明<small>选填 · 只有维护者能看到</small></div><textarea class="in" name="note" rows="3" maxlength="1000" placeholder="比如订单号后几位、卖家怎么回复的。别填密码、卡号或账号登录信息。"></textarea></div>'
+    + '<div class="q"><div class="lb">联系方式<small>选填 · 只在需要核实时用</small></div><input class="in" name="contact" maxlength="120" placeholder="X 账号或邮箱"></div>'
+    + '<div class="hp" aria-hidden="true"><label>网站<input name="website" tabindex="-1" autocomplete="off"></label></div>'
+    + '<label class="chk"><input type="checkbox" name="agree"><span>这是我自己真实的购买经历，同一家同一笔订单只提交一次。</span></label>'
+    + '<p class="err" id="err" role="alert"></p>'
+    + '<button class="go" type="submit">提交，审核后计入统计</button>'
+    + '<p class="priv">提交内容会存在维护者的 GitHub 私有审核队列里，不会公开。恶意刷好评或刷差评的反馈不会通过。</p></form>'
+    + '<div class="f done" id="done" hidden><h2>收到了，谢谢</h2><p>审核通过后会计入这家的买家反馈统计，通常几天内。</p><p><a id="back" href="/s/">回到卖家页 →</a></p></div>';
+  const css = `<style>
+.f{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px}
+.q{margin-top:18px}.q:first-child{margin-top:4px}
+.lb{font-weight:700;font-size:16px;margin-bottom:8px}.lb small{font-weight:400;color:var(--muted);font-size:13px;margin-left:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip,.opt2{position:relative;cursor:pointer;border:1px solid var(--line);background:var(--card);-webkit-tap-highlight-color:transparent}
+.chip{border-radius:999px;padding:6px 14px;font-size:15px}
+.chip input,.opt2 input,.chk input{position:absolute;opacity:0;pointer-events:none}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opt2{border-radius:12px;padding:10px 8px;text-align:center;font-size:15px}.opt2 b{display:block;font-size:20px}
+.chip.on,.opt2.on{border-color:var(--acc);background:var(--soft);color:var(--acc);font-weight:700;box-shadow:inset 0 0 0 1px var(--acc)}
+.chip:focus-within,.opt2:focus-within,.chk:focus-within i{outline:2px solid var(--acc);outline-offset:2px}
+.in{border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;font-size:16px;width:100%;background:var(--card);color:var(--ink)}
+textarea.in{resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cond{border-left:3px solid var(--acc);padding-left:14px;margin-top:18px}.cond .q:first-child{margin-top:0}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-top:18px;cursor:pointer}
+.chk i{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--muted);flex:none;margin-top:2px;display:grid;place-items:center;font-style:normal;font-size:13px;color:#fff}
+.chk.on i{background:var(--acc);border-color:var(--acc)}.chk.on i:after{content:"✓"}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{color:var(--hi-f);font-size:14px;margin:12px 0 0;min-height:0}.err:empty{display:none}
+.go{display:block;width:100%;border:0;cursor:pointer;background:var(--acc);color:#fff;border-radius:12px;padding:12px;font:inherit;font-weight:800;margin-top:18px;font-size:16px}
+.go:disabled{opacity:.6;cursor:wait}
+.priv{font-size:13px;color:var(--muted);margin:10px 0 0;line-height:1.6}
+.done h2{margin:0 0 6px;font-size:20px}.done p{margin:6px 0}
+@media (max-width:640px){.opt2{padding:8px 4px;font-size:14px}.f{padding:16px}}
+</style>`;
+  const js = `<script>
+(function(){
+var f=document.getElementById("fb"),t0=Date.now(),err=document.getElementById("err");
+var q=new URLSearchParams(location.search).get("s");if(q)f.seller.value=q;
+var m=f.month,d=new Date();for(var i=0;i<12;i++){var y=d.getFullYear(),mo=d.getMonth()+1,v=y+"-"+(mo<10?"0":"")+mo;m.add(new Option(y+" 年 "+mo+" 月",v));d.setMonth(d.getMonth()-1,1);}
+var chk=f.querySelector(".chk");chk.insertBefore(document.createElement("i"),chk.firstChild.nextSibling);
+function paint(){f.querySelectorAll(".chip,.opt2").forEach(function(l){l.classList.toggle("on",l.querySelector("input").checked)});chk.classList.toggle("on",f.agree.checked);
+document.getElementById("cond").hidden=f.outcome.value!=="banned";}
+f.addEventListener("change",function(){err.textContent="";paint();});paint();
+f.addEventListener("submit",function(e){e.preventDefault();
+var b={seller:f.seller.value,sellerName:f.seller.selectedOptions[0]?f.seller.selectedOptions[0].text:"",product:f.product.value,paid:f.paid.value,month:f.month.value,outcome:f.outcome.value,
+banAfter:f.banAfter.value,handling:f.handling.value,note:f.note.value,contact:f.contact.value,agree:f.agree.checked,website:f.website.value,elapsed:Date.now()-t0};
+var miss=!b.seller?"请选择卖家":!b.product?"请选择买的什么":!b.outcome?"请选择现在怎么样了":b.outcome==="banned"&&!b.banAfter?"请选择用了多久被封":b.outcome==="banned"&&!b.handling?"请选择卖家怎么处理":!b.agree?"请勾选确认":"";
+if(miss){err.textContent=miss;return;}
+var go=f.querySelector(".go");go.disabled=true;go.textContent="提交中…";
+fetch("/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||"暂时没存上，请稍后再试");});})
+.then(function(){f.hidden=true;var dn=document.getElementById("done");dn.hidden=false;document.getElementById("back").href="/s/"+encodeURIComponent(b.seller)+"/";window.scrollTo(0,0);})
+.catch(function(x){err.textContent=x.message||"网络出错了，请稍后再试";go.disabled=false;go.textContent="提交，审核后计入统计";});});
+})();
+</script>`;
+  return shell({ title: "买家反馈：说说你在这家买的结果 | Claude 卖家帖", desc: "买过 Claude 代充或成品号？说说后来怎么样了。只用来统计，人工审核后计入卖家页。", url: "/feedback/", updated: D.LAST_DAY, noindex: true,
+    crumbs: [{ name: "首页", url: "/" }, { name: "全部卖家", url: "/s/" }, { name: "买家反馈", url: "/feedback/" }], body })
+    .replace("</head>", css + "</head>").replace("</body>", js + "</body>");
 }
 
 const CAT_TITLE = { pro: "Claude Pro 代充多少钱", max5: "Claude Max 5x 代充多少钱", max20: "Claude Max 20x / Ultra 代充多少钱", kyc: "Claude KYC 验证代办多少钱", teams: "Claude Teams 代充多少钱" };
@@ -291,11 +407,12 @@ const write = (rel, content) => { const f = path.join(outDir, rel); fs.mkdirSync
 const urls = [{ loc: "/", mod: D.LAST_DAY }];
 const sellerList = Array.from(D.sellers.values()).sort((a, b) => (lastDay(b) > lastDay(a) ? 1 : lastDay(b) < lastDay(a) ? -1 : b.posts.length - a.posts.length));
 sellerList.forEach((s) => { write("s/" + s.key + "/index.html", sellerPage(s)); urls.push({ loc: sellerUrl(s), mod: lastDay(s) }); });
+write("feedback/index.html", feedbackPage(sellerList));
 write("s/index.html", sellerIndex(sellerList)); urls.push({ loc: "/s/", mod: D.LAST_DAY });
 D.days.forEach((d, i, all) => { write("d/" + d.date + "/index.html", dayPage(d, i, all)); urls.push({ loc: dayUrl(d.date), mod: d.date }); });
 write("d/index.html", dayIndex(D.days)); urls.push({ loc: "/d/", mod: D.LAST_DAY });
 D.HOME_CATS.forEach((c) => { write("c/" + c.key + "/index.html", catPage(c)); urls.push({ loc: catUrl(c.key), mod: D.LAST_DAY }); });
 write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
   + urls.map((u) => "<url><loc>" + esc(BASE + u.loc.split("/").map(encodeURIComponent).join("/")) + "</loc><lastmod>" + u.mod + "</lastmod></url>").join("\n") + "\n</urlset>\n");
-write("robots.txt", "User-agent: *\nAllow: /\nDisallow: /classic.html\nSitemap: " + BASE + "/sitemap.xml\n");
+write("robots.txt", "User-agent: *\nAllow: /\nDisallow: /classic.html\nDisallow: /feedback/\nSitemap: " + BASE + "/sitemap.xml\n");
 console.log("seo: " + sellerList.length + " sellers, " + D.days.length + " issues, " + D.HOME_CATS.length + " price pages, " + urls.length + " urls in sitemap");

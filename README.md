@@ -75,6 +75,16 @@ open dist/index.html   # Linux 用 xdg-open
 
 同一天的数据被覆盖时，如果数字变了，卡片会重新生成。
 
+## 买家反馈
+
+买过的人可以在 `/feedback/` 说说结果：正常在用、被封了，还是没交付。被封的话，再说说用了多久、卖家怎么处理。
+
+- 提交由 `api/feedback.js`（Vercel 函数）写进维护者的**私有**审核仓库，开成一个 issue。本仓库是公开的，所以反馈不放在这里。
+- 维护者给可信的反馈加上「通过」标签。每次构建时，`feed/feedback.js` 只读取已通过反馈的统计数字，补充说明、联系方式和来源指纹都不会离开私有仓库。
+- 同一家卖家至少有 2 条通过的反馈，卖家页才显示统计。卖家页始终标明「买家自述，未经核实」。
+- 防刷：隐藏字段、过快提交直接丢弃、同一来源限频，最后还有人工审核。
+- Vercel 环境变量：`FEEDBACK_REPO`（私有仓库，`owner/name`）、`FEEDBACK_TOKEN`（只能访问这个仓库的 fine-grained token，权限 Issues: Read and write）。没配置时表单会提示还没开通，构建照常。
+
 ## 更正与下架
 
 页面点名了具体卖家，写错了就应该改。完整规则见页面侧栏的 **「更正与下架」**（[直达链接](https://claude-seller-digest.vercel.app/#v=latest&i=page%3Acorrections)）。
