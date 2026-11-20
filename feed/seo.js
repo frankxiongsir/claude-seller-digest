@@ -311,7 +311,7 @@ banAfter:f.banAfter.value,handling:f.handling.value,note:f.note.value,contact:f.
 var miss=!b.seller?"请选择卖家":!b.product?"请选择买的什么":!b.outcome?"请选择现在怎么样了":b.outcome==="banned"&&!b.banAfter?"请选择用了多久被封":b.outcome==="banned"&&!b.handling?"请选择卖家怎么处理":!b.agree?"请勾选确认":"";
 if(miss){err.textContent=miss;return;}
 var go=f.querySelector(".go");go.disabled=true;go.textContent="提交中…";
-fetch("/api/feedback",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||"暂时没存上，请稍后再试");});})
+fetch("/api/feedback/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||"暂时没存上，请稍后再试");});})
 .then(function(){f.hidden=true;var dn=document.getElementById("done");dn.hidden=false;document.getElementById("back").href="/s/"+encodeURIComponent(b.seller)+"/";window.scrollTo(0,0);})
 .catch(function(x){err.textContent=x.message||"网络出错了，请稍后再试";go.disabled=false;go.textContent="提交，审核后计入统计";});});
 })();

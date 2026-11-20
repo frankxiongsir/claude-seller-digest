@@ -1,4 +1,4 @@
-// Buyer feedback: POST /api/feedback (from /feedback/) opens an issue in a PRIVATE review repo.
+// Buyer feedback: POST /api/feedback/ (from /feedback/) opens an issue in a PRIVATE review repo.
 // Nothing a buyer writes is published; the build only counts issues the maintainer labels 「通过」
 // (feed/feedback.js), and the seller page shows those counts.
 // Vercel environment variables:
