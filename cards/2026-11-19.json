@@ -1,0 +1,48 @@
+{
+ "day": "2026-11-19",
+ "since": "2026-11-13",
+ "n": 38,
+ "min": 137,
+ "med": 273,
+ "max": 580,
+ "headline": "没有一家保封号",
+ "top": [
+  {
+   "price": 137,
+   "from": false,
+   "level": "no_ban",
+   "risk": "high",
+   "conflict": true
+  },
+  {
+   "price": 139,
+   "from": false,
+   "level": "no_ban",
+   "risk": "high",
+   "conflict": true
+  },
+  {
+   "price": 146.66,
+   "from": false,
+   "level": "unstated",
+   "risk": "low",
+   "conflict": false
+  },
+  {
+   "price": 155,
+   "from": false,
+   "level": "no_ban",
+   "risk": "high",
+   "conflict": true
+  },
+  {
+   "price": 174,
+   "from": false,
+   "level": "first_login",
+   "risk": "high",
+   "conflict": true
+  }
+ ],
+ "line1": "3 家<em>明确不保封号</em>：写明了封号不售后。",
+ "line2": "最贵的标到 <em>¥580</em>，是最低价的 4.2 倍；22 家说法前后矛盾。"
+}
