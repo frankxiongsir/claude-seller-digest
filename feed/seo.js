@@ -18,7 +18,7 @@ const BASE = (baseArg || process.env.SITE_URL || "https://claude-seller-digest.v
 const REPO = "https://github.com/frankxiongsir/claude-seller-digest";
 const X_URL = "https://x.com/xudongsheng1945";
 // Buyer feedback: the form page is always built; the seller-page section and its button only show when live.
-const FEEDBACK_LIVE = false;
+const FEEDBACK_LIVE = true;
 const FEEDBACK_MIN = 2; // fewer approved entries than this: no numbers, just the invitation
 const FB = (() => { try { return process.env.FEEDBACK_STATS ? JSON.parse(fs.readFileSync(process.env.FEEDBACK_STATS, "utf8")) : {}; } catch (e) { return {}; } })();
 
