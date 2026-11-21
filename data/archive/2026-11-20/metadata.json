@@ -1,0 +1,67 @@
+{
+  "title": "Claude 公开卖家帖每日汇总",
+  "post_date_et": "2026-11-20",
+  "window": {
+    "label": "ET natural day 2026-11-20 00:00–2026-11-21 00:00",
+    "start_et": "2026-11-20 00:00 ET",
+    "end_et": "2026-11-21 00:00 ET",
+    "start_utc": "2026-11-20T05:00:00Z",
+    "end_utc": "2026-11-21T05:00:00Z",
+    "timezone": "America/New_York (ET, UTC-5)"
+  },
+  "type": "daily_digest",
+  "status": "pending",
+  "fetched_at_et": "2026-11-21 09:11–09:16 ET",
+  "verified_at_et": "评论 2026-11-21 09:22–09:24 ET；落地页 2026-11-21 09:22–09:28 ET 只读 webFetch（执行环境网络），约 09:22–09:40 ET 执行环境浏览器只读复查（未登录、未下单）。落地页条款为本次访问所见，不代表发帖当日页面。",
+  "prices_as_of_et": "2026-11-21 09:22–09:28 ET 只读 webFetch；约 09:22–09:40 ET 执行环境浏览器只读复查。条款为本次访问所见，不代表发帖当日页面。",
+  "comments_at_et": "2026-11-21 09:22–09:24 ET",
+  "prepared_at_et": "2026-11-21T09:32:28.592350-05:00",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "post_count": 20,
+  "sort": "impression_count desc, reply_count desc, like_count desc",
+  "notes": "2026-11-20 ET 完整自然日日报。合格 20 条已按 2026-11-21 09:11–09:16 ET 检索时点互动指标排序归档。状态 pending，全文尚未确认向用户发送成功，不标 delivered。互动指标取检索时点，不以随后复查覆盖。落地页经执行环境网络与浏览器只读访问，不经用户电脑。部分店铺页空白、人机验证、列表未加载或未见对应 Claude 商品，已如实记录。",
+  "counts": {
+    "unique_posts_in_window": 632,
+    "already_recommended_in_window": 0,
+    "already_recommended_total_ids": 168,
+    "raw_hits": 828,
+    "search_pages": 39,
+    "qualified_pending": 20
+  },
+  "queries": [
+    {
+      "query": "Claude (质保封号 OR 封号包赔 OR 封号退款 OR 按天退款 OR 封号就补 OR 秒封退款 OR 封号包换 OR 不成功退款) -is:retweet",
+      "pages": 4,
+      "hits": 66,
+      "note": "4 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (成品号 OR 代充 OR 出号 OR 补货 OR 现货 OR 开号 OR 稳定号) -is:retweet",
+      "pages": 16,
+      "hits": 367,
+      "note": "16 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (KYC OR 门户验证 OR 过k OR 过K OR Portal) (退款 OR 质保 OR 包过 OR 秒过 OR 验证 OR 代过) -is:retweet",
+      "pages": 10,
+      "hits": 198,
+      "note": "10 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (出售 OR 卖号 OR 账号) (Pro OR Max OR Ultra OR 成品 OR 代充) -is:retweet",
+      "pages": 9,
+      "hits": 197,
+      "note": "9 页，窗口已穷尽"
+    }
+  ],
+  "tool": "connectors/x search_posts_all / get_posts_by_ids（Grok Bot 公共 X 读取，非 user-X 插件）",
+  "files": [
+    "posts.json",
+    "digest.md",
+    "metadata.json",
+    "day.json",
+    "digest-verification.json",
+    "digest-verification.md"
+  ],
+  "metrics_note": "互动指标取 2026-11-21 09:11–09:16 ET 检索时点，不以评论或落地页复查覆盖。浏览缺失不捏造。"
+}
