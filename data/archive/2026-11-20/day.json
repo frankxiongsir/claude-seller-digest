@@ -83,7 +83,7 @@
       "label": "day.json"
     }
   ],
-  "status": "pending",
+  "status": "delivered",
   "posts": [
     {
       "id": "2123831957863985475",
@@ -1396,5 +1396,6 @@
       "new_tag": "新帖",
       "n": 20
     }
-  ]
+  ],
+  "delivered_at_et": "2026-11-21T09:51:03.108969-05:00"
 }
