@@ -75,7 +75,7 @@
       "label": "day.json"
     }
   ],
-  "status": "pending",
+  "status": "delivered",
   "posts": [
     {
       "id": "2124160429358457070",
@@ -1366,5 +1366,6 @@
       "n": 20,
       "warranty_level": "instant_refund"
     }
-  ]
+  ],
+  "delivered_at_et": "2026-11-22T09:42:00-05:00"
 }

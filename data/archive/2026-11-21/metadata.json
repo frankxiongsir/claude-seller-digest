@@ -10,7 +10,7 @@
     "timezone": "America/New_York (ET, UTC-5)"
   },
   "type": "daily_digest",
-  "status": "pending",
+  "status": "delivered",
   "fetched_at_et": "2026-11-22 09:11–09:14 ET",
   "verified_at_et": "评论 2026-11-22 09:20–09:23 ET；落地页 2026-11-22 09:20–09:24 ET 只读 webFetch（执行环境网络），约 09:24–09:40 ET 执行环境浏览器只读复查（未登录、未下单）。yc5.xyz 复查时 502；aiccpay.com 商品区仍为 LOADING。落地页条款为本次访问所见，不代表发帖当日页面。",
   "prices_as_of_et": "2026-11-22 09:20–09:24 ET 只读 webFetch；约 09:24–09:40 ET 执行环境浏览器只读复查。条款为本次访问所见，不代表发帖当日页面。",
@@ -19,14 +19,13 @@
   "timezone": "America/New_York (ET, UTC-5)",
   "post_count": 20,
   "sort": "impression_count desc, reply_count desc, like_count desc",
-  "notes": "2026-11-21 ET 完整自然日日报。合格 20 条已按 2026-11-22 09:11–09:14 ET 检索时点互动指标排序归档，状态为 pending，待向用户发送成功后再改为 delivered。互动指标取检索时点，不以随后复查覆盖。落地页经执行环境网络与浏览器只读访问，不经用户电脑。yc5.xyz 复查时 502；aiccpay.com 商品区仍为 LOADING；ao.ka8.ai 先 403 后可打开但 Claude 分类为 0 个商品。部分详情未加载，已如实记录。",
+  "notes": "2026-11-21 ET 完整自然日日报。合格 20 条已按 2026-11-22 09:11–09:14 ET 检索时点互动指标排序归档，已于 2026-11-22T09:42:00-05:00 确认全部 20 条正文、独立核查和 MD 已发送，状态为 delivered。互动指标取检索时点，不以随后复查覆盖。落地页经执行环境网络与浏览器只读访问，不经用户电脑。yc5.xyz 复查时 502；aiccpay.com 商品区仍为 LOADING；ao.ka8.ai 先 403 后可打开但 Claude 分类为 0 个商品。部分详情未加载，已如实记录。",
   "counts": {
     "unique_posts_in_window": 698,
     "already_recommended_in_window": 0,
     "already_recommended_total_ids": 188,
     "raw_hits": 907,
     "search_pages": 43,
-    "qualified_pending": 20,
     "qualified": 20
   },
   "queries": [
@@ -64,5 +63,6 @@
     "digest-verification.json",
     "digest-verification.md"
   ],
-  "metrics_note": "互动指标取 2026-11-22 09:11–09:14 ET 检索时点，不以评论或落地页复查覆盖。浏览缺失不捏造。"
+  "metrics_note": "互动指标取 2026-11-22 09:11–09:14 ET 检索时点，不以评论或落地页复查覆盖。浏览缺失不捏造。",
+  "delivered_at_et": "2026-11-22T09:42:00-05:00"
 }
