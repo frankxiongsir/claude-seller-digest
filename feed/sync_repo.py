@@ -254,8 +254,11 @@ def _scan_one(d, rel, repo, vers, days):
         elif (d / "posts.json").exists():
             pd = json.loads((d / "posts.json").read_text(encoding="utf-8"))
             ids = {p["id"] for p in pd["posts"]}
-            match = max(vers, key=lambda fv: len(ids & {x["id"] for x in fv[1].get("posts", [])}), default=None)
-            ver = match[1] if match and ids & {x["id"] for x in match[1].get("posts", [])} else None
+            def _ids(doc):
+                rows = doc.get("posts", []) if isinstance(doc, dict) else []
+                return {x["id"] for x in rows if isinstance(x, dict) and "id" in x}
+            match = max(vers, key=lambda fv: len(ids & _ids(fv[1])), default=None)
+            ver = match[1] if match and isinstance(match[1], dict) and ids & _ids(match[1]) else None
             src = rel + "/posts.json" + (f" + {match[0].relative_to(repo)}" if ver else "")
             day = raw_to_day(pd, ver, rel, str(match[0].relative_to(repo)) if ver else "")
             days[day["date"]] = (day, src)
