@@ -1,0 +1,83 @@
+{
+  "title": "Claude 公开卖家帖每日汇总",
+  "post_date_et": "2026-11-26",
+  "window": {
+    "label": "ET natural day 2026-11-26 00:00–2026-11-27 00:00",
+    "start_et": "2026-11-26 00:00 ET",
+    "end_et": "2026-11-27 00:00 ET",
+    "start_utc": "2026-11-26T05:00:00Z",
+    "end_utc": "2026-11-27T05:00:00Z",
+    "timezone": "America/New_York (ET, UTC-5)"
+  },
+  "type": "daily_digest",
+  "status": "delivered",
+  "fetched_at_et": "2026-11-27 09:12–09:17 ET",
+  "verified_at_et": "评论 2026-11-27 09:24–09:25 ET；落地页 2026-11-27 09:25–09:28 ET 只读 webFetch（执行环境网络）。本次未做浏览器复查。www.16688.com.cn/goods/G92423815 与 www.16688.com.cn/shop/S744042 正文为空；shop.xiaocaoai.vip、nexa-ai.vipagii.com 仅 Loading…；ddaistore.online 首页商品目录为空。落地页条款为本次访问所见，不代表发帖当日页面。未登录、未下单。",
+  "prices_as_of_et": "2026-11-27 09:25–09:28 ET 只读 webFetch（执行环境网络）。本次未做浏览器复查。www.16688.com.cn/goods/G92423815 与 www.16688.com.cn/shop/S744042 正文为空；shop.xiaocaoai.vip、nexa-ai.vipagii.com 仅 Loading…；ddaistore.online 首页商品目录为空。落地页条款为本次访问所见，不代表发帖当日页面。未登录、未下单。",
+  "comments_at_et": "2026-11-27 09:24–09:25 ET",
+  "prepared_at_et": "2026-11-27T09:38:33.062096-05:00",
+  "timezone": "America/New_York (ET, UTC-5)",
+  "post_count": 18,
+  "sort": "impression_count desc, reply_count desc, like_count desc",
+  "notes": "2026-11-26 ET 完整自然日日报。窗口内合格新帖 18 条，不足 20 条，已按检索时点互动指标排序归档，未用其他日期凑数。已于 2026-11-27T09:43:00-05:00 确认全部 18 条正文与独立核查向用户发送成功，状态为 delivered。互动指标取检索时点，不以评论或落地页复查覆盖。落地页经执行环境网络只读 webFetch，未做浏览器复查。过滤统计：窗口内 857 条新帖（已推荐 ID 命中 0 条），粗筛卖家帖 190 条，同日重复广告 9 条，历史实质重复 2 条，自动筛选后 179 条，再经人工排除行业讨论、羊毛日报、教程、买家经历、非 Claude 商品、API 中转及与历史已推荐实质重复的广告后，实际合格 18 条。@xiaocao 同日早晨高互动帖因与 11-24 已推荐实质重复、无新价格或新条款而排除，本日报保留晚间降价帖。@TWMacCC 同日另一条因表述更含糊且浏览量较低未入选。@20060702zyl 同日 06:27 ET 价目帖（浏览量 222）未入选，仅作为本帖截断正文的同日稍后证据，不得并入原文，也不得把“质保订阅”写成封号质保。",
+  "counts": {
+    "unique_posts_in_window": 857,
+    "already_recommended_in_window": 0,
+    "already_recommended_total_ids": 288,
+    "raw_hits": 1165,
+    "search_pages": 54,
+    "kept_offer": 190,
+    "hist_dupes": 2,
+    "sameday_dupes": 9,
+    "final_candidates": 179,
+    "qualified_pending": 18,
+    "qualified": 18
+  },
+  "queries": [
+    {
+      "query": "Claude (质保封号 OR 封号包赔 OR 封号退款 OR 按天退款 OR 封号就赔 OR 秒封退款 OR 封号包换 OR 不成功退款) -is:retweet",
+      "pages": 5,
+      "hits": 91,
+      "note": "5 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (成品号 OR 代充 OR 出号 OR 补货 OR 现货 OR 开号 OR 稳定号) -is:retweet",
+      "pages": 24,
+      "hits": 554,
+      "note": "24 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (KYC OR 门户验证 OR 过k OR 过K OR Portal) (退款 OR 质保 OR 包过 OR 秒过 OR 验证 OR 代过) -is:retweet",
+      "pages": 11,
+      "hits": 220,
+      "note": "11 页，窗口已穷尽"
+    },
+    {
+      "query": "Claude (出售 OR 卖号 OR 账号) (Pro OR Max OR Ultra OR 成品 OR 代充) -is:retweet",
+      "pages": 14,
+      "hits": 300,
+      "note": "14 页，窗口已穷尽"
+    }
+  ],
+  "tool": "connectors/x search_posts_all",
+  "files": [
+    "posts.json",
+    "digest.md",
+    "Claude卖家帖日报_2026-11-26_ET.md",
+    "metadata.json",
+    "day.json",
+    "verification.md",
+    "verification.json",
+    "digest-verification.md",
+    "digest-verification.json"
+  ],
+  "metrics_note": "互动指标取检索时点 2026-11-27 09:12–09:17 ET，不以随后复查覆盖。",
+  "github_sync": {
+    "status": "pending",
+    "repo": "https://github.com/frankxiongsir/claude-seller-digest",
+    "target": "https://github.com/frankxiongsir/claude-seller-digest",
+    "branch": "main",
+    "note": "本地聊天交付已确认，公开仓库同步尚未完成。github_sync 保持 pending，不得标为 synced，不得冒充提交 SHA。"
+  },
+  "delivered_at_et": "2026-11-27T09:43:00-05:00"
+}
