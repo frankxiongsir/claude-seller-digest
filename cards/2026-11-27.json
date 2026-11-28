@@ -1,0 +1,48 @@
+{
+ "day": "2026-11-27",
+ "since": "2026-11-21",
+ "n": 18,
+ "min": 175,
+ "med": 289,
+ "max": 401,
+ "headline": "没有一家保封号",
+ "top": [
+  {
+   "price": 175,
+   "from": false,
+   "level": "unstated",
+   "risk": "high",
+   "conflict": true
+  },
+  {
+   "price": 230,
+   "from": false,
+   "level": "unstated",
+   "risk": "mid",
+   "conflict": true
+  },
+  {
+   "price": 238,
+   "from": false,
+   "level": "first_login",
+   "risk": "high",
+   "conflict": true
+  },
+  {
+   "price": 252,
+   "from": false,
+   "level": "first_login",
+   "risk": "mid",
+   "conflict": true
+  },
+  {
+   "price": 260,
+   "from": false,
+   "level": "first_login",
+   "risk": "mid",
+   "conflict": true
+  }
+ ],
+ "line1": "3 家<em>只保首登</em>：能登录一次就算交付，之后被封不管。",
+ "line2": "最贵的标到 <em>¥401</em>，是最低价的 2.3 倍；18 家说法前后矛盾。"
+}
